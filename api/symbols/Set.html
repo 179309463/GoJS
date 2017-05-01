@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1131,7 +1126,45 @@
                 
                 
 
-                An unordered iterable collection that cannot contain two instances of the same kind of value.It optionally enforces the type of elements that may be added to the Set.<p>An example usage:<pre>  var set = new go.Set("string");  // make a set of strings  set.add("orange");  set.add("apple");  set.add("orange");  // now set.count === 2  // and set.contains("orange") === true  // and set.contains("banana") === false</pre><p>You can iterate over the items in a Set:<pre>  var it = aSet.iterator;  while (it.next()) {    . . . it.value . . .  }</pre>Or:<pre>  aSet.each(function(val) {      . . . val . . .    });</pre><p>Although not precisely implementing the features of the EcmaScript 6 <b>Set</b> class,this <b>GoJS</b> Set class has synonyms for the following methods and property:<ul>  <li><b>add(val)</b>: <a href="../symbols/Set.html#add" class="linkMethod">add</a></li>  <li><b>delete(val)</b>: <a href="../symbols/Set.html#remove" class="linkMethod">remove</a></li>  <li><b>has(val)</b>: <a href="../symbols/Set.html#contains" class="linkMethod">contains</a></li>  <li><b>clear()</b>: <a href="../symbols/Set.html#clear" class="linkMethod">clear</a></li>  <li><b>size</b>: <a href="../symbols/Set.html#count" class="linkProperty">count</a></li></ul>The constructor does not take an optional Iterable argument, but you can get the same effect by:<code>new go.Set().addAll(iterable)</code>
+                An unordered iterable collection that cannot contain two instances of the same kind of value.
+It optionally enforces the type of elements that may be added to the Set.
+<p>
+An example usage:
+<pre>
+  var set = new go.Set("string");  // make a set of strings
+  set.add("orange");
+  set.add("apple");
+  set.add("orange");
+  // now set.count === 2
+  // and set.contains("orange") === true
+  // and set.contains("banana") === false
+</pre>
+<p>
+You can iterate over the items in a Set:
+<pre>
+  var it = aSet.iterator;
+  while (it.next()) {
+    . . . it.value . . .
+  }
+</pre>
+Or:
+<pre>
+  aSet.each(function(val) {
+      . . . val . . .
+    });
+</pre>
+<p>
+Although not precisely implementing the features of the EcmaScript 6 <b>Set</b> class,
+this <b>GoJS</b> Set class has synonyms for the following methods and property:
+<ul>
+  <li><b>add(val)</b>: <a href="../symbols/Set.html#add" class="linkMethod">add</a></li>
+  <li><b>delete(val)</b>: <a href="../symbols/Set.html#remove" class="linkMethod">remove</a></li>
+  <li><b>has(val)</b>: <a href="../symbols/Set.html#contains" class="linkMethod">contains</a></li>
+  <li><b>clear()</b>: <a href="../symbols/Set.html#clear" class="linkMethod">clear</a></li>
+  <li><b>size</b>: <a href="../symbols/Set.html#count" class="linkProperty">count</a></li>
+</ul>
+The constructor does not take an optional Iterable argument, but you can get the same effect by:
+<code>new go.Set().addAll(iterable)</code>
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1154,7 +1187,10 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>There are three possible constructors:Set(),Set(string) where string is a primitive type ('number' or 'string'), orSet(func) where func is a class function/constructor, such as <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>.<span class="nodetails" id="xconSet"><a class="morelink" onclick="hst('conSet')">More...</a></span> <span class="details" id="conSet"></span>
+                            <!--newp--><p><p>There are three possible constructors:
+Set(),
+Set(string) where string is a primitive type ('number' or 'string'), or
+Set(func) where func is a class function/constructor, such as <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>.<span class="nodetails" id="xconSet"><a class="morelink" onclick="hst('conSet')">More...</a></span> <span class="details" id="conSet"></span>
                         
                             <dl class="detailList">
                             <dt class="heading">Parameters:</dt>
@@ -1163,7 +1199,8 @@
                                     <span class="light fixedFont">{Function|string|null=}</span>  <b>type</b>
                                     
                                 </dt>
-                                    <dd>Optional class type (constructor) or a stringdescribing a primitive type, either 'string' or 'number'.</dd>
+                                    <dd>Optional class type (constructor) or a string
+describing a primitive type, either 'string' or 'number'.</dd>
                             
                             </dl>
                         
@@ -1227,7 +1264,15 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets an object that you can use for iterating over the Set.<span class="nodetails" id="xpropiterator"><a class="morelink" onclick="hst('propiterator')">More...</a></span> <span class="details" id="propiterator">The value will be a member of the Set.Typical usage:<pre>  var it = aSet.iterator;  while (it.next()) {    . . . " value: " + it.value . . .  }</pre></span>
+                <p>Gets an object that you can use for iterating over the Set.<span class="nodetails" id="xpropiterator"><a class="morelink" onclick="hst('propiterator')">More...</a></span> <span class="details" id="propiterator">
+The value will be a member of the Set.
+Typical usage:
+<pre>
+  var it = aSet.iterator;
+  while (it.next()) {
+    . . . " value: " + it.value . . .
+  }
+</pre></span>
                 
                 </div>
                             </td>
@@ -1269,7 +1314,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Adds a given value to the Set, if not already present.<span class="nodetails" id="xmethadd"><a class="morelink" onclick="hst('methadd')">More...</a></span> <span class="details" id="methadd"></span><div class="details" id="dmethadd"><p>Be careful not to call this method while iterating over the collection.</div>
+                                <!--newp--><p><p>Adds a given value to the Set, if not already present.<span class="nodetails" id="xmethadd"><a class="morelink" onclick="hst('methadd')">More...</a></span> <span class="details" id="methadd">
+</span><div class="details" id="dmethadd"><p>
+Be careful not to call this method while iterating over the collection.</div>
                  
                               
                                   <dl class="detailList">
@@ -1309,7 +1356,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Adds all of the values of a collection to this Set.<span class="nodetails" id="xmethaddAll"><a class="morelink" onclick="hst('methaddAll')">More...</a></span> <span class="details" id="methaddAll"></span><div class="details" id="dmethaddAll"><p>Be careful not to call this method while iterating over the collection.</div>
+                                <!--newp--><p><p>Adds all of the values of a collection to this Set.<span class="nodetails" id="xmethaddAll"><a class="morelink" onclick="hst('methaddAll')">More...</a></span> <span class="details" id="methaddAll">
+</span><div class="details" id="dmethaddAll"><p>
+Be careful not to call this method while iterating over the collection.</div>
                  
                               
                                   <dl class="detailList">
@@ -1351,7 +1400,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This is true if all invocations of the given predicate on items in the collection are true.<span class="nodetails" id="xmethall"><a class="morelink" onclick="hst('methall')">More...</a></span> <span class="details" id="methall"></span><div class="details" id="dmethall"><p>Call the given predicate on each item in the collection.As soon as a call returns false, this returns false.Otherwise this returns true.For an empty collection this returns true.</div>
+                                <!--newp--><p><p>This is true if all invocations of the given predicate on items in the collection are true.<span class="nodetails" id="xmethall"><a class="morelink" onclick="hst('methall')">More...</a></span> <span class="details" id="methall">
+</span><div class="details" id="dmethall"><p>
+Call the given predicate on each item in the collection.
+As soon as a call returns false, this returns false.
+Otherwise this returns true.
+For an empty collection this returns true.</div>
                  
                               
                                   <dl class="detailList">
@@ -1393,7 +1447,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This is true if any invocation of the given predicate on items in the collection is true.<span class="nodetails" id="xmethany"><a class="morelink" onclick="hst('methany')">More...</a></span> <span class="details" id="methany"></span><div class="details" id="dmethany"><p>Call the given predicate on each item in the collection.As soon as a call returns true, this returns true.Otherwise this returns false.For an empty collection this returns false.</div>
+                                <!--newp--><p><p>This is true if any invocation of the given predicate on items in the collection is true.<span class="nodetails" id="xmethany"><a class="morelink" onclick="hst('methany')">More...</a></span> <span class="details" id="methany">
+</span><div class="details" id="dmethany"><p>
+Call the given predicate on each item in the collection.
+As soon as a call returns true, this returns true.
+Otherwise this returns false.
+For an empty collection this returns false.</div>
                  
                               
                                   <dl class="detailList">
@@ -1433,7 +1492,10 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Clears the Set.<span class="nodetails" id="xmethclear"><a class="morelink" onclick="hst('methclear')">More...</a></span> <span class="details" id="methclear">This sets the <a href="../symbols/Set.html#count" class="linkProperty">count</a> to zero.</span><div class="details" id="dmethclear"><p>Be careful not to call this method while iterating over the collection.</div>
+                                <!--newp--><p><p>Clears the Set.<span class="nodetails" id="xmethclear"><a class="morelink" onclick="hst('methclear')">More...</a></span> <span class="details" id="methclear">
+This sets the <a href="../symbols/Set.html#count" class="linkProperty">count</a> to zero.
+</span><div class="details" id="dmethclear"><p>
+Be careful not to call this method while iterating over the collection.</div>
                  
                               
                               
@@ -1575,7 +1637,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Makes a shallow copy of this Set.<span class="nodetails" id="xmethcopy"><a class="morelink" onclick="hst('methcopy')">More...</a></span> <span class="details" id="methcopy">The values are not copied,so if they are objects they may continue to be shared with the original Set.</span>
+                                <!--newp--><p><p>Makes a shallow copy of this Set.<span class="nodetails" id="xmethcopy"><a class="morelink" onclick="hst('methcopy')">More...</a></span> <span class="details" id="methcopy">
+The values are not copied,
+so if they are objects they may continue to be shared with the original Set.</span>
                  
                               
                               
@@ -1715,7 +1779,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Removes a value (if found) from the Set.<span class="nodetails" id="xmethremove"><a class="morelink" onclick="hst('methremove')">More...</a></span> <span class="details" id="methremove"></span><div class="details" id="dmethremove"><p>Be careful not to call this method while iterating over the collection.</div>
+                                <!--newp--><p><p>Removes a value (if found) from the Set.<span class="nodetails" id="xmethremove"><a class="morelink" onclick="hst('methremove')">More...</a></span> <span class="details" id="methremove">
+</span><div class="details" id="dmethremove"><p>
+Be careful not to call this method while iterating over the collection.</div>
                  
                               
                                   <dl class="detailList">
@@ -1755,7 +1821,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Removes all of the values of a collection from this Set.<span class="nodetails" id="xmethremoveAll"><a class="morelink" onclick="hst('methremoveAll')">More...</a></span> <span class="details" id="methremoveAll"></span><div class="details" id="dmethremoveAll"><p>Be careful not to call this method while iterating over the collection.</div>
+                                <!--newp--><p><p>Removes all of the values of a collection from this Set.<span class="nodetails" id="xmethremoveAll"><a class="morelink" onclick="hst('methremoveAll')">More...</a></span> <span class="details" id="methremoveAll">
+</span><div class="details" id="dmethremoveAll"><p>
+Be careful not to call this method while iterating over the collection.</div>
                  
                               
                                   <dl class="detailList">
@@ -1795,7 +1863,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Removes from this Set all items that are not in the given collection.<span class="nodetails" id="xmethretainAll"><a class="morelink" onclick="hst('methretainAll')">More...</a></span> <span class="details" id="methretainAll"></span><div class="details" id="dmethretainAll"><p>Be careful not to call this method while iterating over the collection.</div>
+                                <!--newp--><p><p>Removes from this Set all items that are not in the given collection.<span class="nodetails" id="xmethretainAll"><a class="morelink" onclick="hst('methretainAll')">More...</a></span> <span class="details" id="methretainAll">
+</span><div class="details" id="dmethretainAll"><p>
+Be careful not to call this method while iterating over the collection.</div>
                  
                               
                                   <dl class="detailList">
@@ -1864,7 +1934,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Converts the Set to a <a href="../symbols/List.html" class="linkConstructor">List</a>.<span class="nodetails" id="xmethtoList"><a class="morelink" onclick="hst('methtoList')">More...</a></span> <span class="details" id="methtoList">Because there is no ordering within a Set,the values in the List may be in any order.</span>
+                                <!--newp--><p><p>Converts the Set to a <a href="../symbols/List.html" class="linkConstructor">List</a>.<span class="nodetails" id="xmethtoList"><a class="morelink" onclick="hst('methtoList')">More...</a></span> <span class="details" id="methtoList">
+Because there is no ordering within a Set,
+the values in the List may be in any order.</span>
                  
                               
                               

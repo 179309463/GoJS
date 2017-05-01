@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1133,7 +1128,26 @@
                     <a href="../symbols/Tool.html" class="linkConstructor">Tool</a>.</span>
                 
 
-                The ClickSelectingTool selects and deselects <a href="../symbols/Part.html" class="linkConstructor">Part</a>s when there is a click.It does this by calling <a href="../symbols/Tool.html#standardMouseSelect" class="linkMethod">Tool.standardMouseSelect</a>.It is also responsible for handling and dispatching click events on <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>sby calling <a href="../symbols/Tool.html#standardMouseClick" class="linkMethod">Tool.standardMouseClick</a>.<p>Note that this tool avoids raising click events on objects that are in temporary layers.This is to prevent parts such as selection adornments from interfering with clicking on selected nodes or links.(Adornments are in the "Adornment" <a href="../symbols/Layer.html" class="linkConstructor">Layer</a>, which <a href="../symbols/Layer.html#isTemporary" class="linkProperty">Layer.isTemporary</a>.)However this means that if you add a <a href="../symbols/GraphObject.html#click" class="linkProperty">GraphObject.click</a> event handler on a GraphObject in an Adornment,it will not be called.You can get it to be called by setting <a href="../symbols/GraphObject.html#isActionable" class="linkProperty">GraphObject.isActionable</a> to true on that object in the adornment.<p>This tool is a standard mouse-up tool, the <a href="../symbols/ToolManager.html#clickSelectingTool" class="linkProperty">ToolManager.clickSelectingTool</a>.<p>This tool does not utilize any <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>s or tool handles.This tool does not modify the model or conduct any transaction.<p>An example customization of this tool is shown in the <a href="../../extensions/TreeMap.html">Tree Map</a> sample,where the <a href="../symbols/Tool.html#standardMouseSelect" class="linkMethod">Tool.standardMouseSelect</a> method is overridden to permit the user to cycle throughthe chain of containing groups, changing the selection on each click to the next containing group.
+                The ClickSelectingTool selects and deselects <a href="../symbols/Part.html" class="linkConstructor">Part</a>s when there is a click.
+It does this by calling <a href="../symbols/Tool.html#standardMouseSelect" class="linkMethod">Tool.standardMouseSelect</a>.
+It is also responsible for handling and dispatching click events on <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>s
+by calling <a href="../symbols/Tool.html#standardMouseClick" class="linkMethod">Tool.standardMouseClick</a>.
+<p>
+Note that this tool avoids raising click events on objects that are in temporary layers.
+This is to prevent parts such as selection adornments from interfering with clicking on selected nodes or links.
+(Adornments are in the "Adornment" <a href="../symbols/Layer.html" class="linkConstructor">Layer</a>, which <a href="../symbols/Layer.html#isTemporary" class="linkProperty">Layer.isTemporary</a>.)
+However this means that if you add a <a href="../symbols/GraphObject.html#click" class="linkProperty">GraphObject.click</a> event handler on a GraphObject in an Adornment,
+it will not be called.
+You can get it to be called by setting <a href="../symbols/GraphObject.html#isActionable" class="linkProperty">GraphObject.isActionable</a> to true on that object in the adornment.
+<p>
+This tool is a standard mouse-up tool, the <a href="../symbols/ToolManager.html#clickSelectingTool" class="linkProperty">ToolManager.clickSelectingTool</a>.
+<p>
+This tool does not utilize any <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>s or tool handles.
+This tool does not modify the model or conduct any transaction.
+<p>
+An example customization of this tool is shown in the <a href="../../extensions/TreeMap.html">Tree Map</a> sample,
+where the <a href="../symbols/Tool.html#standardMouseSelect" class="linkMethod">Tool.standardMouseSelect</a> method is overridden to permit the user to cycle through
+the chain of containing groups, changing the selection on each click to the next containing group.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1156,7 +1170,10 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>You do not normally need to create an instance of this toolbecause one already exists as the <a href="../symbols/ToolManager.html#clickSelectingTool" class="linkProperty">ToolManager.clickSelectingTool</a>.<span class="nodetails" id="xconClickSelectingTool"><a class="morelink" onclick="hst('conClickSelectingTool')">More...</a></span> <span class="details" id="conClickSelectingTool"></span><div class="details" id="dconClickSelectingTool"><p>The <a href="../symbols/Tool.html#name" class="linkProperty">Tool.name</a> of this tool is "ClickSelecting".</div>
+                            <!--newp--><p><p>You do not normally need to create an instance of this tool
+because one already exists as the <a href="../symbols/ToolManager.html#clickSelectingTool" class="linkProperty">ToolManager.clickSelectingTool</a>.<span class="nodetails" id="xconClickSelectingTool"><a class="morelink" onclick="hst('conClickSelectingTool')">More...</a></span> <span class="details" id="conClickSelectingTool">
+</span><div class="details" id="dconClickSelectingTool"><p>
+The <a href="../symbols/Tool.html#name" class="linkProperty">Tool.name</a> of this tool is "ClickSelecting".</div>
                         
                         
 
@@ -1209,7 +1226,10 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This tool can run whenever a click occurs.<span class="nodetails" id="xmethcanStart"><a class="morelink" onclick="hst('methcanStart')">More...</a></span> <span class="details" id="methcanStart"></span><div class="details" id="dmethcanStart"><p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This tool can run whenever a click occurs.<span class="nodetails" id="xmethcanStart"><a class="morelink" onclick="hst('methcanStart')">More...</a></span> <span class="details" id="methcanStart">
+</span><div class="details" id="dmethcanStart"><p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                               
@@ -1238,7 +1258,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Upon a click, this calls <a href="../symbols/Tool.html#standardMouseSelect" class="linkMethod">Tool.standardMouseSelect</a> to change the <a href="../symbols/Diagram.html#selection" class="linkProperty">Diagram.selection</a> collection,then calls <a href="../symbols/Tool.html#standardMouseClick" class="linkMethod">Tool.standardMouseClick</a> to perform the normal click behaviors,and then stops this tool.
+                                <!--newp--><p><p>Upon a click, this calls <a href="../symbols/Tool.html#standardMouseSelect" class="linkMethod">Tool.standardMouseSelect</a> to change the <a href="../symbols/Diagram.html#selection" class="linkProperty">Diagram.selection</a> collection,
+then calls <a href="../symbols/Tool.html#standardMouseClick" class="linkMethod">Tool.standardMouseClick</a> to perform the normal click behaviors,
+and then stops this tool.
                  
                               
                               

@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1131,7 +1126,22 @@
                 
                 
 
-                An edge represents a Link in a <a href="../symbols/LayoutNetwork.html" class="linkConstructor">LayoutNetwork</a>,along with its <a href="../symbols/LayoutEdge.html#fromVertex" class="linkProperty">fromVertex</a> and <a href="../symbols/LayoutEdge.html#toVertex" class="linkProperty">toVertex</a>.The <a href="../symbols/LayoutEdge.html#link" class="linkProperty">link</a> property may be null for edges that represent "dummy" links,when the layout wants to work with a network that is not isomorphic with the collection of Nodes and Links being laid out.<p>It holds layout-specific data for the link.For each kind of layout that uses a LayoutNetwork there is a subclass of <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a> and a subclass of <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>:<ul><li><a href="../symbols/CircularLayout.html" class="linkConstructor">CircularLayout</a>: <a href="../symbols/CircularVertex.html" class="linkConstructor">CircularVertex</a> and <a href="../symbols/CircularEdge.html" class="linkConstructor">CircularEdge</a></li><li><a href="../symbols/ForceDirectedLayout.html" class="linkConstructor">ForceDirectedLayout</a>: <a href="../symbols/ForceDirectedVertex.html" class="linkConstructor">ForceDirectedVertex</a> and <a href="../symbols/ForceDirectedEdge.html" class="linkConstructor">ForceDirectedEdge</a></li><li><a href="../symbols/LayeredDigraphLayout.html" class="linkConstructor">LayeredDigraphLayout</a>: <a href="../symbols/LayeredDigraphVertex.html" class="linkConstructor">LayeredDigraphVertex</a> and <a href="../symbols/LayeredDigraphEdge.html" class="linkConstructor">LayeredDigraphEdge</a></li><li><a href="../symbols/TreeLayout.html" class="linkConstructor">TreeLayout</a>: <a href="../symbols/TreeVertex.html" class="linkConstructor">TreeVertex</a> and <a href="../symbols/TreeEdge.html" class="linkConstructor">TreeEdge</a></li></ul><p>Modifying a <a href="../symbols/LayoutNetwork.html" class="linkConstructor">LayoutNetwork</a> or a <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a> or a <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a> does notinvalidate the <a href="../symbols/Layout.html" class="linkConstructor">Layout</a> or raise any changed events.
+                An edge represents a Link in a <a href="../symbols/LayoutNetwork.html" class="linkConstructor">LayoutNetwork</a>,
+along with its <a href="../symbols/LayoutEdge.html#fromVertex" class="linkProperty">fromVertex</a> and <a href="../symbols/LayoutEdge.html#toVertex" class="linkProperty">toVertex</a>.
+The <a href="../symbols/LayoutEdge.html#link" class="linkProperty">link</a> property may be null for edges that represent "dummy" links,
+when the layout wants to work with a network that is not isomorphic with the collection of Nodes and Links being laid out.
+<p>
+It holds layout-specific data for the link.
+For each kind of layout that uses a LayoutNetwork there is a subclass of <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a> and a subclass of <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>:
+<ul>
+<li><a href="../symbols/CircularLayout.html" class="linkConstructor">CircularLayout</a>: <a href="../symbols/CircularVertex.html" class="linkConstructor">CircularVertex</a> and <a href="../symbols/CircularEdge.html" class="linkConstructor">CircularEdge</a></li>
+<li><a href="../symbols/ForceDirectedLayout.html" class="linkConstructor">ForceDirectedLayout</a>: <a href="../symbols/ForceDirectedVertex.html" class="linkConstructor">ForceDirectedVertex</a> and <a href="../symbols/ForceDirectedEdge.html" class="linkConstructor">ForceDirectedEdge</a></li>
+<li><a href="../symbols/LayeredDigraphLayout.html" class="linkConstructor">LayeredDigraphLayout</a>: <a href="../symbols/LayeredDigraphVertex.html" class="linkConstructor">LayeredDigraphVertex</a> and <a href="../symbols/LayeredDigraphEdge.html" class="linkConstructor">LayeredDigraphEdge</a></li>
+<li><a href="../symbols/TreeLayout.html" class="linkConstructor">TreeLayout</a>: <a href="../symbols/TreeVertex.html" class="linkConstructor">TreeVertex</a> and <a href="../symbols/TreeEdge.html" class="linkConstructor">TreeEdge</a></li>
+</ul>
+<p>
+Modifying a <a href="../symbols/LayoutNetwork.html" class="linkConstructor">LayoutNetwork</a> or a <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a> or a <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a> does not
+invalidate the <a href="../symbols/Layout.html" class="linkConstructor">Layout</a> or raise any changed events.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1218,7 +1228,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a> that this edge comes from.<span class="nodetails" id="xpropfromVertex"><a class="morelink" onclick="hst('propfromVertex')">More...</a></span> <span class="details" id="propfromVertex">Setting this property does not change any <a href="../symbols/LayoutVertex.html#destinationEdges" class="linkProperty">LayoutVertex.destinationEdges</a> collection.</span>
+                <p>Gets or sets the <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a> that this edge comes from.<span class="nodetails" id="xpropfromVertex"><a class="morelink" onclick="hst('propfromVertex')">More...</a></span> <span class="details" id="propfromVertex">
+Setting this property does not change any <a href="../symbols/LayoutVertex.html#destinationEdges" class="linkProperty">LayoutVertex.destinationEdges</a> collection.</span>
                 
                 </div>
                             </td>
@@ -1238,7 +1249,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the <a href="../symbols/Link.html" class="linkConstructor">Link</a> associated with this edge, if any.<span class="nodetails" id="xproplink"><a class="morelink" onclick="hst('proplink')">More...</a></span> <span class="details" id="proplink">The value may be null if this edge is a "dummy" edge,not represented by a real <a href="../symbols/Link.html" class="linkConstructor">Link</a> in the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.</span>
+                <p>Gets or sets the <a href="../symbols/Link.html" class="linkConstructor">Link</a> associated with this edge, if any.<span class="nodetails" id="xproplink"><a class="morelink" onclick="hst('proplink')">More...</a></span> <span class="details" id="proplink">
+The value may be null if this edge is a "dummy" edge,
+not represented by a real <a href="../symbols/Link.html" class="linkConstructor">Link</a> in the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.</span>
                 
                 </div>
                             </td>
@@ -1258,7 +1271,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the <a href="../symbols/LayoutNetwork.html" class="linkConstructor">LayoutNetwork</a> that owns this edge.<span class="nodetails" id="xpropnetwork"><a class="morelink" onclick="hst('propnetwork')">More...</a></span> <span class="details" id="propnetwork">The default value is null.It is set automatically for you in <a href="../symbols/LayoutNetwork.html#addEdge" class="linkMethod">LayoutNetwork.addEdge</a>.</span>
+                <p>Gets or sets the <a href="../symbols/LayoutNetwork.html" class="linkConstructor">LayoutNetwork</a> that owns this edge.<span class="nodetails" id="xpropnetwork"><a class="morelink" onclick="hst('propnetwork')">More...</a></span> <span class="details" id="propnetwork">
+The default value is null.
+It is set automatically for you in <a href="../symbols/LayoutNetwork.html#addEdge" class="linkMethod">LayoutNetwork.addEdge</a>.</span>
                 
                 </div>
                             </td>
@@ -1278,7 +1293,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a> that this edge goes to.<span class="nodetails" id="xproptoVertex"><a class="morelink" onclick="hst('proptoVertex')">More...</a></span> <span class="details" id="proptoVertex">Setting this property does not change any <a href="../symbols/LayoutVertex.html#sourceEdges" class="linkProperty">LayoutVertex.sourceEdges</a> collection.</span>
+                <p>Gets or sets the <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a> that this edge goes to.<span class="nodetails" id="xproptoVertex"><a class="morelink" onclick="hst('proptoVertex')">More...</a></span> <span class="details" id="proptoVertex">
+Setting this property does not change any <a href="../symbols/LayoutVertex.html#sourceEdges" class="linkProperty">LayoutVertex.sourceEdges</a> collection.</span>
                 
                 </div>
                             </td>
@@ -1320,7 +1336,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Commits the route of this edge to the corresponding <a href="../symbols/Link.html" class="linkConstructor">Link</a>, if any.<span class="nodetails" id="xmethcommit"><a class="morelink" onclick="hst('methcommit')">More...</a></span> <span class="details" id="methcommit">By default this does nothing.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</span>
+                                <!--newp--><p><p>Commits the route of this edge to the corresponding <a href="../symbols/Link.html" class="linkConstructor">Link</a>, if any.<span class="nodetails" id="xmethcommit"><a class="morelink" onclick="hst('methcommit')">More...</a></span> <span class="details" id="methcommit">
+By default this does nothing.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</span>
                  
                               
                               

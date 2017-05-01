@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1131,7 +1126,26 @@
                 
                 
 
-                A Point represents an x- and y-coordinate pair in two-dimensional space.<p>Use the static functions <a href="../symbols/Point.html#.parse" class="linkStatic">Point.parse</a> and <a href="../symbols/Point.html#.stringify" class="linkStatic">Point.stringify</a> to convert to and froma standard string representation that is independent of the current locale.<p>When an instance of this class is the value of a property of a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> class or <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>or <a href="../symbols/CommandHandler.html" class="linkConstructor">CommandHandler</a> or a <a href="../symbols/Tool.html" class="linkConstructor">Tool</a> class, you should treat the objectas if it were frozen or read-only -- you cannot modify its properties.This allows the property to return a value without allocating a new instance.If you need to do your own calculations with the value, call <a href="../symbols/Point.html#copy" class="linkMethod">copy</a> to makea new instance with the same values that you can modify.<p>Many methods modify the object's properties and then return a reference to "this" object.The only instance method to allocate a new object is the <a href="../symbols/Point.html#copy" class="linkMethod">copy</a> method.The static <a href="../symbols/Point.html#.parse" class="linkStatic">Point.parse</a> method also allocates a new object.<p>The "Debug" implementation of this class is significantly slower than the "Release" implementation,mostly due to additional error checking.<p>You cannot inherit from this class.
+                A Point represents an x- and y-coordinate pair in two-dimensional space.
+<p>
+Use the static functions <a href="../symbols/Point.html#.parse" class="linkStatic">Point.parse</a> and <a href="../symbols/Point.html#.stringify" class="linkStatic">Point.stringify</a> to convert to and from
+a standard string representation that is independent of the current locale.
+<p>
+When an instance of this class is the value of a property of a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> class or <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>
+or <a href="../symbols/CommandHandler.html" class="linkConstructor">CommandHandler</a> or a <a href="../symbols/Tool.html" class="linkConstructor">Tool</a> class, you should treat the object
+as if it were frozen or read-only -- you cannot modify its properties.
+This allows the property to return a value without allocating a new instance.
+If you need to do your own calculations with the value, call <a href="../symbols/Point.html#copy" class="linkMethod">copy</a> to make
+a new instance with the same values that you can modify.
+<p>
+Many methods modify the object's properties and then return a reference to "this" object.
+The only instance method to allocate a new object is the <a href="../symbols/Point.html#copy" class="linkMethod">copy</a> method.
+The static <a href="../symbols/Point.html#.parse" class="linkStatic">Point.parse</a> method also allocates a new object.
+<p>
+The "Debug" implementation of this class is significantly slower than the "Release" implementation,
+mostly due to additional error checking.
+<p>
+You cannot inherit from this class.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1154,7 +1168,8 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>The default constructor produces the Point(0,0).<span class="nodetails" id="xconPoint"><a class="morelink" onclick="hst('conPoint')">More...</a></span> <span class="details" id="conPoint">This constructor may take either zero arguments or two arguments.</span>
+                            <!--newp--><p><p>The default constructor produces the Point(0,0).<span class="nodetails" id="xconPoint"><a class="morelink" onclick="hst('conPoint')">More...</a></span> <span class="details" id="conPoint">
+This constructor may take either zero arguments or two arguments.</span>
                         
                             <dl class="detailList">
                             <dt class="heading">Parameters:</dt>
@@ -1275,7 +1290,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Modify this point so that is the sum of the current Point and thex and y co-ordinates of the given Point.<span class="nodetails" id="xmethadd"><a class="morelink" onclick="hst('methadd')">More...</a></span> <span class="details" id="methadd"></span>
+                                <!--newp--><p><p>Modify this point so that is the sum of the current Point and the
+x and y co-ordinates of the given Point.<span class="nodetails" id="xmethadd"><a class="morelink" onclick="hst('methadd')">More...</a></span> <span class="details" id="methadd"></span>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1353,7 +1369,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Compute the angle from this Point to a given (px,py) point.<span class="nodetails" id="xmethdirection"><a class="morelink" onclick="hst('methdirection')">More...</a></span> <span class="details" id="methdirection">However, if the point is the same as this Point, the direction is zero.</span>
+                                <!--newp--><p><p>Compute the angle from this Point to a given (px,py) point.<span class="nodetails" id="xmethdirection"><a class="morelink" onclick="hst('methdirection')">More...</a></span> <span class="details" id="methdirection">
+However, if the point is the same as this Point, the direction is zero.</span>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1464,7 +1481,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Compute the angle from this Point to a given Point.<span class="nodetails" id="xmethdirectionPoint"><a class="morelink" onclick="hst('methdirectionPoint')">More...</a></span> <span class="details" id="methdirectionPoint">However, if the given Point is the same as this Point, the direction is zero.</span>
+                                <!--newp--><p><p>Compute the angle from this Point to a given Point.<span class="nodetails" id="xmethdirectionPoint"><a class="morelink" onclick="hst('methdirectionPoint')">More...</a></span> <span class="details" id="methdirectionPoint">
+However, if the given Point is the same as this Point, the direction is zero.</span>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1511,7 +1529,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This static function returns the square of the distance from the point Pto the finite line segment from point A to point B.<span class="nodetails" id="xmethdistanceLineSegmentSquared"><a class="morelink" onclick="hst('methdistanceLineSegmentSquared')">More...</a></span> <span class="details" id="methdistanceLineSegmentSquared"></span>
+                                <!--newp--><p><p>This static function returns the square of the distance from the point P
+to the finite line segment from point A to point B.<span class="nodetails" id="xmethdistanceLineSegmentSquared"><a class="morelink" onclick="hst('methdistanceLineSegmentSquared')">More...</a></span> <span class="details" id="methdistanceLineSegmentSquared"></span>
                  
                               
                                   <dl class="detailList">
@@ -1764,7 +1783,8 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{boolean}</span> True if the two Points have identical X and Y values,false otherwise.</dt>
+                                      <dt><span class="light fixedFont">{boolean}</span> True if the two Points have identical X and Y values,
+false otherwise.</dt>
                                   
                                   </dl>
                               
@@ -1817,7 +1837,8 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{boolean}</span> True if the two Points have identical X and Y values,false otherwise.</dt>
+                                      <dt><span class="light fixedFont">{boolean}</span> True if the two Points have identical X and Y values,
+false otherwise.</dt>
                                   
                                   </dl>
                               
@@ -1868,7 +1889,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Modify this Point so that its X and Y values have been normalized to a unit length.<span class="nodetails" id="xmethnormalize"><a class="morelink" onclick="hst('methnormalize')">More...</a></span> <span class="details" id="methnormalize">However, if this Point is the origin (zero, zero), its length remains zero.</span>
+                                <!--newp--><p><p>Modify this Point so that its X and Y values have been normalized to a unit length.<span class="nodetails" id="xmethnormalize"><a class="morelink" onclick="hst('methnormalize')">More...</a></span> <span class="details" id="methnormalize">
+However, if this Point is the origin (zero, zero), its length remains zero.</span>
                  
                               
                               
@@ -1952,7 +1974,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This static function can be used to read in a <a href="../symbols/Point.html" class="linkConstructor">Point</a> from a string that was produced by <a href="../symbols/Point.html#.stringify" class="linkStatic">Point.stringify</a>.<span class="nodetails" id="xmethparse"><a class="morelink" onclick="hst('methparse')">More...</a></span> <span class="details" id="methparse"></span><div class="details" id="dmethparse"><p><code>go.Point.parse("1 2")</code> produces the Point <code>new go.Point(1, 2)</code>.</div>
+                                <!--newp--><p><p>This static function can be used to read in a <a href="../symbols/Point.html" class="linkConstructor">Point</a> from a string that was produced by <a href="../symbols/Point.html#.stringify" class="linkStatic">Point.stringify</a>.<span class="nodetails" id="xmethparse"><a class="morelink" onclick="hst('methparse')">More...</a></span> <span class="details" id="methparse">
+</span><div class="details" id="dmethparse"><p>
+<code>go.Point.parse("1 2")</code> produces the Point <code>new go.Point(1, 2)</code>.</div>
                  
                               
                                   <dl class="detailList">
@@ -2226,7 +2250,10 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Modify this Point so that its X and Y values correspond to a particular <a href="../symbols/Spot.html" class="linkConstructor">Spot</a>in a given Rect.<span class="nodetails" id="xmethsetRectSpot"><a class="morelink" onclick="hst('methsetRectSpot')">More...</a></span> <span class="details" id="methsetRectSpot"></span><div class="details" id="dmethsetRectSpot"><p>The result is meaningless if <a href="../symbols/Spot.html#isNoSpot" class="linkMethod">Spot.isNoSpot</a> is true for the given Spot.</div>
+                                <!--newp--><p><p>Modify this Point so that its X and Y values correspond to a particular <a href="../symbols/Spot.html" class="linkConstructor">Spot</a>
+in a given Rect.<span class="nodetails" id="xmethsetRectSpot"><a class="morelink" onclick="hst('methsetRectSpot')">More...</a></span> <span class="details" id="methsetRectSpot">
+</span><div class="details" id="dmethsetRectSpot"><p>
+The result is meaningless if <a href="../symbols/Spot.html#isNoSpot" class="linkMethod">Spot.isNoSpot</a> is true for the given Spot.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2279,7 +2306,10 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Modify this Point so that its X and Y values correspond to a particular <a href="../symbols/Spot.html" class="linkConstructor">Spot</a>in a given rectangle.<span class="nodetails" id="xmethsetSpot"><a class="morelink" onclick="hst('methsetSpot')">More...</a></span> <span class="details" id="methsetSpot"></span><div class="details" id="dmethsetSpot"><p>The result is meaningless if <a href="../symbols/Spot.html#isNoSpot" class="linkMethod">Spot.isNoSpot</a> is true for the given Spot.</div>
+                                <!--newp--><p><p>Modify this Point so that its X and Y values correspond to a particular <a href="../symbols/Spot.html" class="linkConstructor">Spot</a>
+in a given rectangle.<span class="nodetails" id="xmethsetSpot"><a class="morelink" onclick="hst('methsetSpot')">More...</a></span> <span class="details" id="methsetSpot">
+</span><div class="details" id="dmethsetSpot"><p>
+The result is meaningless if <a href="../symbols/Spot.html#isNoSpot" class="linkMethod">Spot.isNoSpot</a> is true for the given Spot.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2398,7 +2428,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Modify this point to be at the nearest point on an infinite grid,given the grid's origin and size of each grid cell.<span class="nodetails" id="xmethsnapToGrid"><a class="morelink" onclick="hst('methsnapToGrid')">More...</a></span> <span class="details" id="methsnapToGrid"></span>
+                                <!--newp--><p><p>Modify this point to be at the nearest point on an infinite grid,
+given the grid's origin and size of each grid cell.<span class="nodetails" id="xmethsnapToGrid"><a class="morelink" onclick="hst('methsnapToGrid')">More...</a></span> <span class="details" id="methsnapToGrid"></span>
                  
                               
                                   <dl class="detailList">
@@ -2458,7 +2489,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Modify this point to be at the nearest point on an infinite grid,given the grid's origin and size of each grid cell.<span class="nodetails" id="xmethsnapToGridPoint"><a class="morelink" onclick="hst('methsnapToGridPoint')">More...</a></span> <span class="details" id="methsnapToGridPoint"></span>
+                                <!--newp--><p><p>Modify this point to be at the nearest point on an infinite grid,
+given the grid's origin and size of each grid cell.<span class="nodetails" id="xmethsnapToGridPoint"><a class="morelink" onclick="hst('methsnapToGridPoint')">More...</a></span> <span class="details" id="methsnapToGridPoint"></span>
                  
                               
                                   <dl class="detailList">
@@ -2504,7 +2536,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This static function can be used to write out a <a href="../symbols/Point.html" class="linkConstructor">Point</a> as a string that can be read by <a href="../symbols/Point.html#.parse" class="linkStatic">Point.parse</a>.<span class="nodetails" id="xmethstringify"><a class="morelink" onclick="hst('methstringify')">More...</a></span> <span class="details" id="methstringify"></span><div class="details" id="dmethstringify"><p><code>go.Point.stringify(new go.Point(1, 2))</code> produces the string "1 2".</div>
+                                <!--newp--><p><p>This static function can be used to write out a <a href="../symbols/Point.html" class="linkConstructor">Point</a> as a string that can be read by <a href="../symbols/Point.html#.parse" class="linkStatic">Point.parse</a>.<span class="nodetails" id="xmethstringify"><a class="morelink" onclick="hst('methstringify')">More...</a></span> <span class="details" id="methstringify">
+</span><div class="details" id="dmethstringify"><p>
+<code>go.Point.stringify(new go.Point(1, 2))</code> produces the string "1 2".</div>
                  
                               
                                   <dl class="detailList">
@@ -2544,7 +2578,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Modify this point so that is the difference of this Point and thex and y co-ordinates of the given Point.<span class="nodetails" id="xmethsubtract"><a class="morelink" onclick="hst('methsubtract')">More...</a></span> <span class="details" id="methsubtract"></span>
+                                <!--newp--><p><p>Modify this point so that is the difference of this Point and the
+x and y co-ordinates of the given Point.<span class="nodetails" id="xmethsubtract"><a class="morelink" onclick="hst('methsubtract')">More...</a></span> <span class="details" id="methsubtract"></span>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">

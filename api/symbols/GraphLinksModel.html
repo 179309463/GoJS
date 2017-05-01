@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1133,7 +1128,108 @@
                     <a href="../symbols/Model.html" class="linkConstructor">Model</a>.</span>
                 
 
-                GraphLinksModels support links between nodes and grouping nodes and links into subgraphs.GraphLinksModels hold node data and link data in separate arrays.Node data is normally represented in a <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> by instances of <a href="../symbols/Node.html" class="linkConstructor">Node</a>,but they could be represented by simple <a href="../symbols/Part.html" class="linkConstructor">Part</a>s or by <a href="../symbols/Group.html" class="linkConstructor">Group</a>s.Link data should be represented by instances of <a href="../symbols/Link.html" class="linkConstructor">Link</a>.<p>Each link data object is assumed to have two values, one referring to the node that thelink is coming from and one that the link is going to.The <a href="../symbols/GraphLinksModel.html#linkFromKeyProperty" class="linkProperty">linkFromKeyProperty</a> property names the property on the link data whose valueis the key of the "from" node.The <a href="../symbols/GraphLinksModel.html#linkToKeyProperty" class="linkProperty">linkToKeyProperty</a> property names the property on the link data whose valueis the key of the "to" node.The default values for these properties are "from" and "to" respectively.<p>For example, one can define a graph consisting of two nodes with one link connecting them:<pre class="javascript"> model.nodeDataArray = [   { key: "Alpha" },   { key: "Beta" } ]; model.linkDataArray = [   { from: "Alpha", to: "Beta" } ];</pre><p>If you want to have subgraphs in your diagram, where a group node contains some number of nodes and links,you need to declare that some node data actually represent groups,and you need to provide a reference from a member node data to its containing group node data.The <a href="../symbols/GraphLinksModel.html#nodeIsGroupProperty" class="linkProperty">nodeIsGroupProperty</a> property names the property on a node data that is trueif that node data represents a group.The <a href="../symbols/GraphLinksModel.html#nodeGroupKeyProperty" class="linkProperty">nodeGroupKeyProperty</a> property names the property on a node data whose valueis the key of the containing group's node data.The default values for these properties are "isGroup" and "group" respectively.<p>For example, one can define a graph consisting of one group containing a subgraph oftwo nodes connected by a link, with a second link from that group to a third nodethat is not a member of that group:<pre> model.nodeDataArray = [   { key: "Group1", isGroup: true},   { key: "Alpha", group: "Group1" },   { key: "Beta", group: "Group1" },   { key: "Gamma" } ]; model.linkDataArray = [   { from: "Alpha", to: "Beta" },   { from: "Group1", to: "Gamma" } ];</pre><p>GraphLinksModels also support distinguishing the "port" element of a node to whicha link can connect, at either end of the link.This identification is a string that names the "port" element in the node.However, you need to set the <a href="../symbols/GraphLinksModel.html#linkFromPortIdProperty" class="linkProperty">linkFromPortIdProperty</a> and/or<a href="../symbols/GraphLinksModel.html#linkToPortIdProperty" class="linkProperty">linkToPortIdProperty</a> properties before the model is able toget the "port id" information from the link data.<p>For example, one can define a graph consisting of a "subtraction" node and two inputs and one output.The "subtraction" node has two distinct inputs called "subtrahend" and "minuend";the output is called "difference".<pre> model.linkFromPortIdProperty = "fromPort";  // necessary to remember portIds model.linkToPortIdProperty = "toPort"; model.nodeDataArray = [   { key: 1, constant: 5 },  // a constant input node   { key: 2, constant: 2 },  // another constant node   { key: 3, operation: "subtract" },   { key: 4, value: 3 }  // the output node ]; model.linkDataArray = [   { from: 1, to: 3, toPort: "subtrahend" },   { from: 2, to: 3, toPort: "minuend" },   { from: 3, to: 4, fromPort: "difference" } ];</pre>In this case links connected to node 3 (which is the subtraction operation)are distinguished by port id.The connections to the other nodes do not have any port identification,presumably because there is only one port on those nodes, representing the node value.<p>Note that there is no requirement that the link data objects have any kind of unique identifier, unlike for node data.There is no expectation that there be references to link data in the model, so there is no need for such an identifier.When there are multiple links connecting two ports, the only way to distinguish the links in the modelis by reference to the particular link data object.This is why there are two methods on the Diagram class for Nodes, <a href="../symbols/Diagram.html#findNodeForKey" class="linkMethod">Diagram.findNodeForKey</a> and <a href="../symbols/Diagram.html#findNodeForData" class="linkMethod">Diagram.findNodeForData</a>,but there is only the one method for Links, <a href="../symbols/Diagram.html#findLinkForData" class="linkMethod">Diagram.findLinkForData</a>.<p>However you may wish to have the model maintain string or number identifiers on the link data just as all models do for node data.To get that behavior, so that you can call <a href="../symbols/GraphLinksModel.html#findLinkDataForKey" class="linkMethod">findLinkDataForKey</a>, you need to set <a href="../symbols/GraphLinksModel.html#linkKeyProperty" class="linkProperty">linkKeyProperty</a> to be a non-empty string.Just as with the assignment of node keys, you can customize the assignment of link keys by setting<a href="../symbols/GraphLinksModel.html#makeUniqueLinkKeyFunction" class="linkProperty">makeUniqueLinkKeyFunction</a> to a function that returns a unique identifier.<p>This model does not support the modification of whether a node data object is a group.<p>This model cannot detect the modification of the <a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a> arrayor the modification of any link data object.If you want to add or remove link data from the <a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a>,call the <a href="../symbols/GraphLinksModel.html#addLinkData" class="linkMethod">addLinkData</a> or <a href="../symbols/GraphLinksModel.html#removeLinkData" class="linkMethod">removeLinkData</a> methods.If you want to modify the node a link connects to, call the<a href="../symbols/GraphLinksModel.html#setFromKeyForLinkData" class="linkMethod">setFromKeyForLinkData</a> and/or <a href="../symbols/GraphLinksModel.html#setToKeyForLinkData" class="linkMethod">setToKeyForLinkData</a> methods.If you want to change the membership of a node data in a group,call the <a href="../symbols/GraphLinksModel.html#setGroupKeyForNodeData" class="linkMethod">setGroupKeyForNodeData</a> method.
+                GraphLinksModels support links between nodes and grouping nodes and links into subgraphs.
+GraphLinksModels hold node data and link data in separate arrays.
+Node data is normally represented in a <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> by instances of <a href="../symbols/Node.html" class="linkConstructor">Node</a>,
+but they could be represented by simple <a href="../symbols/Part.html" class="linkConstructor">Part</a>s or by <a href="../symbols/Group.html" class="linkConstructor">Group</a>s.
+Link data should be represented by instances of <a href="../symbols/Link.html" class="linkConstructor">Link</a>.
+<p>
+Each link data object is assumed to have two values, one referring to the node that the
+link is coming from and one that the link is going to.
+The <a href="../symbols/GraphLinksModel.html#linkFromKeyProperty" class="linkProperty">linkFromKeyProperty</a> property names the property on the link data whose value
+is the key of the "from" node.
+The <a href="../symbols/GraphLinksModel.html#linkToKeyProperty" class="linkProperty">linkToKeyProperty</a> property names the property on the link data whose value
+is the key of the "to" node.
+The default values for these properties are "from" and "to" respectively.
+<p>
+For example, one can define a graph consisting of two nodes with one link connecting them:
+<pre class="javascript">
+ model.nodeDataArray = [
+   { key: "Alpha" },
+   { key: "Beta" }
+ ];
+ model.linkDataArray = [
+   { from: "Alpha", to: "Beta" }
+ ];
+</pre>
+<p>
+If you want to have subgraphs in your diagram, where a group node contains some number of nodes and links,
+you need to declare that some node data actually represent groups,
+and you need to provide a reference from a member node data to its containing group node data.
+The <a href="../symbols/GraphLinksModel.html#nodeIsGroupProperty" class="linkProperty">nodeIsGroupProperty</a> property names the property on a node data that is true
+if that node data represents a group.
+The <a href="../symbols/GraphLinksModel.html#nodeGroupKeyProperty" class="linkProperty">nodeGroupKeyProperty</a> property names the property on a node data whose value
+is the key of the containing group's node data.
+The default values for these properties are "isGroup" and "group" respectively.
+<p>
+For example, one can define a graph consisting of one group containing a subgraph of
+two nodes connected by a link, with a second link from that group to a third node
+that is not a member of that group:
+<pre>
+ model.nodeDataArray = [
+   { key: "Group1", isGroup: true},
+   { key: "Alpha", group: "Group1" },
+   { key: "Beta", group: "Group1" },
+   { key: "Gamma" }
+ ];
+ model.linkDataArray = [
+   { from: "Alpha", to: "Beta" },
+   { from: "Group1", to: "Gamma" }
+ ];
+</pre>
+<p>
+GraphLinksModels also support distinguishing the "port" element of a node to which
+a link can connect, at either end of the link.
+This identification is a string that names the "port" element in the node.
+However, you need to set the <a href="../symbols/GraphLinksModel.html#linkFromPortIdProperty" class="linkProperty">linkFromPortIdProperty</a> and/or
+<a href="../symbols/GraphLinksModel.html#linkToPortIdProperty" class="linkProperty">linkToPortIdProperty</a> properties before the model is able to
+get the "port id" information from the link data.
+<p>
+For example, one can define a graph consisting of a "subtraction" node and two inputs and one output.
+The "subtraction" node has two distinct inputs called "subtrahend" and "minuend";
+the output is called "difference".
+<pre>
+ model.linkFromPortIdProperty = "fromPort";  // necessary to remember portIds
+ model.linkToPortIdProperty = "toPort";
+ model.nodeDataArray = [
+   { key: 1, constant: 5 },  // a constant input node
+   { key: 2, constant: 2 },  // another constant node
+   { key: 3, operation: "subtract" },
+   { key: 4, value: 3 }  // the output node
+ ];
+ model.linkDataArray = [
+   { from: 1, to: 3, toPort: "subtrahend" },
+   { from: 2, to: 3, toPort: "minuend" },
+   { from: 3, to: 4, fromPort: "difference" }
+ ];
+</pre>
+In this case links connected to node 3 (which is the subtraction operation)
+are distinguished by port id.
+The connections to the other nodes do not have any port identification,
+presumably because there is only one port on those nodes, representing the node value.
+<p>
+Note that there is no requirement that the link data objects have any kind of unique identifier, unlike for node data.
+There is no expectation that there be references to link data in the model, so there is no need for such an identifier.
+When there are multiple links connecting two ports, the only way to distinguish the links in the model
+is by reference to the particular link data object.
+This is why there are two methods on the Diagram class for Nodes, <a href="../symbols/Diagram.html#findNodeForKey" class="linkMethod">Diagram.findNodeForKey</a> and <a href="../symbols/Diagram.html#findNodeForData" class="linkMethod">Diagram.findNodeForData</a>,
+but there is only the one method for Links, <a href="../symbols/Diagram.html#findLinkForData" class="linkMethod">Diagram.findLinkForData</a>.
+<p>
+However you may wish to have the model maintain string or number identifiers on the link data just as all models do for node data.
+To get that behavior, so that you can call <a href="../symbols/GraphLinksModel.html#findLinkDataForKey" class="linkMethod">findLinkDataForKey</a>, you need to set <a href="../symbols/GraphLinksModel.html#linkKeyProperty" class="linkProperty">linkKeyProperty</a> to be a non-empty string.
+Just as with the assignment of node keys, you can customize the assignment of link keys by setting
+<a href="../symbols/GraphLinksModel.html#makeUniqueLinkKeyFunction" class="linkProperty">makeUniqueLinkKeyFunction</a> to a function that returns a unique identifier.
+<p>
+This model does not support the modification of whether a node data object is a group.
+<p>
+This model cannot detect the modification of the <a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a> array
+or the modification of any link data object.
+If you want to add or remove link data from the <a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a>,
+call the <a href="../symbols/GraphLinksModel.html#addLinkData" class="linkMethod">addLinkData</a> or <a href="../symbols/GraphLinksModel.html#removeLinkData" class="linkMethod">removeLinkData</a> methods.
+If you want to modify the node a link connects to, call the
+<a href="../symbols/GraphLinksModel.html#setFromKeyForLinkData" class="linkMethod">setFromKeyForLinkData</a> and/or <a href="../symbols/GraphLinksModel.html#setToKeyForLinkData" class="linkMethod">setToKeyForLinkData</a> methods.
+If you want to change the membership of a node data in a group,
+call the <a href="../symbols/GraphLinksModel.html#setGroupKeyForNodeData" class="linkMethod">setGroupKeyForNodeData</a> method.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1156,7 +1252,8 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>This constructs an empty GraphLinksModel unless one provides arguments as the initial data array valuesfor the <a href="../symbols/Model.html#nodeDataArray" class="linkProperty">Model.nodeDataArray</a> and <a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">GraphLinksModel.linkDataArray</a> properties.<span class="nodetails" id="xconGraphLinksModel"><a class="morelink" onclick="hst('conGraphLinksModel')">More...</a></span> <span class="details" id="conGraphLinksModel"></span>
+                            <!--newp--><p><p>This constructs an empty GraphLinksModel unless one provides arguments as the initial data array values
+for the <a href="../symbols/Model.html#nodeDataArray" class="linkProperty">Model.nodeDataArray</a> and <a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">GraphLinksModel.linkDataArray</a> properties.<span class="nodetails" id="xconGraphLinksModel"><a class="morelink" onclick="hst('conGraphLinksModel')">More...</a></span> <span class="details" id="conGraphLinksModel"></span>
                         
                             <dl class="detailList">
                             <dt class="heading">Parameters:</dt>
@@ -1217,7 +1314,13 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets a data object that will be copied and added to the model as a new node data each time thereis a link reference (either the "to" or the "from" of a link data) to a node key that does not yet exist in the model.<span class="nodetails" id="xproparchetypeNodeData"><a class="morelink" onclick="hst('proparchetypeNodeData')">More...</a></span> <span class="details" id="proparchetypeNodeData"></span><div class="details" id="dproparchetypeNodeData"><p>The default value is null -- node data is not automatically copied and added to the modelwhen there is an unresolved reference in a link data.When adding or modifying a link data if there is a "from" or "to" key value for which <a href="../symbols/Model.html#findNodeDataForKey" class="linkMethod">Model.findNodeDataForKey</a> returns null,it will call <a href="../symbols/Model.html#copyNodeData" class="linkMethod">Model.copyNodeData</a> on this property value and <a href="../symbols/Model.html#addNodeData" class="linkMethod">Model.addNodeData</a> on the result.</div>
+                <p>Gets or sets a data object that will be copied and added to the model as a new node data each time there
+is a link reference (either the "to" or the "from" of a link data) to a node key that does not yet exist in the model.<span class="nodetails" id="xproparchetypeNodeData"><a class="morelink" onclick="hst('proparchetypeNodeData')">More...</a></span> <span class="details" id="proparchetypeNodeData">
+</span><div class="details" id="dproparchetypeNodeData"><p>
+The default value is null -- node data is not automatically copied and added to the model
+when there is an unresolved reference in a link data.
+When adding or modifying a link data if there is a "from" or "to" key value for which <a href="../symbols/Model.html#findNodeDataForKey" class="linkMethod">Model.findNodeDataForKey</a> returns null,
+it will call <a href="../symbols/Model.html#copyNodeData" class="linkMethod">Model.copyNodeData</a> on this property value and <a href="../symbols/Model.html#addNodeData" class="linkMethod">Model.addNodeData</a> on the result.</div>
                 
                 </div>
                             </td>
@@ -1237,7 +1340,12 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets a function that makes a copy of a link data object.<span class="nodetails" id="xpropcopyLinkDataFunction"><a class="morelink" onclick="hst('propcopyLinkDataFunction')">More...</a></span> <span class="details" id="propcopyLinkDataFunction"></span><div class="details" id="dpropcopyLinkDataFunction"><p>You may need to set this property in order to ensure that a copied <a href="../symbols/Link.html" class="linkConstructor">Link</a> is boundto data that does not share certain data structures between the original link data and the copied link data.This property value may be null in order to cause <a href="../symbols/GraphLinksModel.html#copyLinkData" class="linkMethod">copyLinkData</a> to make a shallow copy of a JavaScript Object.The default value is null.</div>
+                <p>Gets or sets a function that makes a copy of a link data object.<span class="nodetails" id="xpropcopyLinkDataFunction"><a class="morelink" onclick="hst('propcopyLinkDataFunction')">More...</a></span> <span class="details" id="propcopyLinkDataFunction">
+</span><div class="details" id="dpropcopyLinkDataFunction"><p>
+You may need to set this property in order to ensure that a copied <a href="../symbols/Link.html" class="linkConstructor">Link</a> is bound
+to data that does not share certain data structures between the original link data and the copied link data.
+This property value may be null in order to cause <a href="../symbols/GraphLinksModel.html#copyLinkData" class="linkMethod">copyLinkData</a> to make a shallow copy of a JavaScript Object.
+The default value is null.</div>
                 
                 </div>
                             </td>
@@ -1257,7 +1365,15 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the name of the data property that returns a string naming that data's category,The value may also be a function taking two arguments, where the first argument will be a link data object.<span class="nodetails" id="xproplinkCategoryProperty"><a class="morelink" onclick="hst('proplinkCategoryProperty')">More...</a></span> <span class="details" id="proplinkCategoryProperty">If the second argument is not supplied, the function should return the category name;if the second argument is supplied, the function should modify the link data object so that it has that new category name.The default value is the name 'category', meaning that it expects the data to have a property named 'category' if it cares to name the category for the Link.This is used by the diagram to distinguish between different kinds of links.The name must not be null.If the value is an empty string,<a href="../symbols/GraphLinksModel.html#getCategoryForLinkData" class="linkMethod">getCategoryForLinkData</a> will return an empty string for all link data objects.</span>
+                <p>Gets or sets the name of the data property that returns a string naming that data's category,
+The value may also be a function taking two arguments, where the first argument will be a link data object.<span class="nodetails" id="xproplinkCategoryProperty"><a class="morelink" onclick="hst('proplinkCategoryProperty')">More...</a></span> <span class="details" id="proplinkCategoryProperty">
+If the second argument is not supplied, the function should return the category name;
+if the second argument is supplied, the function should modify the link data object so that it has that new category name.
+The default value is the name 'category', meaning that it expects the data to have a property named 'category' if it cares to name the category for the Link.
+This is used by the diagram to distinguish between different kinds of links.
+The name must not be null.
+If the value is an empty string,
+<a href="../symbols/GraphLinksModel.html#getCategoryForLinkData" class="linkMethod">getCategoryForLinkData</a> will return an empty string for all link data objects.</span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1287,7 +1403,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the array of link data objects that correspond to <a href="../symbols/Link.html" class="linkConstructor">Link</a>s in the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.<span class="nodetails" id="xproplinkDataArray"><a class="morelink" onclick="hst('proplinkDataArray')">More...</a></span> <span class="details" id="proplinkDataArray">The initial value is an empty Array.</span>
+                <p>Gets or sets the array of link data objects that correspond to <a href="../symbols/Link.html" class="linkConstructor">Link</a>s in the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.<span class="nodetails" id="xproplinkDataArray"><a class="morelink" onclick="hst('proplinkDataArray')">More...</a></span> <span class="details" id="proplinkDataArray">
+The initial value is an empty Array.</span>
                 
                 </div>
                             </td>
@@ -1307,7 +1424,16 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the name of the data property that returnsthe key of the node data that the link data is coming from.<span class="nodetails" id="xproplinkFromKeyProperty"><a class="morelink" onclick="hst('proplinkFromKeyProperty')">More...</a></span> <span class="details" id="proplinkFromKeyProperty">The value may also be a function taking two arguments, where the first argument will be a link data object.If the second argument is not supplied, the function should return the key of the link's source node;if the second argument is supplied, the function should modify the link data object so that it has that new key(which may be undefined to refer to no node) as the identifier to the "from" node.The default value is the name 'from', meaning that it expects the data to have a property named 'from' to refer to the link's source node.The name must not be null.If the value is an empty string,<a href="../symbols/GraphLinksModel.html#getFromKeyForLinkData" class="linkMethod">getFromKeyForLinkData</a> will return undefined for all link data objects.</span>
+                <p>Gets or sets the name of the data property that returns
+the key of the node data that the link data is coming from.<span class="nodetails" id="xproplinkFromKeyProperty"><a class="morelink" onclick="hst('proplinkFromKeyProperty')">More...</a></span> <span class="details" id="proplinkFromKeyProperty">
+The value may also be a function taking two arguments, where the first argument will be a link data object.
+If the second argument is not supplied, the function should return the key of the link's source node;
+if the second argument is supplied, the function should modify the link data object so that it has that new key
+(which may be undefined to refer to no node) as the identifier to the "from" node.
+The default value is the name 'from', meaning that it expects the data to have a property named 'from' to refer to the link's source node.
+The name must not be null.
+If the value is an empty string,
+<a href="../symbols/GraphLinksModel.html#getFromKeyForLinkData" class="linkMethod">getFromKeyForLinkData</a> will return undefined for all link data objects.</span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1337,7 +1463,16 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the name of the data property that returnsthe optional parameter naming a "port" element on the node that the link data is connected from.<span class="nodetails" id="xproplinkFromPortIdProperty"><a class="morelink" onclick="hst('proplinkFromPortIdProperty')">More...</a></span> <span class="details" id="proplinkFromPortIdProperty">The value may also be a function taking two arguments, where the first argument will be a link data object.If the second argument is not supplied, the function should return the string identifier of the link's source port;if the second argument is supplied, the function should modify the link data object so that it has that string as the identifier to the "from" port.The default value is the empty string indicating that one cannot distinguishdifferent logical connection points for any links.The name must not be null nor the value of <a href="../symbols/GraphLinksModel.html#linkFromKeyProperty" class="linkProperty">linkFromKeyProperty</a> or <a href="../symbols/GraphLinksModel.html#linkToKeyProperty" class="linkProperty">linkToKeyProperty</a>.If the value is an empty string,<a href="../symbols/GraphLinksModel.html#getFromPortIdForLinkData" class="linkMethod">getFromPortIdForLinkData</a> will return an empty string for all link data objects.</span>
+                <p>Gets or sets the name of the data property that returns
+the optional parameter naming a "port" element on the node that the link data is connected from.<span class="nodetails" id="xproplinkFromPortIdProperty"><a class="morelink" onclick="hst('proplinkFromPortIdProperty')">More...</a></span> <span class="details" id="proplinkFromPortIdProperty">
+The value may also be a function taking two arguments, where the first argument will be a link data object.
+If the second argument is not supplied, the function should return the string identifier of the link's source port;
+if the second argument is supplied, the function should modify the link data object so that it has that string as the identifier to the "from" port.
+The default value is the empty string indicating that one cannot distinguish
+different logical connection points for any links.
+The name must not be null nor the value of <a href="../symbols/GraphLinksModel.html#linkFromKeyProperty" class="linkProperty">linkFromKeyProperty</a> or <a href="../symbols/GraphLinksModel.html#linkToKeyProperty" class="linkProperty">linkToKeyProperty</a>.
+If the value is an empty string,
+<a href="../symbols/GraphLinksModel.html#getFromPortIdForLinkData" class="linkMethod">getFromPortIdForLinkData</a> will return an empty string for all link data objects.</span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1369,7 +1504,15 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the name of the data property that returns a unique id number or string for each link data object.<span class="nodetails" id="xproplinkKeyProperty"><a class="morelink" onclick="hst('proplinkKeyProperty')">More...</a></span> <span class="details" id="proplinkKeyProperty">The value may also be a function taking two arguments, where the first argument will be a link data object.If the second argument is not supplied, the function should return the unique string or number key for that link data object;if the second argument is supplied, the function should modify the link data object so that it has that string or number as the unique key for that link.The default value is the empty string, which means the model will not maintain a key property value on link data objects.The name must not be null.</span><div class="details" id="dproplinkKeyProperty"><p>When this property has a value of an empty string (the default value),<a href="../symbols/GraphLinksModel.html#getKeyForLinkData" class="linkMethod">getKeyForLinkData</a> will return undefined, and <a href="../symbols/GraphLinksModel.html#findLinkDataForKey" class="linkMethod">findLinkDataForKey</a> will always return null.</div>
+                <p>Gets or sets the name of the data property that returns a unique id number or string for each link data object.<span class="nodetails" id="xproplinkKeyProperty"><a class="morelink" onclick="hst('proplinkKeyProperty')">More...</a></span> <span class="details" id="proplinkKeyProperty">
+The value may also be a function taking two arguments, where the first argument will be a link data object.
+If the second argument is not supplied, the function should return the unique string or number key for that link data object;
+if the second argument is supplied, the function should modify the link data object so that it has that string or number as the unique key for that link.
+The default value is the empty string, which means the model will not maintain a key property value on link data objects.
+The name must not be null.
+</span><div class="details" id="dproplinkKeyProperty"><p>
+When this property has a value of an empty string (the default value),
+<a href="../symbols/GraphLinksModel.html#getKeyForLinkData" class="linkMethod">getKeyForLinkData</a> will return undefined, and <a href="../symbols/GraphLinksModel.html#findLinkDataForKey" class="linkMethod">findLinkDataForKey</a> will always return null.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1397,7 +1540,17 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the name of the data property that returnsan array of keys of node data that are labels on that link data.<span class="nodetails" id="xproplinkLabelKeysProperty"><a class="morelink" onclick="hst('proplinkLabelKeysProperty')">More...</a></span> <span class="details" id="proplinkLabelKeysProperty">The value may also be a function taking two arguments, where the first argument will be a link data object.If the second argument is not supplied, the function should return the array or label node keys for the link;if the second argument is supplied, the function should modify the link data object so that it holds that Array of node keys as references to label nodes.The default value is the empty string: '', meaning that the model does not support links owning label nodes.</span><div class="details" id="dproplinkLabelKeysProperty"><p>The name must not be null.If the value is an empty string,<a href="../symbols/GraphLinksModel.html#getLabelKeysForLinkData" class="linkMethod">getLabelKeysForLinkData</a> will return an empty array for all link data objects.You will need to set this property in order to support nodes as link labels.</div>
+                <p>Gets or sets the name of the data property that returns
+an array of keys of node data that are labels on that link data.<span class="nodetails" id="xproplinkLabelKeysProperty"><a class="morelink" onclick="hst('proplinkLabelKeysProperty')">More...</a></span> <span class="details" id="proplinkLabelKeysProperty">
+The value may also be a function taking two arguments, where the first argument will be a link data object.
+If the second argument is not supplied, the function should return the array or label node keys for the link;
+if the second argument is supplied, the function should modify the link data object so that it holds that Array of node keys as references to label nodes.
+The default value is the empty string: '', meaning that the model does not support links owning label nodes.
+</span><div class="details" id="dproplinkLabelKeysProperty"><p>
+The name must not be null.
+If the value is an empty string,
+<a href="../symbols/GraphLinksModel.html#getLabelKeysForLinkData" class="linkMethod">getLabelKeysForLinkData</a> will return an empty array for all link data objects.
+You will need to set this property in order to support nodes as link labels.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1427,7 +1580,16 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the name of the data property that returnsthe key of the node data that the link data is going to,The value may also be a function taking two arguments, where the first argument will be a link data object.<span class="nodetails" id="xproplinkToKeyProperty"><a class="morelink" onclick="hst('proplinkToKeyProperty')">More...</a></span> <span class="details" id="proplinkToKeyProperty">If the second argument is not supplied, the function should return the key of the link's destination node;if the second argument is supplied, the function should modify the link data object so that it has that new key(which may be undefined to refer to no node) as the identifier to the "to" node.The default value is the name 'to', meaning that it expects the data to have a property named 'to' to refer to the link's destination node.The name must not be null.If the value is an empty string,<a href="../symbols/GraphLinksModel.html#getToKeyForLinkData" class="linkMethod">getToKeyForLinkData</a> will return undefined for all link data objects.</span>
+                <p>Gets or sets the name of the data property that returns
+the key of the node data that the link data is going to,
+The value may also be a function taking two arguments, where the first argument will be a link data object.<span class="nodetails" id="xproplinkToKeyProperty"><a class="morelink" onclick="hst('proplinkToKeyProperty')">More...</a></span> <span class="details" id="proplinkToKeyProperty">
+If the second argument is not supplied, the function should return the key of the link's destination node;
+if the second argument is supplied, the function should modify the link data object so that it has that new key
+(which may be undefined to refer to no node) as the identifier to the "to" node.
+The default value is the name 'to', meaning that it expects the data to have a property named 'to' to refer to the link's destination node.
+The name must not be null.
+If the value is an empty string,
+<a href="../symbols/GraphLinksModel.html#getToKeyForLinkData" class="linkMethod">getToKeyForLinkData</a> will return undefined for all link data objects.</span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1457,7 +1619,16 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the name of the data property that returnsthe optional parameter naming a "port" element on the node that the link data is connected to.<span class="nodetails" id="xproplinkToPortIdProperty"><a class="morelink" onclick="hst('proplinkToPortIdProperty')">More...</a></span> <span class="details" id="proplinkToPortIdProperty">The value may also be a function taking two arguments, where the first argument will be a link data object.If the second argument is not supplied, the function should return the string identifier of the link's destination port;if the second argument is supplied, the function should modify the link data object so that it has that string as the identifier to the "to" port.The default value is the empty string indicating that one cannot distinguishdifferent logical connection points for any links.The name must not be null nor the value of <a href="../symbols/GraphLinksModel.html#linkFromKeyProperty" class="linkProperty">linkFromKeyProperty</a> or <a href="../symbols/GraphLinksModel.html#linkToKeyProperty" class="linkProperty">linkToKeyProperty</a>.If the value is an empty string,<a href="../symbols/GraphLinksModel.html#getToPortIdForLinkData" class="linkMethod">getToPortIdForLinkData</a> will return an empty string for all link data objects.</span>
+                <p>Gets or sets the name of the data property that returns
+the optional parameter naming a "port" element on the node that the link data is connected to.<span class="nodetails" id="xproplinkToPortIdProperty"><a class="morelink" onclick="hst('proplinkToPortIdProperty')">More...</a></span> <span class="details" id="proplinkToPortIdProperty">
+The value may also be a function taking two arguments, where the first argument will be a link data object.
+If the second argument is not supplied, the function should return the string identifier of the link's destination port;
+if the second argument is supplied, the function should modify the link data object so that it has that string as the identifier to the "to" port.
+The default value is the empty string indicating that one cannot distinguish
+different logical connection points for any links.
+The name must not be null nor the value of <a href="../symbols/GraphLinksModel.html#linkFromKeyProperty" class="linkProperty">linkFromKeyProperty</a> or <a href="../symbols/GraphLinksModel.html#linkToKeyProperty" class="linkProperty">linkToKeyProperty</a>.
+If the value is an empty string,
+<a href="../symbols/GraphLinksModel.html#getToPortIdForLinkData" class="linkMethod">getToPortIdForLinkData</a> will return an empty string for all link data objects.</span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1489,7 +1660,22 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets a function that returns a unique id number or string for a link data object.<span class="nodetails" id="xpropmakeUniqueLinkKeyFunction"><a class="morelink" onclick="hst('propmakeUniqueLinkKeyFunction')">More...</a></span> <span class="details" id="propmakeUniqueLinkKeyFunction">This function is called by <a href="../symbols/GraphLinksModel.html#makeLinkDataKeyUnique" class="linkMethod">makeLinkDataKeyUnique</a>when a link data object is added to the model, either as part of a new<a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a> or by a call to <a href="../symbols/GraphLinksModel.html#addLinkData" class="linkMethod">addLinkData</a>, to make sure the value of<a href="../symbols/GraphLinksModel.html#getKeyForLinkData" class="linkMethod">getKeyForLinkData</a> is unique within the model.However it will not be called when <a href="../symbols/GraphLinksModel.html#linkKeyProperty" class="linkProperty">linkKeyProperty</a> is the default value, an empty string.</span><div class="details" id="dpropmakeUniqueLinkKeyFunction"><p>The value may be null in order to cause <a href="../symbols/GraphLinksModel.html#makeLinkDataKeyUnique" class="linkMethod">makeLinkDataKeyUnique</a> behave in the standard manner.(The default value is null.)You may want to supply a function here in order to make sure all of the automatically generated keysare in a particular format.Setting this property after setting <a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a> has no real effect until there is a callto <a href="../symbols/GraphLinksModel.html#addLinkData" class="linkMethod">addLinkData</a>.<p>If a link data object is already in the model and you want to change its key value,call <a href="../symbols/GraphLinksModel.html#setKeyForLinkData" class="linkMethod">setKeyForLinkData</a> with a new and unique key.</div>
+                <p>Gets or sets a function that returns a unique id number or string for a link data object.<span class="nodetails" id="xpropmakeUniqueLinkKeyFunction"><a class="morelink" onclick="hst('propmakeUniqueLinkKeyFunction')">More...</a></span> <span class="details" id="propmakeUniqueLinkKeyFunction">
+This function is called by <a href="../symbols/GraphLinksModel.html#makeLinkDataKeyUnique" class="linkMethod">makeLinkDataKeyUnique</a>
+when a link data object is added to the model, either as part of a new
+<a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a> or by a call to <a href="../symbols/GraphLinksModel.html#addLinkData" class="linkMethod">addLinkData</a>, to make sure the value of
+<a href="../symbols/GraphLinksModel.html#getKeyForLinkData" class="linkMethod">getKeyForLinkData</a> is unique within the model.
+However it will not be called when <a href="../symbols/GraphLinksModel.html#linkKeyProperty" class="linkProperty">linkKeyProperty</a> is the default value, an empty string.
+</span><div class="details" id="dpropmakeUniqueLinkKeyFunction"><p>
+The value may be null in order to cause <a href="../symbols/GraphLinksModel.html#makeLinkDataKeyUnique" class="linkMethod">makeLinkDataKeyUnique</a> behave in the standard manner.
+(The default value is null.)
+You may want to supply a function here in order to make sure all of the automatically generated keys
+are in a particular format.
+Setting this property after setting <a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a> has no real effect until there is a call
+to <a href="../symbols/GraphLinksModel.html#addLinkData" class="linkMethod">addLinkData</a>.
+<p>
+If a link data object is already in the model and you want to change its key value,
+call <a href="../symbols/GraphLinksModel.html#setKeyForLinkData" class="linkMethod">setKeyForLinkData</a> with a new and unique key.</div>
                 
                 </div>
                             </td>
@@ -1509,7 +1695,17 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the name of the property on node data that specifiesthe string or number key of the group data that "owns" that node data.<span class="nodetails" id="xpropnodeGroupKeyProperty"><a class="morelink" onclick="hst('propnodeGroupKeyProperty')">More...</a></span> <span class="details" id="propnodeGroupKeyProperty">The value may also be a function taking two arguments, where the first argument will be a node data object.If the second argument is not supplied, the function should return the string or number key for the group data object of which the given data object is a member;if the second argument is supplied, the function should modify the node data object so that it has that new key(which may be undefined to refer to no node) as the containing group key for that node.The default value is the name 'group', meaning that it expects the data to have a property named 'group' to refer to any containing group.</span><div class="details" id="dpropnodeGroupKeyProperty"><p>The value must not be null.If the value is an empty string,<a href="../symbols/GraphLinksModel.html#getGroupKeyForNodeData" class="linkMethod">getGroupKeyForNodeData</a> will return undefined for all node data objects.</div>
+                <p>Gets or sets the name of the property on node data that specifies
+the string or number key of the group data that "owns" that node data.<span class="nodetails" id="xpropnodeGroupKeyProperty"><a class="morelink" onclick="hst('propnodeGroupKeyProperty')">More...</a></span> <span class="details" id="propnodeGroupKeyProperty">
+The value may also be a function taking two arguments, where the first argument will be a node data object.
+If the second argument is not supplied, the function should return the string or number key for the group data object of which the given data object is a member;
+if the second argument is supplied, the function should modify the node data object so that it has that new key
+(which may be undefined to refer to no node) as the containing group key for that node.
+The default value is the name 'group', meaning that it expects the data to have a property named 'group' to refer to any containing group.
+</span><div class="details" id="dpropnodeGroupKeyProperty"><p>
+The value must not be null.
+If the value is an empty string,
+<a href="../symbols/GraphLinksModel.html#getGroupKeyForNodeData" class="linkMethod">getGroupKeyForNodeData</a> will return undefined for all node data objects.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1539,7 +1735,16 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the name of the boolean property on node data that indicateswhether the data should be represented as a group of nodes and links or as a simple node.<span class="nodetails" id="xpropnodeIsGroupProperty"><a class="morelink" onclick="hst('propnodeIsGroupProperty')">More...</a></span> <span class="details" id="propnodeIsGroupProperty">The value may also be a function taking two arguments, where the first argument will be a node data object.If the second argument is not supplied, the function should return true if the node data object should be represented by a Group and false otherwise.At the current time the function will not be called to change whether the node is a group or not.The default value is the name 'isGroup', meaning that it expects the data to have a property named 'isGroup' on those node data objects that should be represented by Groups.</span><div class="details" id="dpropnodeIsGroupProperty"><p>The value must not be null.If the value is an empty string,<a href="../symbols/GraphLinksModel.html#isGroupForNodeData" class="linkMethod">isGroupForNodeData</a> will return false for all node data objects.</div>
+                <p>Gets or sets the name of the boolean property on node data that indicates
+whether the data should be represented as a group of nodes and links or as a simple node.<span class="nodetails" id="xpropnodeIsGroupProperty"><a class="morelink" onclick="hst('propnodeIsGroupProperty')">More...</a></span> <span class="details" id="propnodeIsGroupProperty">
+The value may also be a function taking two arguments, where the first argument will be a node data object.
+If the second argument is not supplied, the function should return true if the node data object should be represented by a Group and false otherwise.
+At the current time the function will not be called to change whether the node is a group or not.
+The default value is the name 'isGroup', meaning that it expects the data to have a property named 'isGroup' on those node data objects that should be represented by Groups.
+</span><div class="details" id="dpropnodeIsGroupProperty"><p>
+The value must not be null.
+If the value is an empty string,
+<a href="../symbols/GraphLinksModel.html#isGroupForNodeData" class="linkMethod">isGroupForNodeData</a> will return false for all node data objects.</div>
                 
                 </div>
                             </td>
@@ -1585,7 +1790,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Adds a node key value that identifies a node data acting as a new label node on the given link data.<span class="nodetails" id="xmethaddLabelKeyForLinkData"><a class="morelink" onclick="hst('methaddLabelKeyForLinkData')">More...</a></span> <span class="details" id="methaddLabelKeyForLinkData"></span><div class="details" id="dmethaddLabelKeyForLinkData"><p>This method only works if <a href="../symbols/GraphLinksModel.html#linkLabelKeysProperty" class="linkProperty">linkLabelKeysProperty</a> has been set to something other than an empty string.</div>
+                                <!--newp--><p><p>Adds a node key value that identifies a node data acting as a new label node on the given link data.<span class="nodetails" id="xmethaddLabelKeyForLinkData"><a class="morelink" onclick="hst('methaddLabelKeyForLinkData')">More...</a></span> <span class="details" id="methaddLabelKeyForLinkData">
+</span><div class="details" id="dmethaddLabelKeyForLinkData"><p>
+This method only works if <a href="../symbols/GraphLinksModel.html#linkLabelKeysProperty" class="linkProperty">linkLabelKeysProperty</a> has been set to something other than an empty string.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1633,7 +1840,15 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>When you want to add a link to the diagram, call this method with a new data object.<span class="nodetails" id="xmethaddLinkData"><a class="morelink" onclick="hst('methaddLinkData')">More...</a></span> <span class="details" id="methaddLinkData">This will add that data to the <a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a> andnotify all listeners that a new link data object has been inserted into the collection.</span><div class="details" id="dmethaddLinkData"><p>Presumably the link data object will already have its "from" and "to" node key references set,but it is also possible to set them after the link data is in the modelby calling <a href="../symbols/GraphLinksModel.html#setFromKeyForLinkData" class="linkMethod">setFromKeyForLinkData</a> and <a href="../symbols/GraphLinksModel.html#setToKeyForLinkData" class="linkMethod">setToKeyForLinkData</a>.<p>This operation does nothing if the link data is already part of this model's <a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a>.</div>
+                                <!--newp--><p><p>When you want to add a link to the diagram, call this method with a new data object.<span class="nodetails" id="xmethaddLinkData"><a class="morelink" onclick="hst('methaddLinkData')">More...</a></span> <span class="details" id="methaddLinkData">
+This will add that data to the <a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a> and
+notify all listeners that a new link data object has been inserted into the collection.
+</span><div class="details" id="dmethaddLinkData"><p>
+Presumably the link data object will already have its "from" and "to" node key references set,
+but it is also possible to set them after the link data is in the model
+by calling <a href="../symbols/GraphLinksModel.html#setFromKeyForLinkData" class="linkMethod">setFromKeyForLinkData</a> and <a href="../symbols/GraphLinksModel.html#setToKeyForLinkData" class="linkMethod">setToKeyForLinkData</a>.
+<p>
+This operation does nothing if the link data is already part of this model's <a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a>.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1708,7 +1923,16 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Decide if a given link data object is in this model, using reference equality.<span class="nodetails" id="xmethcontainsLinkData"><a class="morelink" onclick="hst('methcontainsLinkData')">More...</a></span> <span class="details" id="methcontainsLinkData"></span><div class="details" id="dmethcontainsLinkData"><p>If you do not have a reference to the particular data object that is in the <a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a>,you may need to search for it by iterating through that Array, or (more likely),by finding the desired <a href="../symbols/Link.html" class="linkConstructor">Link</a> in a <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> and getting that link's <a href="../symbols/Panel.html#data" class="linkProperty">Panel.data</a>.<p>Note that because link data are not assumed to be have a unique key propertythey cannot be found using an index that this model would maintain.However you may choose to provide such a property on the link data objectsand maintain your own index.</div>
+                                <!--newp--><p><p>Decide if a given link data object is in this model, using reference equality.<span class="nodetails" id="xmethcontainsLinkData"><a class="morelink" onclick="hst('methcontainsLinkData')">More...</a></span> <span class="details" id="methcontainsLinkData">
+</span><div class="details" id="dmethcontainsLinkData"><p>
+If you do not have a reference to the particular data object that is in the <a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a>,
+you may need to search for it by iterating through that Array, or (more likely),
+by finding the desired <a href="../symbols/Link.html" class="linkConstructor">Link</a> in a <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> and getting that link's <a href="../symbols/Panel.html#data" class="linkProperty">Panel.data</a>.
+<p>
+Note that because link data are not assumed to be have a unique key property
+they cannot be found using an index that this model would maintain.
+However you may choose to provide such a property on the link data objects
+and maintain your own index.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1757,7 +1981,13 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Make a copy of a link data object.<span class="nodetails" id="xmethcopyLinkData"><a class="morelink" onclick="hst('methcopyLinkData')">More...</a></span> <span class="details" id="methcopyLinkData">This uses the value of <a href="../symbols/GraphLinksModel.html#copyLinkDataFunction" class="linkProperty">copyLinkDataFunction</a> to actually perform the copy,unless it is null, in which case this method just makes a shallow copy of the JavaScript Object.</span><div class="details" id="dmethcopyLinkData"><p>This does not modify the model -- the returned data object is not added to this model.This assumes that the data's constructor can be called with no arguments.This also makes sure there is no reference to either the "from" or the "to" node of the original data.</div>
+                                <!--newp--><p><p>Make a copy of a link data object.<span class="nodetails" id="xmethcopyLinkData"><a class="morelink" onclick="hst('methcopyLinkData')">More...</a></span> <span class="details" id="methcopyLinkData">
+This uses the value of <a href="../symbols/GraphLinksModel.html#copyLinkDataFunction" class="linkProperty">copyLinkDataFunction</a> to actually perform the copy,
+unless it is null, in which case this method just makes a shallow copy of the JavaScript Object.
+</span><div class="details" id="dmethcopyLinkData"><p>
+This does not modify the model -- the returned data object is not added to this model.
+This assumes that the data's constructor can be called with no arguments.
+This also makes sure there is no reference to either the "from" or the "to" node of the original data.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1853,7 +2083,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Given a number or string, find the link data object in this modelthat uses the given value as its unique key.<span class="nodetails" id="xmethfindLinkDataForKey"><a class="morelink" onclick="hst('methfindLinkDataForKey')">More...</a></span> <span class="details" id="methfindLinkDataForKey"></span><div class="details" id="dmethfindLinkDataForKey"><p>Unless <a href="../symbols/GraphLinksModel.html#linkKeyProperty" class="linkProperty">linkKeyProperty</a> is set to a non-empty string, this modelwill not automatically assign unique key values for link data objects,and thus this method will always return null.</div>
+                                <!--newp--><p><p>Given a number or string, find the link data object in this model
+that uses the given value as its unique key.<span class="nodetails" id="xmethfindLinkDataForKey"><a class="morelink" onclick="hst('methfindLinkDataForKey')">More...</a></span> <span class="details" id="methfindLinkDataForKey">
+</span><div class="details" id="dmethfindLinkDataForKey"><p>
+Unless <a href="../symbols/GraphLinksModel.html#linkKeyProperty" class="linkProperty">linkKeyProperty</a> is set to a non-empty string, this model
+will not automatically assign unique key values for link data objects,
+and thus this method will always return null.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1880,7 +2115,8 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{Object}</span> null if the key is not present in the model,or if the key is null or undefined or not a string or number.</dt>
+                                      <dt><span class="light fixedFont">{Object}</span> null if the key is not present in the model,
+or if the key is null or undefined or not a string or number.</dt>
                                   
                                   </dl>
                               
@@ -1902,7 +2138,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Find the category of a given link data, a string naming the link templatethat the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> should use to represent the link data.<span class="nodetails" id="xmethgetCategoryForLinkData"><a class="morelink" onclick="hst('methgetCategoryForLinkData')">More...</a></span> <span class="details" id="methgetCategoryForLinkData"></span>
+                                <!--newp--><p><p>Find the category of a given link data, a string naming the link template
+that the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> should use to represent the link data.<span class="nodetails" id="xmethgetCategoryForLinkData"><a class="morelink" onclick="hst('methgetCategoryForLinkData')">More...</a></span> <span class="details" id="methgetCategoryForLinkData"></span>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1951,7 +2188,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>From a link data retrieve a value uniquely identifying the node datafrom which this link is connected.<span class="nodetails" id="xmethgetFromKeyForLinkData"><a class="morelink" onclick="hst('methgetFromKeyForLinkData')">More...</a></span> <span class="details" id="methgetFromKeyForLinkData"></span>
+                                <!--newp--><p><p>From a link data retrieve a value uniquely identifying the node data
+from which this link is connected.<span class="nodetails" id="xmethgetFromKeyForLinkData"><a class="morelink" onclick="hst('methgetFromKeyForLinkData')">More...</a></span> <span class="details" id="methgetFromKeyForLinkData"></span>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1978,7 +2216,8 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{string|number|undefined}</span> This may return undefined ifthe link is not coming from any node.</dt>
+                                      <dt><span class="light fixedFont">{string|number|undefined}</span> This may return undefined if
+the link is not coming from any node.</dt>
                                   
                                   </dl>
                               
@@ -2000,7 +2239,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>From a link data retrieve a value identifying the port object of the nodefrom which this link is connected.<span class="nodetails" id="xmethgetFromPortIdForLinkData"><a class="morelink" onclick="hst('methgetFromPortIdForLinkData')">More...</a></span> <span class="details" id="methgetFromPortIdForLinkData"></span>
+                                <!--newp--><p><p>From a link data retrieve a value identifying the port object of the node
+from which this link is connected.<span class="nodetails" id="xmethgetFromPortIdForLinkData"><a class="morelink" onclick="hst('methgetFromPortIdForLinkData')">More...</a></span> <span class="details" id="methgetFromPortIdForLinkData"></span>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2027,7 +2267,8 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{string}</span> This may return the empty string ifthere is no particular port parameter information.</dt>
+                                      <dt><span class="light fixedFont">{string}</span> This may return the empty string if
+there is no particular port parameter information.</dt>
                                   
                                   </dl>
                               
@@ -2100,7 +2341,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Given a link data object return its unique key: a number or a string.<span class="nodetails" id="xmethgetKeyForLinkData"><a class="morelink" onclick="hst('methgetKeyForLinkData')">More...</a></span> <span class="details" id="methgetKeyForLinkData">This returns undefined if there is no key value.Unless <a href="../symbols/GraphLinksModel.html#linkKeyProperty" class="linkProperty">linkKeyProperty</a> is set to a non-empty string, this modelwill not automatically assign unique key values for link data objects.</span><div class="details" id="dmethgetKeyForLinkData"><p>It is possible to change the key for a link data object by calling <a href="../symbols/GraphLinksModel.html#setKeyForLinkData" class="linkMethod">setKeyForLinkData</a>.</div>
+                                <!--newp--><p><p>Given a link data object return its unique key: a number or a string.<span class="nodetails" id="xmethgetKeyForLinkData"><a class="morelink" onclick="hst('methgetKeyForLinkData')">More...</a></span> <span class="details" id="methgetKeyForLinkData">
+This returns undefined if there is no key value.
+Unless <a href="../symbols/GraphLinksModel.html#linkKeyProperty" class="linkProperty">linkKeyProperty</a> is set to a non-empty string, this model
+will not automatically assign unique key values for link data objects.
+</span><div class="details" id="dmethgetKeyForLinkData"><p>
+It is possible to change the key for a link data object by calling <a href="../symbols/GraphLinksModel.html#setKeyForLinkData" class="linkMethod">setKeyForLinkData</a>.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2151,7 +2397,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Gets an Array of node key values that identify node data acting as labels on the given link data.<span class="nodetails" id="xmethgetLabelKeysForLinkData"><a class="morelink" onclick="hst('methgetLabelKeysForLinkData')">More...</a></span> <span class="details" id="methgetLabelKeysForLinkData"></span><div class="details" id="dmethgetLabelKeysForLinkData"><p>This method only works if <a href="../symbols/GraphLinksModel.html#linkLabelKeysProperty" class="linkProperty">linkLabelKeysProperty</a> has been set to something other than an empty string.</div>
+                                <!--newp--><p><p>Gets an Array of node key values that identify node data acting as labels on the given link data.<span class="nodetails" id="xmethgetLabelKeysForLinkData"><a class="morelink" onclick="hst('methgetLabelKeysForLinkData')">More...</a></span> <span class="details" id="methgetLabelKeysForLinkData">
+</span><div class="details" id="dmethgetLabelKeysForLinkData"><p>
+This method only works if <a href="../symbols/GraphLinksModel.html#linkLabelKeysProperty" class="linkProperty">linkLabelKeysProperty</a> has been set to something other than an empty string.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2204,7 +2452,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>From a link data retrieve a value uniquely identifying the node datato which this link is connected.<span class="nodetails" id="xmethgetToKeyForLinkData"><a class="morelink" onclick="hst('methgetToKeyForLinkData')">More...</a></span> <span class="details" id="methgetToKeyForLinkData"></span>
+                                <!--newp--><p><p>From a link data retrieve a value uniquely identifying the node data
+to which this link is connected.<span class="nodetails" id="xmethgetToKeyForLinkData"><a class="morelink" onclick="hst('methgetToKeyForLinkData')">More...</a></span> <span class="details" id="methgetToKeyForLinkData"></span>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2231,7 +2480,8 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{string|number|undefined}</span> This may return undefined ifthe link is not going to any node.</dt>
+                                      <dt><span class="light fixedFont">{string|number|undefined}</span> This may return undefined if
+the link is not going to any node.</dt>
                                   
                                   </dl>
                               
@@ -2253,7 +2503,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>From a link data retrieve a value identifying the port object of the nodeto which this link is connected.<span class="nodetails" id="xmethgetToPortIdForLinkData"><a class="morelink" onclick="hst('methgetToPortIdForLinkData')">More...</a></span> <span class="details" id="methgetToPortIdForLinkData"></span>
+                                <!--newp--><p><p>From a link data retrieve a value identifying the port object of the node
+to which this link is connected.<span class="nodetails" id="xmethgetToPortIdForLinkData"><a class="morelink" onclick="hst('methgetToPortIdForLinkData')">More...</a></span> <span class="details" id="methgetToPortIdForLinkData"></span>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2280,7 +2531,8 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{string}</span> This may return the empty string ifthere is no particular port parameter information.</dt>
+                                      <dt><span class="light fixedFont">{string}</span> This may return the empty string if
+there is no particular port parameter information.</dt>
                                   
                                   </dl>
                               
@@ -2302,7 +2554,10 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>See if the given node data should be represented as a group or as a simple node.<span class="nodetails" id="xmethisGroupForNodeData"><a class="morelink" onclick="hst('methisGroupForNodeData')">More...</a></span> <span class="details" id="methisGroupForNodeData"></span><div class="details" id="dmethisGroupForNodeData"><p>This value must not change as long as the node data is part of the model.At the current time there is no <code>setIsGroupForNodeData</code> method.</div>
+                                <!--newp--><p><p>See if the given node data should be represented as a group or as a simple node.<span class="nodetails" id="xmethisGroupForNodeData"><a class="morelink" onclick="hst('methisGroupForNodeData')">More...</a></span> <span class="details" id="methisGroupForNodeData">
+</span><div class="details" id="dmethisGroupForNodeData"><p>
+This value must not change as long as the node data is part of the model.
+At the current time there is no <code>setIsGroupForNodeData</code> method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2351,7 +2606,19 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This method is called when a link data object is added to the model to make sure that<a href="../symbols/GraphLinksModel.html#getKeyForLinkData" class="linkMethod">getKeyForLinkData</a> returns a unique key value.<span class="nodetails" id="xmethmakeLinkDataKeyUnique"><a class="morelink" onclick="hst('methmakeLinkDataKeyUnique')">More...</a></span> <span class="details" id="methmakeLinkDataKeyUnique"></span><div class="details" id="dmethmakeLinkDataKeyUnique"><p>The key value should be unique within the set of data managed by this model:<a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a>.If the key is already in use, this will assign an unused number to the<a href="../symbols/GraphLinksModel.html#linkKeyProperty" class="linkProperty">linkKeyProperty</a> property on the data.<p>If you want to customize the way in which link data gets a unique key,you can set the <a href="../symbols/Model.html#makeUniqueKeyFunction" class="linkProperty">makeUniqueKeyFunction</a> functional property.<p>If the link data object is already in the model and you want to change its key value,call <a href="../symbols/GraphLinksModel.html#setKeyForLinkData" class="linkMethod">setKeyForLinkData</a> and give it a new unique key value.</div>
+                                <!--newp--><p><p>This method is called when a link data object is added to the model to make sure that
+<a href="../symbols/GraphLinksModel.html#getKeyForLinkData" class="linkMethod">getKeyForLinkData</a> returns a unique key value.<span class="nodetails" id="xmethmakeLinkDataKeyUnique"><a class="morelink" onclick="hst('methmakeLinkDataKeyUnique')">More...</a></span> <span class="details" id="methmakeLinkDataKeyUnique">
+</span><div class="details" id="dmethmakeLinkDataKeyUnique"><p>
+The key value should be unique within the set of data managed by this model:
+<a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a>.
+If the key is already in use, this will assign an unused number to the
+<a href="../symbols/GraphLinksModel.html#linkKeyProperty" class="linkProperty">linkKeyProperty</a> property on the data.
+<p>
+If you want to customize the way in which link data gets a unique key,
+you can set the <a href="../symbols/Model.html#makeUniqueKeyFunction" class="linkProperty">makeUniqueKeyFunction</a> functional property.
+<p>
+If the link data object is already in the model and you want to change its key value,
+call <a href="../symbols/GraphLinksModel.html#setKeyForLinkData" class="linkMethod">setKeyForLinkData</a> and give it a new unique key value.</div>
                  
                               
                                   <dl class="detailList">
@@ -2384,7 +2651,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Removes a node key value that identifies a node data acting as a former label node on the given link data.<span class="nodetails" id="xmethremoveLabelKeyForLinkData"><a class="morelink" onclick="hst('methremoveLabelKeyForLinkData')">More...</a></span> <span class="details" id="methremoveLabelKeyForLinkData"></span><div class="details" id="dmethremoveLabelKeyForLinkData"><p>Removing a reference to a node data from the collection of link label keysdoes not automatically remove any node data from the model.<p>This method only works if <a href="../symbols/GraphLinksModel.html#linkLabelKeysProperty" class="linkProperty">linkLabelKeysProperty</a> has been set to something other than an empty string.</div>
+                                <!--newp--><p><p>Removes a node key value that identifies a node data acting as a former label node on the given link data.<span class="nodetails" id="xmethremoveLabelKeyForLinkData"><a class="morelink" onclick="hst('methremoveLabelKeyForLinkData')">More...</a></span> <span class="details" id="methremoveLabelKeyForLinkData">
+</span><div class="details" id="dmethremoveLabelKeyForLinkData"><p>
+Removing a reference to a node data from the collection of link label keys
+does not automatically remove any node data from the model.
+<p>
+This method only works if <a href="../symbols/GraphLinksModel.html#linkLabelKeysProperty" class="linkProperty">linkLabelKeysProperty</a> has been set to something other than an empty string.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2432,7 +2704,18 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>When you want to remove a link from the diagram, call this method with an existing link data object.<span class="nodetails" id="xmethremoveLinkData"><a class="morelink" onclick="hst('methremoveLinkData')">More...</a></span> <span class="details" id="methremoveLinkData">This will remove that data object from the <a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a> andnotify all listeners that a link data object has been removed from the collection.</span><div class="details" id="dmethremoveLinkData"><p>If you do not have a reference to the particular data object that is in the <a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a>,you may need to search for it by iterating through that Array, or (more likely),by finding the desired <a href="../symbols/Link.html" class="linkConstructor">Link</a> in a <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> and getting that link's <a href="../symbols/Panel.html#data" class="linkProperty">Panel.data</a>.<p>Removing a link data from a model does not automatically removeany associated label node data from the model.<p>This operation does nothing if the link data is not present in the <a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a>.</div>
+                                <!--newp--><p><p>When you want to remove a link from the diagram, call this method with an existing link data object.<span class="nodetails" id="xmethremoveLinkData"><a class="morelink" onclick="hst('methremoveLinkData')">More...</a></span> <span class="details" id="methremoveLinkData">
+This will remove that data object from the <a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a> and
+notify all listeners that a link data object has been removed from the collection.
+</span><div class="details" id="dmethremoveLinkData"><p>
+If you do not have a reference to the particular data object that is in the <a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a>,
+you may need to search for it by iterating through that Array, or (more likely),
+by finding the desired <a href="../symbols/Link.html" class="linkConstructor">Link</a> in a <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> and getting that link's <a href="../symbols/Panel.html#data" class="linkProperty">Panel.data</a>.
+<p>
+Removing a link data from a model does not automatically remove
+any associated label node data from the model.
+<p>
+This operation does nothing if the link data is not present in the <a href="../symbols/GraphLinksModel.html#linkDataArray" class="linkProperty">linkDataArray</a>.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2507,7 +2790,15 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Change the category of a given link data, a string naming the link templatethat the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> should use to represent the link data.<span class="nodetails" id="xmethsetCategoryForLinkData"><a class="morelink" onclick="hst('methsetCategoryForLinkData')">More...</a></span> <span class="details" id="methsetCategoryForLinkData"></span><div class="details" id="dmethsetCategoryForLinkData"><p>Changing the link template for a link data will cause the existing <a href="../symbols/Link.html" class="linkConstructor">Link</a>to be removed from the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> and be replaced with a new <a href="../symbols/Link.html" class="linkConstructor">Link</a>created by copying the new link template and applying any data-bindings.Note that the new template must be an instance of the same class as the original link.Thus one cannot change the category of a link from an instance of <a href="../symbols/Link.html" class="linkConstructor">Link</a>to an instance of a subclass of Link, nor vice-versa.</div>
+                                <!--newp--><p><p>Change the category of a given link data, a string naming the link template
+that the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> should use to represent the link data.<span class="nodetails" id="xmethsetCategoryForLinkData"><a class="morelink" onclick="hst('methsetCategoryForLinkData')">More...</a></span> <span class="details" id="methsetCategoryForLinkData">
+</span><div class="details" id="dmethsetCategoryForLinkData"><p>
+Changing the link template for a link data will cause the existing <a href="../symbols/Link.html" class="linkConstructor">Link</a>
+to be removed from the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> and be replaced with a new <a href="../symbols/Link.html" class="linkConstructor">Link</a>
+created by copying the new link template and applying any data-bindings.
+Note that the new template must be an instance of the same class as the original link.
+Thus one cannot change the category of a link from an instance of <a href="../symbols/Link.html" class="linkConstructor">Link</a>
+to an instance of a subclass of Link, nor vice-versa.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2555,7 +2846,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This override changes the value of some property of a node data, a link data, or an item data, given a string naming the propertyand the new value, in a manner that can be undone/redone and that automatically updates any bindings.<span class="nodetails" id="xmethsetDataProperty"><a class="morelink" onclick="hst('methsetDataProperty')">More...</a></span> <span class="details" id="methsetDataProperty">This override handles link data as well as node data.</span><div class="details" id="dmethsetDataProperty"><p>This gets the old value of the property; if the value is the same as the new value, no side-effects occur.</div>
+                                <!--newp--><p><p>This override changes the value of some property of a node data, a link data, or an item data, given a string naming the property
+and the new value, in a manner that can be undone/redone and that automatically updates any bindings.<span class="nodetails" id="xmethsetDataProperty"><a class="morelink" onclick="hst('methsetDataProperty')">More...</a></span> <span class="details" id="methsetDataProperty">
+This override handles link data as well as node data.
+</span><div class="details" id="dmethsetDataProperty"><p>
+This gets the old value of the property; if the value is the same as the new value, no side-effects occur.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2572,7 +2867,8 @@
                                           <span class="light fixedFont">{Object}</span> <b>data</b>
                                           
                                       </dt>
-                                      <dd>a JavaScript object typically the value of a <a href="../symbols/Panel.html#data" class="linkProperty">Panel.data</a> and represented by a Node, Link, Group, simple Part,                     or item in a <a href="../symbols/Panel.html#itemArray" class="linkProperty">Panel.itemArray</a>; or this model's <a href="../symbols/Model.html#modelData" class="linkProperty">modelData</a>.</dd>
+                                      <dd>a JavaScript object typically the value of a <a href="../symbols/Panel.html#data" class="linkProperty">Panel.data</a> and represented by a Node, Link, Group, simple Part,
+                     or item in a <a href="../symbols/Panel.html#itemArray" class="linkProperty">Panel.itemArray</a>; or this model's <a href="../symbols/Model.html#modelData" class="linkProperty">modelData</a>.</dd>
                                   
                                       <dt>
                                           <span class="light fixedFont">{string}</span> <b>propname</b>
@@ -2607,7 +2903,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Change the node key that the given link data references as thesource of the link.<span class="nodetails" id="xmethsetFromKeyForLinkData"><a class="morelink" onclick="hst('methsetFromKeyForLinkData')">More...</a></span> <span class="details" id="methsetFromKeyForLinkData"></span>
+                                <!--newp--><p><p>Change the node key that the given link data references as the
+source of the link.<span class="nodetails" id="xmethsetFromKeyForLinkData"><a class="morelink" onclick="hst('methsetFromKeyForLinkData')">More...</a></span> <span class="details" id="methsetFromKeyForLinkData"></span>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2632,7 +2929,8 @@
                                           <span class="light fixedFont">{string|number|undefined}</span> <b>key</b>
                                           
                                       </dt>
-                                      <dd>This may be undefined ifthe link should no longer come from any node.</dd>
+                                      <dd>This may be undefined if
+the link should no longer come from any node.</dd>
                                   
                                   </dl>
                               
@@ -2655,7 +2953,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Change the information that the given link data uses to identify theparticular "port" that the link is coming from.<span class="nodetails" id="xmethsetFromPortIdForLinkData"><a class="morelink" onclick="hst('methsetFromPortIdForLinkData')">More...</a></span> <span class="details" id="methsetFromPortIdForLinkData"></span>
+                                <!--newp--><p><p>Change the information that the given link data uses to identify the
+particular "port" that the link is coming from.<span class="nodetails" id="xmethsetFromPortIdForLinkData"><a class="morelink" onclick="hst('methsetFromPortIdForLinkData')">More...</a></span> <span class="details" id="methsetFromPortIdForLinkData"></span>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2680,7 +2979,8 @@
                                           <span class="light fixedFont">{string}</span> <b>portname</b>
                                           
                                       </dt>
-                                      <dd>This may be the empty string ifthe link should no longer be associated with any particular "port".</dd>
+                                      <dd>This may be the empty string if
+the link should no longer be associated with any particular "port".</dd>
                                   
                                   </dl>
                               
@@ -2753,7 +3053,14 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Change the unique key of a given link data that is already in this model.<span class="nodetails" id="xmethsetKeyForLinkData"><a class="morelink" onclick="hst('methsetKeyForLinkData')">More...</a></span> <span class="details" id="methsetKeyForLinkData">The new key value must be unique -- i.e. not in use by another link data object.You can call <a href="../symbols/GraphLinksModel.html#findLinkDataForKey" class="linkMethod">findLinkDataForKey</a> to check if a proposed new key is already in use.</span><div class="details" id="dmethsetKeyForLinkData"><p>If this is called when <a href="../symbols/GraphLinksModel.html#linkKeyProperty" class="linkProperty">linkKeyProperty</a> is the empty string (i.e. its default value),this method has no effect.If this is called on a link data object that is not (yet) in this model,this unconditionally modifies the property to the new key value.</div>
+                                <!--newp--><p><p>Change the unique key of a given link data that is already in this model.<span class="nodetails" id="xmethsetKeyForLinkData"><a class="morelink" onclick="hst('methsetKeyForLinkData')">More...</a></span> <span class="details" id="methsetKeyForLinkData">
+The new key value must be unique -- i.e. not in use by another link data object.
+You can call <a href="../symbols/GraphLinksModel.html#findLinkDataForKey" class="linkMethod">findLinkDataForKey</a> to check if a proposed new key is already in use.
+</span><div class="details" id="dmethsetKeyForLinkData"><p>
+If this is called when <a href="../symbols/GraphLinksModel.html#linkKeyProperty" class="linkProperty">linkKeyProperty</a> is the empty string (i.e. its default value),
+this method has no effect.
+If this is called on a link data object that is not (yet) in this model,
+this unconditionally modifies the property to the new key value.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2801,7 +3108,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Replaces an Array of node key values that identify node data acting as labels on the given link data.<span class="nodetails" id="xmethsetLabelKeysForLinkData"><a class="morelink" onclick="hst('methsetLabelKeysForLinkData')">More...</a></span> <span class="details" id="methsetLabelKeysForLinkData"></span><div class="details" id="dmethsetLabelKeysForLinkData"><p>This method only works if <a href="../symbols/GraphLinksModel.html#linkLabelKeysProperty" class="linkProperty">linkLabelKeysProperty</a> has been set to something other than an empty string.</div>
+                                <!--newp--><p><p>Replaces an Array of node key values that identify node data acting as labels on the given link data.<span class="nodetails" id="xmethsetLabelKeysForLinkData"><a class="morelink" onclick="hst('methsetLabelKeysForLinkData')">More...</a></span> <span class="details" id="methsetLabelKeysForLinkData">
+</span><div class="details" id="dmethsetLabelKeysForLinkData"><p>
+This method only works if <a href="../symbols/GraphLinksModel.html#linkLabelKeysProperty" class="linkProperty">linkLabelKeysProperty</a> has been set to something other than an empty string.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2853,7 +3162,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Change the node key that the given link data references as thedestination of the link.<span class="nodetails" id="xmethsetToKeyForLinkData"><a class="morelink" onclick="hst('methsetToKeyForLinkData')">More...</a></span> <span class="details" id="methsetToKeyForLinkData"></span>
+                                <!--newp--><p><p>Change the node key that the given link data references as the
+destination of the link.<span class="nodetails" id="xmethsetToKeyForLinkData"><a class="morelink" onclick="hst('methsetToKeyForLinkData')">More...</a></span> <span class="details" id="methsetToKeyForLinkData"></span>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2878,7 +3188,8 @@
                                           <span class="light fixedFont">{string|number|undefined}</span> <b>key</b>
                                           
                                       </dt>
-                                      <dd>This may be undefined ifthe link should no longer go to any node.</dd>
+                                      <dd>This may be undefined if
+the link should no longer go to any node.</dd>
                                   
                                   </dl>
                               
@@ -2901,7 +3212,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Change the information that the given link data uses to identify theparticular "port" that the link is going to.<span class="nodetails" id="xmethsetToPortIdForLinkData"><a class="morelink" onclick="hst('methsetToPortIdForLinkData')">More...</a></span> <span class="details" id="methsetToPortIdForLinkData"></span>
+                                <!--newp--><p><p>Change the information that the given link data uses to identify the
+particular "port" that the link is going to.<span class="nodetails" id="xmethsetToPortIdForLinkData"><a class="morelink" onclick="hst('methsetToPortIdForLinkData')">More...</a></span> <span class="details" id="methsetToPortIdForLinkData"></span>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2926,7 +3238,8 @@
                                           <span class="light fixedFont">{string}</span> <b>portname</b>
                                           
                                       </dt>
-                                      <dd>This may be the empty string ifthe link should no longer be associated with any particular "port".</dd>
+                                      <dd>This may be the empty string if
+the link should no longer be associated with any particular "port".</dd>
                                   
                                   </dl>
                               

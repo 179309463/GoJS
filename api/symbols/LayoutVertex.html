@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1131,7 +1126,22 @@
                 
                 
 
-                A vertex represents a <a href="../symbols/Node.html" class="linkConstructor">Node</a> in a <a href="../symbols/LayoutNetwork.html" class="linkConstructor">LayoutNetwork</a>,along with its <a href="../symbols/LayoutVertex.html#bounds" class="linkProperty">bounds</a> and <a href="../symbols/LayoutVertex.html#focus" class="linkProperty">focus</a> and collections of <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>s that come into and go out of the vertex.The <a href="../symbols/LayoutVertex.html#node" class="linkProperty">node</a> property may be null for vertexes that represent "dummy" nodes,when the layout wants to work with a network that is not isomorphic with the collection of Nodes and Links being laid out.<p>This holds layout-specific data for the node.For each kind of layout that uses a LayoutNetwork there is a subclass of <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a> and a subclass of <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>:<ul><li><a href="../symbols/CircularLayout.html" class="linkConstructor">CircularLayout</a>: <a href="../symbols/CircularVertex.html" class="linkConstructor">CircularVertex</a> and <a href="../symbols/CircularEdge.html" class="linkConstructor">CircularEdge</a></li><li><a href="../symbols/ForceDirectedLayout.html" class="linkConstructor">ForceDirectedLayout</a>: <a href="../symbols/ForceDirectedVertex.html" class="linkConstructor">ForceDirectedVertex</a> and <a href="../symbols/ForceDirectedEdge.html" class="linkConstructor">ForceDirectedEdge</a></li><li><a href="../symbols/LayeredDigraphLayout.html" class="linkConstructor">LayeredDigraphLayout</a>: <a href="../symbols/LayeredDigraphVertex.html" class="linkConstructor">LayeredDigraphVertex</a> and <a href="../symbols/LayeredDigraphEdge.html" class="linkConstructor">LayeredDigraphEdge</a></li><li><a href="../symbols/TreeLayout.html" class="linkConstructor">TreeLayout</a>: <a href="../symbols/TreeVertex.html" class="linkConstructor">TreeVertex</a> and <a href="../symbols/TreeEdge.html" class="linkConstructor">TreeEdge</a></li></ul><p>Modifying a <a href="../symbols/LayoutNetwork.html" class="linkConstructor">LayoutNetwork</a> or a <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a> or a <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a> does notinvalidate the <a href="../symbols/Layout.html" class="linkConstructor">Layout</a> or raise any changed events.
+                A vertex represents a <a href="../symbols/Node.html" class="linkConstructor">Node</a> in a <a href="../symbols/LayoutNetwork.html" class="linkConstructor">LayoutNetwork</a>,
+along with its <a href="../symbols/LayoutVertex.html#bounds" class="linkProperty">bounds</a> and <a href="../symbols/LayoutVertex.html#focus" class="linkProperty">focus</a> and collections of <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>s that come into and go out of the vertex.
+The <a href="../symbols/LayoutVertex.html#node" class="linkProperty">node</a> property may be null for vertexes that represent "dummy" nodes,
+when the layout wants to work with a network that is not isomorphic with the collection of Nodes and Links being laid out.
+<p>
+This holds layout-specific data for the node.
+For each kind of layout that uses a LayoutNetwork there is a subclass of <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a> and a subclass of <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>:
+<ul>
+<li><a href="../symbols/CircularLayout.html" class="linkConstructor">CircularLayout</a>: <a href="../symbols/CircularVertex.html" class="linkConstructor">CircularVertex</a> and <a href="../symbols/CircularEdge.html" class="linkConstructor">CircularEdge</a></li>
+<li><a href="../symbols/ForceDirectedLayout.html" class="linkConstructor">ForceDirectedLayout</a>: <a href="../symbols/ForceDirectedVertex.html" class="linkConstructor">ForceDirectedVertex</a> and <a href="../symbols/ForceDirectedEdge.html" class="linkConstructor">ForceDirectedEdge</a></li>
+<li><a href="../symbols/LayeredDigraphLayout.html" class="linkConstructor">LayeredDigraphLayout</a>: <a href="../symbols/LayeredDigraphVertex.html" class="linkConstructor">LayeredDigraphVertex</a> and <a href="../symbols/LayeredDigraphEdge.html" class="linkConstructor">LayeredDigraphEdge</a></li>
+<li><a href="../symbols/TreeLayout.html" class="linkConstructor">TreeLayout</a>: <a href="../symbols/TreeVertex.html" class="linkConstructor">TreeVertex</a> and <a href="../symbols/TreeEdge.html" class="linkConstructor">TreeEdge</a></li>
+</ul>
+<p>
+Modifying a <a href="../symbols/LayoutNetwork.html" class="linkConstructor">LayoutNetwork</a> or a <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a> or a <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a> does not
+invalidate the <a href="../symbols/Layout.html" class="linkConstructor">Layout</a> or raise any changed events.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1196,7 +1206,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the bounds of this vertex, in document coordinates.<span class="nodetails" id="xpropbounds"><a class="morelink" onclick="hst('propbounds')">More...</a></span> <span class="details" id="propbounds">Setting this property does not directly modify the position of any <a href="../symbols/Node.html" class="linkConstructor">Node</a>,but it will modify the value of <a href="../symbols/LayoutVertex.html#centerX" class="linkProperty">centerX</a> and <a href="../symbols/LayoutVertex.html#centerY" class="linkProperty">centerY</a>,as well as the subsidiary convenience properties <a href="../symbols/LayoutVertex.html#x" class="linkProperty">x</a>, <a href="../symbols/LayoutVertex.html#y" class="linkProperty">y</a>, <a href="../symbols/LayoutVertex.html#width" class="linkProperty">width</a>, and <a href="../symbols/LayoutVertex.html#height" class="linkProperty">height</a>.</span>
+                <p>Gets or sets the bounds of this vertex, in document coordinates.<span class="nodetails" id="xpropbounds"><a class="morelink" onclick="hst('propbounds')">More...</a></span> <span class="details" id="propbounds">
+Setting this property does not directly modify the position of any <a href="../symbols/Node.html" class="linkConstructor">Node</a>,
+but it will modify the value of <a href="../symbols/LayoutVertex.html#centerX" class="linkProperty">centerX</a> and <a href="../symbols/LayoutVertex.html#centerY" class="linkProperty">centerY</a>,
+as well as the subsidiary convenience properties <a href="../symbols/LayoutVertex.html#x" class="linkProperty">x</a>, <a href="../symbols/LayoutVertex.html#y" class="linkProperty">y</a>, <a href="../symbols/LayoutVertex.html#width" class="linkProperty">width</a>, and <a href="../symbols/LayoutVertex.html#height" class="linkProperty">height</a>.</span>
                 
                 </div>
                             </td>
@@ -1216,7 +1229,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the center <a href="../symbols/Point.html#x" class="linkProperty">Point.x</a> of this vertex, in document coordinates.<span class="nodetails" id="xpropcenterX"><a class="morelink" onclick="hst('propcenterX')">More...</a></span> <span class="details" id="propcenterX">This property depends on both <a href="../symbols/LayoutVertex.html#bounds" class="linkProperty">bounds</a> and <a href="../symbols/LayoutVertex.html#focus" class="linkProperty">focus</a>.Setting this property does not modify the position of any <a href="../symbols/Node.html" class="linkConstructor">Node</a>,but it will modify the value of <a href="../symbols/LayoutVertex.html#bounds" class="linkProperty">bounds</a>.</span>
+                <p>Gets or sets the center <a href="../symbols/Point.html#x" class="linkProperty">Point.x</a> of this vertex, in document coordinates.<span class="nodetails" id="xpropcenterX"><a class="morelink" onclick="hst('propcenterX')">More...</a></span> <span class="details" id="propcenterX">
+This property depends on both <a href="../symbols/LayoutVertex.html#bounds" class="linkProperty">bounds</a> and <a href="../symbols/LayoutVertex.html#focus" class="linkProperty">focus</a>.
+Setting this property does not modify the position of any <a href="../symbols/Node.html" class="linkConstructor">Node</a>,
+but it will modify the value of <a href="../symbols/LayoutVertex.html#bounds" class="linkProperty">bounds</a>.</span>
                 
                 </div>
                             </td>
@@ -1236,7 +1252,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the center <a href="../symbols/Point.html#y" class="linkProperty">Point.y</a> of this vertex, in document coordinates.<span class="nodetails" id="xpropcenterY"><a class="morelink" onclick="hst('propcenterY')">More...</a></span> <span class="details" id="propcenterY">This property depends on both <a href="../symbols/LayoutVertex.html#bounds" class="linkProperty">bounds</a> and <a href="../symbols/LayoutVertex.html#focus" class="linkProperty">focus</a>.Setting this property does not modify the position of any <a href="../symbols/Node.html" class="linkConstructor">Node</a>,but it will modify the value of <a href="../symbols/LayoutVertex.html#bounds" class="linkProperty">bounds</a>.</span>
+                <p>Gets or sets the center <a href="../symbols/Point.html#y" class="linkProperty">Point.y</a> of this vertex, in document coordinates.<span class="nodetails" id="xpropcenterY"><a class="morelink" onclick="hst('propcenterY')">More...</a></span> <span class="details" id="propcenterY">
+This property depends on both <a href="../symbols/LayoutVertex.html#bounds" class="linkProperty">bounds</a> and <a href="../symbols/LayoutVertex.html#focus" class="linkProperty">focus</a>.
+Setting this property does not modify the position of any <a href="../symbols/Node.html" class="linkConstructor">Node</a>,
+but it will modify the value of <a href="../symbols/LayoutVertex.html#bounds" class="linkProperty">bounds</a>.</span>
                 
                 </div>
                             </td>
@@ -1258,7 +1277,13 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the data object in the model that should be associated with this vertex, if any.<span class="nodetails" id="xpropdata"><a class="morelink" onclick="hst('propdata')">More...</a></span> <span class="details" id="propdata">The value will be non-null if this vertex is virtualized,not represented by a real <a href="../symbols/Node.html" class="linkConstructor">Node</a> in the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.Each data object should have a 'bounds' property that is a <a href="../symbols/Rect.html" class="linkConstructor">Rect</a>or any JavaScript Object with 'x', 'y', 'width', and 'height' properties that are real numbers,and non-negative numbers for the width and the height.Setting this data property will also set the <a href="../symbols/LayoutVertex.html#bounds" class="linkProperty">bounds</a> and <a href="../symbols/LayoutVertex.html#focus" class="linkProperty">focus</a> properties.</span>
+                <p>Gets or sets the data object in the model that should be associated with this vertex, if any.<span class="nodetails" id="xpropdata"><a class="morelink" onclick="hst('propdata')">More...</a></span> <span class="details" id="propdata">
+The value will be non-null if this vertex is virtualized,
+not represented by a real <a href="../symbols/Node.html" class="linkConstructor">Node</a> in the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.
+Each data object should have a 'bounds' property that is a <a href="../symbols/Rect.html" class="linkConstructor">Rect</a>
+or any JavaScript Object with 'x', 'y', 'width', and 'height' properties that are real numbers,
+and non-negative numbers for the width and the height.
+Setting this data property will also set the <a href="../symbols/LayoutVertex.html#bounds" class="linkProperty">bounds</a> and <a href="../symbols/LayoutVertex.html#focus" class="linkProperty">focus</a> properties.</span>
                 
                 </div>
                             </td>
@@ -1358,7 +1383,12 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the offset of the <a href="../symbols/LayoutVertex.html#focusX" class="linkProperty">focusX</a> and <a href="../symbols/LayoutVertex.html#focusY" class="linkProperty">focusY</a>from the <a href="../symbols/LayoutVertex.html#bounds" class="linkProperty">bounds</a> position.<span class="nodetails" id="xpropfocus"><a class="morelink" onclick="hst('propfocus')">More...</a></span> <span class="details" id="propfocus">Setting this property does not directly modify the position of any <a href="../symbols/Node.html" class="linkConstructor">Node</a>,but it does affect the value of <a href="../symbols/LayoutVertex.html#centerX" class="linkProperty">centerX</a> and <a href="../symbols/LayoutVertex.html#centerY" class="linkProperty">centerY</a>.</span><div class="details" id="dpropfocus"><p>The "focus" is normally the center of the Node's <a href="../symbols/Part.html#locationObject" class="linkProperty">Part.locationObject</a>.</div>
+                <p>Gets or sets the offset of the <a href="../symbols/LayoutVertex.html#focusX" class="linkProperty">focusX</a> and <a href="../symbols/LayoutVertex.html#focusY" class="linkProperty">focusY</a>
+from the <a href="../symbols/LayoutVertex.html#bounds" class="linkProperty">bounds</a> position.<span class="nodetails" id="xpropfocus"><a class="morelink" onclick="hst('propfocus')">More...</a></span> <span class="details" id="propfocus">
+Setting this property does not directly modify the position of any <a href="../symbols/Node.html" class="linkConstructor">Node</a>,
+but it does affect the value of <a href="../symbols/LayoutVertex.html#centerX" class="linkProperty">centerX</a> and <a href="../symbols/LayoutVertex.html#centerY" class="linkProperty">centerY</a>.
+</span><div class="details" id="dpropfocus"><p>
+The "focus" is normally the center of the Node's <a href="../symbols/Part.html#locationObject" class="linkProperty">Part.locationObject</a>.</div>
                 
                 </div>
                             </td>
@@ -1418,7 +1448,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the height of this vertex.<span class="nodetails" id="xpropheight"><a class="morelink" onclick="hst('propheight')">More...</a></span> <span class="details" id="propheight">This is always the vertical distance reserved for the node.</span>
+                <p>Gets or sets the height of this vertex.<span class="nodetails" id="xpropheight"><a class="morelink" onclick="hst('propheight')">More...</a></span> <span class="details" id="propheight">
+This is always the vertical distance reserved for the node.</span>
                 
                 </div>
                             </td>
@@ -1438,7 +1469,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the <a href="../symbols/LayoutNetwork.html" class="linkConstructor">LayoutNetwork</a> that owns this vertex.<span class="nodetails" id="xpropnetwork"><a class="morelink" onclick="hst('propnetwork')">More...</a></span> <span class="details" id="propnetwork">The default value is null.It is set automatically for you in <a href="../symbols/LayoutNetwork.html#addVertex" class="linkMethod">LayoutNetwork.addVertex</a>.</span>
+                <p>Gets or sets the <a href="../symbols/LayoutNetwork.html" class="linkConstructor">LayoutNetwork</a> that owns this vertex.<span class="nodetails" id="xpropnetwork"><a class="morelink" onclick="hst('propnetwork')">More...</a></span> <span class="details" id="propnetwork">
+The default value is null.
+It is set automatically for you in <a href="../symbols/LayoutNetwork.html#addVertex" class="linkMethod">LayoutNetwork.addVertex</a>.</span>
                 
                 </div>
                             </td>
@@ -1458,7 +1491,12 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the <a href="../symbols/Node.html" class="linkConstructor">Node</a> associated with this vertex, if any.<span class="nodetails" id="xpropnode"><a class="morelink" onclick="hst('propnode')">More...</a></span> <span class="details" id="propnode">The value may be null if this vertex is a "dummy" vertex,not represented by a real <a href="../symbols/Node.html" class="linkConstructor">Node</a> in the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.</span><div class="details" id="dpropnode"><p>This property setter also sets the <a href="../symbols/LayoutVertex.html#bounds" class="linkProperty">bounds</a> and <a href="../symbols/LayoutVertex.html#focus" class="linkProperty">focus</a> propertiesaccording to the value of the Node's actualBounds and its <a href="../symbols/Part.html#locationObject" class="linkProperty">Part.locationObject</a>'s center point.</div>
+                <p>Gets or sets the <a href="../symbols/Node.html" class="linkConstructor">Node</a> associated with this vertex, if any.<span class="nodetails" id="xpropnode"><a class="morelink" onclick="hst('propnode')">More...</a></span> <span class="details" id="propnode">
+The value may be null if this vertex is a "dummy" vertex,
+not represented by a real <a href="../symbols/Node.html" class="linkConstructor">Node</a> in the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.
+</span><div class="details" id="dpropnode"><p>
+This property setter also sets the <a href="../symbols/LayoutVertex.html#bounds" class="linkProperty">bounds</a> and <a href="../symbols/LayoutVertex.html#focus" class="linkProperty">focus</a> properties
+according to the value of the Node's actualBounds and its <a href="../symbols/Part.html#locationObject" class="linkProperty">Part.locationObject</a>'s center point.</div>
                 
                 </div>
                             </td>
@@ -1538,7 +1576,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the width of this vertex.<span class="nodetails" id="xpropwidth"><a class="morelink" onclick="hst('propwidth')">More...</a></span> <span class="details" id="propwidth">This is always the horizontal distance reserved for the node.</span>
+                <p>Gets or sets the width of this vertex.<span class="nodetails" id="xpropwidth"><a class="morelink" onclick="hst('propwidth')">More...</a></span> <span class="details" id="propwidth">
+This is always the horizontal distance reserved for the node.</span>
                 
                 </div>
                             </td>
@@ -1620,7 +1659,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Adds a <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a> to the list of successors(the edge will be going out from this vertex).<span class="nodetails" id="xmethaddDestinationEdge"><a class="morelink" onclick="hst('methaddDestinationEdge')">More...</a></span> <span class="details" id="methaddDestinationEdge">Calling this method does not modify the <a href="../symbols/LayoutEdge.html#fromVertex" class="linkProperty">LayoutEdge.fromVertex</a> of the LayoutEdge.</span>
+                                <!--newp--><p><p>Adds a <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a> to the list of successors
+(the edge will be going out from this vertex).<span class="nodetails" id="xmethaddDestinationEdge"><a class="morelink" onclick="hst('methaddDestinationEdge')">More...</a></span> <span class="details" id="methaddDestinationEdge">
+Calling this method does not modify the <a href="../symbols/LayoutEdge.html#fromVertex" class="linkProperty">LayoutEdge.fromVertex</a> of the LayoutEdge.</span>
                  
                               
                                   <dl class="detailList">
@@ -1653,7 +1694,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Adds a <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a> to the list of predecessors(the edge will be coming into this vertex).<span class="nodetails" id="xmethaddSourceEdge"><a class="morelink" onclick="hst('methaddSourceEdge')">More...</a></span> <span class="details" id="methaddSourceEdge">Calling this method does not modify the <a href="../symbols/LayoutEdge.html#toVertex" class="linkProperty">LayoutEdge.toVertex</a> of the LayoutEdge.</span>
+                                <!--newp--><p><p>Adds a <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a> to the list of predecessors
+(the edge will be coming into this vertex).<span class="nodetails" id="xmethaddSourceEdge"><a class="morelink" onclick="hst('methaddSourceEdge')">More...</a></span> <span class="details" id="methaddSourceEdge">
+Calling this method does not modify the <a href="../symbols/LayoutEdge.html#toVertex" class="linkProperty">LayoutEdge.toVertex</a> of the LayoutEdge.</span>
                  
                               
                                   <dl class="detailList">
@@ -1686,7 +1729,13 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Moves the <a href="../symbols/Node.html" class="linkConstructor">Node</a> corresponding to this vertexso that its position is at the current <a href="../symbols/LayoutVertex.html#bounds" class="linkProperty">bounds</a> point.<span class="nodetails" id="xmethcommit"><a class="morelink" onclick="hst('methcommit')">More...</a></span> <span class="details" id="methcommit"></span><div class="details" id="dmethcommit"><p>To make the most common cases look right, the Node's <a href="../symbols/Part.html#locationObject" class="linkProperty">Part.locationObject</a>is centered.  Thus iconic nodes will have the center of the icon be positionedaccording to the center of this vertex, ignoring any labels.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Moves the <a href="../symbols/Node.html" class="linkConstructor">Node</a> corresponding to this vertex
+so that its position is at the current <a href="../symbols/LayoutVertex.html#bounds" class="linkProperty">bounds</a> point.<span class="nodetails" id="xmethcommit"><a class="morelink" onclick="hst('methcommit')">More...</a></span> <span class="details" id="methcommit">
+</span><div class="details" id="dmethcommit"><p>
+To make the most common cases look right, the Node's <a href="../symbols/Part.html#locationObject" class="linkProperty">Part.locationObject</a>
+is centered.  Thus iconic nodes will have the center of the icon be positioned
+according to the center of this vertex, ignoring any labels.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                               
@@ -1708,7 +1757,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Deletes a <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a> from the list of successors(the edge was going out from this vertex).<span class="nodetails" id="xmethdeleteDestinationEdge"><a class="morelink" onclick="hst('methdeleteDestinationEdge')">More...</a></span> <span class="details" id="methdeleteDestinationEdge">Calling this method does not modify the <a href="../symbols/LayoutEdge.html#fromVertex" class="linkProperty">LayoutEdge.fromVertex</a> of the LayoutEdge.</span>
+                                <!--newp--><p><p>Deletes a <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a> from the list of successors
+(the edge was going out from this vertex).<span class="nodetails" id="xmethdeleteDestinationEdge"><a class="morelink" onclick="hst('methdeleteDestinationEdge')">More...</a></span> <span class="details" id="methdeleteDestinationEdge">
+Calling this method does not modify the <a href="../symbols/LayoutEdge.html#fromVertex" class="linkProperty">LayoutEdge.fromVertex</a> of the LayoutEdge.</span>
                  
                               
                                   <dl class="detailList">
@@ -1741,7 +1792,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Deletes a <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a> from the list of predecessors(the edge was coming into this vertex).<span class="nodetails" id="xmethdeleteSourceEdge"><a class="morelink" onclick="hst('methdeleteSourceEdge')">More...</a></span> <span class="details" id="methdeleteSourceEdge">Calling this method does not modify the <a href="../symbols/LayoutEdge.html#toVertex" class="linkProperty">LayoutEdge.toVertex</a> of the LayoutEdge.</span>
+                                <!--newp--><p><p>Deletes a <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a> from the list of predecessors
+(the edge was coming into this vertex).<span class="nodetails" id="xmethdeleteSourceEdge"><a class="morelink" onclick="hst('methdeleteSourceEdge')">More...</a></span> <span class="details" id="methdeleteSourceEdge">
+Calling this method does not modify the <a href="../symbols/LayoutEdge.html#toVertex" class="linkProperty">LayoutEdge.toVertex</a> of the LayoutEdge.</span>
                  
                               
                                   <dl class="detailList">
@@ -1774,7 +1827,10 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This static function is used to compare the <a href="../symbols/Part.html#text" class="linkProperty">Part.text</a> values of the <a href="../symbols/LayoutVertex.html#node" class="linkProperty">node</a>s ofthe argument <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>es.<span class="nodetails" id="xmethsmartComparer"><a class="morelink" onclick="hst('methsmartComparer')">More...</a></span> <span class="details" id="methsmartComparer">If the text ends in a number, the values are compared as numbers rather than lexicographically.Naturally this comparison is significantly slower than <a href="../symbols/LayoutVertex.html#.standardComparer" class="linkStatic">LayoutVertex.standardComparer</a>.</span>
+                                <!--newp--><p><p>This static function is used to compare the <a href="../symbols/Part.html#text" class="linkProperty">Part.text</a> values of the <a href="../symbols/LayoutVertex.html#node" class="linkProperty">node</a>s of
+the argument <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>es.<span class="nodetails" id="xmethsmartComparer"><a class="morelink" onclick="hst('methsmartComparer')">More...</a></span> <span class="details" id="methsmartComparer">
+If the text ends in a number, the values are compared as numbers rather than lexicographically.
+Naturally this comparison is significantly slower than <a href="../symbols/LayoutVertex.html#.standardComparer" class="linkStatic">LayoutVertex.standardComparer</a>.</span>
                  
                               
                                   <dl class="detailList">
@@ -1820,7 +1876,10 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This static function is used to compare the <a href="../symbols/Part.html#text" class="linkProperty">Part.text</a> values of the <a href="../symbols/LayoutVertex.html#node" class="linkProperty">node</a>s ofthe argument <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>es.<span class="nodetails" id="xmethstandardComparer"><a class="morelink" onclick="hst('methstandardComparer')">More...</a></span> <span class="details" id="methstandardComparer">This just does a simple case-sensitive string comparison.Alternatively you may wish to use <a href="../symbols/LayoutVertex.html#.smartComparer" class="linkStatic">LayoutVertex.smartComparer</a> or write your own comparison function.</span>
+                                <!--newp--><p><p>This static function is used to compare the <a href="../symbols/Part.html#text" class="linkProperty">Part.text</a> values of the <a href="../symbols/LayoutVertex.html#node" class="linkProperty">node</a>s of
+the argument <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>es.<span class="nodetails" id="xmethstandardComparer"><a class="morelink" onclick="hst('methstandardComparer')">More...</a></span> <span class="details" id="methstandardComparer">
+This just does a simple case-sensitive string comparison.
+Alternatively you may wish to use <a href="../symbols/LayoutVertex.html#.smartComparer" class="linkStatic">LayoutVertex.smartComparer</a> or write your own comparison function.</span>
                  
                               
                                   <dl class="detailList">

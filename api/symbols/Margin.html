@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1131,7 +1126,29 @@
                 
                 
 
-                A Margin represents a band of space outside or inside a rectangular area,with possibly different values on each of the four sides.<p>Example uses include <a href="../symbols/GraphObject.html#margin" class="linkProperty">GraphObject.margin</a>, <a href="../symbols/Panel.html#padding" class="linkProperty">Panel.padding</a>, and <a href="../symbols/Diagram.html#padding" class="linkProperty">Diagram.padding</a>.<p>Use the static functions <a href="../symbols/Margin.html#.parse" class="linkStatic">Margin.parse</a> and <a href="../symbols/Margin.html#.stringify" class="linkStatic">Margin.stringify</a> to convert to and froma standard string representation that is independent of the current locale.<p>When an instance of this class is the value of a property of a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> class or <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>or <a href="../symbols/CommandHandler.html" class="linkConstructor">CommandHandler</a> or a <a href="../symbols/Tool.html" class="linkConstructor">Tool</a> class, you should treat the objectas if it were frozen or read-only -- you cannot modify its properties.This allows the property to return a value without allocating a new instance.If you need to do your own calculations with the value, call <a href="../symbols/Margin.html#copy" class="linkMethod">copy</a> to makea new instance with the same values that you can modify.<p>Many methods modify the object's properties and then return a reference to "this" object.The only instance method to allocate a new object is the <a href="../symbols/Margin.html#copy" class="linkMethod">copy</a> method.The static <a href="../symbols/Margin.html#.parse" class="linkStatic">Margin.parse</a> method also allocates a new object.<p>The "Debug" implementation of this class is significantly slower than the "Release" implementation,mostly due to additional error checking.<p>You cannot inherit from this class.
+                A Margin represents a band of space outside or inside a rectangular area,
+with possibly different values on each of the four sides.
+<p>
+Example uses include <a href="../symbols/GraphObject.html#margin" class="linkProperty">GraphObject.margin</a>, <a href="../symbols/Panel.html#padding" class="linkProperty">Panel.padding</a>, and <a href="../symbols/Diagram.html#padding" class="linkProperty">Diagram.padding</a>.
+<p>
+Use the static functions <a href="../symbols/Margin.html#.parse" class="linkStatic">Margin.parse</a> and <a href="../symbols/Margin.html#.stringify" class="linkStatic">Margin.stringify</a> to convert to and from
+a standard string representation that is independent of the current locale.
+<p>
+When an instance of this class is the value of a property of a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> class or <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>
+or <a href="../symbols/CommandHandler.html" class="linkConstructor">CommandHandler</a> or a <a href="../symbols/Tool.html" class="linkConstructor">Tool</a> class, you should treat the object
+as if it were frozen or read-only -- you cannot modify its properties.
+This allows the property to return a value without allocating a new instance.
+If you need to do your own calculations with the value, call <a href="../symbols/Margin.html#copy" class="linkMethod">copy</a> to make
+a new instance with the same values that you can modify.
+<p>
+Many methods modify the object's properties and then return a reference to "this" object.
+The only instance method to allocate a new object is the <a href="../symbols/Margin.html#copy" class="linkMethod">copy</a> method.
+The static <a href="../symbols/Margin.html#.parse" class="linkStatic">Margin.parse</a> method also allocates a new object.
+<p>
+The "Debug" implementation of this class is significantly slower than the "Release" implementation,
+mostly due to additional error checking.
+<p>
+You cannot inherit from this class.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1154,7 +1171,11 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>If zero arguments are supplied, zero is used for all four sides.<span class="nodetails" id="xconMargin"><a class="morelink" onclick="hst('conMargin')">More...</a></span> <span class="details" id="conMargin">If one argument is supplied, that number is used for all four sides.If two arguments are supplied, the top and bottom sides get the first value,and the left and right sides get the second value.Otherwise there must be four arguments, in the order: top, right, bottom, left.</span>
+                            <!--newp--><p><p>If zero arguments are supplied, zero is used for all four sides.<span class="nodetails" id="xconMargin"><a class="morelink" onclick="hst('conMargin')">More...</a></span> <span class="details" id="conMargin">
+If one argument is supplied, that number is used for all four sides.
+If two arguments are supplied, the top and bottom sides get the first value,
+and the left and right sides get the second value.
+Otherwise there must be four arguments, in the order: top, right, bottom, left.</span>
                         
                             <dl class="detailList">
                             <dt class="heading">Parameters:</dt>
@@ -1163,25 +1184,30 @@
                                     <span class="light fixedFont">{number=}</span>  <b>t</b>
                                     
                                 </dt>
-                                    <dd>the margin for the top side;                   if not supplied, all sides are zero.</dd>
+                                    <dd>the margin for the top side;
+                   if not supplied, all sides are zero.</dd>
                             
                                 <dt>
                                     <span class="light fixedFont">{number=}</span>  <b>r</b>
                                     
                                 </dt>
-                                    <dd>the margin for the right side;                   if not supplied, all sides have the value of the first argument.</dd>
+                                    <dd>the margin for the right side;
+                   if not supplied, all sides have the value of the first argument.</dd>
                             
                                 <dt>
                                     <span class="light fixedFont">{number=}</span>  <b>b</b>
                                     
                                 </dt>
-                                    <dd>the margin for all bottom side;                   if not supplied, the top and bottom get the value of the first argument,                   and the right and left sides get the value of the second argument.</dd>
+                                    <dd>the margin for all bottom side;
+                   if not supplied, the top and bottom get the value of the first argument,
+                   and the right and left sides get the value of the second argument.</dd>
                             
                                 <dt>
                                     <span class="light fixedFont">{number=}</span>  <b>l</b>
                                     
                                 </dt>
-                                    <dd>the margin for the left side;                   must be supplied if the third argument was supplied.</dd>
+                                    <dd>the margin for the left side;
+                   must be supplied if the third argument was supplied.</dd>
                             
                             </dl>
                         
@@ -1381,7 +1407,8 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{boolean}</span> True if the two Margins have identical Top and Right and Bottom and Left values,false otherwise.</dt>
+                                      <dt><span class="light fixedFont">{boolean}</span> True if the two Margins have identical Top and Right and Bottom and Left values,
+false otherwise.</dt>
                                   
                                   </dl>
                               
@@ -1446,7 +1473,8 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{boolean}</span> True if the two Margins have identical Top and Right and Bottom and Left values,false otherwise.</dt>
+                                      <dt><span class="light fixedFont">{boolean}</span> True if the two Margins have identical Top and Right and Bottom and Left values,
+false otherwise.</dt>
                                   
                                   </dl>
                               
@@ -1497,7 +1525,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This static function can be used to read in a <a href="../symbols/Margin.html" class="linkConstructor">Margin</a> from a string that was produced by <a href="../symbols/Margin.html#.stringify" class="linkStatic">Margin.stringify</a>.<span class="nodetails" id="xmethparse"><a class="morelink" onclick="hst('methparse')">More...</a></span> <span class="details" id="methparse"></span><div class="details" id="dmethparse"><p><code>go.Margin.parse("1 2 3 4")</code> produces the Margin <code>new go.Margin(1, 2, 3, 4)</code>.</div>
+                                <!--newp--><p><p>This static function can be used to read in a <a href="../symbols/Margin.html" class="linkConstructor">Margin</a> from a string that was produced by <a href="../symbols/Margin.html#.stringify" class="linkStatic">Margin.stringify</a>.<span class="nodetails" id="xmethparse"><a class="morelink" onclick="hst('methparse')">More...</a></span> <span class="details" id="methparse">
+</span><div class="details" id="dmethparse"><p>
+<code>go.Margin.parse("1 2 3 4")</code> produces the Margin <code>new go.Margin(1, 2, 3, 4)</code>.</div>
                  
                               
                                   <dl class="detailList">
@@ -1537,7 +1567,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Modify this Margin so that its Top, Right, Bottom, and Left valuesare the same as the given Margin.<span class="nodetails" id="xmethset"><a class="morelink" onclick="hst('methset')">More...</a></span> <span class="details" id="methset"></span>
+                                <!--newp--><p><p>Modify this Margin so that its Top, Right, Bottom, and Left values
+are the same as the given Margin.<span class="nodetails" id="xmethset"><a class="morelink" onclick="hst('methset')">More...</a></span> <span class="details" id="methset"></span>
                  
                               
                                   <dl class="detailList">
@@ -1635,7 +1666,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This static function can be used to write out a <a href="../symbols/Margin.html" class="linkConstructor">Margin</a> as a string that can be read by <a href="../symbols/Margin.html#.parse" class="linkStatic">Margin.parse</a>.<span class="nodetails" id="xmethstringify"><a class="morelink" onclick="hst('methstringify')">More...</a></span> <span class="details" id="methstringify"></span><div class="details" id="dmethstringify"><p><code>go.Margin.stringify(new go.Margin(1, 2, 3, 4))</code> produces the string "1 2 3 4".</div>
+                                <!--newp--><p><p>This static function can be used to write out a <a href="../symbols/Margin.html" class="linkConstructor">Margin</a> as a string that can be read by <a href="../symbols/Margin.html#.parse" class="linkStatic">Margin.parse</a>.<span class="nodetails" id="xmethstringify"><a class="morelink" onclick="hst('methstringify')">More...</a></span> <span class="details" id="methstringify">
+</span><div class="details" id="dmethstringify"><p>
+<code>go.Margin.stringify(new go.Margin(1, 2, 3, 4))</code> produces the string "1 2 3 4".</div>
                  
                               
                                   <dl class="detailList">

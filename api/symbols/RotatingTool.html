@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1133,7 +1128,28 @@
                     <a href="../symbols/Tool.html" class="linkConstructor">Tool</a>.</span>
                 
 
-                The RotatingTool is used to interactively change the <a href="../symbols/GraphObject.html#angle" class="linkProperty">GraphObject.angle</a> of a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>by setting its <a href="../symbols/GraphObject.html#angle" class="linkProperty">GraphObject.angle</a> property.You may want to save the angle to the model by using a TwoWay <a href="../symbols/Binding.html" class="linkConstructor">Binding</a> on the "angle" propertyof the GraphObject that is named by <a href="../symbols/Part.html#rotateObjectName" class="linkProperty">Part.rotateObjectName</a>.<p>This tool allows the user to rotate the <a href="../symbols/Part.html#rotateObject" class="linkProperty">Part.rotateObject</a> of the selected <a href="../symbols/Part.html" class="linkConstructor">Part</a>.Normally this works with <a href="../symbols/Part.html" class="linkConstructor">Part</a>s or <a href="../symbols/Node.html" class="linkConstructor">Node</a>s; it does not make sense for <a href="../symbols/Link.html" class="linkConstructor">Link</a>s.The <a href="../symbols/Part.html" class="linkConstructor">Part</a> must be <a href="../symbols/Part.html#rotatable" class="linkProperty">Part.rotatable</a>, which is false by default.<p>You can limit the permitted angles by setting <a href="../symbols/RotatingTool.html#snapAngleMultiple" class="linkProperty">snapAngleMultiple</a> and <a href="../symbols/RotatingTool.html#snapAngleEpsilon" class="linkProperty">snapAngleEpsilon</a>.For example, if you want to permit only angles that are multiples of 90 degrees,set <a href="../symbols/RotatingTool.html#snapAngleMultiple" class="linkProperty">snapAngleMultiple</a> to 90 and <a href="../symbols/RotatingTool.html#snapAngleEpsilon" class="linkProperty">snapAngleEpsilon</a> to 45. Pressing the Shift key ignores these properties.<p>This tool makes use of an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> that includes a rotation handle.It is shown when the selected <a href="../symbols/Part.html" class="linkConstructor">Part</a> is <a href="../symbols/Part.html#rotatable" class="linkProperty">Part.rotatable</a>.The rotate handle is normally a copy of <a href="../symbols/RotatingTool.html#handleArchetype" class="linkProperty">RotatingTool.handleArchetype</a>.unless you specify a custom rotate Adornment by setting <a href="../symbols/Part.html#rotateAdornmentTemplate" class="linkProperty">Part.rotateAdornmentTemplate</a>.<p>This tool conducts a transaction while the tool is active.A successful rotation will result in a "PartRotated" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a> and a "Rotating" transaction.<p class="boxread">For customizing the RotatingTool, see <a href="../../intro/tools.html#RotatingTool">Introduction to the RotatingTool</a>.
+                The RotatingTool is used to interactively change the <a href="../symbols/GraphObject.html#angle" class="linkProperty">GraphObject.angle</a> of a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>
+by setting its <a href="../symbols/GraphObject.html#angle" class="linkProperty">GraphObject.angle</a> property.
+You may want to save the angle to the model by using a TwoWay <a href="../symbols/Binding.html" class="linkConstructor">Binding</a> on the "angle" property
+of the GraphObject that is named by <a href="../symbols/Part.html#rotateObjectName" class="linkProperty">Part.rotateObjectName</a>.
+<p>
+This tool allows the user to rotate the <a href="../symbols/Part.html#rotateObject" class="linkProperty">Part.rotateObject</a> of the selected <a href="../symbols/Part.html" class="linkConstructor">Part</a>.
+Normally this works with <a href="../symbols/Part.html" class="linkConstructor">Part</a>s or <a href="../symbols/Node.html" class="linkConstructor">Node</a>s; it does not make sense for <a href="../symbols/Link.html" class="linkConstructor">Link</a>s.
+The <a href="../symbols/Part.html" class="linkConstructor">Part</a> must be <a href="../symbols/Part.html#rotatable" class="linkProperty">Part.rotatable</a>, which is false by default.
+<p>
+You can limit the permitted angles by setting <a href="../symbols/RotatingTool.html#snapAngleMultiple" class="linkProperty">snapAngleMultiple</a> and <a href="../symbols/RotatingTool.html#snapAngleEpsilon" class="linkProperty">snapAngleEpsilon</a>.
+For example, if you want to permit only angles that are multiples of 90 degrees,
+set <a href="../symbols/RotatingTool.html#snapAngleMultiple" class="linkProperty">snapAngleMultiple</a> to 90 and <a href="../symbols/RotatingTool.html#snapAngleEpsilon" class="linkProperty">snapAngleEpsilon</a> to 45. Pressing the Shift key ignores these properties.
+<p>
+This tool makes use of an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> that includes a rotation handle.
+It is shown when the selected <a href="../symbols/Part.html" class="linkConstructor">Part</a> is <a href="../symbols/Part.html#rotatable" class="linkProperty">Part.rotatable</a>.
+The rotate handle is normally a copy of <a href="../symbols/RotatingTool.html#handleArchetype" class="linkProperty">RotatingTool.handleArchetype</a>.
+unless you specify a custom rotate Adornment by setting <a href="../symbols/Part.html#rotateAdornmentTemplate" class="linkProperty">Part.rotateAdornmentTemplate</a>.
+<p>
+This tool conducts a transaction while the tool is active.
+A successful rotation will result in a "PartRotated" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a> and a "Rotating" transaction.
+<p class="boxread">
+For customizing the RotatingTool, see <a href="../../intro/tools.html#RotatingTool">Introduction to the RotatingTool</a>.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1156,7 +1172,10 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>You do not normally need to create an instance of this toolbecause one already exists as the <a href="../symbols/ToolManager.html#rotatingTool" class="linkProperty">ToolManager.rotatingTool</a>, which you can modify.<span class="nodetails" id="xconRotatingTool"><a class="morelink" onclick="hst('conRotatingTool')">More...</a></span> <span class="details" id="conRotatingTool"></span><div class="details" id="dconRotatingTool"><p>The <a href="../symbols/Tool.html#name" class="linkProperty">Tool.name</a> of this tool is "Rotating".</div>
+                            <!--newp--><p><p>You do not normally need to create an instance of this tool
+because one already exists as the <a href="../symbols/ToolManager.html#rotatingTool" class="linkProperty">ToolManager.rotatingTool</a>, which you can modify.<span class="nodetails" id="xconRotatingTool"><a class="morelink" onclick="hst('conRotatingTool')">More...</a></span> <span class="details" id="conRotatingTool">
+</span><div class="details" id="dconRotatingTool"><p>
+The <a href="../symbols/Tool.html#name" class="linkProperty">Tool.name</a> of this tool is "Rotating".</div>
                         
                         
 
@@ -1198,7 +1217,11 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that is being rotated.<span class="nodetails" id="xpropadornedObject"><a class="morelink" onclick="hst('propadornedObject')">More...</a></span> <span class="details" id="propadornedObject">This may be the same object as the selected <a href="../symbols/Part.html" class="linkConstructor">Part</a> or it may be contained within that Part.</span><div class="details" id="dpropadornedObject"><p>This property is also settable, but should only be set when overriding functionsin RotatingTool, and not during normal operation.</div>
+                <p>Gets the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that is being rotated.<span class="nodetails" id="xpropadornedObject"><a class="morelink" onclick="hst('propadornedObject')">More...</a></span> <span class="details" id="propadornedObject">
+This may be the same object as the selected <a href="../symbols/Part.html" class="linkConstructor">Part</a> or it may be contained within that Part.
+</span><div class="details" id="dpropadornedObject"><p>
+This property is also settable, but should only be set when overriding functions
+in RotatingTool, and not during normal operation.</div>
                 
                 </div>
                             </td>
@@ -1218,7 +1241,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property returns the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that is the tool handle being dragged by the user.<span class="nodetails" id="xprophandle"><a class="morelink" onclick="hst('prophandle')">More...</a></span> <span class="details" id="prophandle">This will be contained by an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> whose category is "RotatingTool".Its <a href="../symbols/Adornment.html#adornedObject" class="linkProperty">Adornment.adornedObject</a> is the same as the <a href="../symbols/RotatingTool.html#adornedObject" class="linkProperty">adornedObject</a>.</span>
+                <p>This read-only property returns the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that is the tool handle being dragged by the user.<span class="nodetails" id="xprophandle"><a class="morelink" onclick="hst('prophandle')">More...</a></span> <span class="details" id="prophandle">
+This will be contained by an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> whose category is "RotatingTool".
+Its <a href="../symbols/Adornment.html#adornedObject" class="linkProperty">Adornment.adornedObject</a> is the same as the <a href="../symbols/RotatingTool.html#adornedObject" class="linkProperty">adornedObject</a>.</span>
                 
                 </div>
                             </td>
@@ -1238,7 +1263,18 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets a small GraphObject that is copied as a rotation handle for the selected part.<span class="nodetails" id="xprophandleArchetype"><a class="morelink" onclick="hst('prophandleArchetype')">More...</a></span> <span class="details" id="prophandleArchetype">By default this is a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> that is a small yellow circle.Setting this property does not raise any events.</span><div class="details" id="dprophandleArchetype"><p>Here is an example of changing the default handle to be green "X":<pre class="javascript">  myDiagram.toolManager.rotatingTool.handleArchetype =    $(go.Shape, "XLine",      { width: 8, height: 8, stroke: "green", fill: "transparent" });</pre><p>This property is ignored when a custom rotating Adornment is specified as the <a href="../symbols/Part.html#rotateAdornmentTemplate" class="linkProperty">Part.rotateAdornmentTemplate</a>.</div>
+                <p>Gets or sets a small GraphObject that is copied as a rotation handle for the selected part.<span class="nodetails" id="xprophandleArchetype"><a class="morelink" onclick="hst('prophandleArchetype')">More...</a></span> <span class="details" id="prophandleArchetype">
+By default this is a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> that is a small yellow circle.
+Setting this property does not raise any events.
+</span><div class="details" id="dprophandleArchetype"><p>
+Here is an example of changing the default handle to be green "X":
+<pre class="javascript">
+  myDiagram.toolManager.rotatingTool.handleArchetype =
+    $(go.Shape, "XLine",
+      { width: 8, height: 8, stroke: "green", fill: "transparent" });
+</pre>
+<p>
+This property is ignored when a custom rotating Adornment is specified as the <a href="../symbols/Part.html#rotateAdornmentTemplate" class="linkProperty">Part.rotateAdornmentTemplate</a>.</div>
                 
                 </div>
                             </td>
@@ -1260,7 +1296,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property returns the angle that was the original value of the <a href="../symbols/GraphObject.html#angle" class="linkProperty">GraphObject.angle</a>of the GraphObject that is being rotated.
+                <p>This read-only property returns the angle that was the original value of the <a href="../symbols/GraphObject.html#angle" class="linkProperty">GraphObject.angle</a>
+of the GraphObject that is being rotated.
                 
                 </div>
                             </td>
@@ -1280,7 +1317,15 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the the closeness to a desired angle at which the angle is "snapped to".<span class="nodetails" id="xpropsnapAngleEpsilon"><a class="morelink" onclick="hst('propsnapAngleEpsilon')">More...</a></span> <span class="details" id="propsnapAngleEpsilon"></span><div class="details" id="dpropsnapAngleEpsilon"><p>The default value is 2 degrees, meaning that any angle within 2 degreesof a multiple of the <a href="../symbols/RotatingTool.html#snapAngleMultiple" class="linkProperty">snapAngleMultiple</a> automaticallysnaps to that multiple.Values are limited to half of the <a href="../symbols/RotatingTool.html#snapAngleMultiple" class="linkProperty">snapAngleMultiple</a>;such values restrict user selected angles only to exact multiples of<a href="../symbols/RotatingTool.html#snapAngleMultiple" class="linkProperty">snapAngleMultiple</a> -- no other angles between them.Setting this property does not raise any events.</div>
+                <p>Gets or sets the the closeness to a desired angle at which the angle is "snapped to".<span class="nodetails" id="xpropsnapAngleEpsilon"><a class="morelink" onclick="hst('propsnapAngleEpsilon')">More...</a></span> <span class="details" id="propsnapAngleEpsilon">
+</span><div class="details" id="dpropsnapAngleEpsilon"><p>
+The default value is 2 degrees, meaning that any angle within 2 degrees
+of a multiple of the <a href="../symbols/RotatingTool.html#snapAngleMultiple" class="linkProperty">snapAngleMultiple</a> automatically
+snaps to that multiple.
+Values are limited to half of the <a href="../symbols/RotatingTool.html#snapAngleMultiple" class="linkProperty">snapAngleMultiple</a>;
+such values restrict user selected angles only to exact multiples of
+<a href="../symbols/RotatingTool.html#snapAngleMultiple" class="linkProperty">snapAngleMultiple</a> -- no other angles between them.
+Setting this property does not raise any events.</div>
                 
                 </div>
                             </td>
@@ -1300,7 +1345,14 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the preferred angles for the selected object.<span class="nodetails" id="xpropsnapAngleMultiple"><a class="morelink" onclick="hst('propsnapAngleMultiple')">More...</a></span> <span class="details" id="propsnapAngleMultiple"></span><div class="details" id="dpropsnapAngleMultiple"><p>The default value is 45 degrees, meaning that angles that are multiplesof 45 degrees are automatically preferred, if the actual angle isclose to that multiple.The closeness is determined by the <a href="../symbols/RotatingTool.html#snapAngleEpsilon" class="linkProperty">snapAngleEpsilon</a> property.A value of zero for <a href="../symbols/RotatingTool.html#snapAngleMultiple" class="linkProperty">snapAngleMultiple</a> results in no snapping at all.Setting this property does not raise any events.</div>
+                <p>Gets or sets the preferred angles for the selected object.<span class="nodetails" id="xpropsnapAngleMultiple"><a class="morelink" onclick="hst('propsnapAngleMultiple')">More...</a></span> <span class="details" id="propsnapAngleMultiple">
+</span><div class="details" id="dpropsnapAngleMultiple"><p>
+The default value is 45 degrees, meaning that angles that are multiples
+of 45 degrees are automatically preferred, if the actual angle is
+close to that multiple.
+The closeness is determined by the <a href="../symbols/RotatingTool.html#snapAngleEpsilon" class="linkProperty">snapAngleEpsilon</a> property.
+A value of zero for <a href="../symbols/RotatingTool.html#snapAngleMultiple" class="linkProperty">snapAngleMultiple</a> results in no snapping at all.
+Setting this property does not raise any events.</div>
                 
                 </div>
                             </td>
@@ -1346,7 +1398,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This tool may run when there is a mouse-down event on a rotate handle,the diagram is not read-only and it allows rotation,the left mouse button is being used,and this tool's adornment's rotate handle is at the current mouse point.<span class="nodetails" id="xmethcanStart"><a class="morelink" onclick="hst('methcanStart')">More...</a></span> <span class="details" id="methcanStart"></span><div class="details" id="dmethcanStart"><p>This method may be overridden.</div>
+                                <!--newp--><p><p>This tool may run when there is a mouse-down event on a rotate handle,
+the diagram is not read-only and it allows rotation,
+the left mouse button is being used,
+and this tool's adornment's rotate handle is at the current mouse point.<span class="nodetails" id="xmethcanStart"><a class="morelink" onclick="hst('methcanStart')">More...</a></span> <span class="details" id="methcanStart">
+</span><div class="details" id="dmethcanStart"><p>
+This method may be overridden.</div>
                  
                               
                               
@@ -1375,7 +1432,14 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Compute the new angle given a point.<span class="nodetails" id="xmethcomputeRotate"><a class="morelink" onclick="hst('methcomputeRotate')">More...</a></span> <span class="details" id="methcomputeRotate"> If the Shift key is pressed, this method ignores the <a href="../symbols/RotatingTool.html#snapAngleMultiple" class="linkProperty">snapAngleMultiple</a> and <a href="../symbols/RotatingTool.html#snapAngleEpsilon" class="linkProperty">snapAngleEpsilon</a>.</span><div class="details" id="dmethcomputeRotate"><p>If the angle is close (by <a href="../symbols/RotatingTool.html#snapAngleEpsilon" class="linkProperty">snapAngleEpsilon</a> degrees)to a multiple of <a href="../symbols/RotatingTool.html#snapAngleMultiple" class="linkProperty">snapAngleMultiple</a> degrees,make it exactly that multiple.<p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Compute the new angle given a point.<span class="nodetails" id="xmethcomputeRotate"><a class="morelink" onclick="hst('methcomputeRotate')">More...</a></span> <span class="details" id="methcomputeRotate"> If the Shift key is pressed, this method ignores the <a href="../symbols/RotatingTool.html#snapAngleMultiple" class="linkProperty">snapAngleMultiple</a> and <a href="../symbols/RotatingTool.html#snapAngleEpsilon" class="linkProperty">snapAngleEpsilon</a>.
+</span><div class="details" id="dmethcomputeRotate"><p>
+If the angle is close (by <a href="../symbols/RotatingTool.html#snapAngleEpsilon" class="linkProperty">snapAngleEpsilon</a> degrees)
+to a multiple of <a href="../symbols/RotatingTool.html#snapAngleMultiple" class="linkProperty">snapAngleMultiple</a> degrees,
+make it exactly that multiple.
+<p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                                   <dl class="detailList">
@@ -1415,7 +1479,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Capture the mouse, remember the original <a href="../symbols/GraphObject.html#angle" class="linkProperty">GraphObject.angle</a>,and start a transaction.
+                                <!--newp--><p><p>Capture the mouse, remember the original <a href="../symbols/GraphObject.html#angle" class="linkProperty">GraphObject.angle</a>,
+and start a transaction.
                  
                               
                               
@@ -1481,7 +1546,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Call <a href="../symbols/RotatingTool.html#rotate" class="linkMethod">rotate</a> with a new angle determined by the current mouse point.<span class="nodetails" id="xmethdoMouseMove"><a class="morelink" onclick="hst('methdoMouseMove')">More...</a></span> <span class="details" id="methdoMouseMove">This determines the new angle by calling <a href="../symbols/RotatingTool.html#computeRotate" class="linkMethod">computeRotate</a>.</span>
+                                <!--newp--><p><p>Call <a href="../symbols/RotatingTool.html#rotate" class="linkMethod">rotate</a> with a new angle determined by the current mouse point.<span class="nodetails" id="xmethdoMouseMove"><a class="morelink" onclick="hst('methdoMouseMove')">More...</a></span> <span class="details" id="methdoMouseMove">
+This determines the new angle by calling <a href="../symbols/RotatingTool.html#computeRotate" class="linkMethod">computeRotate</a>.</span>
                  
                               
                               
@@ -1503,7 +1569,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Call <a href="../symbols/RotatingTool.html#rotate" class="linkMethod">rotate</a> with an angle based on the most recent mouse point,commit the transaction, and raise the "PartRotated" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a>.
+                                <!--newp--><p><p>Call <a href="../symbols/RotatingTool.html#rotate" class="linkMethod">rotate</a> with an angle based on the most recent mouse point,
+commit the transaction, and raise the "PartRotated" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a>.
                  
                               
                               
@@ -1525,7 +1592,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Change the angle of the selected part's <a href="../symbols/Part.html#rotateObject" class="linkProperty">Part.rotateObject</a>.<span class="nodetails" id="xmethrotate"><a class="morelink" onclick="hst('methrotate')">More...</a></span> <span class="details" id="methrotate">This modifies its <a href="../symbols/GraphObject.html#angle" class="linkProperty">GraphObject.angle</a>.</span><div class="details" id="dmethrotate"><p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Change the angle of the selected part's <a href="../symbols/Part.html#rotateObject" class="linkProperty">Part.rotateObject</a>.<span class="nodetails" id="xmethrotate"><a class="morelink" onclick="hst('methrotate')">More...</a></span> <span class="details" id="methrotate">
+This modifies its <a href="../symbols/GraphObject.html#angle" class="linkProperty">GraphObject.angle</a>.
+</span><div class="details" id="dmethrotate"><p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                                   <dl class="detailList">
@@ -1558,7 +1629,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Show an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> with a rotate handle at a point to the side of the adorned objectif the part is selected and visible and if <a href="../symbols/Part.html#canRotate" class="linkMethod">Part.canRotate</a>() is true.<span class="nodetails" id="xmethupdateAdornments"><a class="morelink" onclick="hst('methupdateAdornments')">More...</a></span> <span class="details" id="methupdateAdornments"></span><div class="details" id="dmethupdateAdornments"><p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Show an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> with a rotate handle at a point to the side of the adorned object
+if the part is selected and visible and if <a href="../symbols/Part.html#canRotate" class="linkMethod">Part.canRotate</a>() is true.<span class="nodetails" id="xmethupdateAdornments"><a class="morelink" onclick="hst('methupdateAdornments')">More...</a></span> <span class="details" id="methupdateAdornments">
+</span><div class="details" id="dmethupdateAdornments"><p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                                   <dl class="detailList">

@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1133,7 +1128,141 @@
                     <a href="../symbols/Part.html" class="linkConstructor">Part</a>.</span>
                 
 
-                A Link is a <a href="../symbols/Part.html" class="linkConstructor">Part</a> that connects <a href="../symbols/Node.html" class="linkConstructor">Node</a>s.The link relationship is directional, going from <a href="../symbols/Link.html#fromNode" class="linkProperty">Link.fromNode</a> to <a href="../symbols/Link.html#toNode" class="linkProperty">Link.toNode</a>.A link can connect to a specific port element in a node, as named by the <a href="../symbols/Link.html#fromPortId" class="linkProperty">Link.fromPortId</a>and <a href="../symbols/Link.html#toPortId" class="linkProperty">Link.toPortId</a> properties.<p class="boxread">For more discussion, see <a href="../../intro/links.html">Introduction to Links</a>.<p>To add a Link to a Diagram when using a <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a> you should do something like:<pre>  myDiagram.startTransaction("make new link");  myDiagram.model.addLinkData({ from: "Alpha", to: "Beta" });  myDiagram.commitTransaction("make new link");</pre><p>where you would substitute the keys of the actual nodes that you want to connect with a link.This will cause a Link to be created (copying the template found in <a href="../symbols/Diagram.html#linkTemplateMap" class="linkProperty">Diagram.linkTemplateMap</a>),added to the Diagram in some <a href="../symbols/Layer.html" class="linkConstructor">Layer</a> (based on <a href="../symbols/Part.html#layerName" class="linkProperty">Part.layerName</a>), and bound to the link data(resulting in <a href="../symbols/Panel.html#data" class="linkProperty">Panel.data</a> referring to that link data object).Note that link data objects, unlike <a href="../symbols/Node.html" class="linkConstructor">Node</a> data, do not have their own unique keys or identifiers,because other Parts do not refer to them.<p>If you are using a <a href="../symbols/TreeModel.html" class="linkConstructor">TreeModel</a>, there are no link data objects, so you just need to call<a href="../symbols/TreeModel.html#setParentKeyForNodeData" class="linkMethod">TreeModel.setParentKeyForNodeData</a> to specify the "parent" node's key for a "child" node data.<p>To find a <a href="../symbols/Link.html" class="linkConstructor">Link</a> given a link data object in the <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>,call <a href="../symbols/Diagram.html#findLinkForData" class="linkMethod">Diagram.findLinkForData</a>.  When using a <a href="../symbols/TreeModel.html" class="linkConstructor">TreeModel</a>, call either <a href="../symbols/Diagram.html#findNodeForData" class="linkMethod">Diagram.findNodeForData</a>or <a href="../symbols/Diagram.html#findNodeForKey" class="linkMethod">Diagram.findNodeForKey</a> to get a Node, and then call <a href="../symbols/Node.html#findTreeParentLink" class="linkMethod">Node.findTreeParentLink</a> to get the Link, if any exists.<p>To find a link that connects two nodes, call <a href="../symbols/Node.html#findLinksTo" class="linkMethod">Node.findLinksTo</a> or <a href="../symbols/Node.html#findLinksBetween" class="linkMethod">Node.findLinksBetween</a>.With the former method, the direction matters; with the latter method it returns links in either direction.<p>A link's position and size are determined by the two nodes that it connects.Normally there should be a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> as the main element in this Link.This shape is what users will see as the "line" or "wire" --you can set its <a href="../symbols/Shape.html#stroke" class="linkProperty">Shape.stroke</a> and other "stroke..." properties to control its appearance.<p>The link will compute a route (a sequence of points) going from the <a href="../symbols/Link.html#fromNode" class="linkProperty">fromNode</a>'s port elementto the <a href="../symbols/Link.html#toNode" class="linkProperty">toNode</a>'s port element.That route is used to generate the path of the main shape.Properties that affect the nature of the route and the geometry of the path include:<ul>  <li><a href="../symbols/Link.html#curve" class="linkProperty">curve</a></li>  <li><a href="../symbols/Link.html#curviness" class="linkProperty">curviness</a></li>  <li><a href="../symbols/Link.html#corner" class="linkProperty">corner</a></li>  <li><a href="../symbols/Link.html#routing" class="linkProperty">routing</a></li>  <li><a href="../symbols/Link.html#smoothness" class="linkProperty">smoothness</a></li>  <li><a href="../symbols/Link.html#adjusting" class="linkProperty">adjusting</a></li></ul><p class="boxread">For more discussion and examples, see <a href="../../intro/links.html">Links</a>.<p>There are additional properties that affect how the end of the link connects to a port element of a node.There are duplicate properties, ones for the "to" end and ones for the "from" end:<ul>  <li><a href="../symbols/Link.html#fromSpot" class="linkProperty">fromSpot</a>, <a href="../symbols/Link.html#toSpot" class="linkProperty">toSpot</a></li>  <li><a href="../symbols/Link.html#fromEndSegmentLength" class="linkProperty">fromEndSegmentLength</a>, <a href="../symbols/Link.html#toEndSegmentLength" class="linkProperty">toEndSegmentLength</a></li>  <li><a href="../symbols/Link.html#fromShortLength" class="linkProperty">fromShortLength</a>, <a href="../symbols/Link.html#toShortLength" class="linkProperty">toShortLength</a></li></ul><p>These properties normally have "default" values, causing the link's routing and path-geometry generatingto get the corresponding values from the connected port element.This scheme permits an individual link to have its own specific connection to a port,taking precedence over how the port normally expects links to connect to it.For example, several of the <a href="../symbols/Layout.html" class="linkConstructor">Layout</a> classes sets these properties on each Linkas part of their route computation for links.<p class="boxread">For more discussion and examples, see <a href="../../intro/connectionPoints.html">Link Points</a>.<p>Elements other than the main <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> in the Link may act as decorations on the link, including arrowheads and labels.You can control where they are located along the link route and how they are oriented.Because these decorations may be any <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>, they are all properties of that class.The properties include:<ul>  <li><a href="../symbols/GraphObject.html#segmentIndex" class="linkProperty">GraphObject.segmentIndex</a></li>  <li><a href="../symbols/GraphObject.html#segmentFraction" class="linkProperty">GraphObject.segmentFraction</a></li>  <li><a href="../symbols/GraphObject.html#segmentOffset" class="linkProperty">GraphObject.segmentOffset</a></li>  <li><a href="../symbols/GraphObject.html#segmentOrientation" class="linkProperty">GraphObject.segmentOrientation</a></li></ul>If you do not set the <a href="../symbols/GraphObject.html#segmentIndex" class="linkProperty">GraphObject.segmentIndex</a> property, the object is positionedto be at the middle of the link.<p class="boxread">For more discussion and examples, see <a href="../../intro/linkLabels.html">Link Labels</a>.<p><b>GoJS</b> makes it easy to add arrowheads to your link template.Just add a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> with the appearance properties that you want,and also set the <a href="../symbols/Shape.html#toArrow" class="linkProperty">Shape.toArrow</a> or <a href="../symbols/Shape.html#fromArrow" class="linkProperty">Shape.fromArrow</a> propertyto the name of the kind of arrowhead that you want.Doing so automatically sets the "segment..." properties that are appropriate for the chosen arrowhead.<p>More than one shape may automatically get the route geometry.This is useful when you want to have multiple link shapes with different thicknessesto create a gradient effect across the path of the link or to produce parallel lines along the path.Just set <a href="../symbols/GraphObject.html#isPanelMain" class="linkProperty">GraphObject.isPanelMain</a> to true on each such <a href="../symbols/Shape.html" class="linkConstructor">Shape</a>.<p>If you want the user to be able to reconnect a link, using the <a href="../symbols/RelinkingTool.html" class="linkConstructor">RelinkingTool</a>,you need to set one or both of <a href="../symbols/Link.html#relinkableFrom" class="linkProperty">relinkableFrom</a> and <a href="../symbols/Link.html#relinkableTo" class="linkProperty">relinkableTo</a> to true.The <a href="../symbols/RelinkingTool.html" class="linkConstructor">RelinkingTool</a> shows a <a href="../symbols/RelinkingTool.html#fromHandleArchetype" class="linkProperty">RelinkingTool.fromHandleArchetype</a> and/or a<a href="../symbols/RelinkingTool.html#toHandleArchetype" class="linkProperty">RelinkingTool.toHandleArchetype</a> when the link is selected.Such a relink handle can be dragged by the user to start a relinking operation.<p>If you want the user to be able to change the path of the link, using the <a href="../symbols/LinkReshapingTool.html" class="linkConstructor">LinkReshapingTool</a>,set <a href="../symbols/Part.html#reshapable" class="linkProperty">Part.reshapable</a> to true.The <a href="../symbols/LinkReshapingTool.html" class="linkConstructor">LinkReshapingTool</a> shows reshape handles that the user can drag to shift the positionof a point in the link's route.The <a href="../symbols/LinkReshapingTool.html#handleArchetype" class="linkProperty">LinkReshapingTool.handleArchetype</a> is copied for each reshape handle.<p>Often if a Link is reshapable, you will want to save the route in the model so that it can be restoredupon load.  To save the route automatically, add a TwoWay Binding on the <a href="../symbols/Link.html#points" class="linkProperty">points</a> property:<code>new go.Binding("points").makeTwoWay()</code>.  <a href="../symbols/Model.html#toJson" class="linkMethod">Model.toJson</a> will automaticallyconvert the <a href="../symbols/List.html" class="linkConstructor">List</a> of <a href="../symbols/Point.html" class="linkConstructor">Point</a>s into an Array of numbers in the JSON representation,if the property is named "points".<p>If a Link is <a href="../symbols/Part.html#reshapable" class="linkProperty">Part.reshapable</a>, it is also possible to allow the user to add and remove segmentsfrom the link's route by setting <a href="../symbols/Link.html#resegmentable" class="linkProperty">resegmentable</a> to true.This causes the <a href="../symbols/LinkReshapingTool.html" class="linkConstructor">LinkReshapingTool</a> to add resegmenting handles at the midpoints of each segment.The <a href="../symbols/LinkReshapingTool.html#midHandleArchetype" class="linkProperty">LinkReshapingTool.midHandleArchetype</a> is copied for each resegment handle.When the user drags such a resegmenting handle, a new segment is inserted into the route.Also, when the user drags a reshape handle such that two adjacent segments end up in a straight line,a segment is removed from the route.<p class="boxread">For more discussion and examples, see <a href="../../intro/links.html">Links</a>,<a href="../../intro/linkLabels.html">Link Labels</a>, and<a href="../../intro/connectionPoints.html">Link Points</a>.<p class="boxread">To control what links a user may draw or reconnect, please read about<a href="../../intro/validation.html">Validation</a>.<p class="boxread">To customize linking and relinking behavior, please read<a href="../../intro/tools.html#LinkingToolAndRelinkingTool">Introduction to the Linking Tools</a>and <a href="../../intro/tools.html#RelinkingTool">Introduction to the RelinkingTool</a>.For customizing the reshaping of Links,see <a href="../../intro/tools.html#LinkReshapingTool">Introduction to the LinkReshapingTool</a>.<p>Only Links that are in Diagrams can have connections with Nodes.Templates should not be connected with Nodes, be members of Groups, or have any Adornments.
+                A Link is a <a href="../symbols/Part.html" class="linkConstructor">Part</a> that connects <a href="../symbols/Node.html" class="linkConstructor">Node</a>s.
+The link relationship is directional, going from <a href="../symbols/Link.html#fromNode" class="linkProperty">Link.fromNode</a> to <a href="../symbols/Link.html#toNode" class="linkProperty">Link.toNode</a>.
+A link can connect to a specific port element in a node, as named by the <a href="../symbols/Link.html#fromPortId" class="linkProperty">Link.fromPortId</a>
+and <a href="../symbols/Link.html#toPortId" class="linkProperty">Link.toPortId</a> properties.
+<p class="boxread">
+For more discussion, see <a href="../../intro/links.html">Introduction to Links</a>.
+<p>
+To add a Link to a Diagram when using a <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a> you should do something like:
+<pre>
+  myDiagram.startTransaction("make new link");
+  myDiagram.model.addLinkData({ from: "Alpha", to: "Beta" });
+  myDiagram.commitTransaction("make new link");
+</pre>
+<p>
+where you would substitute the keys of the actual nodes that you want to connect with a link.
+This will cause a Link to be created (copying the template found in <a href="../symbols/Diagram.html#linkTemplateMap" class="linkProperty">Diagram.linkTemplateMap</a>),
+added to the Diagram in some <a href="../symbols/Layer.html" class="linkConstructor">Layer</a> (based on <a href="../symbols/Part.html#layerName" class="linkProperty">Part.layerName</a>), and bound to the link data
+(resulting in <a href="../symbols/Panel.html#data" class="linkProperty">Panel.data</a> referring to that link data object).
+Note that link data objects, unlike <a href="../symbols/Node.html" class="linkConstructor">Node</a> data, do not have their own unique keys or identifiers,
+because other Parts do not refer to them.
+<p>
+If you are using a <a href="../symbols/TreeModel.html" class="linkConstructor">TreeModel</a>, there are no link data objects, so you just need to call
+<a href="../symbols/TreeModel.html#setParentKeyForNodeData" class="linkMethod">TreeModel.setParentKeyForNodeData</a> to specify the "parent" node's key for a "child" node data.
+<p>
+To find a <a href="../symbols/Link.html" class="linkConstructor">Link</a> given a link data object in the <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>,
+call <a href="../symbols/Diagram.html#findLinkForData" class="linkMethod">Diagram.findLinkForData</a>.  When using a <a href="../symbols/TreeModel.html" class="linkConstructor">TreeModel</a>, call either <a href="../symbols/Diagram.html#findNodeForData" class="linkMethod">Diagram.findNodeForData</a>
+or <a href="../symbols/Diagram.html#findNodeForKey" class="linkMethod">Diagram.findNodeForKey</a> to get a Node, and then call <a href="../symbols/Node.html#findTreeParentLink" class="linkMethod">Node.findTreeParentLink</a> to get the Link, if any exists.
+<p>
+To find a link that connects two nodes, call <a href="../symbols/Node.html#findLinksTo" class="linkMethod">Node.findLinksTo</a> or <a href="../symbols/Node.html#findLinksBetween" class="linkMethod">Node.findLinksBetween</a>.
+With the former method, the direction matters; with the latter method it returns links in either direction.
+<p>
+A link's position and size are determined by the two nodes that it connects.
+Normally there should be a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> as the main element in this Link.
+This shape is what users will see as the "line" or "wire" --
+you can set its <a href="../symbols/Shape.html#stroke" class="linkProperty">Shape.stroke</a> and other "stroke..." properties to control its appearance.
+<p>
+The link will compute a route (a sequence of points) going from the <a href="../symbols/Link.html#fromNode" class="linkProperty">fromNode</a>'s port element
+to the <a href="../symbols/Link.html#toNode" class="linkProperty">toNode</a>'s port element.
+That route is used to generate the path of the main shape.
+Properties that affect the nature of the route and the geometry of the path include:
+<ul>
+  <li><a href="../symbols/Link.html#curve" class="linkProperty">curve</a></li>
+  <li><a href="../symbols/Link.html#curviness" class="linkProperty">curviness</a></li>
+  <li><a href="../symbols/Link.html#corner" class="linkProperty">corner</a></li>
+  <li><a href="../symbols/Link.html#routing" class="linkProperty">routing</a></li>
+  <li><a href="../symbols/Link.html#smoothness" class="linkProperty">smoothness</a></li>
+  <li><a href="../symbols/Link.html#adjusting" class="linkProperty">adjusting</a></li>
+</ul>
+<p class="boxread">
+For more discussion and examples, see <a href="../../intro/links.html">Links</a>.
+<p>
+There are additional properties that affect how the end of the link connects to a port element of a node.
+There are duplicate properties, ones for the "to" end and ones for the "from" end:
+<ul>
+  <li><a href="../symbols/Link.html#fromSpot" class="linkProperty">fromSpot</a>, <a href="../symbols/Link.html#toSpot" class="linkProperty">toSpot</a></li>
+  <li><a href="../symbols/Link.html#fromEndSegmentLength" class="linkProperty">fromEndSegmentLength</a>, <a href="../symbols/Link.html#toEndSegmentLength" class="linkProperty">toEndSegmentLength</a></li>
+  <li><a href="../symbols/Link.html#fromShortLength" class="linkProperty">fromShortLength</a>, <a href="../symbols/Link.html#toShortLength" class="linkProperty">toShortLength</a></li>
+</ul>
+<p>
+These properties normally have "default" values, causing the link's routing and path-geometry generating
+to get the corresponding values from the connected port element.
+This scheme permits an individual link to have its own specific connection to a port,
+taking precedence over how the port normally expects links to connect to it.
+For example, several of the <a href="../symbols/Layout.html" class="linkConstructor">Layout</a> classes sets these properties on each Link
+as part of their route computation for links.
+<p class="boxread">
+For more discussion and examples, see <a href="../../intro/connectionPoints.html">Link Points</a>.
+<p>
+Elements other than the main <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> in the Link may act as decorations on the link, including arrowheads and labels.
+You can control where they are located along the link route and how they are oriented.
+Because these decorations may be any <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>, they are all properties of that class.
+The properties include:
+<ul>
+  <li><a href="../symbols/GraphObject.html#segmentIndex" class="linkProperty">GraphObject.segmentIndex</a></li>
+  <li><a href="../symbols/GraphObject.html#segmentFraction" class="linkProperty">GraphObject.segmentFraction</a></li>
+  <li><a href="../symbols/GraphObject.html#segmentOffset" class="linkProperty">GraphObject.segmentOffset</a></li>
+  <li><a href="../symbols/GraphObject.html#segmentOrientation" class="linkProperty">GraphObject.segmentOrientation</a></li>
+</ul>
+If you do not set the <a href="../symbols/GraphObject.html#segmentIndex" class="linkProperty">GraphObject.segmentIndex</a> property, the object is positioned
+to be at the middle of the link.
+<p class="boxread">
+For more discussion and examples, see <a href="../../intro/linkLabels.html">Link Labels</a>.
+<p>
+<b>GoJS</b> makes it easy to add arrowheads to your link template.
+Just add a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> with the appearance properties that you want,
+and also set the <a href="../symbols/Shape.html#toArrow" class="linkProperty">Shape.toArrow</a> or <a href="../symbols/Shape.html#fromArrow" class="linkProperty">Shape.fromArrow</a> property
+to the name of the kind of arrowhead that you want.
+Doing so automatically sets the "segment..." properties that are appropriate for the chosen arrowhead.
+<p>
+More than one shape may automatically get the route geometry.
+This is useful when you want to have multiple link shapes with different thicknesses
+to create a gradient effect across the path of the link or to produce parallel lines along the path.
+Just set <a href="../symbols/GraphObject.html#isPanelMain" class="linkProperty">GraphObject.isPanelMain</a> to true on each such <a href="../symbols/Shape.html" class="linkConstructor">Shape</a>.
+<p>
+If you want the user to be able to reconnect a link, using the <a href="../symbols/RelinkingTool.html" class="linkConstructor">RelinkingTool</a>,
+you need to set one or both of <a href="../symbols/Link.html#relinkableFrom" class="linkProperty">relinkableFrom</a> and <a href="../symbols/Link.html#relinkableTo" class="linkProperty">relinkableTo</a> to true.
+The <a href="../symbols/RelinkingTool.html" class="linkConstructor">RelinkingTool</a> shows a <a href="../symbols/RelinkingTool.html#fromHandleArchetype" class="linkProperty">RelinkingTool.fromHandleArchetype</a> and/or a
+<a href="../symbols/RelinkingTool.html#toHandleArchetype" class="linkProperty">RelinkingTool.toHandleArchetype</a> when the link is selected.
+Such a relink handle can be dragged by the user to start a relinking operation.
+<p>
+If you want the user to be able to change the path of the link, using the <a href="../symbols/LinkReshapingTool.html" class="linkConstructor">LinkReshapingTool</a>,
+set <a href="../symbols/Part.html#reshapable" class="linkProperty">Part.reshapable</a> to true.
+The <a href="../symbols/LinkReshapingTool.html" class="linkConstructor">LinkReshapingTool</a> shows reshape handles that the user can drag to shift the position
+of a point in the link's route.
+The <a href="../symbols/LinkReshapingTool.html#handleArchetype" class="linkProperty">LinkReshapingTool.handleArchetype</a> is copied for each reshape handle.
+<p>
+Often if a Link is reshapable, you will want to save the route in the model so that it can be restored
+upon load.  To save the route automatically, add a TwoWay Binding on the <a href="../symbols/Link.html#points" class="linkProperty">points</a> property:
+<code>new go.Binding("points").makeTwoWay()</code>.  <a href="../symbols/Model.html#toJson" class="linkMethod">Model.toJson</a> will automatically
+convert the <a href="../symbols/List.html" class="linkConstructor">List</a> of <a href="../symbols/Point.html" class="linkConstructor">Point</a>s into an Array of numbers in the JSON representation,
+if the property is named "points".
+<p>
+If a Link is <a href="../symbols/Part.html#reshapable" class="linkProperty">Part.reshapable</a>, it is also possible to allow the user to add and remove segments
+from the link's route by setting <a href="../symbols/Link.html#resegmentable" class="linkProperty">resegmentable</a> to true.
+This causes the <a href="../symbols/LinkReshapingTool.html" class="linkConstructor">LinkReshapingTool</a> to add resegmenting handles at the midpoints of each segment.
+The <a href="../symbols/LinkReshapingTool.html#midHandleArchetype" class="linkProperty">LinkReshapingTool.midHandleArchetype</a> is copied for each resegment handle.
+When the user drags such a resegmenting handle, a new segment is inserted into the route.
+Also, when the user drags a reshape handle such that two adjacent segments end up in a straight line,
+a segment is removed from the route.
+<p class="boxread">
+For more discussion and examples, see <a href="../../intro/links.html">Links</a>,
+<a href="../../intro/linkLabels.html">Link Labels</a>, and
+<a href="../../intro/connectionPoints.html">Link Points</a>.
+<p class="boxread">
+To control what links a user may draw or reconnect, please read about
+<a href="../../intro/validation.html">Validation</a>.
+<p class="boxread">
+To customize linking and relinking behavior, please read
+<a href="../../intro/tools.html#LinkingToolAndRelinkingTool">Introduction to the Linking Tools</a>
+and <a href="../../intro/tools.html#RelinkingTool">Introduction to the RelinkingTool</a>.
+For customizing the reshaping of Links,
+see <a href="../../intro/tools.html#LinkReshapingTool">Introduction to the LinkReshapingTool</a>.
+<p>
+Only Links that are in Diagrams can have connections with Nodes.
+Templates should not be connected with Nodes, be members of Groups, or have any Adornments.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1156,7 +1285,9 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>Constructs an empty link that does not connect any nodes.<span class="nodetails" id="xconLink"><a class="morelink" onclick="hst('conLink')">More...</a></span> <span class="details" id="conLink">If you want the link to be seen, you must provide a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> as an elementto be used as the visual path for the link.</span>
+                            <!--newp--><p><p>Constructs an empty link that does not connect any nodes.<span class="nodetails" id="xconLink"><a class="morelink" onclick="hst('conLink')">More...</a></span> <span class="details" id="conLink">
+If you want the link to be seen, you must provide a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> as an element
+to be used as the visual path for the link.</span>
                         
                         
 
@@ -1198,7 +1329,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets how the route is computed, including whether it uses the points of its old route to determine the new route.<span class="nodetails" id="xpropadjusting"><a class="morelink" onclick="hst('propadjusting')">More...</a></span> <span class="details" id="propadjusting">The value must be one of <a href="../symbols/Link.html#None" class="linkConstant">None</a>, <a href="../symbols/Link.html#End" class="linkConstant">End</a>, <a href="../symbols/Link.html#Scale" class="linkConstant">Scale</a>, or <a href="../symbols/Link.html#Stretch" class="linkConstant">Stretch</a>.</span><div class="details" id="dpropadjusting"><p>The default value is <a href="../symbols/Link.html#None" class="linkConstant">None</a> -- the route is completely recalculated each time.</div>
+                <p>Gets or sets how the route is computed, including whether it uses the points of its old route to determine the new route.<span class="nodetails" id="xpropadjusting"><a class="morelink" onclick="hst('propadjusting')">More...</a></span> <span class="details" id="propadjusting">
+The value must be one of <a href="../symbols/Link.html#None" class="linkConstant">None</a>, <a href="../symbols/Link.html#End" class="linkConstant">End</a>, <a href="../symbols/Link.html#Scale" class="linkConstant">Scale</a>, or <a href="../symbols/Link.html#Stretch" class="linkConstant">Stretch</a>.
+</span><div class="details" id="dpropadjusting"><p>
+The default value is <a href="../symbols/Link.html#None" class="linkConstant">None</a> -- the route is completely recalculated each time.</div>
                 
                 </div>
                             </td>
@@ -1218,7 +1352,11 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets how rounded the corners are for adjacent line segments when the <a href="../symbols/Link.html#curve" class="linkProperty">curve</a>is <a href="../symbols/Link.html#None" class="linkConstant">None</a>, <a href="../symbols/Link.html#JumpGap" class="linkConstant">JumpGap</a>, or <a href="../symbols/Link.html#JumpOver" class="linkConstant">JumpOver</a> andthe two line segments are orthogonal to each other.<span class="nodetails" id="xpropcorner"><a class="morelink" onclick="hst('propcorner')">More...</a></span> <span class="details" id="propcorner"></span><div class="details" id="dpropcorner"><p>The default value is zero -- there is no curve at a corner.</div>
+                <p>Gets or sets how rounded the corners are for adjacent line segments when the <a href="../symbols/Link.html#curve" class="linkProperty">curve</a>
+is <a href="../symbols/Link.html#None" class="linkConstant">None</a>, <a href="../symbols/Link.html#JumpGap" class="linkConstant">JumpGap</a>, or <a href="../symbols/Link.html#JumpOver" class="linkConstant">JumpOver</a> and
+the two line segments are orthogonal to each other.<span class="nodetails" id="xpropcorner"><a class="morelink" onclick="hst('propcorner')">More...</a></span> <span class="details" id="propcorner">
+</span><div class="details" id="dpropcorner"><p>
+The default value is zero -- there is no curve at a corner.</div>
                 
                 </div>
                             </td>
@@ -1238,7 +1376,15 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the way the path is generated from the route's points.<span class="nodetails" id="xpropcurve"><a class="morelink" onclick="hst('propcurve')">More...</a></span> <span class="details" id="propcurve">The value must be one of <a href="../symbols/Link.html#None" class="linkConstant">None</a>, <a href="../symbols/Link.html#Bezier" class="linkConstant">Bezier</a>, <a href="../symbols/Link.html#JumpGap" class="linkConstant">JumpGap</a>, or <a href="../symbols/Link.html#JumpOver" class="linkConstant">JumpOver</a>.</span><div class="details" id="dpropcurve"><p>Setting this property to <a href="../symbols/Link.html#JumpOver" class="linkConstant">JumpOver</a> or <a href="../symbols/Link.html#JumpGap" class="linkConstant">JumpGap</a> requires the Diagram to doconsiderable computation when calculating Link routes. Consider not usinga Jump... value with Diagrams that contain large numbers of Linksif you are targeting slow devices.<p>The default value is <a href="../symbols/Link.html#None" class="linkConstant">None</a> -- each link segment is a straight line.</div>
+                <p>Gets or sets the way the path is generated from the route's points.<span class="nodetails" id="xpropcurve"><a class="morelink" onclick="hst('propcurve')">More...</a></span> <span class="details" id="propcurve">
+The value must be one of <a href="../symbols/Link.html#None" class="linkConstant">None</a>, <a href="../symbols/Link.html#Bezier" class="linkConstant">Bezier</a>, <a href="../symbols/Link.html#JumpGap" class="linkConstant">JumpGap</a>, or <a href="../symbols/Link.html#JumpOver" class="linkConstant">JumpOver</a>.
+</span><div class="details" id="dpropcurve"><p>
+Setting this property to <a href="../symbols/Link.html#JumpOver" class="linkConstant">JumpOver</a> or <a href="../symbols/Link.html#JumpGap" class="linkConstant">JumpGap</a> requires the Diagram to do
+considerable computation when calculating Link routes. Consider not using
+a Jump... value with Diagrams that contain large numbers of Links
+if you are targeting slow devices.
+<p>
+The default value is <a href="../symbols/Link.html#None" class="linkConstant">None</a> -- each link segment is a straight line.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1266,7 +1412,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets how far the control points are offset when the <a href="../symbols/Link.html#curve" class="linkProperty">curve</a> is <a href="../symbols/Link.html#Bezier" class="linkConstant">Bezier</a>or when there are multiple links between the same two ports.<span class="nodetails" id="xpropcurviness"><a class="morelink" onclick="hst('propcurviness')">More...</a></span> <span class="details" id="propcurviness"></span><div class="details" id="dpropcurviness"><p>The default value is NaN -- the actual curviness is computed based on how many links connect the same pair of ports.</div>
+                <p>Gets or sets how far the control points are offset when the <a href="../symbols/Link.html#curve" class="linkProperty">curve</a> is <a href="../symbols/Link.html#Bezier" class="linkConstant">Bezier</a>
+or when there are multiple links between the same two ports.<span class="nodetails" id="xpropcurviness"><a class="morelink" onclick="hst('propcurviness')">More...</a></span> <span class="details" id="propcurviness">
+</span><div class="details" id="dpropcurviness"><p>
+The default value is NaN -- the actual curviness is computed based on how many links connect the same pair of ports.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1294,7 +1443,12 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the length of the first segment, when the computed "from spot" at the <a href="../symbols/Link.html#fromPort" class="linkProperty">fromPort</a> is not <a href="../symbols/Spot.html#None" class="linkConstant">Spot.None</a>.<span class="nodetails" id="xpropfromEndSegmentLength"><a class="morelink" onclick="hst('propfromEndSegmentLength')">More...</a></span> <span class="details" id="propfromEndSegmentLength">The default value is NaN, meaning that the valueactually comes from the <a href="../symbols/GraphObject.html#fromEndSegmentLength" class="linkProperty">GraphObject.fromEndSegmentLength</a> property of the <a href="../symbols/Link.html#fromPort" class="linkProperty">fromPort</a>.This value also limits how short the <a href="../symbols/Link.html#fromShortLength" class="linkProperty">fromShortLength</a> may be drawn.</span><div class="details" id="dpropfromEndSegmentLength"><p>For examples of how to use this property, see <a href="../../intro/connectionPoints.html">Link Connection Points</a>.</div>
+                <p>Gets or sets the length of the first segment, when the computed "from spot" at the <a href="../symbols/Link.html#fromPort" class="linkProperty">fromPort</a> is not <a href="../symbols/Spot.html#None" class="linkConstant">Spot.None</a>.<span class="nodetails" id="xpropfromEndSegmentLength"><a class="morelink" onclick="hst('propfromEndSegmentLength')">More...</a></span> <span class="details" id="propfromEndSegmentLength">
+The default value is NaN, meaning that the value
+actually comes from the <a href="../symbols/GraphObject.html#fromEndSegmentLength" class="linkProperty">GraphObject.fromEndSegmentLength</a> property of the <a href="../symbols/Link.html#fromPort" class="linkProperty">fromPort</a>.
+This value also limits how short the <a href="../symbols/Link.html#fromShortLength" class="linkProperty">fromShortLength</a> may be drawn.
+</span><div class="details" id="dpropfromEndSegmentLength"><p>
+For examples of how to use this property, see <a href="../../intro/connectionPoints.html">Link Connection Points</a>.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1328,7 +1482,11 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the <a href="../symbols/Node.html" class="linkConstructor">Node</a> that this link comes from.<span class="nodetails" id="xpropfromNode"><a class="morelink" onclick="hst('propfromNode')">More...</a></span> <span class="details" id="propfromNode">The <a href="../symbols/Link.html#fromPortId" class="linkProperty">fromPortId</a> specifies which port the link comes from.The default value is null -- this link is not coming from any node.</span><div class="details" id="dpropfromNode"><p>A template should not be connected with any node.</div>
+                <p>Gets or sets the <a href="../symbols/Node.html" class="linkConstructor">Node</a> that this link comes from.<span class="nodetails" id="xpropfromNode"><a class="morelink" onclick="hst('propfromNode')">More...</a></span> <span class="details" id="propfromNode">
+The <a href="../symbols/Link.html#fromPortId" class="linkProperty">fromPortId</a> specifies which port the link comes from.
+The default value is null -- this link is not coming from any node.
+</span><div class="details" id="dpropfromNode"><p>
+A template should not be connected with any node.</div>
                 
                 </div>
                             </td>
@@ -1348,7 +1506,11 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property returns a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that is the "from" port that this link is connected from.<span class="nodetails" id="xpropfromPort"><a class="morelink" onclick="hst('propfromPort')">More...</a></span> <span class="details" id="propfromPort">The <a href="../symbols/Link.html#fromNode" class="linkProperty">fromNode</a> provides the node that the link is coming from.The <a href="../symbols/Link.html#fromPortId" class="linkProperty">fromPortId</a> provides the identifier for which port this link is coming from;you can set that property in order to change the value of this property.This method may return null.</span>
+                <p>This read-only property returns a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that is the "from" port that this link is connected from.<span class="nodetails" id="xpropfromPort"><a class="morelink" onclick="hst('propfromPort')">More...</a></span> <span class="details" id="propfromPort">
+The <a href="../symbols/Link.html#fromNode" class="linkProperty">fromNode</a> provides the node that the link is coming from.
+The <a href="../symbols/Link.html#fromPortId" class="linkProperty">fromPortId</a> provides the identifier for which port this link is coming from;
+you can set that property in order to change the value of this property.
+This method may return null.</span>
                 
                 </div>
                             </td>
@@ -1368,7 +1530,15 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the function that is called after this Link changes which Node or port it connects from.<span class="nodetails" id="xpropfromPortChanged"><a class="morelink" onclick="hst('propfromPortChanged')">More...</a></span> <span class="details" id="propfromPortChanged">The first argument will be this Link.The second argument will be the old GraphObject port.The third argument will be the new GraphObject port.</span><div class="details" id="dpropfromPortChanged"><p>If the value is a function, that function must not modify which nodes or links this link connects with.The "from" node and/or port has already been changed -- trying to change it again may produce undefined behavior.<p>The default value is null -- no function is called.</div>
+                <p>Gets or sets the function that is called after this Link changes which Node or port it connects from.<span class="nodetails" id="xpropfromPortChanged"><a class="morelink" onclick="hst('propfromPortChanged')">More...</a></span> <span class="details" id="propfromPortChanged">
+The first argument will be this Link.
+The second argument will be the old GraphObject port.
+The third argument will be the new GraphObject port.
+</span><div class="details" id="dpropfromPortChanged"><p>
+If the value is a function, that function must not modify which nodes or links this link connects with.
+The "from" node and/or port has already been changed -- trying to change it again may produce undefined behavior.
+<p>
+The default value is null -- no function is called.</div>
                 
                 </div>
                             </td>
@@ -1388,7 +1558,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the identifier of the port that this link comes from.<span class="nodetails" id="xpropfromPortId"><a class="morelink" onclick="hst('propfromPortId')">More...</a></span> <span class="details" id="propfromPortId">The default value is the empty string.</span>
+                <p>Gets or sets the identifier of the port that this link comes from.<span class="nodetails" id="xpropfromPortId"><a class="morelink" onclick="hst('propfromPortId')">More...</a></span> <span class="details" id="propfromPortId">
+The default value is the empty string.</span>
                 
                 </div>
                             </td>
@@ -1408,7 +1579,15 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets how far the end segment stops short of the actual port.<span class="nodetails" id="xpropfromShortLength"><a class="morelink" onclick="hst('propfromShortLength')">More...</a></span> <span class="details" id="propfromShortLength">Positive values are limited by the <a href="../symbols/Link.html#fromEndSegmentLength" class="linkProperty">fromEndSegmentLength</a> or <a href="../symbols/GraphObject.html#fromEndSegmentLength" class="linkProperty">GraphObject.fromEndSegmentLength</a>.Negative values cause the link to extend into the port.The default value is NaN -- the value actually comes from the<a href="../symbols/GraphObject.html#fromShortLength" class="linkProperty">GraphObject.fromShortLength</a> property of the <a href="../symbols/Link.html#fromPort" class="linkProperty">fromPort</a>.</span><div class="details" id="dpropfromShortLength"><p>For examples of how to use this property, see <a href="../../intro/connectionPoints.html">Link Connection Points</a>.If you want to move an arrowhead away from the start of the link route,set the arrowhead Shape's <a href="../symbols/GraphObject.html#segmentOffset" class="linkProperty">GraphObject.segmentOffset</a>.</div>
+                <p>Gets or sets how far the end segment stops short of the actual port.<span class="nodetails" id="xpropfromShortLength"><a class="morelink" onclick="hst('propfromShortLength')">More...</a></span> <span class="details" id="propfromShortLength">
+Positive values are limited by the <a href="../symbols/Link.html#fromEndSegmentLength" class="linkProperty">fromEndSegmentLength</a> or <a href="../symbols/GraphObject.html#fromEndSegmentLength" class="linkProperty">GraphObject.fromEndSegmentLength</a>.
+Negative values cause the link to extend into the port.
+The default value is NaN -- the value actually comes from the
+<a href="../symbols/GraphObject.html#fromShortLength" class="linkProperty">GraphObject.fromShortLength</a> property of the <a href="../symbols/Link.html#fromPort" class="linkProperty">fromPort</a>.
+</span><div class="details" id="dpropfromShortLength"><p>
+For examples of how to use this property, see <a href="../../intro/connectionPoints.html">Link Connection Points</a>.
+If you want to move an arrowhead away from the start of the link route,
+set the arrowhead Shape's <a href="../symbols/GraphObject.html#segmentOffset" class="linkProperty">GraphObject.segmentOffset</a>.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1440,7 +1619,15 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets where this link should connect at the <a href="../symbols/Link.html#fromPort" class="linkProperty">fromPort</a>.<span class="nodetails" id="xpropfromSpot"><a class="morelink" onclick="hst('propfromSpot')">More...</a></span> <span class="details" id="propfromSpot">The default value is <a href="../symbols/Spot.html#Default" class="linkConstant">Spot.Default</a>, meaning that the valueactually comes from the <a href="../symbols/GraphObject.html#fromSpot" class="linkProperty">GraphObject.fromSpot</a> property of the <a href="../symbols/Link.html#fromPort" class="linkProperty">fromPort</a>.</span><div class="details" id="dpropfromSpot"><p>This property is set by some layouts, if <a href="../symbols/ForceDirectedLayout.html#setsPortSpots" class="linkProperty">ForceDirectedLayout.setsPortSpots</a> or<a href="../symbols/LayeredDigraphLayout.html#setsPortSpots" class="linkProperty">LayeredDigraphLayout.setsPortSpots</a> or <a href="../symbols/TreeLayout.html#setsPortSpot" class="linkProperty">TreeLayout.setsPortSpot</a> or<a href="../symbols/TreeLayout.html#setsChildPortSpot" class="linkProperty">TreeLayout.setsChildPortSpot</a> is true.<p>For examples of how to use this property, see <a href="../../intro/connectionPoints.html">Link Connection Points</a>.</div>
+                <p>Gets or sets where this link should connect at the <a href="../symbols/Link.html#fromPort" class="linkProperty">fromPort</a>.<span class="nodetails" id="xpropfromSpot"><a class="morelink" onclick="hst('propfromSpot')">More...</a></span> <span class="details" id="propfromSpot">
+The default value is <a href="../symbols/Spot.html#Default" class="linkConstant">Spot.Default</a>, meaning that the value
+actually comes from the <a href="../symbols/GraphObject.html#fromSpot" class="linkProperty">GraphObject.fromSpot</a> property of the <a href="../symbols/Link.html#fromPort" class="linkProperty">fromPort</a>.
+</span><div class="details" id="dpropfromSpot"><p>
+This property is set by some layouts, if <a href="../symbols/ForceDirectedLayout.html#setsPortSpots" class="linkProperty">ForceDirectedLayout.setsPortSpots</a> or
+<a href="../symbols/LayeredDigraphLayout.html#setsPortSpots" class="linkProperty">LayeredDigraphLayout.setsPortSpots</a> or <a href="../symbols/TreeLayout.html#setsPortSpot" class="linkProperty">TreeLayout.setsPortSpot</a> or
+<a href="../symbols/TreeLayout.html#setsChildPortSpot" class="linkProperty">TreeLayout.setsChildPortSpot</a> is true.
+<p>
+For examples of how to use this property, see <a href="../../intro/connectionPoints.html">Link Connection Points</a>.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1472,7 +1659,14 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property returns the <a href="../symbols/Geometry.html" class="linkConstructor">Geometry</a> that is used by the <a href="../symbols/Link.html#path" class="linkProperty">path</a>, the link <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> based on the route points.<span class="nodetails" id="xpropgeometry"><a class="morelink" onclick="hst('propgeometry')">More...</a></span> <span class="details" id="propgeometry"></span><div class="details" id="dpropgeometry"><p>This geometry is automatically generated using the route points and other propertiessuch as the <a href="../symbols/Link.html#curve" class="linkProperty">curve</a>.The points of the Geometry are in local coordinates, whereas the <a href="../symbols/Link.html#points" class="linkProperty">points</a> of the link route are in document coordinates.<p>More than one <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> may share this geometry as its <a href="../symbols/Shape.html#geometry" class="linkProperty">Shape.geometry</a>,if there is more than one shape element in the Link with <a href="../symbols/GraphObject.html#isPanelMain" class="linkProperty">GraphObject.isPanelMain</a> set to true.</div>
+                <p>This read-only property returns the <a href="../symbols/Geometry.html" class="linkConstructor">Geometry</a> that is used by the <a href="../symbols/Link.html#path" class="linkProperty">path</a>, the link <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> based on the route points.<span class="nodetails" id="xpropgeometry"><a class="morelink" onclick="hst('propgeometry')">More...</a></span> <span class="details" id="propgeometry">
+</span><div class="details" id="dpropgeometry"><p>
+This geometry is automatically generated using the route points and other properties
+such as the <a href="../symbols/Link.html#curve" class="linkProperty">curve</a>.
+The points of the Geometry are in local coordinates, whereas the <a href="../symbols/Link.html#points" class="linkProperty">points</a> of the link route are in document coordinates.
+<p>
+More than one <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> may share this geometry as its <a href="../symbols/Shape.html#geometry" class="linkProperty">Shape.geometry</a>,
+if there is more than one shape element in the Link with <a href="../symbols/GraphObject.html#isPanelMain" class="linkProperty">GraphObject.isPanelMain</a> set to true.</div>
                 
                 </div>
                             </td>
@@ -1494,7 +1688,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property is true when this Link has any label Nodes, <a href="../symbols/Node.html" class="linkConstructor">Node</a>s that are owned by this Linkand are arranged along its path in the same manner as elements of the Link Panel.<span class="nodetails" id="xpropisLabeledLink"><a class="morelink" onclick="hst('propisLabeledLink')">More...</a></span> <span class="details" id="propisLabeledLink"></span>
+                <p>This read-only property is true when this Link has any label Nodes, <a href="../symbols/Node.html" class="linkConstructor">Node</a>s that are owned by this Link
+and are arranged along its path in the same manner as elements of the Link Panel.<span class="nodetails" id="xpropisLabeledLink"><a class="morelink" onclick="hst('propisLabeledLink')">More...</a></span> <span class="details" id="propisLabeledLink"></span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1524,7 +1719,14 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property is true if <a href="../symbols/Link.html#routing" class="linkProperty">routing</a> is a value that implies that the pointsof the route should be orthogonal, such that each point shares a common X or a common Y valuewith the immediately previous and next points.<span class="nodetails" id="xpropisOrthogonal"><a class="morelink" onclick="hst('propisOrthogonal')">More...</a></span> <span class="details" id="propisOrthogonal">This property is completely dependent on the <a href="../symbols/Link.html#routing" class="linkProperty">routing</a> property.Values of <a href="../symbols/Link.html#Orthogonal" class="linkConstant">Link.Orthogonal</a> and <a href="../symbols/Link.html#AvoidsNodes" class="linkConstant">Link.AvoidsNodes</a> causes this property to be true.</span><div class="details" id="dpropisOrthogonal"><p>The points in the route might not actually form an orthogonal route, but when the route is computedthe intent is to maintain orthogonality.</div>
+                <p>This read-only property is true if <a href="../symbols/Link.html#routing" class="linkProperty">routing</a> is a value that implies that the points
+of the route should be orthogonal, such that each point shares a common X or a common Y value
+with the immediately previous and next points.<span class="nodetails" id="xpropisOrthogonal"><a class="morelink" onclick="hst('propisOrthogonal')">More...</a></span> <span class="details" id="propisOrthogonal">
+This property is completely dependent on the <a href="../symbols/Link.html#routing" class="linkProperty">routing</a> property.
+Values of <a href="../symbols/Link.html#Orthogonal" class="linkConstant">Link.Orthogonal</a> and <a href="../symbols/Link.html#AvoidsNodes" class="linkConstant">Link.AvoidsNodes</a> causes this property to be true.
+</span><div class="details" id="dpropisOrthogonal"><p>
+The points in the route might not actually form an orthogonal route, but when the route is computed
+the intent is to maintain orthogonality.</div>
                 
                 </div>
                             </td>
@@ -1546,7 +1748,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether this Link is part of the tree for tree operationssuch as <a href="../symbols/Node.html#findTreeChildrenNodes" class="linkMethod">Node.findTreeChildrenNodes</a> or <a href="../symbols/Node.html#collapseTree" class="linkMethod">Node.collapseTree</a>.<span class="nodetails" id="xpropisTreeLink"><a class="morelink" onclick="hst('propisTreeLink')">More...</a></span> <span class="details" id="propisTreeLink"></span><div class="details" id="dpropisTreeLink"><p>The initial value is true.</div>
+                <p>Gets or sets whether this Link is part of the tree for tree operations
+such as <a href="../symbols/Node.html#findTreeChildrenNodes" class="linkMethod">Node.findTreeChildrenNodes</a> or <a href="../symbols/Node.html#collapseTree" class="linkMethod">Node.collapseTree</a>.<span class="nodetails" id="xpropisTreeLink"><a class="morelink" onclick="hst('propisTreeLink')">More...</a></span> <span class="details" id="propisTreeLink">
+</span><div class="details" id="dpropisTreeLink"><p>
+The initial value is true.</div>
                 
                 </div>
                             </td>
@@ -1566,7 +1771,17 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property returns an iterator over the <a href="../symbols/Node.html" class="linkConstructor">Node</a>s that act as labels on this Link.<span class="nodetails" id="xproplabelNodes"><a class="morelink" onclick="hst('proplabelNodes')">More...</a></span> <span class="details" id="proplabelNodes">Setting <a href="../symbols/Node.html#labeledLink" class="linkProperty">Node.labeledLink</a> to refer to this Linkwill add that <a href="../symbols/Node.html" class="linkConstructor">Node</a> to this collection.</span><div class="details" id="dproplabelNodes"><p>Do not confuse these <a href="../symbols/Node.html" class="linkConstructor">Node</a>s with the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>s thatare part of this <a href="../symbols/Link.html" class="linkConstructor">Link</a> <a href="../symbols/Panel.html" class="linkConstructor">Panel</a>.Those objects can also be used as "labels", but not as objects to whichthere can be link connections, because those panel elements cannot be <a href="../symbols/Node.html" class="linkConstructor">Node</a>s.Those panel objects can be used for other purposes too, such as arrowheads.<p>A template should not have any label nodes.</div>
+                <p>This read-only property returns an iterator over the <a href="../symbols/Node.html" class="linkConstructor">Node</a>s that act as labels on this Link.<span class="nodetails" id="xproplabelNodes"><a class="morelink" onclick="hst('proplabelNodes')">More...</a></span> <span class="details" id="proplabelNodes">
+Setting <a href="../symbols/Node.html#labeledLink" class="linkProperty">Node.labeledLink</a> to refer to this Link
+will add that <a href="../symbols/Node.html" class="linkConstructor">Node</a> to this collection.
+</span><div class="details" id="dproplabelNodes"><p>
+Do not confuse these <a href="../symbols/Node.html" class="linkConstructor">Node</a>s with the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>s that
+are part of this <a href="../symbols/Link.html" class="linkConstructor">Link</a> <a href="../symbols/Panel.html" class="linkConstructor">Panel</a>.
+Those objects can also be used as "labels", but not as objects to which
+there can be link connections, because those panel elements cannot be <a href="../symbols/Node.html" class="linkConstructor">Node</a>s.
+Those panel objects can be used for other purposes too, such as arrowheads.
+<p>
+A template should not have any label nodes.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1634,7 +1849,20 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property returns the main <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> representing the path of this Link.<span class="nodetails" id="xproppath"><a class="morelink" onclick="hst('proppath')">More...</a></span> <span class="details" id="proppath"></span><div class="details" id="dproppath"><p>The value depends on there being an element in this Link that isa <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> and that has <a href="../symbols/GraphObject.html#isPanelMain" class="linkProperty">GraphObject.isPanelMain</a> set to true.This shape is what displays the stroke going from one node to another node.<p>This path shape's geometry is automatically generated based on the <a href="../symbols/Link.html#points" class="linkProperty">points</a>of this link's route, depending on other properties such as <a href="../symbols/Link.html#curve" class="linkProperty">curve</a>.Note that the points are in document coordinates, but the path's <a href="../symbols/Shape.html#geometry" class="linkProperty">Shape.geometry</a>will have points that are in local Shape coordinates.This Shape's <a href="../symbols/GraphObject.html#scale" class="linkProperty">GraphObject.scale</a> should be one and <a href="../symbols/GraphObject.html#angle" class="linkProperty">GraphObject.angle</a> should be zero.<p>If there is no Shape with <a href="../symbols/GraphObject.html#isPanelMain" class="linkProperty">GraphObject.isPanelMain</a> set to true,the Link will use the first Shape for its path.</div>
+                <p>This read-only property returns the main <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> representing the path of this Link.<span class="nodetails" id="xproppath"><a class="morelink" onclick="hst('proppath')">More...</a></span> <span class="details" id="proppath">
+</span><div class="details" id="dproppath"><p>
+The value depends on there being an element in this Link that is
+a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> and that has <a href="../symbols/GraphObject.html#isPanelMain" class="linkProperty">GraphObject.isPanelMain</a> set to true.
+This shape is what displays the stroke going from one node to another node.
+<p>
+This path shape's geometry is automatically generated based on the <a href="../symbols/Link.html#points" class="linkProperty">points</a>
+of this link's route, depending on other properties such as <a href="../symbols/Link.html#curve" class="linkProperty">curve</a>.
+Note that the points are in document coordinates, but the path's <a href="../symbols/Shape.html#geometry" class="linkProperty">Shape.geometry</a>
+will have points that are in local Shape coordinates.
+This Shape's <a href="../symbols/GraphObject.html#scale" class="linkProperty">GraphObject.scale</a> should be one and <a href="../symbols/GraphObject.html#angle" class="linkProperty">GraphObject.angle</a> should be zero.
+<p>
+If there is no Shape with <a href="../symbols/GraphObject.html#isPanelMain" class="linkProperty">GraphObject.isPanelMain</a> set to true,
+the Link will use the first Shape for its path.</div>
                 
                 </div>
                             </td>
@@ -1654,7 +1882,18 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the <a href="../symbols/List.html" class="linkConstructor">List</a> of <a href="../symbols/Point.html" class="linkConstructor">Point</a>s in the route.<span class="nodetails" id="xproppoints"><a class="morelink" onclick="hst('proppoints')">More...</a></span> <span class="details" id="proppoints">All of the Points must be <a href="../symbols/Point.html#isReal" class="linkMethod">Point.isReal</a> -- no NaN or infinite values --and all of the points are in document coordinates.Although this list may be replaced by setting this property,one must not modify the contents of the List directly.</span><div class="details" id="dproppoints"><p>The setter also accepts an Array of alternating X,Y point values [1, 2, 3, 4, 5, 6],or an Array of Objects each of which has (lowercase) 'x' and 'y' properties that are numbers[{"x":1,"y":2}, {"x":3,"y":4}, {"x":5,"y":6}].<p>Ownership of the <a href="../symbols/List.html" class="linkConstructor">List</a> and all of its <a href="../symbols/Point.html" class="linkConstructor">Point</a>s that is provided to the setteris transferred to this Link.</div>
+                <p>Gets or sets the <a href="../symbols/List.html" class="linkConstructor">List</a> of <a href="../symbols/Point.html" class="linkConstructor">Point</a>s in the route.<span class="nodetails" id="xproppoints"><a class="morelink" onclick="hst('proppoints')">More...</a></span> <span class="details" id="proppoints">
+All of the Points must be <a href="../symbols/Point.html#isReal" class="linkMethod">Point.isReal</a> -- no NaN or infinite values --
+and all of the points are in document coordinates.
+Although this list may be replaced by setting this property,
+one must not modify the contents of the List directly.
+</span><div class="details" id="dproppoints"><p>
+The setter also accepts an Array of alternating X,Y point values [1, 2, 3, 4, 5, 6],
+or an Array of Objects each of which has (lowercase) 'x' and 'y' properties that are numbers
+[{"x":1,"y":2}, {"x":3,"y":4}, {"x":5,"y":6}].
+<p>
+Ownership of the <a href="../symbols/List.html" class="linkConstructor">List</a> and all of its <a href="../symbols/Point.html" class="linkConstructor">Point</a>s that is provided to the setter
+is transferred to this Link.</div>
                 
                 </div>
                             </td>
@@ -1694,7 +1933,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the user may reconnect an existing link at the "from" end.<span class="nodetails" id="xproprelinkableFrom"><a class="morelink" onclick="hst('proprelinkableFrom')">More...</a></span> <span class="details" id="proprelinkableFrom">This affects the behavior of the <a href="../symbols/RelinkingTool.html" class="linkConstructor">RelinkingTool</a>.</span><div class="details" id="dproprelinkableFrom"><p>The initial value is false.</div>
+                <p>Gets or sets whether the user may reconnect an existing link at the "from" end.<span class="nodetails" id="xproprelinkableFrom"><a class="morelink" onclick="hst('proprelinkableFrom')">More...</a></span> <span class="details" id="proprelinkableFrom">
+This affects the behavior of the <a href="../symbols/RelinkingTool.html" class="linkConstructor">RelinkingTool</a>.
+</span><div class="details" id="dproprelinkableFrom"><p>
+The initial value is false.</div>
                 
                 </div>
                             </td>
@@ -1714,7 +1956,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the user may reconnect an existing link at the "to" end.<span class="nodetails" id="xproprelinkableTo"><a class="morelink" onclick="hst('proprelinkableTo')">More...</a></span> <span class="details" id="proprelinkableTo">This affects the behavior of the <a href="../symbols/RelinkingTool.html" class="linkConstructor">RelinkingTool</a>.</span><div class="details" id="dproprelinkableTo"><p>The initial value is false.</div>
+                <p>Gets or sets whether the user may reconnect an existing link at the "to" end.<span class="nodetails" id="xproprelinkableTo"><a class="morelink" onclick="hst('proprelinkableTo')">More...</a></span> <span class="details" id="proprelinkableTo">
+This affects the behavior of the <a href="../symbols/RelinkingTool.html" class="linkConstructor">RelinkingTool</a>.
+</span><div class="details" id="dproprelinkableTo"><p>
+The initial value is false.</div>
                 
                 </div>
                             </td>
@@ -1736,7 +1981,11 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the user may change the number of segments in this Link,if the link has straight segments.<span class="nodetails" id="xpropresegmentable"><a class="morelink" onclick="hst('propresegmentable')">More...</a></span> <span class="details" id="propresegmentable">This affects the behavior of the <a href="../symbols/LinkReshapingTool.html" class="linkConstructor">LinkReshapingTool</a> when <a href="../symbols/Link.html#curve" class="linkProperty">curve</a> is not <a href="../symbols/Link.html#Bezier" class="linkConstant">Link.Bezier</a>.</span><div class="details" id="dpropresegmentable"><p>The initial value is false.</div>
+                <p>Gets or sets whether the user may change the number of segments in this Link,
+if the link has straight segments.<span class="nodetails" id="xpropresegmentable"><a class="morelink" onclick="hst('propresegmentable')">More...</a></span> <span class="details" id="propresegmentable">
+This affects the behavior of the <a href="../symbols/LinkReshapingTool.html" class="linkConstructor">LinkReshapingTool</a> when <a href="../symbols/Link.html#curve" class="linkProperty">curve</a> is not <a href="../symbols/Link.html#Bezier" class="linkConstant">Link.Bezier</a>.
+</span><div class="details" id="dpropresegmentable"><p>
+The initial value is false.</div>
                 
                 </div>
                             </td>
@@ -1756,7 +2005,17 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the link's path tries to avoid other nodes.<span class="nodetails" id="xproprouting"><a class="morelink" onclick="hst('proprouting')">More...</a></span> <span class="details" id="proprouting">The value must be one of <a href="../symbols/Link.html#Normal" class="linkConstant">Normal</a>, <a href="../symbols/Link.html#Orthogonal" class="linkConstant">Orthogonal</a>, or <a href="../symbols/Link.html#AvoidsNodes" class="linkConstant">AvoidsNodes</a>.</span><div class="details" id="dproprouting"><p>Setting this property to <a href="../symbols/Link.html#AvoidsNodes" class="linkConstant">AvoidsNodes</a> requires the Diagram to doconsiderable computation when calculating Link routes. Consider not usingthe <a href="../symbols/Link.html#AvoidsNodes" class="linkConstant">AvoidsNodes</a> with Diagrams that contain large numbers of Nodes and Linksif you are targeting slow devices.<p>The default value is <a href="../symbols/Link.html#Normal" class="linkConstant">Normal</a> -- the route is primarily a single straight segment,with possible short end segments when connecting with ports that have a "spot" valueas the <a href="../symbols/Link.html#fromSpot" class="linkProperty">fromSpot</a> or <a href="../symbols/GraphObject.html#fromSpot" class="linkProperty">GraphObject.fromSpot</a> or <a href="../symbols/Link.html#toSpot" class="linkProperty">toSpot</a> or <a href="../symbols/GraphObject.html#toSpot" class="linkProperty">GraphObject.toSpot</a>.</div>
+                <p>Gets or sets whether the link's path tries to avoid other nodes.<span class="nodetails" id="xproprouting"><a class="morelink" onclick="hst('proprouting')">More...</a></span> <span class="details" id="proprouting">
+The value must be one of <a href="../symbols/Link.html#Normal" class="linkConstant">Normal</a>, <a href="../symbols/Link.html#Orthogonal" class="linkConstant">Orthogonal</a>, or <a href="../symbols/Link.html#AvoidsNodes" class="linkConstant">AvoidsNodes</a>.
+</span><div class="details" id="dproprouting"><p>
+Setting this property to <a href="../symbols/Link.html#AvoidsNodes" class="linkConstant">AvoidsNodes</a> requires the Diagram to do
+considerable computation when calculating Link routes. Consider not using
+the <a href="../symbols/Link.html#AvoidsNodes" class="linkConstant">AvoidsNodes</a> with Diagrams that contain large numbers of Nodes and Links
+if you are targeting slow devices.
+<p>
+The default value is <a href="../symbols/Link.html#Normal" class="linkConstant">Normal</a> -- the route is primarily a single straight segment,
+with possible short end segments when connecting with ports that have a "spot" value
+as the <a href="../symbols/Link.html#fromSpot" class="linkProperty">fromSpot</a> or <a href="../symbols/GraphObject.html#fromSpot" class="linkProperty">GraphObject.fromSpot</a> or <a href="../symbols/Link.html#toSpot" class="linkProperty">toSpot</a> or <a href="../symbols/GraphObject.html#toSpot" class="linkProperty">GraphObject.toSpot</a>.</div>
                 
                 </div>
                             </td>
@@ -1776,7 +2035,18 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets how far the control points are from the points of the routewhen <a href="../symbols/Link.html#routing" class="linkProperty">routing</a> is <a href="../symbols/Link.html#Orthogonal" class="linkConstant">Orthogonal</a> and <a href="../symbols/Link.html#curve" class="linkProperty">curve</a> is <a href="../symbols/Link.html#Bezier" class="linkConstant">Bezier</a>.<span class="nodetails" id="xpropsmoothness"><a class="morelink" onclick="hst('propsmoothness')">More...</a></span> <span class="details" id="propsmoothness"></span><div class="details" id="dpropsmoothness"><p>The default value is 0.5.Values of this property typically fall in the range of 0.0 to 1.0.A value of 0.0 indicates that the control points of the curve are at the end points,which will result in straight line segments.A value of 1.0 indicates that the control points are one-third of the link'slength away from the end point along the direction of the link,and the same distance away in a perpendicular direction.The distance scales linearly with the value of this property,even with negative values and values greater than 1.0.</div>
+                <p>Gets or sets how far the control points are from the points of the route
+when <a href="../symbols/Link.html#routing" class="linkProperty">routing</a> is <a href="../symbols/Link.html#Orthogonal" class="linkConstant">Orthogonal</a> and <a href="../symbols/Link.html#curve" class="linkProperty">curve</a> is <a href="../symbols/Link.html#Bezier" class="linkConstant">Bezier</a>.<span class="nodetails" id="xpropsmoothness"><a class="morelink" onclick="hst('propsmoothness')">More...</a></span> <span class="details" id="propsmoothness">
+</span><div class="details" id="dpropsmoothness"><p>
+The default value is 0.5.
+Values of this property typically fall in the range of 0.0 to 1.0.
+A value of 0.0 indicates that the control points of the curve are at the end points,
+which will result in straight line segments.
+A value of 1.0 indicates that the control points are one-third of the link's
+length away from the end point along the direction of the link,
+and the same distance away in a perpendicular direction.
+The distance scales linearly with the value of this property,
+even with negative values and values greater than 1.0.</div>
                 
                 </div>
                             </td>
@@ -1796,7 +2066,12 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the length of the last segment.<span class="nodetails" id="xproptoEndSegmentLength"><a class="morelink" onclick="hst('proptoEndSegmentLength')">More...</a></span> <span class="details" id="proptoEndSegmentLength">The default value is NaN, meaning that the valueactually comes from the <a href="../symbols/GraphObject.html#toEndSegmentLength" class="linkProperty">GraphObject.toEndSegmentLength</a> property of the <a href="../symbols/Link.html#toPort" class="linkProperty">toPort</a>.This value also limits how short the <a href="../symbols/Link.html#toShortLength" class="linkProperty">toShortLength</a> may be drawn.</span><div class="details" id="dproptoEndSegmentLength"><p>For examples of how to use this property, see <a href="../../intro/connectionPoints.html">Link Connection Points</a>.</div>
+                <p>Gets or sets the length of the last segment.<span class="nodetails" id="xproptoEndSegmentLength"><a class="morelink" onclick="hst('proptoEndSegmentLength')">More...</a></span> <span class="details" id="proptoEndSegmentLength">
+The default value is NaN, meaning that the value
+actually comes from the <a href="../symbols/GraphObject.html#toEndSegmentLength" class="linkProperty">GraphObject.toEndSegmentLength</a> property of the <a href="../symbols/Link.html#toPort" class="linkProperty">toPort</a>.
+This value also limits how short the <a href="../symbols/Link.html#toShortLength" class="linkProperty">toShortLength</a> may be drawn.
+</span><div class="details" id="dproptoEndSegmentLength"><p>
+For examples of how to use this property, see <a href="../../intro/connectionPoints.html">Link Connection Points</a>.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1830,7 +2105,11 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the <a href="../symbols/Node.html" class="linkConstructor">Node</a> that this link goes to.<span class="nodetails" id="xproptoNode"><a class="morelink" onclick="hst('proptoNode')">More...</a></span> <span class="details" id="proptoNode">The <a href="../symbols/Link.html#toPortId" class="linkProperty">toPortId</a> specifies which port the link goes to.The default value is null -- this link is not going to any node.</span><div class="details" id="dproptoNode"><p>A template should not be connected with any node.</div>
+                <p>Gets or sets the <a href="../symbols/Node.html" class="linkConstructor">Node</a> that this link goes to.<span class="nodetails" id="xproptoNode"><a class="morelink" onclick="hst('proptoNode')">More...</a></span> <span class="details" id="proptoNode">
+The <a href="../symbols/Link.html#toPortId" class="linkProperty">toPortId</a> specifies which port the link goes to.
+The default value is null -- this link is not going to any node.
+</span><div class="details" id="dproptoNode"><p>
+A template should not be connected with any node.</div>
                 
                 </div>
                             </td>
@@ -1850,7 +2129,11 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property returns a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that is the "to" port that this link is connected to.<span class="nodetails" id="xproptoPort"><a class="morelink" onclick="hst('proptoPort')">More...</a></span> <span class="details" id="proptoPort">The <a href="../symbols/Link.html#toNode" class="linkProperty">toNode</a> provides the node that the link is going to.The <a href="../symbols/Link.html#toPortId" class="linkProperty">toPortId</a> provides the identifier for which port this link is going to;you can set that property in order to change the value of this property.This method may return null.</span>
+                <p>This read-only property returns a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that is the "to" port that this link is connected to.<span class="nodetails" id="xproptoPort"><a class="morelink" onclick="hst('proptoPort')">More...</a></span> <span class="details" id="proptoPort">
+The <a href="../symbols/Link.html#toNode" class="linkProperty">toNode</a> provides the node that the link is going to.
+The <a href="../symbols/Link.html#toPortId" class="linkProperty">toPortId</a> provides the identifier for which port this link is going to;
+you can set that property in order to change the value of this property.
+This method may return null.</span>
                 
                 </div>
                             </td>
@@ -1870,7 +2153,15 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the function that is called after this Link changes which Node or port it connects to.<span class="nodetails" id="xproptoPortChanged"><a class="morelink" onclick="hst('proptoPortChanged')">More...</a></span> <span class="details" id="proptoPortChanged">The first argument will be this Link.The second argument will be the old GraphObject port.The third argument will be the new GraphObject port.</span><div class="details" id="dproptoPortChanged"><p>If the value is a function, that function must not modify which nodes or links this link connects with.The "to" node and/or port has already been changed -- trying to change it again may produce undefined behavior.<p>The default value is null -- no function is called.</div>
+                <p>Gets or sets the function that is called after this Link changes which Node or port it connects to.<span class="nodetails" id="xproptoPortChanged"><a class="morelink" onclick="hst('proptoPortChanged')">More...</a></span> <span class="details" id="proptoPortChanged">
+The first argument will be this Link.
+The second argument will be the old GraphObject port.
+The third argument will be the new GraphObject port.
+</span><div class="details" id="dproptoPortChanged"><p>
+If the value is a function, that function must not modify which nodes or links this link connects with.
+The "to" node and/or port has already been changed -- trying to change it again may produce undefined behavior.
+<p>
+The default value is null -- no function is called.</div>
                 
                 </div>
                             </td>
@@ -1890,7 +2181,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the identifier of the port that this link goes to.<span class="nodetails" id="xproptoPortId"><a class="morelink" onclick="hst('proptoPortId')">More...</a></span> <span class="details" id="proptoPortId">The default value is the empty string.</span>
+                <p>Gets or sets the identifier of the port that this link goes to.<span class="nodetails" id="xproptoPortId"><a class="morelink" onclick="hst('proptoPortId')">More...</a></span> <span class="details" id="proptoPortId">
+The default value is the empty string.</span>
                 
                 </div>
                             </td>
@@ -1910,7 +2202,15 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets how far the end segment stops short of the actual port.<span class="nodetails" id="xproptoShortLength"><a class="morelink" onclick="hst('proptoShortLength')">More...</a></span> <span class="details" id="proptoShortLength">Positive values are limited by the <a href="../symbols/Link.html#toEndSegmentLength" class="linkProperty">toEndSegmentLength</a> or <a href="../symbols/GraphObject.html#toEndSegmentLength" class="linkProperty">GraphObject.toEndSegmentLength</a>.Negative values cause the link to extend into the port.The default value is NaN -- the value actually comes from the<a href="../symbols/GraphObject.html#toShortLength" class="linkProperty">GraphObject.toShortLength</a> property of the <a href="../symbols/Link.html#toPort" class="linkProperty">toPort</a>.</span><div class="details" id="dproptoShortLength"><p>For examples of how to use this property, see <a href="../../intro/connectionPoints.html">Link Connection Points</a>.If you want to move an arrowhead away from the end of the link route,set the arrowhead Shape's <a href="../symbols/GraphObject.html#segmentOffset" class="linkProperty">GraphObject.segmentOffset</a>.</div>
+                <p>Gets or sets how far the end segment stops short of the actual port.<span class="nodetails" id="xproptoShortLength"><a class="morelink" onclick="hst('proptoShortLength')">More...</a></span> <span class="details" id="proptoShortLength">
+Positive values are limited by the <a href="../symbols/Link.html#toEndSegmentLength" class="linkProperty">toEndSegmentLength</a> or <a href="../symbols/GraphObject.html#toEndSegmentLength" class="linkProperty">GraphObject.toEndSegmentLength</a>.
+Negative values cause the link to extend into the port.
+The default value is NaN -- the value actually comes from the
+<a href="../symbols/GraphObject.html#toShortLength" class="linkProperty">GraphObject.toShortLength</a> property of the <a href="../symbols/Link.html#toPort" class="linkProperty">toPort</a>.
+</span><div class="details" id="dproptoShortLength"><p>
+For examples of how to use this property, see <a href="../../intro/connectionPoints.html">Link Connection Points</a>.
+If you want to move an arrowhead away from the end of the link route,
+set the arrowhead Shape's <a href="../symbols/GraphObject.html#segmentOffset" class="linkProperty">GraphObject.segmentOffset</a>.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1942,7 +2242,15 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets where this link should connect at the <a href="../symbols/Link.html#toPort" class="linkProperty">toPort</a>.<span class="nodetails" id="xproptoSpot"><a class="morelink" onclick="hst('proptoSpot')">More...</a></span> <span class="details" id="proptoSpot">The default value is <a href="../symbols/Spot.html#Default" class="linkConstant">Spot.Default</a>, meaning that the valueactually comes from the <a href="../symbols/GraphObject.html#toSpot" class="linkProperty">GraphObject.toSpot</a> property of the <a href="../symbols/Link.html#toPort" class="linkProperty">toPort</a>.</span><div class="details" id="dproptoSpot"><p>This property is set by some layouts, if <a href="../symbols/ForceDirectedLayout.html#setsPortSpots" class="linkProperty">ForceDirectedLayout.setsPortSpots</a> or<a href="../symbols/LayeredDigraphLayout.html#setsPortSpots" class="linkProperty">LayeredDigraphLayout.setsPortSpots</a> or <a href="../symbols/TreeLayout.html#setsPortSpot" class="linkProperty">TreeLayout.setsPortSpot</a> or<a href="../symbols/TreeLayout.html#setsChildPortSpot" class="linkProperty">TreeLayout.setsChildPortSpot</a> is true.<p>For examples of how to use this property, see <a href="../../intro/connectionPoints.html">Link Connection Points</a>.</div>
+                <p>Gets or sets where this link should connect at the <a href="../symbols/Link.html#toPort" class="linkProperty">toPort</a>.<span class="nodetails" id="xproptoSpot"><a class="morelink" onclick="hst('proptoSpot')">More...</a></span> <span class="details" id="proptoSpot">
+The default value is <a href="../symbols/Spot.html#Default" class="linkConstant">Spot.Default</a>, meaning that the value
+actually comes from the <a href="../symbols/GraphObject.html#toSpot" class="linkProperty">GraphObject.toSpot</a> property of the <a href="../symbols/Link.html#toPort" class="linkProperty">toPort</a>.
+</span><div class="details" id="dproptoSpot"><p>
+This property is set by some layouts, if <a href="../symbols/ForceDirectedLayout.html#setsPortSpots" class="linkProperty">ForceDirectedLayout.setsPortSpots</a> or
+<a href="../symbols/LayeredDigraphLayout.html#setsPortSpots" class="linkProperty">LayeredDigraphLayout.setsPortSpots</a> or <a href="../symbols/TreeLayout.html#setsPortSpot" class="linkProperty">TreeLayout.setsPortSpot</a> or
+<a href="../symbols/TreeLayout.html#setsChildPortSpot" class="linkProperty">TreeLayout.setsChildPortSpot</a> is true.
+<p>
+For examples of how to use this property, see <a href="../../intro/connectionPoints.html">Link Connection Points</a>.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -2048,7 +2356,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate returns true if <a href="../symbols/Link.html#relinkableFrom" class="linkProperty">relinkableFrom</a> is true,if the layer's <a href="../symbols/Layer.html#allowRelink" class="linkProperty">Layer.allowRelink</a> is true, andif the diagram's <a href="../symbols/Diagram.html#allowRelink" class="linkProperty">Diagram.allowRelink</a> is true.
+                                <!--newp--><p><p>This predicate returns true if <a href="../symbols/Link.html#relinkableFrom" class="linkProperty">relinkableFrom</a> is true,
+if the layer's <a href="../symbols/Layer.html#allowRelink" class="linkProperty">Layer.allowRelink</a> is true, and
+if the diagram's <a href="../symbols/Diagram.html#allowRelink" class="linkProperty">Diagram.allowRelink</a> is true.
                  
                               
                               
@@ -2077,7 +2387,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate returns true if <a href="../symbols/Link.html#relinkableTo" class="linkProperty">relinkableTo</a> is true,if the layer's <a href="../symbols/Layer.html#allowRelink" class="linkProperty">Layer.allowRelink</a> is true, andif the diagram's <a href="../symbols/Diagram.html#allowRelink" class="linkProperty">Diagram.allowRelink</a> is true.
+                                <!--newp--><p><p>This predicate returns true if <a href="../symbols/Link.html#relinkableTo" class="linkProperty">relinkableTo</a> is true,
+if the layer's <a href="../symbols/Layer.html#allowRelink" class="linkProperty">Layer.allowRelink</a> is true, and
+if the diagram's <a href="../symbols/Diagram.html#allowRelink" class="linkProperty">Diagram.allowRelink</a> is true.
                  
                               
                               
@@ -2147,7 +2459,10 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Returns the <a href="../symbols/Link.html#curve" class="linkProperty">curve</a>, unless this link is supposed to pretend to be curved, as with reflexive links.<span class="nodetails" id="xmethcomputeCurve"><a class="morelink" onclick="hst('methcomputeCurve')">More...</a></span> <span class="details" id="methcomputeCurve"></span><div class="details" id="dmethcomputeCurve"><p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Returns the <a href="../symbols/Link.html#curve" class="linkProperty">curve</a>, unless this link is supposed to pretend to be curved, as with reflexive links.<span class="nodetails" id="xmethcomputeCurve"><a class="morelink" onclick="hst('methcomputeCurve')">More...</a></span> <span class="details" id="methcomputeCurve">
+</span><div class="details" id="dmethcomputeCurve"><p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                               
@@ -2178,7 +2493,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Returns the <a href="../symbols/Link.html#curviness" class="linkProperty">curviness</a>, if it's a number,or else a computed value based on how many links connect this pair of nodes/ports,by calling <a href="../symbols/Link.html#computeSpacing" class="linkMethod">computeSpacing</a> on each link.<span class="nodetails" id="xmethcomputeCurviness"><a class="morelink" onclick="hst('methcomputeCurviness')">More...</a></span> <span class="details" id="methcomputeCurviness"></span><div class="details" id="dmethcomputeCurviness"><p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Returns the <a href="../symbols/Link.html#curviness" class="linkProperty">curviness</a>, if it's a number,
+or else a computed value based on how many links connect this pair of nodes/ports,
+by calling <a href="../symbols/Link.html#computeSpacing" class="linkMethod">computeSpacing</a> on each link.<span class="nodetails" id="xmethcomputeCurviness"><a class="morelink" onclick="hst('methcomputeCurviness')">More...</a></span> <span class="details" id="methcomputeCurviness">
+</span><div class="details" id="dmethcomputeCurviness"><p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2216,7 +2536,14 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Get the length of the end segment in document coordinates, typically a short distance, in document units.<span class="nodetails" id="xmethcomputeEndSegmentLength"><a class="morelink" onclick="hst('methcomputeEndSegmentLength')">More...</a></span> <span class="details" id="methcomputeEndSegmentLength">For spot values that are <a href="../symbols/Spot.html#isSide" class="linkMethod">Spot.isSide</a>, this returns a computed value.Depending on the <code>from</code> argument, this will return <a href="../symbols/Link.html#fromEndSegmentLength" class="linkProperty">fromEndSegmentLength</a> or <a href="../symbols/Link.html#toEndSegmentLength" class="linkProperty">toEndSegmentLength</a>.If the value is <code>NaN</code>, this will return the <a href="../symbols/Link.html#fromPort" class="linkProperty">fromPort</a>'s <a href="../symbols/GraphObject.html#fromEndSegmentLength" class="linkProperty">GraphObject.fromEndSegmentLength</a>or the <a href="../symbols/Link.html#toPort" class="linkProperty">toPort</a>'s <a href="../symbols/GraphObject.html#toEndSegmentLength" class="linkProperty">GraphObject.toEndSegmentLength</a>.</span><div class="details" id="dmethcomputeEndSegmentLength"><p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Get the length of the end segment in document coordinates, typically a short distance, in document units.<span class="nodetails" id="xmethcomputeEndSegmentLength"><a class="morelink" onclick="hst('methcomputeEndSegmentLength')">More...</a></span> <span class="details" id="methcomputeEndSegmentLength">
+For spot values that are <a href="../symbols/Spot.html#isSide" class="linkMethod">Spot.isSide</a>, this returns a computed value.
+Depending on the <code>from</code> argument, this will return <a href="../symbols/Link.html#fromEndSegmentLength" class="linkProperty">fromEndSegmentLength</a> or <a href="../symbols/Link.html#toEndSegmentLength" class="linkProperty">toEndSegmentLength</a>.
+If the value is <code>NaN</code>, this will return the <a href="../symbols/Link.html#fromPort" class="linkProperty">fromPort</a>'s <a href="../symbols/GraphObject.html#fromEndSegmentLength" class="linkProperty">GraphObject.fromEndSegmentLength</a>
+or the <a href="../symbols/Link.html#toPort" class="linkProperty">toPort</a>'s <a href="../symbols/GraphObject.html#toEndSegmentLength" class="linkProperty">GraphObject.toEndSegmentLength</a>.
+</span><div class="details" id="dmethcomputeEndSegmentLength"><p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                                   <dl class="detailList">
@@ -2276,7 +2603,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Find the approximate point of the other end of the link in document coordinates.<span class="nodetails" id="xmethcomputeOtherPoint"><a class="morelink" onclick="hst('methcomputeOtherPoint')">More...</a></span> <span class="details" id="methcomputeOtherPoint">This is useful when computing the connection point when there is no specific spot, to have an idea of which general direction the link should be going.By default this will return the center of the other port.</span><div class="details" id="dmethcomputeOtherPoint"><p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Find the approximate point of the other end of the link in document coordinates.<span class="nodetails" id="xmethcomputeOtherPoint"><a class="morelink" onclick="hst('methcomputeOtherPoint')">More...</a></span> <span class="details" id="methcomputeOtherPoint">
+This is useful when computing the connection point when there is no specific spot, to have an idea of which general direction the link should be going.
+By default this will return the center of the other port.
+</span><div class="details" id="dmethcomputeOtherPoint"><p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                                   <dl class="detailList">
@@ -2324,7 +2656,22 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>The code that constructs a new route by modifying the <a href="../symbols/Link.html#points" class="linkProperty">points</a>.<span class="nodetails" id="xmethcomputePoints"><a class="morelink" onclick="hst('methcomputePoints')">More...</a></span> <span class="details" id="methcomputePoints">It is only called by <a href="../symbols/Link.html#updateRoute" class="linkMethod">updateRoute</a>, when needed.All route points are always in document coordinates.</span><div class="details" id="dmethcomputePoints"><p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.<p>Overrides of this method may call a number of "protected" methods in order to build the route:<a href="../symbols/Link.html#clearPoints" class="linkMethod">clearPoints</a>, <a href="../symbols/Link.html#addPoint" class="linkMethod">addPoint</a>, <a href="../symbols/Link.html#insertPoint" class="linkMethod">insertPoint</a>, <a href="../symbols/Link.html#removePoint" class="linkMethod">removePoint</a>, <a href="../symbols/Link.html#setPoint" class="linkMethod">setPoint</a>.Overrides of this method must not set <a href="../symbols/Link.html#points" class="linkProperty">points</a>.<p>Other methods that are commonly called and may be overridden are:<a href="../symbols/Link.html#computeEndSegmentLength" class="linkMethod">computeEndSegmentLength</a>, <a href="../symbols/Link.html#computeSpot" class="linkMethod">computeSpot</a>, <a href="../symbols/Link.html#computeOtherPoint" class="linkMethod">computeOtherPoint</a>,<a href="../symbols/Link.html#computeCurve" class="linkMethod">computeCurve</a>, <a href="../symbols/Link.html#computeCurviness" class="linkMethod">computeCurviness</a>, <a href="../symbols/Link.html#hasCurviness" class="linkMethod">hasCurviness</a>,<a href="../symbols/Link.html#computeThickness" class="linkMethod">computeThickness</a>,<a href="../symbols/Link.html#makeGeometry" class="linkMethod">makeGeometry</a>.</div>
+                                <!--newp--><p><p>The code that constructs a new route by modifying the <a href="../symbols/Link.html#points" class="linkProperty">points</a>.<span class="nodetails" id="xmethcomputePoints"><a class="morelink" onclick="hst('methcomputePoints')">More...</a></span> <span class="details" id="methcomputePoints">
+It is only called by <a href="../symbols/Link.html#updateRoute" class="linkMethod">updateRoute</a>, when needed.
+All route points are always in document coordinates.
+</span><div class="details" id="dmethcomputePoints"><p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.
+<p>
+Overrides of this method may call a number of "protected" methods in order to build the route:
+<a href="../symbols/Link.html#clearPoints" class="linkMethod">clearPoints</a>, <a href="../symbols/Link.html#addPoint" class="linkMethod">addPoint</a>, <a href="../symbols/Link.html#insertPoint" class="linkMethod">insertPoint</a>, <a href="../symbols/Link.html#removePoint" class="linkMethod">removePoint</a>, <a href="../symbols/Link.html#setPoint" class="linkMethod">setPoint</a>.
+Overrides of this method must not set <a href="../symbols/Link.html#points" class="linkProperty">points</a>.
+<p>
+Other methods that are commonly called and may be overridden are:
+<a href="../symbols/Link.html#computeEndSegmentLength" class="linkMethod">computeEndSegmentLength</a>, <a href="../symbols/Link.html#computeSpot" class="linkMethod">computeSpot</a>, <a href="../symbols/Link.html#computeOtherPoint" class="linkMethod">computeOtherPoint</a>,
+<a href="../symbols/Link.html#computeCurve" class="linkMethod">computeCurve</a>, <a href="../symbols/Link.html#computeCurviness" class="linkMethod">computeCurviness</a>, <a href="../symbols/Link.html#hasCurviness" class="linkMethod">hasCurviness</a>,
+<a href="../symbols/Link.html#computeThickness" class="linkMethod">computeThickness</a>,
+<a href="../symbols/Link.html#makeGeometry" class="linkMethod">makeGeometry</a>.</div>
                  
                               
                               
@@ -2355,7 +2702,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Returns the expected spacing between this link and others that connect this link's fromPort and toPort.<span class="nodetails" id="xmethcomputeSpacing"><a class="morelink" onclick="hst('methcomputeSpacing')">More...</a></span> <span class="details" id="methcomputeSpacing">This calls <a href="../symbols/Link.html#computeThickness" class="linkMethod">computeThickness</a> and also takes any "mid label"'s breadth into account.</span><div class="details" id="dmethcomputeSpacing"><p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Returns the expected spacing between this link and others that connect this link's fromPort and toPort.<span class="nodetails" id="xmethcomputeSpacing"><a class="morelink" onclick="hst('methcomputeSpacing')">More...</a></span> <span class="details" id="methcomputeSpacing">
+This calls <a href="../symbols/Link.html#computeThickness" class="linkMethod">computeThickness</a> and also takes any "mid label"'s breadth into account.
+</span><div class="details" id="dmethcomputeSpacing"><p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2393,7 +2744,13 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Get the <a href="../symbols/Spot.html" class="linkConstructor">Spot</a> that describes how the end of the link should connect with the port.<span class="nodetails" id="xmethcomputeSpot"><a class="morelink" onclick="hst('methcomputeSpot')">More...</a></span> <span class="details" id="methcomputeSpot">Depending on the <code>from</code> argument, this will return <a href="../symbols/Link.html#fromSpot" class="linkProperty">fromSpot</a> or <a href="../symbols/Link.html#toSpot" class="linkProperty">toSpot</a>.If the value is <a href="../symbols/Spot.html#isDefault" class="linkMethod">Spot.isDefault</a>, this will return the <a href="../symbols/Link.html#fromPort" class="linkProperty">fromPort</a>'s <a href="../symbols/GraphObject.html#fromSpot" class="linkProperty">GraphObject.fromSpot</a>or the <a href="../symbols/Link.html#toPort" class="linkProperty">toPort</a>'s <a href="../symbols/GraphObject.html#toSpot" class="linkProperty">GraphObject.toSpot</a>.</span><div class="details" id="dmethcomputeSpot"><p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Get the <a href="../symbols/Spot.html" class="linkConstructor">Spot</a> that describes how the end of the link should connect with the port.<span class="nodetails" id="xmethcomputeSpot"><a class="morelink" onclick="hst('methcomputeSpot')">More...</a></span> <span class="details" id="methcomputeSpot">
+Depending on the <code>from</code> argument, this will return <a href="../symbols/Link.html#fromSpot" class="linkProperty">fromSpot</a> or <a href="../symbols/Link.html#toSpot" class="linkProperty">toSpot</a>.
+If the value is <a href="../symbols/Spot.html#isDefault" class="linkMethod">Spot.isDefault</a>, this will return the <a href="../symbols/Link.html#fromPort" class="linkProperty">fromPort</a>'s <a href="../symbols/GraphObject.html#fromSpot" class="linkProperty">GraphObject.fromSpot</a>
+or the <a href="../symbols/Link.html#toPort" class="linkProperty">toPort</a>'s <a href="../symbols/GraphObject.html#toSpot" class="linkProperty">GraphObject.toSpot</a>.
+</span><div class="details" id="dmethcomputeSpot"><p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                                   <dl class="detailList">
@@ -2435,7 +2792,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Returns the thickness of this link.<span class="nodetails" id="xmethcomputeThickness"><a class="morelink" onclick="hst('methcomputeThickness')">More...</a></span> <span class="details" id="methcomputeThickness">By default it uses the strokeWidth of the main element, assuming it's a Shape.This is called by <a href="../symbols/Link.html#computeSpacing" class="linkMethod">computeSpacing</a>.</span><div class="details" id="dmethcomputeThickness"><p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Returns the thickness of this link.<span class="nodetails" id="xmethcomputeThickness"><a class="morelink" onclick="hst('methcomputeThickness')">More...</a></span> <span class="details" id="methcomputeThickness">
+By default it uses the strokeWidth of the main element, assuming it's a Shape.
+This is called by <a href="../symbols/Link.html#computeSpacing" class="linkMethod">computeSpacing</a>.
+</span><div class="details" id="dmethcomputeThickness"><p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                               
@@ -2464,7 +2826,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Find the index of the segment that is closest to a given point.<span class="nodetails" id="xmethfindClosestSegment"><a class="morelink" onclick="hst('methfindClosestSegment')">More...</a></span> <span class="details" id="methfindClosestSegment">This assume the route only has straight line segments.It ignores any jump-overs or jump-gaps.</span>
+                                <!--newp--><p><p>Find the index of the segment that is closest to a given point.<span class="nodetails" id="xmethfindClosestSegment"><a class="morelink" onclick="hst('methfindClosestSegment')">More...</a></span> <span class="details" id="methfindClosestSegment">
+This assume the route only has straight line segments.
+It ignores any jump-overs or jump-gaps.</span>
                  
                               
                                   <dl class="detailList">
@@ -2674,7 +3038,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Compute the intersection point in document coordinates for the edge of a particular port GraphObject, given a point,when no particular spot or side has been specified.<span class="nodetails" id="xmethgetLinkPointFromPoint"><a class="morelink" onclick="hst('methgetLinkPointFromPoint')">More...</a></span> <span class="details" id="methgetLinkPointFromPoint"></span>
+                                <!--newp--><p><p>Compute the intersection point in document coordinates for the edge of a particular port GraphObject, given a point,
+when no particular spot or side has been specified.<span class="nodetails" id="xmethgetLinkPointFromPoint"><a class="morelink" onclick="hst('methgetLinkPointFromPoint')">More...</a></span> <span class="details" id="methgetLinkPointFromPoint"></span>
                  
                               
                                   <dl class="detailList">
@@ -2696,13 +3061,15 @@
                                           <span class="light fixedFont">{<a href="../symbols/Point.html" class="linkConstructor">Point</a>}</span> <b>focus</b>
                                           
                                       </dt>
-                                      <dd>the point in document coordinates to/from which the link should point,  normally the center of the port.</dd>
+                                      <dd>the point in document coordinates to/from which the link should point,
+  normally the center of the port.</dd>
                                   
                                       <dt>
                                           <span class="light fixedFont">{<a href="../symbols/Point.html" class="linkConstructor">Point</a>}</span> <b>p</b>
                                           
                                       </dt>
-                                      <dd>often this point is far away from the node, to give a general direction,  particularly an orthogonal one.</dd>
+                                      <dd>often this point is far away from the node, to give a general direction,
+  particularly an orthogonal one.</dd>
                                   
                                       <dt>
                                           <span class="light fixedFont">{boolean}</span> <b>from</b>
@@ -2866,7 +3233,10 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Returns true if an extra or a different point is needed based on <a href="../symbols/Link.html#curviness" class="linkProperty">curviness</a>.<span class="nodetails" id="xmethhasCurviness"><a class="morelink" onclick="hst('methhasCurviness')">More...</a></span> <span class="details" id="methhasCurviness"></span><div class="details" id="dmethhasCurviness"><p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Returns true if an extra or a different point is needed based on <a href="../symbols/Link.html#curviness" class="linkProperty">curviness</a>.<span class="nodetails" id="xmethhasCurviness"><a class="morelink" onclick="hst('methhasCurviness')">More...</a></span> <span class="details" id="methhasCurviness">
+</span><div class="details" id="dmethhasCurviness"><p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                               
@@ -2951,7 +3321,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Declare that the route (the <a href="../symbols/Link.html#points" class="linkProperty">points</a>) of this Link need to be recomputed soon.<span class="nodetails" id="xmethinvalidateRoute"><a class="morelink" onclick="hst('methinvalidateRoute')">More...</a></span> <span class="details" id="methinvalidateRoute">This causes <a href="../symbols/Link.html#updateRoute" class="linkMethod">updateRoute</a> to be called, which will call <a href="../symbols/Link.html#computePoints" class="linkMethod">computePoints</a>to perform the actual determination of the route.</span>
+                                <!--newp--><p><p>Declare that the route (the <a href="../symbols/Link.html#points" class="linkProperty">points</a>) of this Link need to be recomputed soon.<span class="nodetails" id="xmethinvalidateRoute"><a class="morelink" onclick="hst('methinvalidateRoute')">More...</a></span> <span class="details" id="methinvalidateRoute">
+This causes <a href="../symbols/Link.html#updateRoute" class="linkMethod">updateRoute</a> to be called, which will call <a href="../symbols/Link.html#computePoints" class="linkMethod">computePoints</a>
+to perform the actual determination of the route.</span>
                  
                               
                               
@@ -2975,7 +3347,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Produce a <a href="../symbols/Geometry.html" class="linkConstructor">Geometry</a> given the points of this route,depending on the value of <a href="../symbols/Link.html#curve" class="linkProperty">curve</a> and <a href="../symbols/Link.html#corner" class="linkProperty">corner</a> and perhaps other properties.<span class="nodetails" id="xmethmakeGeometry"><a class="morelink" onclick="hst('methmakeGeometry')">More...</a></span> <span class="details" id="methmakeGeometry">The points of the Geometry are in local coordinates, whereas the <a href="../symbols/Link.html#points" class="linkProperty">points</a> of the link route are in document coordinates.</span><div class="details" id="dmethmakeGeometry"><p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Produce a <a href="../symbols/Geometry.html" class="linkConstructor">Geometry</a> given the points of this route,
+depending on the value of <a href="../symbols/Link.html#curve" class="linkProperty">curve</a> and <a href="../symbols/Link.html#corner" class="linkProperty">corner</a> and perhaps other properties.<span class="nodetails" id="xmethmakeGeometry"><a class="morelink" onclick="hst('methmakeGeometry')">More...</a></span> <span class="details" id="methmakeGeometry">
+The points of the Geometry are in local coordinates, whereas the <a href="../symbols/Link.html#points" class="linkProperty">points</a> of the link route are in document coordinates.
+</span><div class="details" id="dmethmakeGeometry"><p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                               
@@ -3004,7 +3381,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Move this link to a new position.<span class="nodetails" id="xmethmove"><a class="morelink" onclick="hst('methmove')">More...</a></span> <span class="details" id="methmove">This also shifts all of the Points in the route accordingly.This also moves any <a href="../symbols/Link.html#labelNodes" class="linkProperty">labelNodes</a>.</span>
+                                <!--newp--><p><p>Move this link to a new position.<span class="nodetails" id="xmethmove"><a class="morelink" onclick="hst('methmove')">More...</a></span> <span class="details" id="methmove">
+This also shifts all of the Points in the route accordingly.
+This also moves any <a href="../symbols/Link.html#labelNodes" class="linkProperty">labelNodes</a>.</span>
                  
                               
                                   <dl class="detailList">
@@ -3143,7 +3522,15 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This method recomputes the route if the route is invalid,to make sure the <a href="../symbols/Link.html#points" class="linkProperty">points</a> are up-to-date.<span class="nodetails" id="xmethupdateRoute"><a class="morelink" onclick="hst('methupdateRoute')">More...</a></span> <span class="details" id="methupdateRoute">This method calls <a href="../symbols/Link.html#computePoints" class="linkMethod">computePoints</a> in order to calculate a new route.</span><div class="details" id="dmethupdateRoute"><p>The route may become invalid if either connected node is moved,or if various properties are modified, such as <a href="../symbols/Link.html#routing" class="linkProperty">routing</a>.Such changes will call <a href="../symbols/Link.html#invalidateRoute" class="linkMethod">invalidateRoute</a>.<p>It is unusual for you to have to call this method.</div>
+                                <!--newp--><p><p>This method recomputes the route if the route is invalid,
+to make sure the <a href="../symbols/Link.html#points" class="linkProperty">points</a> are up-to-date.<span class="nodetails" id="xmethupdateRoute"><a class="morelink" onclick="hst('methupdateRoute')">More...</a></span> <span class="details" id="methupdateRoute">
+This method calls <a href="../symbols/Link.html#computePoints" class="linkMethod">computePoints</a> in order to calculate a new route.
+</span><div class="details" id="dmethupdateRoute"><p>
+The route may become invalid if either connected node is moved,
+or if various properties are modified, such as <a href="../symbols/Link.html#routing" class="linkProperty">routing</a>.
+Such changes will call <a href="../symbols/Link.html#invalidateRoute" class="linkMethod">invalidateRoute</a>.
+<p>
+It is unusual for you to have to call this method.</div>
                  
                               
                               
@@ -3193,7 +3580,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Used as a value for <a href="../symbols/Link.html#routing" class="linkProperty">Link.routing</a>:each segment is horizontal or vertical, but the route tries to avoid crossing over nodes.
+                                <!--newp--><p><p>Used as a value for <a href="../symbols/Link.html#routing" class="linkProperty">Link.routing</a>:
+each segment is horizontal or vertical, but the route tries to avoid crossing over nodes.
                             
 
                 </div>
@@ -3212,7 +3600,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Used as a value for <a href="../symbols/Link.html#curve" class="linkProperty">Link.curve</a>, to indicate thatthe link path uses Bezier curve segments.
+                                <!--newp--><p><p>Used as a value for <a href="../symbols/Link.html#curve" class="linkProperty">Link.curve</a>, to indicate that
+the link path uses Bezier curve segments.
                             
 
                 </div>
@@ -3231,7 +3620,10 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Used as a value for <a href="../symbols/Link.html#adjusting" class="linkProperty">Link.adjusting</a>,to indicate that the link route computation should keep theintermediate points of the previous route, just modifying the first and/or last points;if the routing is orthogonal, it will only modify the first two and/or last two points.
+                                <!--newp--><p><p>Used as a value for <a href="../symbols/Link.html#adjusting" class="linkProperty">Link.adjusting</a>,
+to indicate that the link route computation should keep the
+intermediate points of the previous route, just modifying the first and/or last points;
+if the routing is orthogonal, it will only modify the first two and/or last two points.
                             
 
                 </div>
@@ -3250,7 +3642,9 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Used as a value for <a href="../symbols/Link.html#curve" class="linkProperty">Link.curve</a>, to indicate thatorthogonal link segments will be discontinuous where they cross overother orthogonal link segments that have a <a href="../symbols/Link.html#curve" class="linkProperty">Link.curve</a> or JumpOver or JumpGap.
+                                <!--newp--><p><p>Used as a value for <a href="../symbols/Link.html#curve" class="linkProperty">Link.curve</a>, to indicate that
+orthogonal link segments will be discontinuous where they cross over
+other orthogonal link segments that have a <a href="../symbols/Link.html#curve" class="linkProperty">Link.curve</a> or JumpOver or JumpGap.
                             
 
                 </div>
@@ -3269,7 +3663,9 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Used as a value for <a href="../symbols/Link.html#curve" class="linkProperty">Link.curve</a>, to indicate thatorthogonal link segments will veer around where they cross overother orthogonal link segments that have a <a href="../symbols/Link.html#curve" class="linkProperty">Link.curve</a> or JumpOver or JumpGap.
+                                <!--newp--><p><p>Used as a value for <a href="../symbols/Link.html#curve" class="linkProperty">Link.curve</a>, to indicate that
+orthogonal link segments will veer around where they cross over
+other orthogonal link segments that have a <a href="../symbols/Link.html#curve" class="linkProperty">Link.curve</a> or JumpOver or JumpGap.
                             
 
                 </div>
@@ -3288,7 +3684,11 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This is the default value for <a href="../symbols/Link.html#curve" class="linkProperty">Link.curve</a> and <a href="../symbols/Link.html#adjusting" class="linkProperty">Link.adjusting</a>,to indicate that the path geometry consists of straight line segments andto indicate that the link route computation does not depend on any previous route points;this can also be used as a value for <a href="../symbols/GraphObject.html#segmentOrientation" class="linkProperty">GraphObject.segmentOrientation</a>to indicate that the object is never rotated along the link route -- its angle is unchanged.
+                                <!--newp--><p><p>This is the default value for <a href="../symbols/Link.html#curve" class="linkProperty">Link.curve</a> and <a href="../symbols/Link.html#adjusting" class="linkProperty">Link.adjusting</a>,
+to indicate that the path geometry consists of straight line segments and
+to indicate that the link route computation does not depend on any previous route points;
+this can also be used as a value for <a href="../symbols/GraphObject.html#segmentOrientation" class="linkProperty">GraphObject.segmentOrientation</a>
+to indicate that the object is never rotated along the link route -- its angle is unchanged.
                             
 
                 </div>
@@ -3307,7 +3707,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Used as the default value for <a href="../symbols/Link.html#routing" class="linkProperty">Link.routing</a>:the route goes fairly straight between ports.
+                                <!--newp--><p><p>Used as the default value for <a href="../symbols/Link.html#routing" class="linkProperty">Link.routing</a>:
+the route goes fairly straight between ports.
                             
 
                 </div>
@@ -3326,7 +3727,11 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This value for <a href="../symbols/GraphObject.html#segmentOrientation" class="linkProperty">GraphObject.segmentOrientation</a> results inthe GraphObject turned to have the same angle as the route:the GraphObject's angle is always the same as the angle of the link's routeat the segment where the GraphObject is attached;use this orientation for arrow heads.
+                                <!--newp--><p><p>This value for <a href="../symbols/GraphObject.html#segmentOrientation" class="linkProperty">GraphObject.segmentOrientation</a> results in
+the GraphObject turned to have the same angle as the route:
+the GraphObject's angle is always the same as the angle of the link's route
+at the segment where the GraphObject is attached;
+use this orientation for arrow heads.
                             
 
                 </div>
@@ -3345,7 +3750,10 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This value for <a href="../symbols/GraphObject.html#segmentOrientation" class="linkProperty">GraphObject.segmentOrientation</a> results inthe GraphObject being turned counter-clockwise to be perpendicular to the route:the GraphObject's angle is always 90 degrees less than the angle of the link's routeat the segment where the GraphObject is attached.
+                                <!--newp--><p><p>This value for <a href="../symbols/GraphObject.html#segmentOrientation" class="linkProperty">GraphObject.segmentOrientation</a> results in
+the GraphObject being turned counter-clockwise to be perpendicular to the route:
+the GraphObject's angle is always 90 degrees less than the angle of the link's route
+at the segment where the GraphObject is attached.
                             
 
                 </div>
@@ -3364,7 +3772,11 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This value for <a href="../symbols/GraphObject.html#segmentOrientation" class="linkProperty">GraphObject.segmentOrientation</a> results inthe GraphObject turned counter-clockwise to be perpendicular to the route, just like <a href="../symbols/Link.html#OrientMinus90" class="linkConstant">Link.OrientMinus90</a>, but is never upside down:the GraphObject's angle always being 90 degrees less than the angle of the link's routeat the segment where the GraphObject is attached;this is typically only used for <a href="../symbols/TextBlock.html" class="linkConstructor">TextBlock</a>s or <a href="../symbols/Panel.html" class="linkConstructor">Panel</a>s that contain text.
+                                <!--newp--><p><p>This value for <a href="../symbols/GraphObject.html#segmentOrientation" class="linkProperty">GraphObject.segmentOrientation</a> results in
+the GraphObject turned counter-clockwise to be perpendicular to the route, just like <a href="../symbols/Link.html#OrientMinus90" class="linkConstant">Link.OrientMinus90</a>, but is never upside down:
+the GraphObject's angle always being 90 degrees less than the angle of the link's route
+at the segment where the GraphObject is attached;
+this is typically only used for <a href="../symbols/TextBlock.html" class="linkConstructor">TextBlock</a>s or <a href="../symbols/Panel.html" class="linkConstructor">Panel</a>s that contain text.
                             
 
                 </div>
@@ -3383,7 +3795,9 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This value for <a href="../symbols/GraphObject.html#segmentOrientation" class="linkProperty">GraphObject.segmentOrientation</a> results inthe GraphObject's angle always being 180 degrees opposite from the angle of the link's routeat the segment where the GraphObject is attached.
+                                <!--newp--><p><p>This value for <a href="../symbols/GraphObject.html#segmentOrientation" class="linkProperty">GraphObject.segmentOrientation</a> results in
+the GraphObject's angle always being 180 degrees opposite from the angle of the link's route
+at the segment where the GraphObject is attached.
                             
 
                 </div>
@@ -3402,7 +3816,10 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This value for <a href="../symbols/GraphObject.html#segmentOrientation" class="linkProperty">GraphObject.segmentOrientation</a> results inthe GraphObject is turned clockwise to be perpendicular to the route:the GraphObject's angle is always 90 degrees more than the angle of the link's routeat the segment where the GraphObject is attached.
+                                <!--newp--><p><p>This value for <a href="../symbols/GraphObject.html#segmentOrientation" class="linkProperty">GraphObject.segmentOrientation</a> results in
+the GraphObject is turned clockwise to be perpendicular to the route:
+the GraphObject's angle is always 90 degrees more than the angle of the link's route
+at the segment where the GraphObject is attached.
                             
 
                 </div>
@@ -3421,7 +3838,11 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This value for <a href="../symbols/GraphObject.html#segmentOrientation" class="linkProperty">GraphObject.segmentOrientation</a> results inthe GraphObject turned clockwise to be perpendicular to the route, just like <a href="../symbols/Link.html#OrientPlus90" class="linkConstant">Link.OrientPlus90</a>, but is never upside down:the GraphObject's angle always being 90 degrees more than the angle of the link's routeat the segment where the GraphObject is attached;this is typically only used for <a href="../symbols/TextBlock.html" class="linkConstructor">TextBlock</a>s or <a href="../symbols/Panel.html" class="linkConstructor">Panel</a>s that contain text.
+                                <!--newp--><p><p>This value for <a href="../symbols/GraphObject.html#segmentOrientation" class="linkProperty">GraphObject.segmentOrientation</a> results in
+the GraphObject turned clockwise to be perpendicular to the route, just like <a href="../symbols/Link.html#OrientPlus90" class="linkConstant">Link.OrientPlus90</a>, but is never upside down:
+the GraphObject's angle always being 90 degrees more than the angle of the link's route
+at the segment where the GraphObject is attached;
+this is typically only used for <a href="../symbols/TextBlock.html" class="linkConstructor">TextBlock</a>s or <a href="../symbols/Panel.html" class="linkConstructor">Panel</a>s that contain text.
                             
 
                 </div>
@@ -3440,7 +3861,11 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This value for <a href="../symbols/GraphObject.html#segmentOrientation" class="linkProperty">GraphObject.segmentOrientation</a> results inthe GraphObject turned to have the same angle as the route, just like <a href="../symbols/Link.html#OrientAlong" class="linkConstant">Link.OrientAlong</a>, but is never upside down:the GraphObject's angle always following the angle of the link's routeat the segment where the GraphObject is attached;this is typically only used for <a href="../symbols/TextBlock.html" class="linkConstructor">TextBlock</a>s or <a href="../symbols/Panel.html" class="linkConstructor">Panel</a>s that contain text.
+                                <!--newp--><p><p>This value for <a href="../symbols/GraphObject.html#segmentOrientation" class="linkProperty">GraphObject.segmentOrientation</a> results in
+the GraphObject turned to have the same angle as the route, just like <a href="../symbols/Link.html#OrientAlong" class="linkConstant">Link.OrientAlong</a>, but is never upside down:
+the GraphObject's angle always following the angle of the link's route
+at the segment where the GraphObject is attached;
+this is typically only used for <a href="../symbols/TextBlock.html" class="linkConstructor">TextBlock</a>s or <a href="../symbols/Panel.html" class="linkConstructor">Panel</a>s that contain text.
                             
 
                 </div>
@@ -3459,7 +3884,13 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This value for <a href="../symbols/GraphObject.html#segmentOrientation" class="linkProperty">GraphObject.segmentOrientation</a> results inthe GraphObject's angle always following the angle of the link's routeat the segment where the GraphObject is attached, but never upside downand never angled more than +/- 45 degrees:when the route's angle is within 45 degrees of vertical (90 or 270 degrees),the GraphObject's angle is set to zero;this is typically only used for <a href="../symbols/TextBlock.html" class="linkConstructor">TextBlock</a>s or <a href="../symbols/Panel.html" class="linkConstructor">Panel</a>s that contain text.
+                                <!--newp--><p><p>This value for <a href="../symbols/GraphObject.html#segmentOrientation" class="linkProperty">GraphObject.segmentOrientation</a> results in
+the GraphObject's angle always following the angle of the link's route
+at the segment where the GraphObject is attached, but never upside down
+and never angled more than +/- 45 degrees:
+when the route's angle is within 45 degrees of vertical (90 or 270 degrees),
+the GraphObject's angle is set to zero;
+this is typically only used for <a href="../symbols/TextBlock.html" class="linkConstructor">TextBlock</a>s or <a href="../symbols/Panel.html" class="linkConstructor">Panel</a>s that contain text.
                             
 
                 </div>
@@ -3478,7 +3909,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Used as a value for <a href="../symbols/Link.html#routing" class="linkProperty">Link.routing</a>:each segment is horizontal or vertical.
+                                <!--newp--><p><p>Used as a value for <a href="../symbols/Link.html#routing" class="linkProperty">Link.routing</a>:
+each segment is horizontal or vertical.
                             
 
                 </div>
@@ -3497,7 +3929,10 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Used as a value for <a href="../symbols/Link.html#adjusting" class="linkProperty">Link.adjusting</a>,to indicate that the link route computation should scale and rotate the intermediate pointsso that the link's shape looks approximately the same;if the routing is orthogonal, this value is treated as if it were <a href="../symbols/Link.html#End" class="linkConstant">Link.End</a>.
+                                <!--newp--><p><p>Used as a value for <a href="../symbols/Link.html#adjusting" class="linkProperty">Link.adjusting</a>,
+to indicate that the link route computation should scale and rotate the intermediate points
+so that the link's shape looks approximately the same;
+if the routing is orthogonal, this value is treated as if it were <a href="../symbols/Link.html#End" class="linkConstant">Link.End</a>.
                             
 
                 </div>
@@ -3516,7 +3951,10 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Used as a value for <a href="../symbols/Link.html#adjusting" class="linkProperty">Link.adjusting</a>,to indicate that the link route computation should linearly interpolate the intermediate pointsso that the link's shape looks stretched;if the routing is orthogonal, this value is treated as if it were <a href="../symbols/Link.html#End" class="linkConstant">Link.End</a>.
+                                <!--newp--><p><p>Used as a value for <a href="../symbols/Link.html#adjusting" class="linkProperty">Link.adjusting</a>,
+to indicate that the link route computation should linearly interpolate the intermediate points
+so that the link's shape looks stretched;
+if the routing is orthogonal, this value is treated as if it were <a href="../symbols/Link.html#End" class="linkConstant">Link.End</a>.
                             
 
                 </div>

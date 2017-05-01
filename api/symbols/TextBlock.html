@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1133,7 +1128,40 @@
                     <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>.</span>
                 
 
-                A TextBlock is a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that displays a <a href="../symbols/TextBlock.html#text" class="linkProperty">text</a> string in a given <a href="../symbols/TextBlock.html#font" class="linkProperty">font</a>.<p>The size and appearance of the text is specified by <a href="../symbols/TextBlock.html#font" class="linkProperty">font</a>,which takes a well-formed CSS string as its value.The order of the CSS properties given is important for cross-browser compatibility,and should be given in this order:<p><em>"font-style font-variant font-weight font-size font-family"</em><p>For example, "Italic small-caps bold 32px Georgia, Serif" is a valid font stringusing every CSS font property. Note that not all browsers may support every property.<p>Text is drawn using the <a href="../symbols/TextBlock.html#stroke" class="linkProperty">stroke</a> brush, which may be any CSS color string or a <a href="../symbols/Brush.html" class="linkConstructor">Brush</a>.Some created TextBlocks:<pre>var $ = go.GraphObject.make;  // for conciseness in defining GraphObjects// A TextBlock with text and stroke properties set:$(go.TextBlock, { text: "Hello World", stroke: "gray" })// Alternatively:$(go.TextBlock, "Hello World", { stroke: "gray" })</pre><p>TextBlocks typically receive a natural size based on their text and font strings,but often a width is given in order to cause the text to wrap at a certain place.In order for wrapping to occur, the <a href="../symbols/TextBlock.html#wrap" class="linkProperty">wrap</a> property must not be <a href="../symbols/TextBlock.html#None" class="linkConstant">TextBlock.None</a>.<p>TextBlocks can be edited by users using the <a href="../symbols/TextEditingTool.html" class="linkConstructor">TextEditingTool</a>.The HTML Element that a given TextBlock uses as its text editor can be customizedby setting the <a href="../symbols/TextBlock.html#textEditor" class="linkProperty">textEditor</a> property. For an example of custom text editing tool use,see the <a href="../../samples/customTextEditingTool.html">Custom TextEditingTool Sample</a>.<p class="boxread">For examples of TextBlock possibilities and functionality,see the <a href="../../intro/textBlocks.html">Introduction page on TextBlocks</a>.
+                A TextBlock is a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that displays a <a href="../symbols/TextBlock.html#text" class="linkProperty">text</a> string in a given <a href="../symbols/TextBlock.html#font" class="linkProperty">font</a>.
+<p>
+The size and appearance of the text is specified by <a href="../symbols/TextBlock.html#font" class="linkProperty">font</a>,
+which takes a well-formed CSS string as its value.
+The order of the CSS properties given is important for cross-browser compatibility,
+and should be given in this order:
+<p>
+<em>"font-style font-variant font-weight font-size font-family"</em>
+<p>
+For example, "Italic small-caps bold 32px Georgia, Serif" is a valid font string
+using every CSS font property. Note that not all browsers may support every property.
+<p>
+Text is drawn using the <a href="../symbols/TextBlock.html#stroke" class="linkProperty">stroke</a> brush, which may be any CSS color string or a <a href="../symbols/Brush.html" class="linkConstructor">Brush</a>.
+
+Some created TextBlocks:
+<pre>var $ = go.GraphObject.make;  // for conciseness in defining GraphObjects
+
+// A TextBlock with text and stroke properties set:
+$(go.TextBlock, { text: "Hello World", stroke: "gray" })
+// Alternatively:
+$(go.TextBlock, "Hello World", { stroke: "gray" })</pre>
+
+<p>
+TextBlocks typically receive a natural size based on their text and font strings,
+but often a width is given in order to cause the text to wrap at a certain place.
+In order for wrapping to occur, the <a href="../symbols/TextBlock.html#wrap" class="linkProperty">wrap</a> property must not be <a href="../symbols/TextBlock.html#None" class="linkConstant">TextBlock.None</a>.
+<p>
+TextBlocks can be edited by users using the <a href="../symbols/TextEditingTool.html" class="linkConstructor">TextEditingTool</a>.
+The HTML Element that a given TextBlock uses as its text editor can be customized
+by setting the <a href="../symbols/TextBlock.html#textEditor" class="linkProperty">textEditor</a> property. For an example of custom text editing tool use,
+see the <a href="../../samples/customTextEditingTool.html">Custom TextEditingTool Sample</a>.
+<p class="boxread">
+For examples of TextBlock possibilities and functionality,
+see the <a href="../../intro/textBlocks.html">Introduction page on TextBlocks</a>.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1156,7 +1184,8 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>A newly constructed <a href="../symbols/TextBlock.html" class="linkConstructor">TextBlock</a> has no string to show; if it did,it would draw the text, wrapping if needed, in the default font using a black stroke.
+                            <!--newp--><p><p>A newly constructed <a href="../symbols/TextBlock.html" class="linkConstructor">TextBlock</a> has no string to show; if it did,
+it would draw the text, wrapping if needed, in the default font using a black stroke.
                         
                         
 
@@ -1200,7 +1229,11 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the an array of possible choices for a custom <a href="../symbols/TextEditingTool.html" class="linkConstructor">TextEditingTool</a>.<span class="nodetails" id="xpropchoices"><a class="morelink" onclick="hst('propchoices')">More...</a></span> <span class="details" id="propchoices">The value must be an array of strings.</span><div class="details" id="dpropchoices"><p>The default value is null.For example usage, see the <a href="../../samples/customTextEditingTool.html">Custom TextEditingTool Sample</a>.</div>
+                <p>Gets or sets the an array of possible choices for a custom <a href="../symbols/TextEditingTool.html" class="linkConstructor">TextEditingTool</a>.<span class="nodetails" id="xpropchoices"><a class="morelink" onclick="hst('propchoices')">More...</a></span> <span class="details" id="propchoices">
+The value must be an array of strings.
+</span><div class="details" id="dpropchoices"><p>
+The default value is null.
+For example usage, see the <a href="../../samples/customTextEditingTool.html">Custom TextEditingTool Sample</a>.</div>
                 
                 </div>
                             </td>
@@ -1220,7 +1253,11 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether or not this TextBlock allows in-place editing of the <a href="../symbols/TextBlock.html#text" class="linkProperty">text</a>string by the user with the help of the <a href="../symbols/TextEditingTool.html" class="linkConstructor">TextEditingTool</a>.<span class="nodetails" id="xpropeditable"><a class="morelink" onclick="hst('propeditable')">More...</a></span> <span class="details" id="propeditable">The default is false.</span><div class="details" id="dpropeditable"><p>See also <a href="../symbols/Part.html#textEditable" class="linkProperty">Part.textEditable</a>.</div>
+                <p>Gets or sets whether or not this TextBlock allows in-place editing of the <a href="../symbols/TextBlock.html#text" class="linkProperty">text</a>
+string by the user with the help of the <a href="../symbols/TextEditingTool.html" class="linkConstructor">TextEditingTool</a>.<span class="nodetails" id="xpropeditable"><a class="morelink" onclick="hst('propeditable')">More...</a></span> <span class="details" id="propeditable">
+The default is false.
+</span><div class="details" id="dpropeditable"><p>
+See also <a href="../symbols/Part.html#textEditable" class="linkProperty">Part.textEditable</a>.</div>
                 
                 </div>
                             </td>
@@ -1240,7 +1277,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the function to call if a text edit made with the <a href="../symbols/TextEditingTool.html" class="linkConstructor">TextEditingTool</a> is invalid.<span class="nodetails" id="xproperrorFunction"><a class="morelink" onclick="hst('properrorFunction')">More...</a></span> <span class="details" id="properrorFunction">The default is null.</span>
+                <p>Gets or sets the function to call if a text edit made with the <a href="../symbols/TextEditingTool.html" class="linkConstructor">TextEditingTool</a> is invalid.<span class="nodetails" id="xproperrorFunction"><a class="morelink" onclick="hst('properrorFunction')">More...</a></span> <span class="details" id="properrorFunction">
+The default is null.</span>
                 
                 </div>
                             </td>
@@ -1260,7 +1298,18 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the current font settings.<span class="nodetails" id="xpropfont"><a class="morelink" onclick="hst('propfont')">More...</a></span> <span class="details" id="propfont">The font property must be a valid CSS string describing a font.The font string can accept several CSS properties but they must bein a specific order in order to render correctly across all browsers:</span><div class="details" id="dpropfont"><p><code>"font-style font-variant font-weight font-size font-family"</code><p>For example, <code>"Italic small-caps bold 32px Georgia, Serif"</code> is a valid font stringusing every CSS font property. Not every browser can render every font option.For more information about CSS font syntax, see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font">CSS fonts (mozilla.org)</a>.<p>The default font is "13px sans-serif".</div>
+                <p>Gets or sets the current font settings.<span class="nodetails" id="xpropfont"><a class="morelink" onclick="hst('propfont')">More...</a></span> <span class="details" id="propfont">
+The font property must be a valid CSS string describing a font.
+The font string can accept several CSS properties but they must be
+in a specific order in order to render correctly across all browsers:
+</span><div class="details" id="dpropfont"><p>
+<code>"font-style font-variant font-weight font-size font-family"</code>
+<p>
+For example, <code>"Italic small-caps bold 32px Georgia, Serif"</code> is a valid font string
+using every CSS font property. Not every browser can render every font option.
+For more information about CSS font syntax, see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font">CSS fonts (mozilla.org)</a>.
+<p>
+The default font is "13px sans-serif".</div>
                 
                 </div>
                             </td>
@@ -1282,7 +1331,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the fractional distance along the main shape of a "Graduated" <a href="../symbols/Panel.html" class="linkConstructor">Panel</a> at which this kind of tick text should end.<span class="nodetails" id="xpropgraduatedEnd"><a class="morelink" onclick="hst('propgraduatedEnd')">More...</a></span> <span class="details" id="propgraduatedEnd">The default is 1; the value should range from 0 to 1.</span>
+                <p>Gets or sets the fractional distance along the main shape of a "Graduated" <a href="../symbols/Panel.html" class="linkConstructor">Panel</a> at which this kind of tick text should end.<span class="nodetails" id="xpropgraduatedEnd"><a class="morelink" onclick="hst('propgraduatedEnd')">More...</a></span> <span class="details" id="propgraduatedEnd">
+The default is 1; the value should range from 0 to 1.</span>
                 
                 </div>
                             </td>
@@ -1304,7 +1354,11 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the function to convert from a value along a "Graduated" <a href="../symbols/Panel.html" class="linkConstructor">Panel</a> to a string.<span class="nodetails" id="xpropgraduatedFunction"><a class="morelink" onclick="hst('propgraduatedFunction')">More...</a></span> <span class="details" id="propgraduatedFunction">The default returns a string representing the value rounded to at most 2 decimals.</span><div class="details" id="dpropgraduatedFunction"><p>The function takes a number argument, a value between <a href="../symbols/Panel.html#graduatedMin" class="linkProperty">Panel.graduatedMin</a> and <a href="../symbols/Panel.html#graduatedMax" class="linkProperty">Panel.graduatedMax</a>.The function will return a string, the text that will appear at the value of the argument.</div>
+                <p>Gets or sets the function to convert from a value along a "Graduated" <a href="../symbols/Panel.html" class="linkConstructor">Panel</a> to a string.<span class="nodetails" id="xpropgraduatedFunction"><a class="morelink" onclick="hst('propgraduatedFunction')">More...</a></span> <span class="details" id="propgraduatedFunction">
+The default returns a string representing the value rounded to at most 2 decimals.
+</span><div class="details" id="dpropgraduatedFunction"><p>
+The function takes a number argument, a value between <a href="../symbols/Panel.html#graduatedMin" class="linkProperty">Panel.graduatedMin</a> and <a href="../symbols/Panel.html#graduatedMax" class="linkProperty">Panel.graduatedMax</a>.
+The function will return a string, the text that will appear at the value of the argument.</div>
                 
                 </div>
                             </td>
@@ -1326,7 +1380,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the fractional distance along the main shape of a "Graduated" <a href="../symbols/Panel.html" class="linkConstructor">Panel</a> at which this text should start.<span class="nodetails" id="xpropgraduatedStart"><a class="morelink" onclick="hst('propgraduatedStart')">More...</a></span> <span class="details" id="propgraduatedStart">The default is 0; the value should range from 0 to 1.</span>
+                <p>Gets or sets the fractional distance along the main shape of a "Graduated" <a href="../symbols/Panel.html" class="linkConstructor">Panel</a> at which this text should start.<span class="nodetails" id="xpropgraduatedStart"><a class="morelink" onclick="hst('propgraduatedStart')">More...</a></span> <span class="details" id="propgraduatedStart">
+The default is 0; the value should range from 0 to 1.</span>
                 
                 </div>
                             </td>
@@ -1348,7 +1403,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets how frequently this text should be drawn within a "Graduated" <a href="../symbols/Panel.html" class="linkConstructor">Panel</a>,in multiples of the <a href="../symbols/Panel.html#graduatedTickUnit" class="linkProperty">Panel.graduatedTickUnit</a>.<span class="nodetails" id="xpropinterval"><a class="morelink" onclick="hst('propinterval')">More...</a></span> <span class="details" id="propinterval">The default is 1.  Any new value must be a positive integer.</span>
+                <p>Gets or sets how frequently this text should be drawn within a "Graduated" <a href="../symbols/Panel.html" class="linkConstructor">Panel</a>,
+in multiples of the <a href="../symbols/Panel.html#graduatedTickUnit" class="linkProperty">Panel.graduatedTickUnit</a>.<span class="nodetails" id="xpropinterval"><a class="morelink" onclick="hst('propinterval')">More...</a></span> <span class="details" id="propinterval">
+The default is 1.  Any new value must be a positive integer.</span>
                 
                 </div>
                             </td>
@@ -1368,7 +1425,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether or not the text displays multiple lines or embedded newlines.<span class="nodetails" id="xpropisMultiline"><a class="morelink" onclick="hst('propisMultiline')">More...</a></span> <span class="details" id="propisMultiline">If this is false, all characters including and after the first newline will be omitted.The default is true.</span>
+                <p>Gets or sets whether or not the text displays multiple lines or embedded newlines.<span class="nodetails" id="xpropisMultiline"><a class="morelink" onclick="hst('propisMultiline')">More...</a></span> <span class="details" id="propisMultiline">
+If this is false, all characters including and after the first newline will be omitted.
+The default is true.</span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1398,7 +1457,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether or not the text has a strikethrough line (line-through).<span class="nodetails" id="xpropisStrikethrough"><a class="morelink" onclick="hst('propisStrikethrough')">More...</a></span> <span class="details" id="propisStrikethrough">The default is false.</span>
+                <p>Gets or sets whether or not the text has a strikethrough line (line-through).<span class="nodetails" id="xpropisStrikethrough"><a class="morelink" onclick="hst('propisStrikethrough')">More...</a></span> <span class="details" id="propisStrikethrough">
+The default is false.</span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1428,7 +1488,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether or not the text is underlined.<span class="nodetails" id="xpropisUnderline"><a class="morelink" onclick="hst('propisUnderline')">More...</a></span> <span class="details" id="propisUnderline">The default is false.</span>
+                <p>Gets or sets whether or not the text is underlined.<span class="nodetails" id="xpropisUnderline"><a class="morelink" onclick="hst('propisUnderline')">More...</a></span> <span class="details" id="propisUnderline">
+The default is false.</span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1456,7 +1517,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property returns the total number of lines in this TextBlock, including lines createdfrom embedded newlines (<code>\n</code>), <a href="../symbols/TextBlock.html#wrap" class="linkProperty">wrap</a>ping, and <a href="../symbols/TextBlock.html#maxLines" class="linkProperty">maxLines</a>.<span class="nodetails" id="xproplineCount"><a class="morelink" onclick="hst('proplineCount')">More...</a></span> <span class="details" id="proplineCount"></span><div class="details" id="dproplineCount"><p>This value may be meaningless before the TextBlock is measured.</div>
+                <p>This read-only property returns the total number of lines in this TextBlock, including lines created
+from embedded newlines (<code>\n</code>), <a href="../symbols/TextBlock.html#wrap" class="linkProperty">wrap</a>ping, and <a href="../symbols/TextBlock.html#maxLines" class="linkProperty">maxLines</a>.<span class="nodetails" id="xproplineCount"><a class="morelink" onclick="hst('proplineCount')">More...</a></span> <span class="details" id="proplineCount">
+</span><div class="details" id="dproplineCount"><p>
+This value may be meaningless before the TextBlock is measured.</div>
                 
                 </div>
                             </td>
@@ -1478,7 +1542,12 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the maximum number of lines that this TextBlock can display.<span class="nodetails" id="xpropmaxLines"><a class="morelink" onclick="hst('propmaxLines')">More...</a></span> <span class="details" id="propmaxLines">Value must be a greater than zero whole number or <code>Infinity</code>.The default is <code>Infinity</code>.</span><div class="details" id="dpropmaxLines"><p>Modifying this value may modify the computed height of the TextBlock.If maxLines is set, the value of <a href="../symbols/TextBlock.html#lineCount" class="linkProperty">lineCount</a> will never be larger than maxLines.</div>
+                <p>Gets or sets the maximum number of lines that this TextBlock can display.<span class="nodetails" id="xpropmaxLines"><a class="morelink" onclick="hst('propmaxLines')">More...</a></span> <span class="details" id="propmaxLines">
+Value must be a greater than zero whole number or <code>Infinity</code>.
+The default is <code>Infinity</code>.
+</span><div class="details" id="dpropmaxLines"><p>
+Modifying this value may modify the computed height of the TextBlock.
+If maxLines is set, the value of <a href="../symbols/TextBlock.html#lineCount" class="linkProperty">lineCount</a> will never be larger than maxLines.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1506,7 +1575,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property returns the natural bounds of this TextBlock in local coordinates,as determined by its <a href="../symbols/TextBlock.html#font" class="linkProperty">font</a> and <a href="../symbols/TextBlock.html#text" class="linkProperty">text</a> string, and optionally its desiredSize.
+                <p>This read-only property returns the natural bounds of this TextBlock in local coordinates,
+as determined by its <a href="../symbols/TextBlock.html#font" class="linkProperty">font</a> and <a href="../symbols/TextBlock.html#text" class="linkProperty">text</a> string, and optionally its desiredSize.
                 
                 </div>
                             </td>
@@ -1528,7 +1598,13 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets how text that is too long to display should be handled.<span class="nodetails" id="xpropoverflow"><a class="morelink" onclick="hst('propoverflow')">More...</a></span> <span class="details" id="propoverflow"></span><div class="details" id="dpropoverflow"><p>Possible values are <a href="../symbols/TextBlock.html#OverflowClip" class="linkConstant">TextBlock.OverflowClip</a> and <a href="../symbols/TextBlock.html#OverflowEllipsis" class="linkConstant">TextBlock.OverflowEllipsis</a>.For OverflowEllipsis to work, you must also set wrap to <a href="../symbols/TextBlock.html#None" class="linkConstant">TextBlock.None</a>or limit the number of lines with <a href="../symbols/TextBlock.html#maxLines" class="linkProperty">maxLines</a>.<p>The default value is <a href="../symbols/TextBlock.html#OverflowClip" class="linkConstant">TextBlock.OverflowClip</a>.</div>
+                <p>Gets or sets how text that is too long to display should be handled.<span class="nodetails" id="xpropoverflow"><a class="morelink" onclick="hst('propoverflow')">More...</a></span> <span class="details" id="propoverflow">
+</span><div class="details" id="dpropoverflow"><p>
+Possible values are <a href="../symbols/TextBlock.html#OverflowClip" class="linkConstant">TextBlock.OverflowClip</a> and <a href="../symbols/TextBlock.html#OverflowEllipsis" class="linkConstant">TextBlock.OverflowEllipsis</a>.
+For OverflowEllipsis to work, you must also set wrap to <a href="../symbols/TextBlock.html#None" class="linkConstant">TextBlock.None</a>
+or limit the number of lines with <a href="../symbols/TextBlock.html#maxLines" class="linkProperty">maxLines</a>.
+<p>
+The default value is <a href="../symbols/TextBlock.html#OverflowClip" class="linkConstant">TextBlock.OverflowClip</a>.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1556,7 +1632,13 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the <a href="../symbols/Brush.html" class="linkConstructor">Brush</a> or string that describes the stroke (color) of the text that is drawn.<span class="nodetails" id="xpropstroke"><a class="morelink" onclick="hst('propstroke')">More...</a></span> <span class="details" id="propstroke"></span><div class="details" id="dpropstroke"><p>The default value is <code>"black"</code>.Any valid CSS string can specify a solid color, and the <a href="../symbols/Brush.html" class="linkConstructor">Brush</a>class can be used to specify a gradient or pattern.More information about the syntax of CSS color strings is available at:<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color">CSS colors (mozilla.org)</a>.</div>
+                <p>Gets or sets the <a href="../symbols/Brush.html" class="linkConstructor">Brush</a> or string that describes the stroke (color) of the text that is drawn.<span class="nodetails" id="xpropstroke"><a class="morelink" onclick="hst('propstroke')">More...</a></span> <span class="details" id="propstroke">
+</span><div class="details" id="dpropstroke"><p>
+The default value is <code>"black"</code>.
+Any valid CSS string can specify a solid color, and the <a href="../symbols/Brush.html" class="linkConstructor">Brush</a>
+class can be used to specify a gradient or pattern.
+More information about the syntax of CSS color strings is available at:
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color">CSS colors (mozilla.org)</a>.</div>
                 
                 </div>
                             </td>
@@ -1576,7 +1658,16 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the TextBlock's text string.<span class="nodetails" id="xproptext"><a class="morelink" onclick="hst('proptext')">More...</a></span> <span class="details" id="proptext"> The default is an empty string.The text of a TextBlock, along with the values of <a href="../symbols/TextBlock.html#font" class="linkProperty">font</a>, <a href="../symbols/TextBlock.html#wrap" class="linkProperty">wrap</a>,<a href="../symbols/TextBlock.html#isMultiline" class="linkProperty">isMultiline</a> and sizing restrictions are what naturally determinethe size of the TextBlock.</span><div class="details" id="dproptext"><p>The text in textblocks can include manual line-breaks by using the character escape, <code>\n</code>.<p>Leading and trailing whitespace is eliminated in each line of TextBlock text.<p>If <a href="../symbols/TextBlock.html#editable" class="linkProperty">editable</a> is set to true, users can edit textblocks with the <a href="../symbols/TextEditingTool.html" class="linkConstructor">TextEditingTool</a>.</div>
+                <p>Gets or sets the TextBlock's text string.<span class="nodetails" id="xproptext"><a class="morelink" onclick="hst('proptext')">More...</a></span> <span class="details" id="proptext"> The default is an empty string.
+The text of a TextBlock, along with the values of <a href="../symbols/TextBlock.html#font" class="linkProperty">font</a>, <a href="../symbols/TextBlock.html#wrap" class="linkProperty">wrap</a>,
+<a href="../symbols/TextBlock.html#isMultiline" class="linkProperty">isMultiline</a> and sizing restrictions are what naturally determine
+the size of the TextBlock.
+</span><div class="details" id="dproptext"><p>
+The text in textblocks can include manual line-breaks by using the character escape, <code>\n</code>.
+<p>
+Leading and trailing whitespace is eliminated in each line of TextBlock text.
+<p>
+If <a href="../symbols/TextBlock.html#editable" class="linkProperty">editable</a> is set to true, users can edit textblocks with the <a href="../symbols/TextEditingTool.html" class="linkConstructor">TextEditingTool</a>.</div>
                 
                 </div>
                             </td>
@@ -1596,7 +1687,16 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the alignment location in the TextBlock's given space.<span class="nodetails" id="xproptextAlign"><a class="morelink" onclick="hst('proptextAlign')">More...</a></span> <span class="details" id="proptextAlign">The possible values are <code>"start"</code>, <code>"end"</code>, <code>"left"</code>, <code>"right"</code>, and <code>"center"</code>.Any other value is invalid.</span><div class="details" id="dproptextAlign"><p>This property is most pertinent when the TextBlock has multiple lines of text,or when the TextBlock is given a size that differs from the text's natural size (such as with desiredSize).<p>In left-to-right writing systems, <code>"start"</code> and <code>"left"</code> are synonymous, as are <code>"end"</code> and <code>"right"</code>.<p>The default is <code>"start"</code>.</div>
+                <p>Gets or sets the alignment location in the TextBlock's given space.<span class="nodetails" id="xproptextAlign"><a class="morelink" onclick="hst('proptextAlign')">More...</a></span> <span class="details" id="proptextAlign">
+The possible values are <code>"start"</code>, <code>"end"</code>, <code>"left"</code>, <code>"right"</code>, and <code>"center"</code>.
+Any other value is invalid.
+</span><div class="details" id="dproptextAlign"><p>
+This property is most pertinent when the TextBlock has multiple lines of text,
+or when the TextBlock is given a size that differs from the text's natural size (such as with desiredSize).
+<p>
+In left-to-right writing systems, <code>"start"</code> and <code>"left"</code> are synonymous, as are <code>"end"</code> and <code>"right"</code>.
+<p>
+The default is <code>"start"</code>.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1626,7 +1726,16 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the function that is called after the TextBlock's text has been edited by the <a href="../symbols/TextEditingTool.html" class="linkConstructor">TextEditingTool</a>.<span class="nodetails" id="xproptextEdited"><a class="morelink" onclick="hst('proptextEdited')">More...</a></span> <span class="details" id="proptextEdited"><ul><li> The first argument is a reference to this TextBlock.<li> The second argument is the previous text, before editing.<li> The third argument is the current text, which is also TextBlock.text.</ul></span><div class="details" id="dproptextEdited"><p><pre>function(textBlock, previousText, currentText)</pre><p>The default value is null -- no function is called.</div>
+                <p>Gets or sets the function that is called after the TextBlock's text has been edited by the <a href="../symbols/TextEditingTool.html" class="linkConstructor">TextEditingTool</a>.<span class="nodetails" id="xproptextEdited"><a class="morelink" onclick="hst('proptextEdited')">More...</a></span> <span class="details" id="proptextEdited">
+<ul>
+<li> The first argument is a reference to this TextBlock.
+<li> The second argument is the previous text, before editing.
+<li> The third argument is the current text, which is also TextBlock.text.
+</ul>
+</span><div class="details" id="dproptextEdited"><p>
+<pre>function(textBlock, previousText, currentText)</pre>
+<p>
+The default value is null -- no function is called.</div>
                 
                 </div>
                             </td>
@@ -1646,7 +1755,13 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the HTMLInfo or HTML Element that this TextBlock uses as its text editor in the TextEditingTool.<span class="nodetails" id="xproptextEditor"><a class="morelink" onclick="hst('proptextEditor')">More...</a></span> <span class="details" id="proptextEditor">If null, the TextBlock will use the default text editor of the <a href="../symbols/TextEditingTool.html" class="linkConstructor">TextEditingTool</a>.The default is null.The value should be set to an instance of <a href="../symbols/HTMLInfo.html" class="linkConstructor">HTMLInfo</a>.Setting this to an HTML Element is deprecated functionality, but it will continue to work until version 2.0.</span><div class="details" id="dproptextEditor"><p>For example usage, see the <a href="../../samples/customTextEditingTool.html">Custom TextEditingTool Sample</a>.</div>
+                <p>Gets or sets the HTMLInfo or HTML Element that this TextBlock uses as its text editor in the TextEditingTool.<span class="nodetails" id="xproptextEditor"><a class="morelink" onclick="hst('proptextEditor')">More...</a></span> <span class="details" id="proptextEditor">
+If null, the TextBlock will use the default text editor of the <a href="../symbols/TextEditingTool.html" class="linkConstructor">TextEditingTool</a>.
+The default is null.
+The value should be set to an instance of <a href="../symbols/HTMLInfo.html" class="linkConstructor">HTMLInfo</a>.
+Setting this to an HTML Element is deprecated functionality, but it will continue to work until version 2.0.
+</span><div class="details" id="dproptextEditor"><p>
+For example usage, see the <a href="../../samples/customTextEditingTool.html">Custom TextEditingTool Sample</a>.</div>
                 
                 </div>
                             </td>
@@ -1666,7 +1781,15 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the predicate that determines whether or not a user-edited string of text is valid.<span class="nodetails" id="xproptextValidation"><a class="morelink" onclick="hst('proptextValidation')">More...</a></span> <span class="details" id="proptextValidation">If this is non-null, the predicate is called in addition to any <a href="../symbols/TextEditingTool.html#textValidation" class="linkProperty">TextEditingTool.textValidation</a> predicate.See <a href="../symbols/TextEditingTool.html#isValidText" class="linkMethod">TextEditingTool.isValidText</a> for more details.</span><div class="details" id="dproptextValidation"><p><pre>function(textBlock, oldString, newString)</pre><p>The default predicate is null, which is equivalent to simply returning true.<p>The function, if supplied, must not have any side-effects, and must return true or false.</div>
+                <p>Gets or sets the predicate that determines whether or not a user-edited string of text is valid.<span class="nodetails" id="xproptextValidation"><a class="morelink" onclick="hst('proptextValidation')">More...</a></span> <span class="details" id="proptextValidation">
+If this is non-null, the predicate is called in addition to any <a href="../symbols/TextEditingTool.html#textValidation" class="linkProperty">TextEditingTool.textValidation</a> predicate.
+See <a href="../symbols/TextEditingTool.html#isValidText" class="linkMethod">TextEditingTool.isValidText</a> for more details.
+</span><div class="details" id="dproptextValidation"><p>
+<pre>function(textBlock, oldString, newString)</pre>
+<p>
+The default predicate is null, which is equivalent to simply returning true.
+<p>
+The function, if supplied, must not have any side-effects, and must return true or false.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1696,7 +1819,15 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the vertical alignment <a href="../symbols/Spot.html" class="linkConstructor">Spot</a> of this TextBlock, used whenthe TextBlock has more available vertical space than it needs to draw all lines.<span class="nodetails" id="xpropverticalAlignment"><a class="morelink" onclick="hst('propverticalAlignment')">More...</a></span> <span class="details" id="propverticalAlignment"></span><div class="details" id="dpropverticalAlignment"><p>The default value is <a href="../symbols/Spot.html#Top" class="linkConstant">Spot.Top</a>, which aligns the TextBlock to the top of its available space.<p>The <a href="../symbols/TextBlock.html#textAlign" class="linkProperty">textAlign</a> is often used along with this property to specifywhere the should be positioned in its available space.<p>This does not affect TextBlock coordinates or bounds, it only affects where text is drawn within the given area.</div>
+                <p>Gets or sets the vertical alignment <a href="../symbols/Spot.html" class="linkConstructor">Spot</a> of this TextBlock, used when
+the TextBlock has more available vertical space than it needs to draw all lines.<span class="nodetails" id="xpropverticalAlignment"><a class="morelink" onclick="hst('propverticalAlignment')">More...</a></span> <span class="details" id="propverticalAlignment">
+</span><div class="details" id="dpropverticalAlignment"><p>
+The default value is <a href="../symbols/Spot.html#Top" class="linkConstant">Spot.Top</a>, which aligns the TextBlock to the top of its available space.
+<p>
+The <a href="../symbols/TextBlock.html#textAlign" class="linkProperty">textAlign</a> is often used along with this property to specify
+where the should be positioned in its available space.
+<p>
+This does not affect TextBlock coordinates or bounds, it only affects where text is drawn within the given area.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1724,7 +1855,12 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the text should be wrapped if it is too long to fit on one line.<span class="nodetails" id="xpropwrap"><a class="morelink" onclick="hst('propwrap')">More...</a></span> <span class="details" id="propwrap"></span><div class="details" id="dpropwrap"><p>Possible values are <a href="../symbols/TextBlock.html#WrapDesiredSize" class="linkConstant">TextBlock.WrapDesiredSize</a> <a href="../symbols/TextBlock.html#WrapFit" class="linkConstant">TextBlock.WrapFit</a>and <a href="../symbols/TextBlock.html#None" class="linkConstant">TextBlock.None</a>.<p>The default value is <a href="../symbols/TextBlock.html#WrapDesiredSize" class="linkConstant">TextBlock.WrapDesiredSize</a>.</div>
+                <p>Gets or sets whether the text should be wrapped if it is too long to fit on one line.<span class="nodetails" id="xpropwrap"><a class="morelink" onclick="hst('propwrap')">More...</a></span> <span class="details" id="propwrap">
+</span><div class="details" id="dpropwrap"><p>
+Possible values are <a href="../symbols/TextBlock.html#WrapDesiredSize" class="linkConstant">TextBlock.WrapDesiredSize</a> <a href="../symbols/TextBlock.html#WrapFit" class="linkConstant">TextBlock.WrapFit</a>
+and <a href="../symbols/TextBlock.html#None" class="linkConstant">TextBlock.None</a>.
+<p>
+The default value is <a href="../symbols/TextBlock.html#WrapDesiredSize" class="linkConstant">TextBlock.WrapDesiredSize</a>.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1812,7 +1948,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Used as the default value for <a href="../symbols/TextBlock.html#overflow" class="linkProperty">TextBlock.overflow</a>: if the width is too small to display all text,the TextBlock will clip.
+                                <!--newp--><p><p>Used as the default value for <a href="../symbols/TextBlock.html#overflow" class="linkProperty">TextBlock.overflow</a>: if the width is too small to display all text,
+the TextBlock will clip.
                             
 
                 </div>
@@ -1833,7 +1970,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Used as a value for <a href="../symbols/TextBlock.html#overflow" class="linkProperty">TextBlock.overflow</a>: if the width is too small to display all text,the TextBlock will display an ellipsis.
+                                <!--newp--><p><p>Used as a value for <a href="../symbols/TextBlock.html#overflow" class="linkProperty">TextBlock.overflow</a>: if the width is too small to display all text,
+the TextBlock will display an ellipsis.
                             
 
                 </div>
@@ -1852,7 +1990,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Used as the default value for <a href="../symbols/TextBlock.html#wrap" class="linkProperty">TextBlock.wrap</a>, the TextBlock will wrap text and the width ofthe TextBlock will be the desiredSize's width, if any.
+                                <!--newp--><p><p>Used as the default value for <a href="../symbols/TextBlock.html#wrap" class="linkProperty">TextBlock.wrap</a>, the TextBlock will wrap text and the width of
+the TextBlock will be the desiredSize's width, if any.
                             
 
                 </div>
@@ -1871,7 +2010,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Used as a value for <a href="../symbols/TextBlock.html#wrap" class="linkProperty">TextBlock.wrap</a>, the TextBlock will wrap text, making the width ofthe TextBlock equal to the width of the longest line.
+                                <!--newp--><p><p>Used as a value for <a href="../symbols/TextBlock.html#wrap" class="linkProperty">TextBlock.wrap</a>, the TextBlock will wrap text, making the width of
+the TextBlock equal to the width of the longest line.
                             
 
                 </div>

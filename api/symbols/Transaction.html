@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1131,7 +1126,27 @@
                 
                 
 
-                A Transaction holds a list of <a href="../symbols/ChangedEvent.html" class="linkConstructor">ChangedEvent</a>s collected during a transaction,as the value of the read-only <a href="../symbols/Transaction.html#changes" class="linkProperty">changes</a> property.<p>Start a transaction by calling <a href="../symbols/UndoManager.html#startTransaction" class="linkMethod">UndoManager.startTransaction</a>(or <a href="../symbols/Model.html#startTransaction" class="linkMethod">Model.startTransaction</a> or <a href="../symbols/Diagram.html#startTransaction" class="linkMethod">Diagram.startTransaction</a>, which call that method).Be sure to finish a transaction with a matching call to <a href="../symbols/UndoManager.html#commitTransaction" class="linkMethod">UndoManager.commitTransaction</a>(or <a href="../symbols/Model.html#commitTransaction" class="linkMethod">Model.commitTransaction</a> or <a href="../symbols/Diagram.html#commitTransaction" class="linkMethod">Diagram.commitTransaction</a>),or a call to <a href="../symbols/UndoManager.html#rollbackTransaction" class="linkMethod">UndoManager.rollbackTransaction</a>(or the same named methods on <a href="../symbols/Model.html" class="linkConstructor">Model</a> or <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>).<p>If you are performing multiple or repeated changes to a model or diagram,surround all of the code with calls to start and commit the transaction --do not perform repeated calls to start-commit-start-commit.Typically each change caused by the user, such as a button click or a change of focus or a mouse drag,should perform one transaction in which all changes are made.All of the predefined commands and tools perform transactions.<p>Undoing or redoing a transaction is done by calling <a href="../symbols/UndoManager.html#undo" class="linkMethod">UndoManager.undo</a> or <a href="../symbols/UndoManager.html#redo" class="linkMethod">UndoManager.redo</a>.Those methods call the <a href="../symbols/Transaction.html#undo" class="linkMethod">undo</a> or <a href="../symbols/Transaction.html#redo" class="linkMethod">redo</a> methods here.<p>The <a href="../symbols/UndoManager.html" class="linkConstructor">UndoManager</a> holds a list of Transactions in its <a href="../symbols/UndoManager.html#history" class="linkProperty">UndoManager.history</a>.
+                A Transaction holds a list of <a href="../symbols/ChangedEvent.html" class="linkConstructor">ChangedEvent</a>s collected during a transaction,
+as the value of the read-only <a href="../symbols/Transaction.html#changes" class="linkProperty">changes</a> property.
+<p>
+Start a transaction by calling <a href="../symbols/UndoManager.html#startTransaction" class="linkMethod">UndoManager.startTransaction</a>
+(or <a href="../symbols/Model.html#startTransaction" class="linkMethod">Model.startTransaction</a> or <a href="../symbols/Diagram.html#startTransaction" class="linkMethod">Diagram.startTransaction</a>, which call that method).
+Be sure to finish a transaction with a matching call to <a href="../symbols/UndoManager.html#commitTransaction" class="linkMethod">UndoManager.commitTransaction</a>
+(or <a href="../symbols/Model.html#commitTransaction" class="linkMethod">Model.commitTransaction</a> or <a href="../symbols/Diagram.html#commitTransaction" class="linkMethod">Diagram.commitTransaction</a>),
+or a call to <a href="../symbols/UndoManager.html#rollbackTransaction" class="linkMethod">UndoManager.rollbackTransaction</a>
+(or the same named methods on <a href="../symbols/Model.html" class="linkConstructor">Model</a> or <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>).
+<p>
+If you are performing multiple or repeated changes to a model or diagram,
+surround all of the code with calls to start and commit the transaction --
+do not perform repeated calls to start-commit-start-commit.
+Typically each change caused by the user, such as a button click or a change of focus or a mouse drag,
+should perform one transaction in which all changes are made.
+All of the predefined commands and tools perform transactions.
+<p>
+Undoing or redoing a transaction is done by calling <a href="../symbols/UndoManager.html#undo" class="linkMethod">UndoManager.undo</a> or <a href="../symbols/UndoManager.html#redo" class="linkMethod">UndoManager.redo</a>.
+Those methods call the <a href="../symbols/Transaction.html#undo" class="linkMethod">undo</a> or <a href="../symbols/Transaction.html#redo" class="linkMethod">redo</a> methods here.
+<p>
+The <a href="../symbols/UndoManager.html" class="linkConstructor">UndoManager</a> holds a list of Transactions in its <a href="../symbols/UndoManager.html#history" class="linkProperty">UndoManager.history</a>.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1154,7 +1169,8 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>Construct an object holding an empty list of <a href="../symbols/ChangedEvent.html" class="linkConstructor">ChangedEvent</a>sand no <a href="../symbols/Transaction.html#name" class="linkProperty">name</a>.
+                            <!--newp--><p><p>Construct an object holding an empty list of <a href="../symbols/ChangedEvent.html" class="linkConstructor">ChangedEvent</a>s
+and no <a href="../symbols/Transaction.html#name" class="linkProperty">name</a>.
                         
                         
 
@@ -1196,7 +1212,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property returns the list of <a href="../symbols/ChangedEvent.html" class="linkConstructor">ChangedEvent</a>s.<span class="nodetails" id="xpropchanges"><a class="morelink" onclick="hst('propchanges')">More...</a></span> <span class="details" id="propchanges">The changes are stored in order of occurrence.</span><div class="details" id="dpropchanges"><p>You should not modify this list.</div>
+                <p>This read-only property returns the list of <a href="../symbols/ChangedEvent.html" class="linkConstructor">ChangedEvent</a>s.<span class="nodetails" id="xpropchanges"><a class="morelink" onclick="hst('propchanges')">More...</a></span> <span class="details" id="propchanges">
+The changes are stored in order of occurrence.
+</span><div class="details" id="dpropchanges"><p>
+You should not modify this list.</div>
                 
                 </div>
                             </td>
@@ -1216,7 +1235,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether we can add more <a href="../symbols/ChangedEvent.html" class="linkConstructor">ChangedEvent</a>s to this list of changes.<span class="nodetails" id="xpropisComplete"><a class="morelink" onclick="hst('propisComplete')">More...</a></span> <span class="details" id="propisComplete">This is initially false.It is set to true by <a href="../symbols/UndoManager.html#commitTransaction" class="linkMethod">UndoManager.commitTransaction</a> and <a href="../symbols/UndoManager.html#rollbackTransaction" class="linkMethod">UndoManager.rollbackTransaction</a>.</span>
+                <p>Gets or sets whether we can add more <a href="../symbols/ChangedEvent.html" class="linkConstructor">ChangedEvent</a>s to this list of changes.<span class="nodetails" id="xpropisComplete"><a class="morelink" onclick="hst('propisComplete')">More...</a></span> <span class="details" id="propisComplete">
+This is initially false.
+It is set to true by <a href="../symbols/UndoManager.html#commitTransaction" class="linkMethod">UndoManager.commitTransaction</a> and <a href="../symbols/UndoManager.html#rollbackTransaction" class="linkMethod">UndoManager.rollbackTransaction</a>.</span>
                 
                 </div>
                             </td>
@@ -1236,7 +1257,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the transaction name for this collection of changes.<span class="nodetails" id="xpropname"><a class="morelink" onclick="hst('propname')">More...</a></span> <span class="details" id="propname">This is set by a top-level call to <a href="../symbols/UndoManager.html#commitTransaction" class="linkMethod">UndoManager.commitTransaction</a>.</span>
+                <p>Gets or sets the transaction name for this collection of changes.<span class="nodetails" id="xpropname"><a class="morelink" onclick="hst('propname')">More...</a></span> <span class="details" id="propname">
+This is set by a top-level call to <a href="../symbols/UndoManager.html#commitTransaction" class="linkMethod">UndoManager.commitTransaction</a>.</span>
                 
                 </div>
                             </td>
@@ -1278,7 +1300,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate returns true if you can call <a href="../symbols/Transaction.html#redo" class="linkMethod">redo</a>,namely when <a href="../symbols/Transaction.html#isComplete" class="linkProperty">isComplete</a> is true.
+                                <!--newp--><p><p>This predicate returns true if you can call <a href="../symbols/Transaction.html#redo" class="linkMethod">redo</a>,
+namely when <a href="../symbols/Transaction.html#isComplete" class="linkProperty">isComplete</a> is true.
                  
                               
                               
@@ -1307,7 +1330,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate returns true if you can call <a href="../symbols/Transaction.html#undo" class="linkMethod">undo</a>,namely when <a href="../symbols/Transaction.html#isComplete" class="linkProperty">isComplete</a> is true.
+                                <!--newp--><p><p>This predicate returns true if you can call <a href="../symbols/Transaction.html#undo" class="linkMethod">undo</a>,
+namely when <a href="../symbols/Transaction.html#isComplete" class="linkProperty">isComplete</a> is true.
                  
                               
                               
@@ -1358,7 +1382,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Re-perform these changes after an <a href="../symbols/Transaction.html#undo" class="linkMethod">undo</a>.<span class="nodetails" id="xmethredo"><a class="morelink" onclick="hst('methredo')">More...</a></span> <span class="details" id="methredo">This is normally called only by the <a href="../symbols/UndoManager.html" class="linkConstructor">UndoManager</a>.<a href="../symbols/Transaction.html#canRedo" class="linkMethod">canRedo</a> must be true for this method to have any effect.</span>
+                                <!--newp--><p><p>Re-perform these changes after an <a href="../symbols/Transaction.html#undo" class="linkMethod">undo</a>.<span class="nodetails" id="xmethredo"><a class="morelink" onclick="hst('methredo')">More...</a></span> <span class="details" id="methredo">
+This is normally called only by the <a href="../symbols/UndoManager.html" class="linkConstructor">UndoManager</a>.
+<a href="../symbols/Transaction.html#canRedo" class="linkMethod">canRedo</a> must be true for this method to have any effect.</span>
                  
                               
                               
@@ -1380,7 +1406,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Undo all of the changes, in reverse order.<span class="nodetails" id="xmethundo"><a class="morelink" onclick="hst('methundo')">More...</a></span> <span class="details" id="methundo">This is normally called only by the <a href="../symbols/UndoManager.html" class="linkConstructor">UndoManager</a>.<a href="../symbols/Transaction.html#canUndo" class="linkMethod">canUndo</a> must be true for this method to have any effect.</span>
+                                <!--newp--><p><p>Undo all of the changes, in reverse order.<span class="nodetails" id="xmethundo"><a class="morelink" onclick="hst('methundo')">More...</a></span> <span class="details" id="methundo">
+This is normally called only by the <a href="../symbols/UndoManager.html" class="linkConstructor">UndoManager</a>.
+<a href="../symbols/Transaction.html#canUndo" class="linkMethod">canUndo</a> must be true for this method to have any effect.</span>
                  
                               
                               

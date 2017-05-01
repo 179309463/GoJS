@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1133,7 +1128,32 @@
                     <a href="../symbols/Model.html" class="linkConstructor">Model</a>.</span>
                 
 
-                TreeModels support tree-structured graphs of nodes and links.Each node can have at most one "tree parent"; cycles are not permitted.The reference to the parent node's key is a property of the child node data.<p>TreeModels, unlike <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>s, do not support arbitrary link relationships between nodes,nor is there a separate link data object for each parent-child relationship.Furthermore there is no support for grouping or label nodes.<p>The <a href="../symbols/TreeModel.html#nodeParentKeyProperty" class="linkProperty">nodeParentKeyProperty</a> property names the property on the node data whose valueis the key of the "tree parent" node.The default value for this property is "parent".<p>For example, one can define a graph consisting of one parent node with two child nodes:<pre class="javascript"> model.nodeDataArray = [   { key: "Alpha" },   { key: "Beta", parent: "Alpha" },   { key: "Gamma", parent: "Alpha" } ];</pre><p>If you need to show a more complicated graph structure than a tree, use a <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>.If you want to have multiple links between the same pair of nodes,or if you want to associate more information with each link and cannot put the information on the child node,you will need to have a separate link data object for each link,and that would require the use of <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>.
+                TreeModels support tree-structured graphs of nodes and links.
+Each node can have at most one "tree parent"; cycles are not permitted.
+The reference to the parent node's key is a property of the child node data.
+<p>
+TreeModels, unlike <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>s, do not support arbitrary link relationships between nodes,
+nor is there a separate link data object for each parent-child relationship.
+Furthermore there is no support for grouping or label nodes.
+<p>
+The <a href="../symbols/TreeModel.html#nodeParentKeyProperty" class="linkProperty">nodeParentKeyProperty</a> property names the property on the node data whose value
+is the key of the "tree parent" node.
+The default value for this property is "parent".
+<p>
+For example, one can define a graph consisting of one parent node with two child nodes:
+<pre class="javascript">
+ model.nodeDataArray = [
+   { key: "Alpha" },
+   { key: "Beta", parent: "Alpha" },
+   { key: "Gamma", parent: "Alpha" }
+ ];
+</pre>
+<p>
+If you need to show a more complicated graph structure than a tree, use a <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>.
+If you want to have multiple links between the same pair of nodes,
+or if you want to associate more information with each link and cannot put the information on the child node,
+you will need to have a separate link data object for each link,
+and that would require the use of <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1156,7 +1176,8 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>This constructs an empty TreeModel unless one provides arguments as the initial data array valuesfor the <a href="../symbols/Model.html#nodeDataArray" class="linkProperty">Model.nodeDataArray</a> property.<span class="nodetails" id="xconTreeModel"><a class="morelink" onclick="hst('conTreeModel')">More...</a></span> <span class="details" id="conTreeModel"></span>
+                            <!--newp--><p><p>This constructs an empty TreeModel unless one provides arguments as the initial data array values
+for the <a href="../symbols/Model.html#nodeDataArray" class="linkProperty">Model.nodeDataArray</a> property.<span class="nodetails" id="xconTreeModel"><a class="morelink" onclick="hst('conTreeModel')">More...</a></span> <span class="details" id="conTreeModel"></span>
                         
                             <dl class="detailList">
                             <dt class="heading">Parameters:</dt>
@@ -1209,7 +1230,14 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the name of the property on node data that specifiesthe string or number key of the node data that acts as the "parent" for this "child" node data.<span class="nodetails" id="xpropnodeParentKeyProperty"><a class="morelink" onclick="hst('propnodeParentKeyProperty')">More...</a></span> <span class="details" id="propnodeParentKeyProperty">The value may also be a function taking two arguments, where the first argument will be a node data object.If the second argument is not supplied, the function should return the string or number key for the parent node data object of which the given data object is a child;if the second argument is supplied, the function should modify the node data object so that it has that new key(which may be undefined to refer to no node) as the parent key for that node..The default value is the name 'parent', meaning that it expects the data to have a property named 'parent' if the node wants to refer to the parent node by its key.The value must not be null nor an empty string.</span>
+                <p>Gets or sets the name of the property on node data that specifies
+the string or number key of the node data that acts as the "parent" for this "child" node data.<span class="nodetails" id="xpropnodeParentKeyProperty"><a class="morelink" onclick="hst('propnodeParentKeyProperty')">More...</a></span> <span class="details" id="propnodeParentKeyProperty">
+The value may also be a function taking two arguments, where the first argument will be a node data object.
+If the second argument is not supplied, the function should return the string or number key for the parent node data object of which the given data object is a child;
+if the second argument is supplied, the function should modify the node data object so that it has that new key
+(which may be undefined to refer to no node) as the parent key for that node..
+The default value is the name 'parent', meaning that it expects the data to have a property named 'parent' if the node wants to refer to the parent node by its key.
+The value must not be null nor an empty string.</span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1239,7 +1267,15 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the name of the data property that returns a string describing that node data's parent link's category.<span class="nodetails" id="xpropparentLinkCategoryProperty"><a class="morelink" onclick="hst('propparentLinkCategoryProperty')">More...</a></span> <span class="details" id="propparentLinkCategoryProperty">The value may also be a function taking two arguments, where the first argument will be a node data object.If the second argument is not supplied, the function should return the category name for any parent link;if the second argument is supplied, the function should modify the node data object so that its parent link has that new category name.The default value is the name 'parentLinkCategory'.This is used by the diagram to distinguish between different kinds of links.The name must not be null.If the value is an empty string,<a href="../symbols/TreeModel.html#getParentLinkCategoryForNodeData" class="linkMethod">getParentLinkCategoryForNodeData</a> will return an empty string for all node data objects.</span>
+                <p>Gets or sets the name of the data property that returns a string describing that node data's parent link's category.<span class="nodetails" id="xpropparentLinkCategoryProperty"><a class="morelink" onclick="hst('propparentLinkCategoryProperty')">More...</a></span> <span class="details" id="propparentLinkCategoryProperty">
+The value may also be a function taking two arguments, where the first argument will be a node data object.
+If the second argument is not supplied, the function should return the category name for any parent link;
+if the second argument is supplied, the function should modify the node data object so that its parent link has that new category name.
+The default value is the name 'parentLinkCategory'.
+This is used by the diagram to distinguish between different kinds of links.
+The name must not be null.
+If the value is an empty string,
+<a href="../symbols/TreeModel.html#getParentLinkCategoryForNodeData" class="linkMethod">getParentLinkCategoryForNodeData</a> will return an empty string for all node data objects.</span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1391,7 +1427,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Find the category for the parent link of a given child node data, a string naming the link templatethat the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> should use to represent the link.<span class="nodetails" id="xmethgetParentLinkCategoryForNodeData"><a class="morelink" onclick="hst('methgetParentLinkCategoryForNodeData')">More...</a></span> <span class="details" id="methgetParentLinkCategoryForNodeData"></span>
+                                <!--newp--><p><p>Find the category for the parent link of a given child node data, a string naming the link template
+that the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> should use to represent the link.<span class="nodetails" id="xmethgetParentLinkCategoryForNodeData"><a class="morelink" onclick="hst('methgetParentLinkCategoryForNodeData')">More...</a></span> <span class="details" id="methgetParentLinkCategoryForNodeData"></span>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1440,7 +1477,10 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This override changes the value of some property of a node data or an item data, given a string naming the propertyand the new value, in a manner that can be undone/redone and that automatically updates any bindings.<span class="nodetails" id="xmethsetDataProperty"><a class="morelink" onclick="hst('methsetDataProperty')">More...</a></span> <span class="details" id="methsetDataProperty"></span><div class="details" id="dmethsetDataProperty"><p>This gets the old value of the property; if the value is the same as the new value, no side-effects occur.</div>
+                                <!--newp--><p><p>This override changes the value of some property of a node data or an item data, given a string naming the property
+and the new value, in a manner that can be undone/redone and that automatically updates any bindings.<span class="nodetails" id="xmethsetDataProperty"><a class="morelink" onclick="hst('methsetDataProperty')">More...</a></span> <span class="details" id="methsetDataProperty">
+</span><div class="details" id="dmethsetDataProperty"><p>
+This gets the old value of the property; if the value is the same as the new value, no side-effects occur.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1457,7 +1497,8 @@
                                           <span class="light fixedFont">{Object}</span> <b>data</b>
                                           
                                       </dt>
-                                      <dd>a JavaScript object typically the value of a <a href="../symbols/Panel.html#data" class="linkProperty">Panel.data</a> and represented by a Node, Link, Group, simple Part,                     or item in a <a href="../symbols/Panel.html#itemArray" class="linkProperty">Panel.itemArray</a>; or this model's <a href="../symbols/Model.html#modelData" class="linkProperty">modelData</a>.</dd>
+                                      <dd>a JavaScript object typically the value of a <a href="../symbols/Panel.html#data" class="linkProperty">Panel.data</a> and represented by a Node, Link, Group, simple Part,
+                     or item in a <a href="../symbols/Panel.html#itemArray" class="linkProperty">Panel.itemArray</a>; or this model's <a href="../symbols/Model.html#modelData" class="linkProperty">modelData</a>.</dd>
                                   
                                       <dt>
                                           <span class="light fixedFont">{string}</span> <b>propname</b>
@@ -1540,7 +1581,15 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Change the category for the parent link of a given child node data, a string naming the link templatethat the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> should use to represent the link.<span class="nodetails" id="xmethsetParentLinkCategoryForNodeData"><a class="morelink" onclick="hst('methsetParentLinkCategoryForNodeData')">More...</a></span> <span class="details" id="methsetParentLinkCategoryForNodeData"></span><div class="details" id="dmethsetParentLinkCategoryForNodeData"><p>Changing the link template will cause any existing <a href="../symbols/Link.html" class="linkConstructor">Link</a>to be removed from the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> and replaced with a new <a href="../symbols/Link.html" class="linkConstructor">Link</a>created by copying the new link template and applying any data-bindings.Note that the new template must be an instance of the same class as the original link.Thus one cannot change the category of a link from an instance of <a href="../symbols/Link.html" class="linkConstructor">Link</a>to an instance of a subclass of Link, nor vice-versa.</div>
+                                <!--newp--><p><p>Change the category for the parent link of a given child node data, a string naming the link template
+that the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> should use to represent the link.<span class="nodetails" id="xmethsetParentLinkCategoryForNodeData"><a class="morelink" onclick="hst('methsetParentLinkCategoryForNodeData')">More...</a></span> <span class="details" id="methsetParentLinkCategoryForNodeData">
+</span><div class="details" id="dmethsetParentLinkCategoryForNodeData"><p>
+Changing the link template will cause any existing <a href="../symbols/Link.html" class="linkConstructor">Link</a>
+to be removed from the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> and replaced with a new <a href="../symbols/Link.html" class="linkConstructor">Link</a>
+created by copying the new link template and applying any data-bindings.
+Note that the new template must be an instance of the same class as the original link.
+Thus one cannot change the category of a link from an instance of <a href="../symbols/Link.html" class="linkConstructor">Link</a>
+to an instance of a subclass of Link, nor vice-versa.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">

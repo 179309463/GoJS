@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1133,7 +1128,21 @@
                     <a href="../symbols/Tool.html" class="linkConstructor">Tool</a>.</span>
                 
 
-                The LinkReshapingTool is used to interactively change the route of a <a href="../symbols/Link.html" class="linkConstructor">Link</a>by setting its <a href="../symbols/Link.html#points" class="linkProperty">Link.points</a> list.You may want to save the route to the model by using a TwoWay <a href="../symbols/Binding.html" class="linkConstructor">Binding</a> on the "points" property of the Link.<p>This tool makes use of an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>, shown when the adorned <a href="../symbols/Link.html" class="linkConstructor">Link</a> is selected,that includes some number of reshape handles.This tool conducts a transaction while the tool is active.A successful reshaping will result in a "LinkReshaped" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a> and a "LinkReshaping" transaction.<p class="boxread">For a general discussion of link routing, see:<a href="../../intro/links.html">Introduction to Links</a>,<a href="../../intro/linkLabels.html">Introduction to Link Labels</a>, and<a href="../../intro/connectionPoints.html">Introduction to Link Connection Points</a>.For customizing the linking tools, see <a href="../../intro/tools.html#LinkingAndRelinkingTools">Introduction to the Linking Tools</a>.For a general discussion of validation, see <a href="../../intro/validation.html">Introduction to Validation</a>.
+                The LinkReshapingTool is used to interactively change the route of a <a href="../symbols/Link.html" class="linkConstructor">Link</a>
+by setting its <a href="../symbols/Link.html#points" class="linkProperty">Link.points</a> list.
+You may want to save the route to the model by using a TwoWay <a href="../symbols/Binding.html" class="linkConstructor">Binding</a> on the "points" property of the Link.
+<p>
+This tool makes use of an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>, shown when the adorned <a href="../symbols/Link.html" class="linkConstructor">Link</a> is selected,
+that includes some number of reshape handles.
+This tool conducts a transaction while the tool is active.
+A successful reshaping will result in a "LinkReshaped" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a> and a "LinkReshaping" transaction.
+<p class="boxread">
+For a general discussion of link routing, see:
+<a href="../../intro/links.html">Introduction to Links</a>,
+<a href="../../intro/linkLabels.html">Introduction to Link Labels</a>, and
+<a href="../../intro/connectionPoints.html">Introduction to Link Connection Points</a>.
+For customizing the linking tools, see <a href="../../intro/tools.html#LinkingAndRelinkingTools">Introduction to the Linking Tools</a>.
+For a general discussion of validation, see <a href="../../intro/validation.html">Introduction to Validation</a>.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1156,7 +1165,10 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>You do not normally need to create an instance of this toolbecause one already exists as the <a href="../symbols/ToolManager.html#linkReshapingTool" class="linkProperty">ToolManager.linkReshapingTool</a>, which you can modify.<span class="nodetails" id="xconLinkReshapingTool"><a class="morelink" onclick="hst('conLinkReshapingTool')">More...</a></span> <span class="details" id="conLinkReshapingTool"></span><div class="details" id="dconLinkReshapingTool"><p>The <a href="../symbols/Tool.html#name" class="linkProperty">Tool.name</a> of this tool is "LinkReshaping".</div>
+                            <!--newp--><p><p>You do not normally need to create an instance of this tool
+because one already exists as the <a href="../symbols/ToolManager.html#linkReshapingTool" class="linkProperty">ToolManager.linkReshapingTool</a>, which you can modify.<span class="nodetails" id="xconLinkReshapingTool"><a class="morelink" onclick="hst('conLinkReshapingTool')">More...</a></span> <span class="details" id="conLinkReshapingTool">
+</span><div class="details" id="dconLinkReshapingTool"><p>
+The <a href="../symbols/Tool.html#name" class="linkProperty">Tool.name</a> of this tool is "LinkReshaping".</div>
                         
                         
 
@@ -1218,7 +1230,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property returns the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that is the tool handle being dragged by the user.<span class="nodetails" id="xprophandle"><a class="morelink" onclick="hst('prophandle')">More...</a></span> <span class="details" id="prophandle">This will be contained by an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> whose category is "LinkReshaping".Its <a href="../symbols/Adornment.html#adornedPart" class="linkProperty">Adornment.adornedPart</a> is the same as the <a href="../symbols/LinkReshapingTool.html#adornedLink" class="linkProperty">adornedLink</a>.</span>
+                <p>This read-only property returns the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that is the tool handle being dragged by the user.<span class="nodetails" id="xprophandle"><a class="morelink" onclick="hst('prophandle')">More...</a></span> <span class="details" id="prophandle">
+This will be contained by an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> whose category is "LinkReshaping".
+Its <a href="../symbols/Adornment.html#adornedPart" class="linkProperty">Adornment.adornedPart</a> is the same as the <a href="../symbols/LinkReshapingTool.html#adornedLink" class="linkProperty">adornedLink</a>.</span>
                 
                 </div>
                             </td>
@@ -1238,7 +1252,16 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets a small GraphObject that is copied as a reshape handle at each movable point in the selected link's route.<span class="nodetails" id="xprophandleArchetype"><a class="morelink" onclick="hst('prophandleArchetype')">More...</a></span> <span class="details" id="prophandleArchetype">By default this is a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> that is a small blue rectangle.Setting this property does not raise any events.</span><div class="details" id="dprophandleArchetype"><p>Here is an example of changing the default handles to be larger yellow circles:<pre class="javascript">  myDiagram.toolManager.linkReshapingTool.handleArchetype =    $(go.Shape, "Circle",      { width: 10, height: 10, fill: "yellow" });</pre></div>
+                <p>Gets or sets a small GraphObject that is copied as a reshape handle at each movable point in the selected link's route.<span class="nodetails" id="xprophandleArchetype"><a class="morelink" onclick="hst('prophandleArchetype')">More...</a></span> <span class="details" id="prophandleArchetype">
+By default this is a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> that is a small blue rectangle.
+Setting this property does not raise any events.
+</span><div class="details" id="dprophandleArchetype"><p>
+Here is an example of changing the default handles to be larger yellow circles:
+<pre class="javascript">
+  myDiagram.toolManager.linkReshapingTool.handleArchetype =
+    $(go.Shape, "Circle",
+      { width: 10, height: 10, fill: "yellow" });
+</pre></div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1268,7 +1291,15 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets a small GraphObject that is copied as a resegment handle at each mid-point in the selected Link's route.<span class="nodetails" id="xpropmidHandleArchetype"><a class="morelink" onclick="hst('propmidHandleArchetype')">More...</a></span> <span class="details" id="propmidHandleArchetype">By default this is a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> that is a small blue diamond.Setting this property does not raise any events.</span><div class="details" id="dpropmidHandleArchetype"><p>Here is an example of changing the default handle to be larger cyan triangles:<pre class="javascript">  myDiagram.toolManager.linkReshapingTool.midHandleArchetype =    $(go.Shape, "Triangle", { width: 10, height: 10, fill: "cyan" });</pre></div>
+                <p>Gets or sets a small GraphObject that is copied as a resegment handle at each mid-point in the selected Link's route.<span class="nodetails" id="xpropmidHandleArchetype"><a class="morelink" onclick="hst('propmidHandleArchetype')">More...</a></span> <span class="details" id="propmidHandleArchetype">
+By default this is a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> that is a small blue diamond.
+Setting this property does not raise any events.
+</span><div class="details" id="dpropmidHandleArchetype"><p>
+Here is an example of changing the default handle to be larger cyan triangles:
+<pre class="javascript">
+  myDiagram.toolManager.linkReshapingTool.midHandleArchetype =
+    $(go.Shape, "Triangle", { width: 10, height: 10, fill: "cyan" });
+</pre></div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1320,7 +1351,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property returns the <a href="../symbols/List.html" class="linkConstructor">List</a> of <a href="../symbols/Point.html" class="linkConstructor">Point</a>s that was the original route of the Link that is being reshaped.<span class="nodetails" id="xproporiginalPoints"><a class="morelink" onclick="hst('proporiginalPoints')">More...</a></span> <span class="details" id="proporiginalPoints">This List should not be modified; its value is indeterminate until a reshaping has been activated.</span>
+                <p>This read-only property returns the <a href="../symbols/List.html" class="linkConstructor">List</a> of <a href="../symbols/Point.html" class="linkConstructor">Point</a>s that was the original route of the Link that is being reshaped.<span class="nodetails" id="xproporiginalPoints"><a class="morelink" onclick="hst('proporiginalPoints')">More...</a></span> <span class="details" id="proporiginalPoints">
+This List should not be modified; its value is indeterminate until a reshaping has been activated.</span>
                 
                 </div>
                             </td>
@@ -1366,7 +1398,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This tool may run when there is a mouse-down event on a reshape handle.<span class="nodetails" id="xmethcanStart"><a class="morelink" onclick="hst('methcanStart')">More...</a></span> <span class="details" id="methcanStart"></span><div class="details" id="dmethcanStart"><p>This method may be overridden.</div>
+                                <!--newp--><p><p>This tool may run when there is a mouse-down event on a reshape handle.<span class="nodetails" id="xmethcanStart"><a class="morelink" onclick="hst('methcanStart')">More...</a></span> <span class="details" id="methcanStart">
+</span><div class="details" id="dmethcanStart"><p>
+This method may be overridden.</div>
                  
                               
                               
@@ -1395,7 +1429,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This is called by <a href="../symbols/LinkReshapingTool.html#doMouseMove" class="linkMethod">doMouseMove</a> and <a href="../symbols/LinkReshapingTool.html#doMouseUp" class="linkMethod">doMouseUp</a> to limit the input pointbefore calling <a href="../symbols/LinkReshapingTool.html#reshape" class="linkMethod">reshape</a>.<span class="nodetails" id="xmethcomputeReshape"><a class="morelink" onclick="hst('methcomputeReshape')">More...</a></span> <span class="details" id="methcomputeReshape"></span><div class="details" id="dmethcomputeReshape"><p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This is called by <a href="../symbols/LinkReshapingTool.html#doMouseMove" class="linkMethod">doMouseMove</a> and <a href="../symbols/LinkReshapingTool.html#doMouseUp" class="linkMethod">doMouseUp</a> to limit the input point
+before calling <a href="../symbols/LinkReshapingTool.html#reshape" class="linkMethod">reshape</a>.<span class="nodetails" id="xmethcomputeReshape"><a class="morelink" onclick="hst('methcomputeReshape')">More...</a></span> <span class="details" id="methcomputeReshape">
+</span><div class="details" id="dmethcomputeReshape"><p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                                   <dl class="detailList">
@@ -1413,7 +1451,8 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{<a href="../symbols/Point.html" class="linkConstructor">Point</a>}</span> Either the same Point p or one constrained by the reshape behavior to be movedonly vertically or only horizontally.</dt>
+                                      <dt><span class="light fixedFont">{<a href="../symbols/Point.html" class="linkConstructor">Point</a>}</span> Either the same Point p or one constrained by the reshape behavior to be moved
+only vertically or only horizontally.</dt>
                                   
                                   </dl>
                               
@@ -1435,7 +1474,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Start reshaping, if <a href="../symbols/Tool.html#findToolHandleAt" class="linkMethod">findToolHandleAt</a> finds a reshape handle at the mouse down point.<span class="nodetails" id="xmethdoActivate"><a class="morelink" onclick="hst('methdoActivate')">More...</a></span> <span class="details" id="methdoActivate"></span><div class="details" id="dmethdoActivate"><p>If successful this sets <a href="../symbols/LinkReshapingTool.html#handle" class="linkProperty">handle</a> to be the reshape handle that it findsand <a href="../symbols/LinkReshapingTool.html#adornedLink" class="linkProperty">adornedLink</a> to be the <a href="../symbols/Link.html" class="linkConstructor">Link</a> being routed.It also remembers the original link route (a list of Points) in case this tool is cancelled.And it starts a transaction.</div>
+                                <!--newp--><p><p>Start reshaping, if <a href="../symbols/Tool.html#findToolHandleAt" class="linkMethod">findToolHandleAt</a> finds a reshape handle at the mouse down point.<span class="nodetails" id="xmethdoActivate"><a class="morelink" onclick="hst('methdoActivate')">More...</a></span> <span class="details" id="methdoActivate">
+</span><div class="details" id="dmethdoActivate"><p>
+If successful this sets <a href="../symbols/LinkReshapingTool.html#handle" class="linkProperty">handle</a> to be the reshape handle that it finds
+and <a href="../symbols/LinkReshapingTool.html#adornedLink" class="linkProperty">adornedLink</a> to be the <a href="../symbols/Link.html" class="linkConstructor">Link</a> being routed.
+It also remembers the original link route (a list of Points) in case this tool is cancelled.
+And it starts a transaction.</div>
                  
                               
                               
@@ -1501,7 +1545,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Call <a href="../symbols/LinkReshapingTool.html#reshape" class="linkMethod">reshape</a> with a new point determined by the mouseto change the route of the <a href="../symbols/LinkReshapingTool.html#adornedLink" class="linkProperty">adornedLink</a>.
+                                <!--newp--><p><p>Call <a href="../symbols/LinkReshapingTool.html#reshape" class="linkMethod">reshape</a> with a new point determined by the mouse
+to change the route of the <a href="../symbols/LinkReshapingTool.html#adornedLink" class="linkProperty">adornedLink</a>.
                  
                               
                               
@@ -1523,7 +1568,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Reshape the route with a point based on the most recent mouse point by calling <a href="../symbols/LinkReshapingTool.html#reshape" class="linkMethod">reshape</a>,and then raise a "LinkReshaped" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a> before stopping this tool.
+                                <!--newp--><p><p>Reshape the route with a point based on the most recent mouse point by calling <a href="../symbols/LinkReshapingTool.html#reshape" class="linkMethod">reshape</a>,
+and then raise a "LinkReshaped" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a> before stopping this tool.
                  
                               
                               
@@ -1587,7 +1633,16 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Change the route of the <a href="../symbols/LinkReshapingTool.html#adornedLink" class="linkProperty">adornedLink</a> by moving the point corresponding to the current<a href="../symbols/LinkReshapingTool.html#handle" class="linkProperty">handle</a> to be at the given <a href="../symbols/Point.html" class="linkConstructor">Point</a>.<span class="nodetails" id="xmethreshape"><a class="morelink" onclick="hst('methreshape')">More...</a></span> <span class="details" id="methreshape">This is called by <a href="../symbols/LinkReshapingTool.html#doMouseMove" class="linkMethod">doMouseMove</a> and <a href="../symbols/LinkReshapingTool.html#doMouseUp" class="linkMethod">doMouseUp</a> with the result of calling<a href="../symbols/LinkReshapingTool.html#computeReshape" class="linkMethod">computeReshape</a> to constrain the input point.</span><div class="details" id="dmethreshape"><p>This method respects the orthogonality of the link, if necessary limiting movement along only one axis.To maintain orthogonality it may need to modify more than one point in the route.<p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Change the route of the <a href="../symbols/LinkReshapingTool.html#adornedLink" class="linkProperty">adornedLink</a> by moving the point corresponding to the current
+<a href="../symbols/LinkReshapingTool.html#handle" class="linkProperty">handle</a> to be at the given <a href="../symbols/Point.html" class="linkConstructor">Point</a>.<span class="nodetails" id="xmethreshape"><a class="morelink" onclick="hst('methreshape')">More...</a></span> <span class="details" id="methreshape">
+This is called by <a href="../symbols/LinkReshapingTool.html#doMouseMove" class="linkMethod">doMouseMove</a> and <a href="../symbols/LinkReshapingTool.html#doMouseUp" class="linkMethod">doMouseUp</a> with the result of calling
+<a href="../symbols/LinkReshapingTool.html#computeReshape" class="linkMethod">computeReshape</a> to constrain the input point.
+</span><div class="details" id="dmethreshape"><p>
+This method respects the orthogonality of the link, if necessary limiting movement along only one axis.
+To maintain orthogonality it may need to modify more than one point in the route.
+<p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                                   <dl class="detailList">
@@ -1661,7 +1716,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Show an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> with reshape handles at each of the interesting points of the link's route,if the link is selected and visible and if <a href="../symbols/Part.html#canReshape" class="linkMethod">Part.canReshape</a> is true.<span class="nodetails" id="xmethupdateAdornments"><a class="morelink" onclick="hst('methupdateAdornments')">More...</a></span> <span class="details" id="methupdateAdornments"></span><div class="details" id="dmethupdateAdornments"><p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Show an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> with reshape handles at each of the interesting points of the link's route,
+if the link is selected and visible and if <a href="../symbols/Part.html#canReshape" class="linkMethod">Part.canReshape</a> is true.<span class="nodetails" id="xmethupdateAdornments"><a class="morelink" onclick="hst('methupdateAdornments')">More...</a></span> <span class="details" id="methupdateAdornments">
+</span><div class="details" id="dmethupdateAdornments"><p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                                   <dl class="detailList">

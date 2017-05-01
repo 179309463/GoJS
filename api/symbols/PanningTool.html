@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1133,7 +1128,16 @@
                     <a href="../symbols/Tool.html" class="linkConstructor">Tool</a>.</span>
                 
 
-                The PanningTool supports manual panning, where the user can shift the<a href="../symbols/Diagram.html#position" class="linkProperty">Diagram.position</a> by dragging the mouse.<p>This tool is a standard mouse-move tool, the <a href="../symbols/ToolManager.html#panningTool" class="linkProperty">ToolManager.panningTool</a>.Although the <a href="../symbols/ToolManager.html#dragSelectingTool" class="linkProperty">ToolManager.dragSelectingTool</a> takes precedence over this tool,the <a href="../symbols/DragSelectingTool.html" class="linkConstructor">DragSelectingTool</a> only starts if there is a delay after a mouse-down event.If it does not start, then this PanningTool gets a chance to start.<p>This tool does not utilize any <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>s or tool handles.This tool does not modify the model or conduct any transaction.
+                The PanningTool supports manual panning, where the user can shift the
+<a href="../symbols/Diagram.html#position" class="linkProperty">Diagram.position</a> by dragging the mouse.
+<p>
+This tool is a standard mouse-move tool, the <a href="../symbols/ToolManager.html#panningTool" class="linkProperty">ToolManager.panningTool</a>.
+Although the <a href="../symbols/ToolManager.html#dragSelectingTool" class="linkProperty">ToolManager.dragSelectingTool</a> takes precedence over this tool,
+the <a href="../symbols/DragSelectingTool.html" class="linkConstructor">DragSelectingTool</a> only starts if there is a delay after a mouse-down event.
+If it does not start, then this PanningTool gets a chance to start.
+<p>
+This tool does not utilize any <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>s or tool handles.
+This tool does not modify the model or conduct any transaction.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1156,7 +1160,10 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>You do not normally need to create an instance of this toolbecause one already exists as the <a href="../symbols/ToolManager.html#panningTool" class="linkProperty">ToolManager.panningTool</a>.<span class="nodetails" id="xconPanningTool"><a class="morelink" onclick="hst('conPanningTool')">More...</a></span> <span class="details" id="conPanningTool"></span><div class="details" id="dconPanningTool"><p>The <a href="../symbols/Tool.html#name" class="linkProperty">Tool.name</a> of this tool is "Panning".</div>
+                            <!--newp--><p><p>You do not normally need to create an instance of this tool
+because one already exists as the <a href="../symbols/ToolManager.html#panningTool" class="linkProperty">ToolManager.panningTool</a>.<span class="nodetails" id="xconPanningTool"><a class="morelink" onclick="hst('conPanningTool')">More...</a></span> <span class="details" id="conPanningTool">
+</span><div class="details" id="dconPanningTool"><p>
+The <a href="../symbols/Tool.html#name" class="linkProperty">Tool.name</a> of this tool is "Panning".</div>
                         
                         
 
@@ -1198,7 +1205,13 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether panning actions will allowevents to bubble <strong>instead</strong> of panning in the diagram.<span class="nodetails" id="xpropbubbles"><a class="morelink" onclick="hst('propbubbles')">More...</a></span> <span class="details" id="propbubbles"></span><div class="details" id="dpropbubbles"><p>Set this to true to allow mobile devices to scroll the page with panning gestures on the diagram.Otherwise, the panning events will be captured and used to pan inside of the diagram.<p>The default value is false.</div>
+                <p>Gets or sets whether panning actions will allow
+events to bubble <strong>instead</strong> of panning in the diagram.<span class="nodetails" id="xpropbubbles"><a class="morelink" onclick="hst('propbubbles')">More...</a></span> <span class="details" id="propbubbles">
+</span><div class="details" id="dpropbubbles"><p>
+Set this to true to allow mobile devices to scroll the page with panning gestures on the diagram.
+Otherwise, the panning events will be captured and used to pan inside of the diagram.
+<p>
+The default value is false.</div>
                 
                 </div>
                             </td>
@@ -1266,7 +1279,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This tool can run when the diagram allows scrolling andthe mouse has been dragged with the left button far enough awayfrom the mouse-down point to avoid being a click.<span class="nodetails" id="xmethcanStart"><a class="morelink" onclick="hst('methcanStart')">More...</a></span> <span class="details" id="methcanStart"></span><div class="details" id="dmethcanStart"><p>This method may be overridden.</div>
+                                <!--newp--><p><p>This tool can run when the diagram allows scrolling and
+the mouse has been dragged with the left button far enough away
+from the mouse-down point to avoid being a click.<span class="nodetails" id="xmethcanStart"><a class="morelink" onclick="hst('methcanStart')">More...</a></span> <span class="details" id="methcanStart">
+</span><div class="details" id="dmethcanStart"><p>
+This method may be overridden.</div>
                  
                               
                               

@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1131,7 +1126,54 @@
                 
                 
 
-                The <a href="../symbols/Diagram.html#commandHandler" class="linkProperty">Diagram.commandHandler</a> implements variouscommands such as <a href="../symbols/CommandHandler.html#deleteSelection" class="linkMethod">CommandHandler.deleteSelection</a> or <a href="../symbols/CommandHandler.html#redo" class="linkMethod">CommandHandler.redo</a>.The CommandHandler includes keyboard event handling to interpretkey presses as commands.<p>CommandHandlers cannot be shared amongst multiple Diagrams.<p>You may define a CommandHandler subclass and override methods.However you must seriously consider calling the base method in order to get its default behavior.There may be situations where not calling the base method may cause subtle bugs,but that depends on the method.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call a base method.<p>There is an example custom CommandHandler in the extensions directory: <a href="../../extensions/DrawCommandHandler.js">DrawCommandHandler.js</a>,which provides alignment commands and additional behaviors for the arrow keys.<p class="boxread">For additional discussion, please read the <a href="../../intro/commands.html">Introduction page on Commands</a>.<h3>Keyboard Shortcuts</h3>The CommandHandler implements the following command bindings for keyboard input in <a href="../symbols/CommandHandler.html#doKeyDown" class="linkMethod">doKeyDown</a>:<ul>  <li><code>Ctrl-X</code> & <code>Shift-Del</code> invoke <a href="../symbols/CommandHandler.html#cutSelection" class="linkMethod">cutSelection</a></li>  <li><code>Ctrl-C</code> & <code>Ctrl-Insert</code> invoke <a href="../symbols/CommandHandler.html#copySelection" class="linkMethod">copySelection</a></li>  <li><code>Ctrl-V</code> & <code>Shift-Insert</code> invoke <a href="../symbols/CommandHandler.html#pasteSelection" class="linkMethod">pasteSelection</a></li>  <li><code>Del</code> & <code>Backspace</code> invoke <a href="../symbols/CommandHandler.html#deleteSelection" class="linkMethod">deleteSelection</a></li>  <li><code>Ctrl-A</code> invokes <a href="../symbols/CommandHandler.html#selectAll" class="linkMethod">selectAll</a></li>  <li><code>Ctrl-Z</code> & <code>Alt-Backspace</code> invoke <a href="../symbols/CommandHandler.html#undo" class="linkMethod">undo</a></li>  <li><code>Ctrl-Y</code> & <code>Alt-Shift-Backspace</code> invoke <a href="../symbols/CommandHandler.html#redo" class="linkMethod">redo</a></li>  <li><code>Up</code> & <code>Down</code> & <code>Left</code> & <code>Right</code> (arrow keys) call <a href="../symbols/Diagram.html#scroll" class="linkMethod">Diagram.scroll</a></li>  <li><code>PageUp</code> & <code>PageDown</code> call <a href="../symbols/Diagram.html#scroll" class="linkMethod">Diagram.scroll</a></li>  <li><code>Home</code> & <code>End</code> call <a href="../symbols/Diagram.html#scroll" class="linkMethod">Diagram.scroll</a></li>  <li><code>Space</code> invokes <a href="../symbols/CommandHandler.html#scrollToPart" class="linkMethod">scrollToPart</a></li>  <li><code>Ctrl-- & Keypad--</code> (minus) invoke <a href="../symbols/CommandHandler.html#decreaseZoom" class="linkMethod">decreaseZoom</a></li>  <li><code>Ctrl-+ & Keypad-+</code> (plus) invoke <a href="../symbols/CommandHandler.html#increaseZoom" class="linkMethod">increaseZoom</a></li>  <li><code>Ctrl-0</code> invokes <a href="../symbols/CommandHandler.html#resetZoom" class="linkMethod">resetZoom</a></li>  <li><code>Shift-Z</code> invokes <a href="../symbols/CommandHandler.html#zoomToFit" class="linkMethod">zoomToFit</a>; repeat to return to the original scale and position</li>  <li><code>Ctrl-G</code> invokes <a href="../symbols/CommandHandler.html#groupSelection" class="linkMethod">groupSelection</a></li>  <li><code>Ctrl-Shift-G</code> invokes <a href="../symbols/CommandHandler.html#ungroupSelection" class="linkMethod">ungroupSelection</a></li>  <li><code>F2</code> invokes <a href="../symbols/CommandHandler.html#editTextBlock" class="linkMethod">editTextBlock</a></li>  <li><code>Menu Key</code> invokes <a href="../symbols/CommandHandler.html#showContextMenu" class="linkMethod">showContextMenu</a></li>  <li><code>Esc</code> invokes <a href="../symbols/CommandHandler.html#stopCommand" class="linkMethod">stopCommand</a></li></ul><p>On a Macintosh the Command key is used as the modifier instead of the Control key.</p><p>On touch devices there is a default context menu that shows many commonly-used commandswhen you hold a finger down on the diagram.</p>
+                The <a href="../symbols/Diagram.html#commandHandler" class="linkProperty">Diagram.commandHandler</a> implements various
+commands such as <a href="../symbols/CommandHandler.html#deleteSelection" class="linkMethod">CommandHandler.deleteSelection</a> or <a href="../symbols/CommandHandler.html#redo" class="linkMethod">CommandHandler.redo</a>.
+The CommandHandler includes keyboard event handling to interpret
+key presses as commands.
+<p>
+CommandHandlers cannot be shared amongst multiple Diagrams.
+<p>
+You may define a CommandHandler subclass and override methods.
+However you must seriously consider calling the base method in order to get its default behavior.
+There may be situations where not calling the base method may cause subtle bugs,
+but that depends on the method.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call a base method.
+<p>
+There is an example custom CommandHandler in the extensions directory: <a href="../../extensions/DrawCommandHandler.js">DrawCommandHandler.js</a>,
+which provides alignment commands and additional behaviors for the arrow keys.
+<p class="boxread">
+For additional discussion, please read the <a href="../../intro/commands.html">Introduction page on Commands</a>.
+<h3>Keyboard Shortcuts</h3>
+The CommandHandler implements the following command bindings for keyboard input in <a href="../symbols/CommandHandler.html#doKeyDown" class="linkMethod">doKeyDown</a>:
+<ul>
+  <li><code>Ctrl-X</code> & <code>Shift-Del</code> invoke <a href="../symbols/CommandHandler.html#cutSelection" class="linkMethod">cutSelection</a></li>
+  <li><code>Ctrl-C</code> & <code>Ctrl-Insert</code> invoke <a href="../symbols/CommandHandler.html#copySelection" class="linkMethod">copySelection</a></li>
+  <li><code>Ctrl-V</code> & <code>Shift-Insert</code> invoke <a href="../symbols/CommandHandler.html#pasteSelection" class="linkMethod">pasteSelection</a></li>
+  <li><code>Del</code> & <code>Backspace</code> invoke <a href="../symbols/CommandHandler.html#deleteSelection" class="linkMethod">deleteSelection</a></li>
+  <li><code>Ctrl-A</code> invokes <a href="../symbols/CommandHandler.html#selectAll" class="linkMethod">selectAll</a></li>
+  <li><code>Ctrl-Z</code> & <code>Alt-Backspace</code> invoke <a href="../symbols/CommandHandler.html#undo" class="linkMethod">undo</a></li>
+  <li><code>Ctrl-Y</code> & <code>Alt-Shift-Backspace</code> invoke <a href="../symbols/CommandHandler.html#redo" class="linkMethod">redo</a></li>
+  <li><code>Up</code> & <code>Down</code> & <code>Left</code> & <code>Right</code> (arrow keys) call <a href="../symbols/Diagram.html#scroll" class="linkMethod">Diagram.scroll</a></li>
+  <li><code>PageUp</code> & <code>PageDown</code> call <a href="../symbols/Diagram.html#scroll" class="linkMethod">Diagram.scroll</a></li>
+  <li><code>Home</code> & <code>End</code> call <a href="../symbols/Diagram.html#scroll" class="linkMethod">Diagram.scroll</a></li>
+  <li><code>Space</code> invokes <a href="../symbols/CommandHandler.html#scrollToPart" class="linkMethod">scrollToPart</a></li>
+  <li><code>Ctrl-- & Keypad--</code> (minus) invoke <a href="../symbols/CommandHandler.html#decreaseZoom" class="linkMethod">decreaseZoom</a></li>
+  <li><code>Ctrl-+ & Keypad-+</code> (plus) invoke <a href="../symbols/CommandHandler.html#increaseZoom" class="linkMethod">increaseZoom</a></li>
+  <li><code>Ctrl-0</code> invokes <a href="../symbols/CommandHandler.html#resetZoom" class="linkMethod">resetZoom</a></li>
+  <li><code>Shift-Z</code> invokes <a href="../symbols/CommandHandler.html#zoomToFit" class="linkMethod">zoomToFit</a>; repeat to return to the original scale and position</li>
+  <li><code>Ctrl-G</code> invokes <a href="../symbols/CommandHandler.html#groupSelection" class="linkMethod">groupSelection</a></li>
+  <li><code>Ctrl-Shift-G</code> invokes <a href="../symbols/CommandHandler.html#ungroupSelection" class="linkMethod">ungroupSelection</a></li>
+  <li><code>F2</code> invokes <a href="../symbols/CommandHandler.html#editTextBlock" class="linkMethod">editTextBlock</a></li>
+  <li><code>Menu Key</code> invokes <a href="../symbols/CommandHandler.html#showContextMenu" class="linkMethod">showContextMenu</a></li>
+  <li><code>Esc</code> invokes <a href="../symbols/CommandHandler.html#stopCommand" class="linkMethod">stopCommand</a></li>
+</ul>
+<p>
+On a Macintosh the Command key is used as the modifier instead of the Control key.
+</p>
+<p>
+On touch devices there is a default context menu that shows many commonly-used commands
+when you hold a finger down on the diagram.
+</p>
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1196,7 +1238,12 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets a data object that is copied by <a href="../symbols/CommandHandler.html#groupSelection" class="linkMethod">groupSelection</a>when creating a new Group.<span class="nodetails" id="xproparchetypeGroupData"><a class="morelink" onclick="hst('proparchetypeGroupData')">More...</a></span> <span class="details" id="proparchetypeGroupData"></span><div class="details" id="dproparchetypeGroupData"><p>The default value is null.If you set this to an Object, be sure that <a href="../symbols/GraphLinksModel.html#isGroupForNodeData" class="linkMethod">GraphLinksModel.isGroupForNodeData</a> is true for that object.Setting this property does not raise any events.</div>
+                <p>Gets or sets a data object that is copied by <a href="../symbols/CommandHandler.html#groupSelection" class="linkMethod">groupSelection</a>
+when creating a new Group.<span class="nodetails" id="xproparchetypeGroupData"><a class="morelink" onclick="hst('proparchetypeGroupData')">More...</a></span> <span class="details" id="proparchetypeGroupData">
+</span><div class="details" id="dproparchetypeGroupData"><p>
+The default value is null.
+If you set this to an Object, be sure that <a href="../symbols/GraphLinksModel.html#isGroupForNodeData" class="linkMethod">GraphLinksModel.isGroupForNodeData</a> is true for that object.
+Setting this property does not raise any events.</div>
                 
                 </div>
                             </td>
@@ -1218,7 +1265,12 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether <a href="../symbols/CommandHandler.html#copySelection" class="linkMethod">copySelection</a> should also copy Links that connect with selected Nodes.<span class="nodetails" id="xpropcopiesConnectedLinks"><a class="morelink" onclick="hst('propcopiesConnectedLinks')">More...</a></span> <span class="details" id="propcopiesConnectedLinks">The default value is true.Setting this property does not raise any events.</span><div class="details" id="dpropcopiesConnectedLinks"><p>The <a href="../symbols/DraggingTool.html#copiesEffectiveCollection" class="linkProperty">DraggingTool.copiesEffectiveCollection</a> property serves a similar role for the <a href="../symbols/DraggingTool.html" class="linkConstructor">DraggingTool</a>when the user holds down the control key to modify the drag into a copy operation.</div>
+                <p>Gets or sets whether <a href="../symbols/CommandHandler.html#copySelection" class="linkMethod">copySelection</a> should also copy Links that connect with selected Nodes.<span class="nodetails" id="xpropcopiesConnectedLinks"><a class="morelink" onclick="hst('propcopiesConnectedLinks')">More...</a></span> <span class="details" id="propcopiesConnectedLinks">
+The default value is true.
+Setting this property does not raise any events.
+</span><div class="details" id="dpropcopiesConnectedLinks"><p>
+The <a href="../symbols/DraggingTool.html#copiesEffectiveCollection" class="linkProperty">DraggingTool.copiesEffectiveCollection</a> property serves a similar role for the <a href="../symbols/DraggingTool.html" class="linkConstructor">DraggingTool</a>
+when the user holds down the control key to modify the drag into a copy operation.</div>
                 
                 </div>
                             </td>
@@ -1240,7 +1292,13 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether <a href="../symbols/CommandHandler.html#copySelection" class="linkMethod">copySelection</a> and <a href="../symbols/CommandHandler.html#copyToClipboard" class="linkMethod">copyToClipboard</a> copy the node data propertywhose value is the containing group data's key.<span class="nodetails" id="xpropcopiesGroupKey"><a class="morelink" onclick="hst('propcopiesGroupKey')">More...</a></span> <span class="details" id="propcopiesGroupKey"></span><div class="details" id="dpropcopiesGroupKey"><p>Set this property to true if you want a copy/paste of a node to automatically have the new node be a member of the original group.Caution: this only has an effect if the Diagram's <a href="../symbols/Diagram.html#model" class="linkProperty">Diagram.model</a> is a <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>.<p>The default value is false.</div>
+                <p>Gets or sets whether <a href="../symbols/CommandHandler.html#copySelection" class="linkMethod">copySelection</a> and <a href="../symbols/CommandHandler.html#copyToClipboard" class="linkMethod">copyToClipboard</a> copy the node data property
+whose value is the containing group data's key.<span class="nodetails" id="xpropcopiesGroupKey"><a class="morelink" onclick="hst('propcopiesGroupKey')">More...</a></span> <span class="details" id="propcopiesGroupKey">
+</span><div class="details" id="dpropcopiesGroupKey"><p>
+Set this property to true if you want a copy/paste of a node to automatically have the new node be a member of the original group.
+Caution: this only has an effect if the Diagram's <a href="../symbols/Diagram.html#model" class="linkProperty">Diagram.model</a> is a <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>.
+<p>
+The default value is false.</div>
                 
                 </div>
                             </td>
@@ -1262,7 +1320,13 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether <a href="../symbols/CommandHandler.html#copySelection" class="linkMethod">copySelection</a> and <a href="../symbols/CommandHandler.html#copyToClipboard" class="linkMethod">copyToClipboard</a> copy the node data propertywhose value is the tree-parent node data's key.<span class="nodetails" id="xpropcopiesParentKey"><a class="morelink" onclick="hst('propcopiesParentKey')">More...</a></span> <span class="details" id="propcopiesParentKey"></span><div class="details" id="dpropcopiesParentKey"><p>Set this property to true if you want a copy/paste of a node to automatically have the new node be a tree-child of the original tree-parent node.Caution: this only has an effect if the Diagram's <a href="../symbols/Diagram.html#model" class="linkProperty">Diagram.model</a> is a <a href="../symbols/TreeModel.html" class="linkConstructor">TreeModel</a>.<p>The default value is false.</div>
+                <p>Gets or sets whether <a href="../symbols/CommandHandler.html#copySelection" class="linkMethod">copySelection</a> and <a href="../symbols/CommandHandler.html#copyToClipboard" class="linkMethod">copyToClipboard</a> copy the node data property
+whose value is the tree-parent node data's key.<span class="nodetails" id="xpropcopiesParentKey"><a class="morelink" onclick="hst('propcopiesParentKey')">More...</a></span> <span class="details" id="propcopiesParentKey">
+</span><div class="details" id="dpropcopiesParentKey"><p>
+Set this property to true if you want a copy/paste of a node to automatically have the new node be a tree-child of the original tree-parent node.
+Caution: this only has an effect if the Diagram's <a href="../symbols/Diagram.html#model" class="linkProperty">Diagram.model</a> is a <a href="../symbols/TreeModel.html" class="linkConstructor">TreeModel</a>.
+<p>
+The default value is false.</div>
                 
                 </div>
                             </td>
@@ -1282,7 +1346,12 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether <a href="../symbols/CommandHandler.html#copySelection" class="linkMethod">copySelection</a> should also copy subtrees.<span class="nodetails" id="xpropcopiesTree"><a class="morelink" onclick="hst('propcopiesTree')">More...</a></span> <span class="details" id="propcopiesTree">The default value is false.Setting this property does not raise any events.</span><div class="details" id="dpropcopiesTree"><p>The <a href="../symbols/DraggingTool.html#dragsTree" class="linkProperty">DraggingTool.dragsTree</a> property serves a similar role for the <a href="../symbols/DraggingTool.html" class="linkConstructor">DraggingTool</a>for both moving and copying operations.</div>
+                <p>Gets or sets whether <a href="../symbols/CommandHandler.html#copySelection" class="linkMethod">copySelection</a> should also copy subtrees.<span class="nodetails" id="xpropcopiesTree"><a class="morelink" onclick="hst('propcopiesTree')">More...</a></span> <span class="details" id="propcopiesTree">
+The default value is false.
+Setting this property does not raise any events.
+</span><div class="details" id="dpropcopiesTree"><p>
+The <a href="../symbols/DraggingTool.html#dragsTree" class="linkProperty">DraggingTool.dragsTree</a> property serves a similar role for the <a href="../symbols/DraggingTool.html" class="linkConstructor">DraggingTool</a>
+for both moving and copying operations.</div>
                 
                 </div>
                             </td>
@@ -1304,7 +1373,11 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the <a href="../symbols/Diagram.html#scale" class="linkProperty">Diagram.scale</a> set by <a href="../symbols/CommandHandler.html#resetZoom" class="linkMethod">resetZoom</a>.<span class="nodetails" id="xpropdefaultScale"><a class="morelink" onclick="hst('propdefaultScale')">More...</a></span> <span class="details" id="propdefaultScale"></span><div class="details" id="dpropdefaultScale"><p>The default value is 1.0.The value must be a number larger than 0.Setting this property does not raise any events.</div>
+                <p>Gets or sets the <a href="../symbols/Diagram.html#scale" class="linkProperty">Diagram.scale</a> set by <a href="../symbols/CommandHandler.html#resetZoom" class="linkMethod">resetZoom</a>.<span class="nodetails" id="xpropdefaultScale"><a class="morelink" onclick="hst('propdefaultScale')">More...</a></span> <span class="details" id="propdefaultScale">
+</span><div class="details" id="dpropdefaultScale"><p>
+The default value is 1.0.
+The value must be a number larger than 0.
+Setting this property does not raise any events.</div>
                 
                 </div>
                             </td>
@@ -1326,7 +1399,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether <a href="../symbols/CommandHandler.html#deleteSelection" class="linkMethod">deleteSelection</a> should also delete links that are connected to nodes that are deleted.<span class="nodetails" id="xpropdeletesConnectedLinks"><a class="morelink" onclick="hst('propdeletesConnectedLinks')">More...</a></span> <span class="details" id="propdeletesConnectedLinks">The default value is true.Setting this property does not raise any events.</span>
+                <p>Gets or sets whether <a href="../symbols/CommandHandler.html#deleteSelection" class="linkMethod">deleteSelection</a> should also delete links that are connected to nodes that are deleted.<span class="nodetails" id="xpropdeletesConnectedLinks"><a class="morelink" onclick="hst('propdeletesConnectedLinks')">More...</a></span> <span class="details" id="propdeletesConnectedLinks">
+The default value is true.
+Setting this property does not raise any events.</span>
                 
                 </div>
                             </td>
@@ -1346,7 +1421,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether <a href="../symbols/CommandHandler.html#deleteSelection" class="linkMethod">deleteSelection</a> should also delete subtrees.<span class="nodetails" id="xpropdeletesTree"><a class="morelink" onclick="hst('propdeletesTree')">More...</a></span> <span class="details" id="propdeletesTree">The default value is false.Setting this property does not raise any events.</span>
+                <p>Gets or sets whether <a href="../symbols/CommandHandler.html#deleteSelection" class="linkMethod">deleteSelection</a> should also delete subtrees.<span class="nodetails" id="xpropdeletesTree"><a class="morelink" onclick="hst('propdeletesTree')">More...</a></span> <span class="details" id="propdeletesTree">
+The default value is false.
+Setting this property does not raise any events.</span>
                 
                 </div>
                             </td>
@@ -1366,7 +1443,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property returns the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> that is using this CommandHandler,after <a href="../symbols/Diagram.html#commandHandler" class="linkProperty">Diagram.commandHandler</a> has been set to this object.
+                <p>This read-only property returns the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> that is using this CommandHandler,
+after <a href="../symbols/Diagram.html#commandHandler" class="linkProperty">Diagram.commandHandler</a> has been set to this object.
                 
                 </div>
                             </td>
@@ -1386,7 +1464,15 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the predicate that determines whether or not a node may become a member of a group.<span class="nodetails" id="xpropmemberValidation"><a class="morelink" onclick="hst('propmemberValidation')">More...</a></span> <span class="details" id="propmemberValidation">This predicate is called in addition to any existing group's <a href="../symbols/Group.html#memberValidation" class="linkProperty">Group.memberValidation</a> predicate.The default predicate is null, which is equivalent to simply returning true.The predicate may be called passing null as the first argument (the Group) --this asks whether it is OK to make the second argument (the Part, but not a Link) a top-level Part of the diagram.<p class="box">For a more general discussion of validation, see <a href="../../intro/validation.html">Introduction to Validation</a>.</span><div class="details" id="dpropmemberValidation"><p>The function, if supplied, must not have any side-effects.</div>
+                <p>Gets or sets the predicate that determines whether or not a node may become a member of a group.<span class="nodetails" id="xpropmemberValidation"><a class="morelink" onclick="hst('propmemberValidation')">More...</a></span> <span class="details" id="propmemberValidation">
+This predicate is called in addition to any existing group's <a href="../symbols/Group.html#memberValidation" class="linkProperty">Group.memberValidation</a> predicate.
+The default predicate is null, which is equivalent to simply returning true.
+The predicate may be called passing null as the first argument (the Group) --
+this asks whether it is OK to make the second argument (the Part, but not a Link) a top-level Part of the diagram.
+<p class="box">
+For a more general discussion of validation, see <a href="../../intro/validation.html">Introduction to Validation</a>.
+</span><div class="details" id="dpropmemberValidation"><p>
+The function, if supplied, must not have any side-effects.</div>
                 
                 </div>
                             </td>
@@ -1408,7 +1494,12 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the amount by which <a href="../symbols/CommandHandler.html#decreaseZoom" class="linkMethod">decreaseZoom</a> and <a href="../symbols/CommandHandler.html#increaseZoom" class="linkMethod">increaseZoom</a> changethe <a href="../symbols/Diagram.html#scale" class="linkProperty">Diagram.scale</a>.<span class="nodetails" id="xpropzoomFactor"><a class="morelink" onclick="hst('propzoomFactor')">More...</a></span> <span class="details" id="propzoomFactor"></span><div class="details" id="dpropzoomFactor"><p>The default value is 1.05 (5%).The value must be a number larger than 1.0.Setting this property does not raise any events.</div>
+                <p>Gets or sets the amount by which <a href="../symbols/CommandHandler.html#decreaseZoom" class="linkMethod">decreaseZoom</a> and <a href="../symbols/CommandHandler.html#increaseZoom" class="linkMethod">increaseZoom</a> change
+the <a href="../symbols/Diagram.html#scale" class="linkProperty">Diagram.scale</a>.<span class="nodetails" id="xpropzoomFactor"><a class="morelink" onclick="hst('propzoomFactor')">More...</a></span> <span class="details" id="propzoomFactor">
+</span><div class="details" id="dpropzoomFactor"><p>
+The default value is 1.05 (5%).
+The value must be a number larger than 1.0.
+Setting this property does not raise any events.</div>
                 
                 </div>
                             </td>
@@ -1450,7 +1541,27 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Make sure all of the unnested <a href="../symbols/Part.html" class="linkConstructor">Part</a>s in the given collectionare removed from any containing <a href="../symbols/Group.html" class="linkConstructor">Group</a>s.<span class="nodetails" id="xmethaddTopLevelParts"><a class="morelink" onclick="hst('methaddTopLevelParts')">More...</a></span> <span class="details" id="methaddTopLevelParts"></span><div class="details" id="dmethaddTopLevelParts"><p>This sets <a href="../symbols/Part.html#containingGroup" class="linkProperty">Part.containingGroup</a> to null on each Part that isnot a member of another Part in the argument collection.If the check argument to this method is supplied and true,this will call <a href="../symbols/CommandHandler.html#isValidMember" class="linkMethod">isValidMember</a> on each part, passing null as the first argument.<p>This functionality is similar to <a href="../symbols/CommandHandler.html#ungroupSelection" class="linkMethod">ungroupSelection</a>,except that this is not a command (there is no transaction and this does not raise a <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a>)and the parts are necessarily becoming top-level parts(whereas ungrouping would add them to the Group containing the Group being ungrouped).<p>This function is typically called in a <a href="../symbols/Diagram.html#mouseDrop" class="linkProperty">Diagram.mouseDrop</a> event handlerin order to remove the selected Parts from whatever <a href="../symbols/Group.html" class="linkConstructor">Group</a> they had been in.<p>If you want to add Parts to be members of a Group, call <a href="../symbols/Group.html#addMembers" class="linkMethod">Group.addMembers</a>.If you want to remove Parts completely from a Diagram, call <a href="../symbols/Diagram.html#removeParts" class="linkMethod">Diagram.removeParts</a>.<p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Make sure all of the unnested <a href="../symbols/Part.html" class="linkConstructor">Part</a>s in the given collection
+are removed from any containing <a href="../symbols/Group.html" class="linkConstructor">Group</a>s.<span class="nodetails" id="xmethaddTopLevelParts"><a class="morelink" onclick="hst('methaddTopLevelParts')">More...</a></span> <span class="details" id="methaddTopLevelParts">
+</span><div class="details" id="dmethaddTopLevelParts"><p>
+This sets <a href="../symbols/Part.html#containingGroup" class="linkProperty">Part.containingGroup</a> to null on each Part that is
+not a member of another Part in the argument collection.
+If the check argument to this method is supplied and true,
+this will call <a href="../symbols/CommandHandler.html#isValidMember" class="linkMethod">isValidMember</a> on each part, passing null as the first argument.
+<p>
+This functionality is similar to <a href="../symbols/CommandHandler.html#ungroupSelection" class="linkMethod">ungroupSelection</a>,
+except that this is not a command (there is no transaction and this does not raise a <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a>)
+and the parts are necessarily becoming top-level parts
+(whereas ungrouping would add them to the Group containing the Group being ungrouped).
+<p>
+This function is typically called in a <a href="../symbols/Diagram.html#mouseDrop" class="linkProperty">Diagram.mouseDrop</a> event handler
+in order to remove the selected Parts from whatever <a href="../symbols/Group.html" class="linkConstructor">Group</a> they had been in.
+<p>
+If you want to add Parts to be members of a Group, call <a href="../symbols/Group.html#addMembers" class="linkMethod">Group.addMembers</a>.
+If you want to remove Parts completely from a Diagram, call <a href="../symbols/Diagram.html#removeParts" class="linkMethod">Diagram.removeParts</a>.
+<p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                                   <dl class="detailList">
@@ -1496,7 +1607,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate controls whether the user can collapse expanded <a href="../symbols/Group.html" class="linkConstructor">Group</a>s.<span class="nodetails" id="xmethcanCollapseSubGraph"><a class="morelink" onclick="hst('methcanCollapseSubGraph')">More...</a></span> <span class="details" id="methcanCollapseSubGraph"></span><div class="details" id="dmethcanCollapseSubGraph"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.This method must not have any side-effects.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate controls whether the user can collapse expanded <a href="../symbols/Group.html" class="linkConstructor">Group</a>s.<span class="nodetails" id="xmethcanCollapseSubGraph"><a class="morelink" onclick="hst('methcanCollapseSubGraph')">More...</a></span> <span class="details" id="methcanCollapseSubGraph">
+</span><div class="details" id="dmethcanCollapseSubGraph"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+This method must not have any side-effects.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1543,7 +1658,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate controls whether the user can collapse expanded subtrees of <a href="../symbols/Node.html" class="linkConstructor">Node</a>s.<span class="nodetails" id="xmethcanCollapseTree"><a class="morelink" onclick="hst('methcanCollapseTree')">More...</a></span> <span class="details" id="methcanCollapseTree"></span><div class="details" id="dmethcanCollapseTree"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.This method must not have any side-effects.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate controls whether the user can collapse expanded subtrees of <a href="../symbols/Node.html" class="linkConstructor">Node</a>s.<span class="nodetails" id="xmethcanCollapseTree"><a class="morelink" onclick="hst('methcanCollapseTree')">More...</a></span> <span class="details" id="methcanCollapseTree">
+</span><div class="details" id="dmethcanCollapseTree"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+This method must not have any side-effects.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1590,7 +1709,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#copySelection" class="linkMethod">copySelection</a> command.<span class="nodetails" id="xmethcanCopySelection"><a class="morelink" onclick="hst('methcanCopySelection')">More...</a></span> <span class="details" id="methcanCopySelection"></span><div class="details" id="dmethcanCopySelection"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.This method must not have any side-effects.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#copySelection" class="linkMethod">copySelection</a> command.<span class="nodetails" id="xmethcanCopySelection"><a class="morelink" onclick="hst('methcanCopySelection')">More...</a></span> <span class="details" id="methcanCopySelection">
+</span><div class="details" id="dmethcanCopySelection"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+This method must not have any side-effects.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1604,7 +1727,10 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{boolean}</span> This returns true:if <a href="../symbols/Diagram.html#allowCopy" class="linkProperty">Diagram.allowCopy</a> is true,if <a href="../symbols/Diagram.html#allowClipboard" class="linkProperty">Diagram.allowClipboard</a> is true, andif there are some selected <a href="../symbols/Part.html" class="linkConstructor">Part</a>s.</dt>
+                                      <dt><span class="light fixedFont">{boolean}</span> This returns true:
+if <a href="../symbols/Diagram.html#allowCopy" class="linkProperty">Diagram.allowCopy</a> is true,
+if <a href="../symbols/Diagram.html#allowClipboard" class="linkProperty">Diagram.allowClipboard</a> is true, and
+if there are some selected <a href="../symbols/Part.html" class="linkConstructor">Part</a>s.</dt>
                                   
                                   </dl>
                               
@@ -1626,7 +1752,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#cutSelection" class="linkMethod">cutSelection</a> command.<span class="nodetails" id="xmethcanCutSelection"><a class="morelink" onclick="hst('methcanCutSelection')">More...</a></span> <span class="details" id="methcanCutSelection"></span><div class="details" id="dmethcanCutSelection"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.This method must not have any side-effects.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#cutSelection" class="linkMethod">cutSelection</a> command.<span class="nodetails" id="xmethcanCutSelection"><a class="morelink" onclick="hst('methcanCutSelection')">More...</a></span> <span class="details" id="methcanCutSelection">
+</span><div class="details" id="dmethcanCutSelection"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+This method must not have any side-effects.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1640,7 +1770,12 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{boolean}</span> This returns true:if the diagram is not <a href="../symbols/Diagram.html#isReadOnly" class="linkProperty">Diagram.isReadOnly</a>,if <a href="../symbols/Diagram.html#allowCopy" class="linkProperty">Diagram.allowCopy</a> is true,if <a href="../symbols/Diagram.html#allowDelete" class="linkProperty">Diagram.allowDelete</a> is true,if <a href="../symbols/Diagram.html#allowClipboard" class="linkProperty">Diagram.allowClipboard</a> is true, andif there are some selected <a href="../symbols/Part.html" class="linkConstructor">Part</a>s.</dt>
+                                      <dt><span class="light fixedFont">{boolean}</span> This returns true:
+if the diagram is not <a href="../symbols/Diagram.html#isReadOnly" class="linkProperty">Diagram.isReadOnly</a>,
+if <a href="../symbols/Diagram.html#allowCopy" class="linkProperty">Diagram.allowCopy</a> is true,
+if <a href="../symbols/Diagram.html#allowDelete" class="linkProperty">Diagram.allowDelete</a> is true,
+if <a href="../symbols/Diagram.html#allowClipboard" class="linkProperty">Diagram.allowClipboard</a> is true, and
+if there are some selected <a href="../symbols/Part.html" class="linkConstructor">Part</a>s.</dt>
                                   
                                   </dl>
                               
@@ -1662,7 +1797,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#decreaseZoom" class="linkMethod">decreaseZoom</a> command.<span class="nodetails" id="xmethcanDecreaseZoom"><a class="morelink" onclick="hst('methcanDecreaseZoom')">More...</a></span> <span class="details" id="methcanDecreaseZoom"></span><div class="details" id="dmethcanDecreaseZoom"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.This method must not have any side-effects.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#decreaseZoom" class="linkMethod">decreaseZoom</a> command.<span class="nodetails" id="xmethcanDecreaseZoom"><a class="morelink" onclick="hst('methcanDecreaseZoom')">More...</a></span> <span class="details" id="methcanDecreaseZoom">
+</span><div class="details" id="dmethcanDecreaseZoom"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+This method must not have any side-effects.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1687,7 +1826,8 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{boolean}</span> This returns true if <a href="../symbols/Diagram.html#allowZoom" class="linkProperty">Diagram.allowZoom</a> is trueand if the new scale is within the range of <a href="../symbols/Diagram.html#minScale" class="linkProperty">Diagram.minScale</a> and <a href="../symbols/Diagram.html#maxScale" class="linkProperty">Diagram.maxScale</a>.</dt>
+                                      <dt><span class="light fixedFont">{boolean}</span> This returns true if <a href="../symbols/Diagram.html#allowZoom" class="linkProperty">Diagram.allowZoom</a> is true
+and if the new scale is within the range of <a href="../symbols/Diagram.html#minScale" class="linkProperty">Diagram.minScale</a> and <a href="../symbols/Diagram.html#maxScale" class="linkProperty">Diagram.maxScale</a>.</dt>
                                   
                                   </dl>
                               
@@ -1709,7 +1849,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#deleteSelection" class="linkMethod">deleteSelection</a> command.<span class="nodetails" id="xmethcanDeleteSelection"><a class="morelink" onclick="hst('methcanDeleteSelection')">More...</a></span> <span class="details" id="methcanDeleteSelection"></span><div class="details" id="dmethcanDeleteSelection"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.This method must not have any side-effects.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#deleteSelection" class="linkMethod">deleteSelection</a> command.<span class="nodetails" id="xmethcanDeleteSelection"><a class="morelink" onclick="hst('methcanDeleteSelection')">More...</a></span> <span class="details" id="methcanDeleteSelection">
+</span><div class="details" id="dmethcanDeleteSelection"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+This method must not have any side-effects.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1723,7 +1867,10 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{boolean}</span> This returns true:if the diagram is not <a href="../symbols/Diagram.html#isReadOnly" class="linkProperty">Diagram.isReadOnly</a>,if <a href="../symbols/Diagram.html#allowDelete" class="linkProperty">Diagram.allowDelete</a> is true, andif there are some selected <a href="../symbols/Part.html" class="linkConstructor">Part</a>s.</dt>
+                                      <dt><span class="light fixedFont">{boolean}</span> This returns true:
+if the diagram is not <a href="../symbols/Diagram.html#isReadOnly" class="linkProperty">Diagram.isReadOnly</a>,
+if <a href="../symbols/Diagram.html#allowDelete" class="linkProperty">Diagram.allowDelete</a> is true, and
+if there are some selected <a href="../symbols/Part.html" class="linkConstructor">Part</a>s.</dt>
                                   
                                   </dl>
                               
@@ -1745,7 +1892,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#editTextBlock" class="linkMethod">editTextBlock</a> command.<span class="nodetails" id="xmethcanEditTextBlock"><a class="morelink" onclick="hst('methcanEditTextBlock')">More...</a></span> <span class="details" id="methcanEditTextBlock"></span><div class="details" id="dmethcanEditTextBlock"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.This method must not have any side-effects.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#editTextBlock" class="linkMethod">editTextBlock</a> command.<span class="nodetails" id="xmethcanEditTextBlock"><a class="morelink" onclick="hst('methcanEditTextBlock')">More...</a></span> <span class="details" id="methcanEditTextBlock">
+</span><div class="details" id="dmethcanEditTextBlock"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+This method must not have any side-effects.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1770,7 +1921,11 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{boolean}</span> This returns true:if the diagram is not <a href="../symbols/Diagram.html#isReadOnly" class="linkProperty">Diagram.isReadOnly</a>,if <a href="../symbols/Diagram.html#allowTextEdit" class="linkProperty">Diagram.allowTextEdit</a> is true,if there is a <a href="../symbols/ToolManager.html#textEditingTool" class="linkProperty">ToolManager.textEditingTool</a>, andif there is any selected <a href="../symbols/Part.html" class="linkConstructor">Part</a> for which <a href="../symbols/Part.html#canEdit" class="linkMethod">Part.canEdit</a> is true.</dt>
+                                      <dt><span class="light fixedFont">{boolean}</span> This returns true:
+if the diagram is not <a href="../symbols/Diagram.html#isReadOnly" class="linkProperty">Diagram.isReadOnly</a>,
+if <a href="../symbols/Diagram.html#allowTextEdit" class="linkProperty">Diagram.allowTextEdit</a> is true,
+if there is a <a href="../symbols/ToolManager.html#textEditingTool" class="linkProperty">ToolManager.textEditingTool</a>, and
+if there is any selected <a href="../symbols/Part.html" class="linkConstructor">Part</a> for which <a href="../symbols/Part.html#canEdit" class="linkMethod">Part.canEdit</a> is true.</dt>
                                   
                                   </dl>
                               
@@ -1792,7 +1947,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate controls whether the user can expand collapsed <a href="../symbols/Group.html" class="linkConstructor">Group</a>s.<span class="nodetails" id="xmethcanExpandSubGraph"><a class="morelink" onclick="hst('methcanExpandSubGraph')">More...</a></span> <span class="details" id="methcanExpandSubGraph"></span><div class="details" id="dmethcanExpandSubGraph"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.This method must not have any side-effects.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate controls whether the user can expand collapsed <a href="../symbols/Group.html" class="linkConstructor">Group</a>s.<span class="nodetails" id="xmethcanExpandSubGraph"><a class="morelink" onclick="hst('methcanExpandSubGraph')">More...</a></span> <span class="details" id="methcanExpandSubGraph">
+</span><div class="details" id="dmethcanExpandSubGraph"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+This method must not have any side-effects.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1839,7 +1998,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate controls whether the user can expand collapsed subtrees of <a href="../symbols/Node.html" class="linkConstructor">Node</a>s.<span class="nodetails" id="xmethcanExpandTree"><a class="morelink" onclick="hst('methcanExpandTree')">More...</a></span> <span class="details" id="methcanExpandTree"></span><div class="details" id="dmethcanExpandTree"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.This method must not have any side-effects.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate controls whether the user can expand collapsed subtrees of <a href="../symbols/Node.html" class="linkConstructor">Node</a>s.<span class="nodetails" id="xmethcanExpandTree"><a class="morelink" onclick="hst('methcanExpandTree')">More...</a></span> <span class="details" id="methcanExpandTree">
+</span><div class="details" id="dmethcanExpandTree"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+This method must not have any side-effects.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1886,7 +2049,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#groupSelection" class="linkMethod">groupSelection</a> command.<span class="nodetails" id="xmethcanGroupSelection"><a class="morelink" onclick="hst('methcanGroupSelection')">More...</a></span> <span class="details" id="methcanGroupSelection"></span><div class="details" id="dmethcanGroupSelection"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.This method must not have any side-effects.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#groupSelection" class="linkMethod">groupSelection</a> command.<span class="nodetails" id="xmethcanGroupSelection"><a class="morelink" onclick="hst('methcanGroupSelection')">More...</a></span> <span class="details" id="methcanGroupSelection">
+</span><div class="details" id="dmethcanGroupSelection"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+This method must not have any side-effects.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1900,7 +2067,13 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{boolean}</span> This returns true:if the <a href="../symbols/CommandHandler.html#archetypeGroupData" class="linkProperty">archetypeGroupData</a> is not null,if the diagram is not <a href="../symbols/Diagram.html#isReadOnly" class="linkProperty">Diagram.isReadOnly</a>,if <a href="../symbols/Diagram.html#allowInsert" class="linkProperty">Diagram.allowInsert</a> is true,if <a href="../symbols/Diagram.html#allowGroup" class="linkProperty">Diagram.allowGroup</a> is true,if <a href="../symbols/Diagram.html#model" class="linkProperty">Diagram.model</a> is a <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>, andif there is any selected <a href="../symbols/Part.html" class="linkConstructor">Part</a> that can be <a href="../symbols/Part.html#canGroup" class="linkMethod">Part.canGroup</a>ed.</dt>
+                                      <dt><span class="light fixedFont">{boolean}</span> This returns true:
+if the <a href="../symbols/CommandHandler.html#archetypeGroupData" class="linkProperty">archetypeGroupData</a> is not null,
+if the diagram is not <a href="../symbols/Diagram.html#isReadOnly" class="linkProperty">Diagram.isReadOnly</a>,
+if <a href="../symbols/Diagram.html#allowInsert" class="linkProperty">Diagram.allowInsert</a> is true,
+if <a href="../symbols/Diagram.html#allowGroup" class="linkProperty">Diagram.allowGroup</a> is true,
+if <a href="../symbols/Diagram.html#model" class="linkProperty">Diagram.model</a> is a <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>, and
+if there is any selected <a href="../symbols/Part.html" class="linkConstructor">Part</a> that can be <a href="../symbols/Part.html#canGroup" class="linkMethod">Part.canGroup</a>ed.</dt>
                                   
                                   </dl>
                               
@@ -1922,7 +2095,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#increaseZoom" class="linkMethod">increaseZoom</a> command.<span class="nodetails" id="xmethcanIncreaseZoom"><a class="morelink" onclick="hst('methcanIncreaseZoom')">More...</a></span> <span class="details" id="methcanIncreaseZoom"></span><div class="details" id="dmethcanIncreaseZoom"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.This method must not have any side-effects.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#increaseZoom" class="linkMethod">increaseZoom</a> command.<span class="nodetails" id="xmethcanIncreaseZoom"><a class="morelink" onclick="hst('methcanIncreaseZoom')">More...</a></span> <span class="details" id="methcanIncreaseZoom">
+</span><div class="details" id="dmethcanIncreaseZoom"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+This method must not have any side-effects.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1947,7 +2124,8 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{boolean}</span> This returns true if <a href="../symbols/Diagram.html#allowZoom" class="linkProperty">Diagram.allowZoom</a> is trueand if the new scale is within the range of <a href="../symbols/Diagram.html#minScale" class="linkProperty">Diagram.minScale</a> and <a href="../symbols/Diagram.html#maxScale" class="linkProperty">Diagram.maxScale</a>.</dt>
+                                      <dt><span class="light fixedFont">{boolean}</span> This returns true if <a href="../symbols/Diagram.html#allowZoom" class="linkProperty">Diagram.allowZoom</a> is true
+and if the new scale is within the range of <a href="../symbols/Diagram.html#minScale" class="linkProperty">Diagram.minScale</a> and <a href="../symbols/Diagram.html#maxScale" class="linkProperty">Diagram.maxScale</a>.</dt>
                                   
                                   </dl>
                               
@@ -1969,7 +2147,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#pasteSelection" class="linkMethod">pasteSelection</a> command.<span class="nodetails" id="xmethcanPasteSelection"><a class="morelink" onclick="hst('methcanPasteSelection')">More...</a></span> <span class="details" id="methcanPasteSelection"></span><div class="details" id="dmethcanPasteSelection"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.This method must not have any side-effects.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#pasteSelection" class="linkMethod">pasteSelection</a> command.<span class="nodetails" id="xmethcanPasteSelection"><a class="morelink" onclick="hst('methcanPasteSelection')">More...</a></span> <span class="details" id="methcanPasteSelection">
+</span><div class="details" id="dmethcanPasteSelection"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+This method must not have any side-effects.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1983,7 +2165,11 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{boolean}</span> This returns true:if the diagram is not <a href="../symbols/Diagram.html#isReadOnly" class="linkProperty">Diagram.isReadOnly</a>,if <a href="../symbols/Diagram.html#allowInsert" class="linkProperty">Diagram.allowInsert</a> is true,if <a href="../symbols/Diagram.html#allowClipboard" class="linkProperty">Diagram.allowClipboard</a> is true, andif the clipboard has parts in it.</dt>
+                                      <dt><span class="light fixedFont">{boolean}</span> This returns true:
+if the diagram is not <a href="../symbols/Diagram.html#isReadOnly" class="linkProperty">Diagram.isReadOnly</a>,
+if <a href="../symbols/Diagram.html#allowInsert" class="linkProperty">Diagram.allowInsert</a> is true,
+if <a href="../symbols/Diagram.html#allowClipboard" class="linkProperty">Diagram.allowClipboard</a> is true, and
+if the clipboard has parts in it.</dt>
                                   
                                   </dl>
                               
@@ -2005,7 +2191,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#redo" class="linkMethod">redo</a> command.<span class="nodetails" id="xmethcanRedo"><a class="morelink" onclick="hst('methcanRedo')">More...</a></span> <span class="details" id="methcanRedo"></span><div class="details" id="dmethcanRedo"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.This method must not have any side-effects.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#redo" class="linkMethod">redo</a> command.<span class="nodetails" id="xmethcanRedo"><a class="morelink" onclick="hst('methcanRedo')">More...</a></span> <span class="details" id="methcanRedo">
+</span><div class="details" id="dmethcanRedo"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+This method must not have any side-effects.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2019,7 +2209,10 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{boolean}</span> This returns true:if the diagram is not <a href="../symbols/Diagram.html#isReadOnly" class="linkProperty">Diagram.isReadOnly</a>,if <a href="../symbols/Diagram.html#allowUndo" class="linkProperty">Diagram.allowUndo</a> is true, andif the <a href="../symbols/UndoManager.html#canRedo" class="linkMethod">UndoManager.canRedo</a> predicate returns true.</dt>
+                                      <dt><span class="light fixedFont">{boolean}</span> This returns true:
+if the diagram is not <a href="../symbols/Diagram.html#isReadOnly" class="linkProperty">Diagram.isReadOnly</a>,
+if <a href="../symbols/Diagram.html#allowUndo" class="linkProperty">Diagram.allowUndo</a> is true, and
+if the <a href="../symbols/UndoManager.html#canRedo" class="linkMethod">UndoManager.canRedo</a> predicate returns true.</dt>
                                   
                                   </dl>
                               
@@ -2041,7 +2234,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#resetZoom" class="linkMethod">resetZoom</a> command.<span class="nodetails" id="xmethcanResetZoom"><a class="morelink" onclick="hst('methcanResetZoom')">More...</a></span> <span class="details" id="methcanResetZoom"></span><div class="details" id="dmethcanResetZoom"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.This method must not have any side-effects.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#resetZoom" class="linkMethod">resetZoom</a> command.<span class="nodetails" id="xmethcanResetZoom"><a class="morelink" onclick="hst('methcanResetZoom')">More...</a></span> <span class="details" id="methcanResetZoom">
+</span><div class="details" id="dmethcanResetZoom"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+This method must not have any side-effects.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2066,7 +2263,8 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{boolean}</span> This returns true if <a href="../symbols/Diagram.html#allowZoom" class="linkProperty">Diagram.allowZoom</a> is true.and if the new scale is within the range of <a href="../symbols/Diagram.html#minScale" class="linkProperty">Diagram.minScale</a> and <a href="../symbols/Diagram.html#maxScale" class="linkProperty">Diagram.maxScale</a>.</dt>
+                                      <dt><span class="light fixedFont">{boolean}</span> This returns true if <a href="../symbols/Diagram.html#allowZoom" class="linkProperty">Diagram.allowZoom</a> is true.
+and if the new scale is within the range of <a href="../symbols/Diagram.html#minScale" class="linkProperty">Diagram.minScale</a> and <a href="../symbols/Diagram.html#maxScale" class="linkProperty">Diagram.maxScale</a>.</dt>
                                   
                                   </dl>
                               
@@ -2090,7 +2288,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#scrollToPart" class="linkMethod">scrollToPart</a> command.<span class="nodetails" id="xmethcanScrollToPart"><a class="morelink" onclick="hst('methcanScrollToPart')">More...</a></span> <span class="details" id="methcanScrollToPart">This returns false if there is no argument Part and there are no selected Parts.</span><div class="details" id="dmethcanScrollToPart"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.This method must not have any side-effects.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#scrollToPart" class="linkMethod">scrollToPart</a> command.<span class="nodetails" id="xmethcanScrollToPart"><a class="morelink" onclick="hst('methcanScrollToPart')">More...</a></span> <span class="details" id="methcanScrollToPart">
+This returns false if there is no argument Part and there are no selected Parts.
+</span><div class="details" id="dmethcanScrollToPart"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+This method must not have any side-effects.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2137,7 +2340,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#selectAll" class="linkMethod">selectAll</a> command.<span class="nodetails" id="xmethcanSelectAll"><a class="morelink" onclick="hst('methcanSelectAll')">More...</a></span> <span class="details" id="methcanSelectAll"></span><div class="details" id="dmethcanSelectAll"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.This method must not have any side-effects.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#selectAll" class="linkMethod">selectAll</a> command.<span class="nodetails" id="xmethcanSelectAll"><a class="morelink" onclick="hst('methcanSelectAll')">More...</a></span> <span class="details" id="methcanSelectAll">
+</span><div class="details" id="dmethcanSelectAll"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+This method must not have any side-effects.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2173,7 +2380,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#showContextMenu" class="linkMethod">showContextMenu</a> command.<span class="nodetails" id="xmethcanShowContextMenu"><a class="morelink" onclick="hst('methcanShowContextMenu')">More...</a></span> <span class="details" id="methcanShowContextMenu"></span><div class="details" id="dmethcanShowContextMenu"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.This method must not have any side-effects.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#showContextMenu" class="linkMethod">showContextMenu</a> command.<span class="nodetails" id="xmethcanShowContextMenu"><a class="morelink" onclick="hst('methcanShowContextMenu')">More...</a></span> <span class="details" id="methcanShowContextMenu">
+</span><div class="details" id="dmethcanShowContextMenu"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+This method must not have any side-effects.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2190,7 +2401,8 @@
                                           <span class="light fixedFont">{<a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>|<a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>=}</span> <b>obj</b>
                                           
                                       </dt>
-                                      <dd>a GraphObject or Diagram with a contextMenu defined.If none is given, this method will use the first selected object, or else the Diagram.</dd>
+                                      <dd>a GraphObject or Diagram with a contextMenu defined.
+If none is given, this method will use the first selected object, or else the Diagram.</dd>
                                   
                                   </dl>
                               
@@ -2220,7 +2432,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate controls whether the user may stop the current tool.<span class="nodetails" id="xmethcanStopCommand"><a class="morelink" onclick="hst('methcanStopCommand')">More...</a></span> <span class="details" id="methcanStopCommand">This just returns true.</span><div class="details" id="dmethcanStopCommand"><p>This method may be overridden, but probably should not be overridden.This method must not have any side-effects.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate controls whether the user may stop the current tool.<span class="nodetails" id="xmethcanStopCommand"><a class="morelink" onclick="hst('methcanStopCommand')">More...</a></span> <span class="details" id="methcanStopCommand">
+This just returns true.
+</span><div class="details" id="dmethcanStopCommand"><p>
+This method may be overridden, but probably should not be overridden.
+This method must not have any side-effects.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2256,7 +2473,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#undo" class="linkMethod">undo</a> command.<span class="nodetails" id="xmethcanUndo"><a class="morelink" onclick="hst('methcanUndo')">More...</a></span> <span class="details" id="methcanUndo"></span><div class="details" id="dmethcanUndo"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.This method must not have any side-effects.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#undo" class="linkMethod">undo</a> command.<span class="nodetails" id="xmethcanUndo"><a class="morelink" onclick="hst('methcanUndo')">More...</a></span> <span class="details" id="methcanUndo">
+</span><div class="details" id="dmethcanUndo"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+This method must not have any side-effects.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2270,7 +2491,10 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{boolean}</span> This returns true:if the diagram is not <a href="../symbols/Diagram.html#isReadOnly" class="linkProperty">Diagram.isReadOnly</a>,if <a href="../symbols/Diagram.html#allowUndo" class="linkProperty">Diagram.allowUndo</a> is true, andif the <a href="../symbols/UndoManager.html#canUndo" class="linkMethod">UndoManager.canUndo</a> predicate returns true.</dt>
+                                      <dt><span class="light fixedFont">{boolean}</span> This returns true:
+if the diagram is not <a href="../symbols/Diagram.html#isReadOnly" class="linkProperty">Diagram.isReadOnly</a>,
+if <a href="../symbols/Diagram.html#allowUndo" class="linkProperty">Diagram.allowUndo</a> is true, and
+if the <a href="../symbols/UndoManager.html#canUndo" class="linkMethod">UndoManager.canUndo</a> predicate returns true.</dt>
                                   
                                   </dl>
                               
@@ -2292,7 +2516,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#ungroupSelection" class="linkMethod">ungroupSelection</a> command.<span class="nodetails" id="xmethcanUngroupSelection"><a class="morelink" onclick="hst('methcanUngroupSelection')">More...</a></span> <span class="details" id="methcanUngroupSelection"></span><div class="details" id="dmethcanUngroupSelection"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.This method must not have any side-effects.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#ungroupSelection" class="linkMethod">ungroupSelection</a> command.<span class="nodetails" id="xmethcanUngroupSelection"><a class="morelink" onclick="hst('methcanUngroupSelection')">More...</a></span> <span class="details" id="methcanUngroupSelection">
+</span><div class="details" id="dmethcanUngroupSelection"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+This method must not have any side-effects.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2317,7 +2545,12 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{boolean}</span> This returns true:if the diagram is not <a href="../symbols/Diagram.html#isReadOnly" class="linkProperty">Diagram.isReadOnly</a>,if <a href="../symbols/Diagram.html#allowDelete" class="linkProperty">Diagram.allowDelete</a> is true,if <a href="../symbols/Diagram.html#allowUngroup" class="linkProperty">Diagram.allowUngroup</a> is true,if <a href="../symbols/Diagram.html#model" class="linkProperty">Diagram.model</a> is a <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>, andif there are any selected <a href="../symbols/Group.html" class="linkConstructor">Group</a>s that are <a href="../symbols/Group.html#ungroupable" class="linkProperty">Group.ungroupable</a>.</dt>
+                                      <dt><span class="light fixedFont">{boolean}</span> This returns true:
+if the diagram is not <a href="../symbols/Diagram.html#isReadOnly" class="linkProperty">Diagram.isReadOnly</a>,
+if <a href="../symbols/Diagram.html#allowDelete" class="linkProperty">Diagram.allowDelete</a> is true,
+if <a href="../symbols/Diagram.html#allowUngroup" class="linkProperty">Diagram.allowUngroup</a> is true,
+if <a href="../symbols/Diagram.html#model" class="linkProperty">Diagram.model</a> is a <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>, and
+if there are any selected <a href="../symbols/Group.html" class="linkConstructor">Group</a>s that are <a href="../symbols/Group.html#ungroupable" class="linkProperty">Group.ungroupable</a>.</dt>
                                   
                                   </dl>
                               
@@ -2341,7 +2574,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#zoomToFit" class="linkMethod">zoomToFit</a> command.<span class="nodetails" id="xmethcanZoomToFit"><a class="morelink" onclick="hst('methcanZoomToFit')">More...</a></span> <span class="details" id="methcanZoomToFit"></span><div class="details" id="dmethcanZoomToFit"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.This method must not have any side-effects.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate controls whether or not the user can invoke the <a href="../symbols/CommandHandler.html#zoomToFit" class="linkMethod">zoomToFit</a> command.<span class="nodetails" id="xmethcanZoomToFit"><a class="morelink" onclick="hst('methcanZoomToFit')">More...</a></span> <span class="details" id="methcanZoomToFit">
+</span><div class="details" id="dmethcanZoomToFit"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+This method must not have any side-effects.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2377,7 +2614,18 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This command collapses all expanded selected <a href="../symbols/Group.html" class="linkConstructor">Group</a>s.<span class="nodetails" id="xmethcollapseSubGraph"><a class="morelink" onclick="hst('methcollapseSubGraph')">More...</a></span> <span class="details" id="methcollapseSubGraph">This operation is performed within a "Collapse SubGraph" transaction.Just before the end of the transaction this raises the "SubGraphCollapsed" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a>,with a collection of collapsed <a href="../symbols/Group.html" class="linkConstructor">Group</a>s as the subject.This currently has no default keyboard shortcut.</span><div class="details" id="dmethcollapseSubGraph"><p>This calls <a href="../symbols/Group.html#collapseSubGraph" class="linkMethod">Group.collapseSubGraph</a> to perform the collapse, which will set <a href="../symbols/Group.html#isSubGraphExpanded" class="linkProperty">Group.isSubGraphExpanded</a> to false.You may want to save the collapsed/expanded state to the model by using a TwoWay <a href="../symbols/Binding.html" class="linkConstructor">Binding</a> on the "isSubGraphExpanded" property of your Groups,and perhaps also on the <a href="../symbols/Group.html#wasSubGraphExpanded" class="linkProperty">Group.wasSubGraphExpanded</a> property.<p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This command collapses all expanded selected <a href="../symbols/Group.html" class="linkConstructor">Group</a>s.<span class="nodetails" id="xmethcollapseSubGraph"><a class="morelink" onclick="hst('methcollapseSubGraph')">More...</a></span> <span class="details" id="methcollapseSubGraph">
+This operation is performed within a "Collapse SubGraph" transaction.
+Just before the end of the transaction this raises the "SubGraphCollapsed" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a>,
+with a collection of collapsed <a href="../symbols/Group.html" class="linkConstructor">Group</a>s as the subject.
+This currently has no default keyboard shortcut.
+</span><div class="details" id="dmethcollapseSubGraph"><p>
+This calls <a href="../symbols/Group.html#collapseSubGraph" class="linkMethod">Group.collapseSubGraph</a> to perform the collapse, which will set <a href="../symbols/Group.html#isSubGraphExpanded" class="linkProperty">Group.isSubGraphExpanded</a> to false.
+You may want to save the collapsed/expanded state to the model by using a TwoWay <a href="../symbols/Binding.html" class="linkConstructor">Binding</a> on the "isSubGraphExpanded" property of your Groups,
+and perhaps also on the <a href="../symbols/Group.html#wasSubGraphExpanded" class="linkProperty">Group.wasSubGraphExpanded</a> property.
+<p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2417,7 +2665,18 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This command collapses all expanded selected <a href="../symbols/Node.html" class="linkConstructor">Node</a>s.<span class="nodetails" id="xmethcollapseTree"><a class="morelink" onclick="hst('methcollapseTree')">More...</a></span> <span class="details" id="methcollapseTree">This operation is performed within a "Collapse Tree" transaction.Just before the end of the transaction this raises the "TreeCollapsed" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a>,with a collection of collapsed <a href="../symbols/Node.html" class="linkConstructor">Node</a>s as the subject.This currently has no default keyboard shortcut.</span><div class="details" id="dmethcollapseTree"><p>This calls <a href="../symbols/Node.html#collapseTree" class="linkMethod">Node.collapseTree</a> to perform the collapse, which will set <a href="../symbols/Node.html#isTreeExpanded" class="linkProperty">Node.isTreeExpanded</a> to false.You may want to save the collapsed/expanded state to the model by using a TwoWay <a href="../symbols/Binding.html" class="linkConstructor">Binding</a> on the "isTreeExpanded" property of your Nodes,and perhaps also on the <a href="../symbols/Node.html#wasTreeExpanded" class="linkProperty">Node.wasTreeExpanded</a> property.<p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This command collapses all expanded selected <a href="../symbols/Node.html" class="linkConstructor">Node</a>s.<span class="nodetails" id="xmethcollapseTree"><a class="morelink" onclick="hst('methcollapseTree')">More...</a></span> <span class="details" id="methcollapseTree">
+This operation is performed within a "Collapse Tree" transaction.
+Just before the end of the transaction this raises the "TreeCollapsed" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a>,
+with a collection of collapsed <a href="../symbols/Node.html" class="linkConstructor">Node</a>s as the subject.
+This currently has no default keyboard shortcut.
+</span><div class="details" id="dmethcollapseTree"><p>
+This calls <a href="../symbols/Node.html#collapseTree" class="linkMethod">Node.collapseTree</a> to perform the collapse, which will set <a href="../symbols/Node.html#isTreeExpanded" class="linkProperty">Node.isTreeExpanded</a> to false.
+You may want to save the collapsed/expanded state to the model by using a TwoWay <a href="../symbols/Binding.html" class="linkConstructor">Binding</a> on the "isTreeExpanded" property of your Nodes,
+and perhaps also on the <a href="../symbols/Node.html#wasTreeExpanded" class="linkProperty">Node.wasTreeExpanded</a> property.
+<p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2457,7 +2716,14 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This command copies the currently selected parts, <a href="../symbols/Diagram.html#selection" class="linkProperty">Diagram.selection</a>, from the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> into the clipboard.<span class="nodetails" id="xmethcopySelection"><a class="morelink" onclick="hst('methcopySelection')">More...</a></span> <span class="details" id="methcopySelection">This is normally invoked by the <code>Ctrl-C</code> keyboard shortcut.</span><div class="details" id="dmethcopySelection"><p>This makes a copy of the current selection by calling <a href="../symbols/CommandHandler.html#copyToClipboard" class="linkMethod">copyToClipboard</a>.This also raises the "ClipboardChanged" diagram event.<p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This command copies the currently selected parts, <a href="../symbols/Diagram.html#selection" class="linkProperty">Diagram.selection</a>, from the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> into the clipboard.<span class="nodetails" id="xmethcopySelection"><a class="morelink" onclick="hst('methcopySelection')">More...</a></span> <span class="details" id="methcopySelection">
+This is normally invoked by the <code>Ctrl-C</code> keyboard shortcut.
+</span><div class="details" id="dmethcopySelection"><p>
+This makes a copy of the current selection by calling <a href="../symbols/CommandHandler.html#copyToClipboard" class="linkMethod">copyToClipboard</a>.
+This also raises the "ClipboardChanged" diagram event.
+<p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2486,7 +2752,21 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Make a copy of the given collection of <a href="../symbols/Part.html" class="linkConstructor">Part</a>sand stores it in a static variable acting as the clipboard.<span class="nodetails" id="xmethcopyToClipboard"><a class="morelink" onclick="hst('methcopyToClipboard')">More...</a></span> <span class="details" id="methcopyToClipboard"></span><div class="details" id="dmethcopyToClipboard"><p>The clipboard is initially null.It can hold a collection of copied <a href="../symbols/Part.html" class="linkConstructor">Part</a>s.It also remembers the <a href="../symbols/Model.html#dataFormat" class="linkProperty">Model.dataFormat</a> of the diagramfrom which the parts were copied.<p>This calls <a href="../symbols/Diagram.html#copyParts" class="linkMethod">Diagram.copyParts</a> in order to make a copy of the Parts for the clipboard.The values of <a href="../symbols/CommandHandler.html#copiesParentKey" class="linkProperty">copiesParentKey</a> and <a href="../symbols/CommandHandler.html#copiesGroupKey" class="linkProperty">copiesGroupKey</a> affect whethera copied node data remembers its tree parent node (if in a <a href="../symbols/TreeModel.html" class="linkConstructor">TreeModel</a>) orits containing group (if in a <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>).<p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Make a copy of the given collection of <a href="../symbols/Part.html" class="linkConstructor">Part</a>s
+and stores it in a static variable acting as the clipboard.<span class="nodetails" id="xmethcopyToClipboard"><a class="morelink" onclick="hst('methcopyToClipboard')">More...</a></span> <span class="details" id="methcopyToClipboard">
+</span><div class="details" id="dmethcopyToClipboard"><p>
+The clipboard is initially null.
+It can hold a collection of copied <a href="../symbols/Part.html" class="linkConstructor">Part</a>s.
+It also remembers the <a href="../symbols/Model.html#dataFormat" class="linkProperty">Model.dataFormat</a> of the diagram
+from which the parts were copied.
+<p>
+This calls <a href="../symbols/Diagram.html#copyParts" class="linkMethod">Diagram.copyParts</a> in order to make a copy of the Parts for the clipboard.
+The values of <a href="../symbols/CommandHandler.html#copiesParentKey" class="linkProperty">copiesParentKey</a> and <a href="../symbols/CommandHandler.html#copiesGroupKey" class="linkProperty">copiesGroupKey</a> affect whether
+a copied node data remembers its tree parent node (if in a <a href="../symbols/TreeModel.html" class="linkConstructor">TreeModel</a>) or
+its containing group (if in a <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>).
+<p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2503,7 +2783,8 @@
                                           <span class="light fixedFont">{Iterable.<Part>}</span> <b>coll</b>
                                           
                                       </dt>
-                                      <dd>A collection of <a href="../symbols/Part.html" class="linkConstructor">Part</a>s.If the value is null, the clipboard is cleared of all data.</dd>
+                                      <dd>A collection of <a href="../symbols/Part.html" class="linkConstructor">Part</a>s.
+If the value is null, the clipboard is cleared of all data.</dd>
                                   
                                   </dl>
                               
@@ -2526,7 +2807,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This command executes a <a href="../symbols/CommandHandler.html#copySelection" class="linkMethod">copySelection</a> followed by a <a href="../symbols/CommandHandler.html#deleteSelection" class="linkMethod">deleteSelection</a>.<span class="nodetails" id="xmethcutSelection"><a class="morelink" onclick="hst('methcutSelection')">More...</a></span> <span class="details" id="methcutSelection">This is normally invoked by the <code>Ctrl-X</code> keyboard shortcut.</span><div class="details" id="dmethcutSelection"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This command executes a <a href="../symbols/CommandHandler.html#copySelection" class="linkMethod">copySelection</a> followed by a <a href="../symbols/CommandHandler.html#deleteSelection" class="linkMethod">deleteSelection</a>.<span class="nodetails" id="xmethcutSelection"><a class="morelink" onclick="hst('methcutSelection')">More...</a></span> <span class="details" id="methcutSelection">
+This is normally invoked by the <code>Ctrl-X</code> keyboard shortcut.
+</span><div class="details" id="dmethcutSelection"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2555,7 +2840,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This command decreases the <a href="../symbols/Diagram.html#scale" class="linkProperty">Diagram.scale</a> by a given factor.<span class="nodetails" id="xmethdecreaseZoom"><a class="morelink" onclick="hst('methdecreaseZoom')">More...</a></span> <span class="details" id="methdecreaseZoom">This is normally invoked by the <code>Ctrl--</code> and <code>Keypad--</code> keyboard shortcuts.</span><div class="details" id="dmethdecreaseZoom"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This command decreases the <a href="../symbols/Diagram.html#scale" class="linkProperty">Diagram.scale</a> by a given factor.<span class="nodetails" id="xmethdecreaseZoom"><a class="morelink" onclick="hst('methdecreaseZoom')">More...</a></span> <span class="details" id="methdecreaseZoom">
+This is normally invoked by the <code>Ctrl--</code> and <code>Keypad--</code> keyboard shortcuts.
+</span><div class="details" id="dmethdecreaseZoom"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2595,7 +2884,18 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This command deletes the currently selected parts from the diagram.<span class="nodetails" id="xmethdeleteSelection"><a class="morelink" onclick="hst('methdeleteSelection')">More...</a></span> <span class="details" id="methdeleteSelection">This is normally invoked by the <code>Del</code> keyboard shortcut.</span><div class="details" id="dmethdeleteSelection"><p>This will start a "Delete" transaction, call <a href="../symbols/Diagram.html#removeParts" class="linkMethod">Diagram.removeParts</a>,raise the "SelectionDeleted" diagram event, and finally commit the transaction.<p>Because this command changes the selection,this method also raises the "ChangingSelection" and "ChangedSelection" diagram events.All changes are performed within a transaction.<p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This command deletes the currently selected parts from the diagram.<span class="nodetails" id="xmethdeleteSelection"><a class="morelink" onclick="hst('methdeleteSelection')">More...</a></span> <span class="details" id="methdeleteSelection">
+This is normally invoked by the <code>Del</code> keyboard shortcut.
+</span><div class="details" id="dmethdeleteSelection"><p>
+This will start a "Delete" transaction, call <a href="../symbols/Diagram.html#removeParts" class="linkMethod">Diagram.removeParts</a>,
+raise the "SelectionDeleted" diagram event, and finally commit the transaction.
+<p>
+Because this command changes the selection,
+this method also raises the "ChangingSelection" and "ChangedSelection" diagram events.
+All changes are performed within a transaction.
+<p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2624,7 +2924,16 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This is called by tools to handle keyboard commands.<span class="nodetails" id="xmethdoKeyDown"><a class="morelink" onclick="hst('methdoKeyDown')">More...</a></span> <span class="details" id="methdoKeyDown">For most commands, this calls the "can..." predicate; if that returns true it calls the command method.If GoJS handles a key-down event as a keyboard command, the underlying event will not bubble.</span><div class="details" id="dmethdoKeyDown"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.<p>There is an example custom CommandHandler in the extensions directory: <a href="../../extensions/DrawCommandHandler.js">DrawCommandHandler.js</a>,which implements additional behaviors for the arrow keys by overriding this method.For additional discussion, please read the <a href="../../intro/commands.html">Introduction page on Commands</a>.</div>
+                                <!--newp--><p><p>This is called by tools to handle keyboard commands.<span class="nodetails" id="xmethdoKeyDown"><a class="morelink" onclick="hst('methdoKeyDown')">More...</a></span> <span class="details" id="methdoKeyDown">
+For most commands, this calls the "can..." predicate; if that returns true it calls the command method.
+If GoJS handles a key-down event as a keyboard command, the underlying event will not bubble.
+</span><div class="details" id="dmethdoKeyDown"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.
+<p>
+There is an example custom CommandHandler in the extensions directory: <a href="../../extensions/DrawCommandHandler.js">DrawCommandHandler.js</a>,
+which implements additional behaviors for the arrow keys by overriding this method.
+For additional discussion, please read the <a href="../../intro/commands.html">Introduction page on Commands</a>.</div>
                  
                               
                               
@@ -2646,7 +2955,10 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This is called by tools to handle keyboard commands.<span class="nodetails" id="xmethdoKeyUp"><a class="morelink" onclick="hst('methdoKeyUp')">More...</a></span> <span class="details" id="methdoKeyUp"></span><div class="details" id="dmethdoKeyUp"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This is called by tools to handle keyboard commands.<span class="nodetails" id="xmethdoKeyUp"><a class="morelink" onclick="hst('methdoKeyUp')">More...</a></span> <span class="details" id="methdoKeyUp">
+</span><div class="details" id="dmethdoKeyUp"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                               
@@ -2668,7 +2980,14 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This command starts in-place editing of a <a href="../symbols/TextBlock.html" class="linkConstructor">TextBlock</a> in the selected <a href="../symbols/Part.html" class="linkConstructor">Part</a>.<span class="nodetails" id="xmetheditTextBlock"><a class="morelink" onclick="hst('metheditTextBlock')">More...</a></span> <span class="details" id="metheditTextBlock">This is normally invoked by the <code>F2</code> keyboard shortcut.</span><div class="details" id="dmetheditTextBlock"><p>This starts the <a href="../symbols/TextEditingTool.html" class="linkConstructor">TextEditingTool</a> to have the user enter or modify the text string and finally set the <a href="../symbols/TextBlock.html#text" class="linkProperty">TextBlock.text</a>.You may want to save the new string to the model by using a TwoWay <a href="../symbols/Binding.html" class="linkConstructor">Binding</a> on the "text" property of your TextBlock.<p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This command starts in-place editing of a <a href="../symbols/TextBlock.html" class="linkConstructor">TextBlock</a> in the selected <a href="../symbols/Part.html" class="linkConstructor">Part</a>.<span class="nodetails" id="xmetheditTextBlock"><a class="morelink" onclick="hst('metheditTextBlock')">More...</a></span> <span class="details" id="metheditTextBlock">
+This is normally invoked by the <code>F2</code> keyboard shortcut.
+</span><div class="details" id="dmetheditTextBlock"><p>
+This starts the <a href="../symbols/TextEditingTool.html" class="linkConstructor">TextEditingTool</a> to have the user enter or modify the text string and finally set the <a href="../symbols/TextBlock.html#text" class="linkProperty">TextBlock.text</a>.
+You may want to save the new string to the model by using a TwoWay <a href="../symbols/Binding.html" class="linkConstructor">Binding</a> on the "text" property of your TextBlock.
+<p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2708,7 +3027,18 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This command expands all collapsed selected <a href="../symbols/Group.html" class="linkConstructor">Group</a>s.<span class="nodetails" id="xmethexpandSubGraph"><a class="morelink" onclick="hst('methexpandSubGraph')">More...</a></span> <span class="details" id="methexpandSubGraph">This operation is performed within an "Expand SubGraph" transaction.Just before the end of the transaction this raises the "SubGraphExpanded" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a>,with a collection of expanded <a href="../symbols/Group.html" class="linkConstructor">Group</a>s as the subject.This currently has no default keyboard shortcut.</span><div class="details" id="dmethexpandSubGraph"><p>This calls <a href="../symbols/Group.html#expandSubGraph" class="linkMethod">Group.expandSubGraph</a> to perform the collapse, which will set <a href="../symbols/Group.html#isSubGraphExpanded" class="linkProperty">Group.isSubGraphExpanded</a> to true.You may want to save the collapsed/expanded state to the model by using a TwoWay <a href="../symbols/Binding.html" class="linkConstructor">Binding</a> on the "isSubGraphExpanded" property of your Groups,and perhaps also on the <a href="../symbols/Group.html#wasSubGraphExpanded" class="linkProperty">Group.wasSubGraphExpanded</a> property.<p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This command expands all collapsed selected <a href="../symbols/Group.html" class="linkConstructor">Group</a>s.<span class="nodetails" id="xmethexpandSubGraph"><a class="morelink" onclick="hst('methexpandSubGraph')">More...</a></span> <span class="details" id="methexpandSubGraph">
+This operation is performed within an "Expand SubGraph" transaction.
+Just before the end of the transaction this raises the "SubGraphExpanded" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a>,
+with a collection of expanded <a href="../symbols/Group.html" class="linkConstructor">Group</a>s as the subject.
+This currently has no default keyboard shortcut.
+</span><div class="details" id="dmethexpandSubGraph"><p>
+This calls <a href="../symbols/Group.html#expandSubGraph" class="linkMethod">Group.expandSubGraph</a> to perform the collapse, which will set <a href="../symbols/Group.html#isSubGraphExpanded" class="linkProperty">Group.isSubGraphExpanded</a> to true.
+You may want to save the collapsed/expanded state to the model by using a TwoWay <a href="../symbols/Binding.html" class="linkConstructor">Binding</a> on the "isSubGraphExpanded" property of your Groups,
+and perhaps also on the <a href="../symbols/Group.html#wasSubGraphExpanded" class="linkProperty">Group.wasSubGraphExpanded</a> property.
+<p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2748,7 +3078,18 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This command expands all collapsed selected <a href="../symbols/Node.html" class="linkConstructor">Node</a>s.<span class="nodetails" id="xmethexpandTree"><a class="morelink" onclick="hst('methexpandTree')">More...</a></span> <span class="details" id="methexpandTree">This operation is performed within an "Expand Tree" transaction.Just before the end of the transaction this raises the "TreeExpanded" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a>,with a collection of expanded <a href="../symbols/Node.html" class="linkConstructor">Node</a>s as the subject.This currently has no default keyboard shortcut.</span><div class="details" id="dmethexpandTree"><p>This calls <a href="../symbols/Node.html#expandTree" class="linkMethod">Node.expandTree</a> to perform the expand, which will set <a href="../symbols/Node.html#isTreeExpanded" class="linkProperty">Node.isTreeExpanded</a> to true.You may want to save the collapsed/expanded state to the model by using a TwoWay <a href="../symbols/Binding.html" class="linkConstructor">Binding</a> on the "isTreeExpanded" property of your Nodes,and perhaps also on the <a href="../symbols/Node.html#wasTreeExpanded" class="linkProperty">Node.wasTreeExpanded</a> property.<p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This command expands all collapsed selected <a href="../symbols/Node.html" class="linkConstructor">Node</a>s.<span class="nodetails" id="xmethexpandTree"><a class="morelink" onclick="hst('methexpandTree')">More...</a></span> <span class="details" id="methexpandTree">
+This operation is performed within an "Expand Tree" transaction.
+Just before the end of the transaction this raises the "TreeExpanded" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a>,
+with a collection of expanded <a href="../symbols/Node.html" class="linkConstructor">Node</a>s as the subject.
+This currently has no default keyboard shortcut.
+</span><div class="details" id="dmethexpandTree"><p>
+This calls <a href="../symbols/Node.html#expandTree" class="linkMethod">Node.expandTree</a> to perform the expand, which will set <a href="../symbols/Node.html#isTreeExpanded" class="linkProperty">Node.isTreeExpanded</a> to true.
+You may want to save the collapsed/expanded state to the model by using a TwoWay <a href="../symbols/Binding.html" class="linkConstructor">Binding</a> on the "isTreeExpanded" property of your Nodes,
+and perhaps also on the <a href="../symbols/Node.html#wasTreeExpanded" class="linkProperty">Node.wasTreeExpanded</a> property.
+<p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2788,7 +3129,24 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This command adds a copy of <a href="../symbols/CommandHandler.html#archetypeGroupData" class="linkProperty">archetypeGroupData</a> to the diagram's modelto create a new <a href="../symbols/Group.html" class="linkConstructor">Group</a> and then adds the selected <a href="../symbols/Part.html" class="linkConstructor">Part</a>s to that new group.<span class="nodetails" id="xmethgroupSelection"><a class="morelink" onclick="hst('methgroupSelection')">More...</a></span> <span class="details" id="methgroupSelection">This is normally invoked by the <code>Ctrl-G</code> keyboard shortcut.</span><div class="details" id="dmethgroupSelection"><p>This creates a new <a href="../symbols/Group.html" class="linkConstructor">Group</a> by adding a copy of the <a href="../symbols/CommandHandler.html#archetypeGroupData" class="linkProperty">archetypeGroupData</a> to the model.Each of the selected parts for which <a href="../symbols/Part.html#canGroup" class="linkMethod">Part.canGroup</a> is trueand for which <a href="../symbols/CommandHandler.html#isValidMember" class="linkMethod">isValidMember</a> is trueis made a member of that new group.If all of the selected groupable parts were members of a pre-existing group,the new group also becomes a member of that pre-existing group,if <a href="../symbols/CommandHandler.html#isValidMember" class="linkMethod">isValidMember</a> is true for that existing group with the new group.The new group becomes the only selected part.This raises the "SelectionGrouped" diagram event.This method also raises the "ChangingSelection" and "ChangedSelection" diagram events.All of the changes are performed in a "Group" transaction.<p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This command adds a copy of <a href="../symbols/CommandHandler.html#archetypeGroupData" class="linkProperty">archetypeGroupData</a> to the diagram's model
+to create a new <a href="../symbols/Group.html" class="linkConstructor">Group</a> and then adds the selected <a href="../symbols/Part.html" class="linkConstructor">Part</a>s to that new group.<span class="nodetails" id="xmethgroupSelection"><a class="morelink" onclick="hst('methgroupSelection')">More...</a></span> <span class="details" id="methgroupSelection">
+This is normally invoked by the <code>Ctrl-G</code> keyboard shortcut.
+</span><div class="details" id="dmethgroupSelection"><p>
+This creates a new <a href="../symbols/Group.html" class="linkConstructor">Group</a> by adding a copy of the <a href="../symbols/CommandHandler.html#archetypeGroupData" class="linkProperty">archetypeGroupData</a> to the model.
+Each of the selected parts for which <a href="../symbols/Part.html#canGroup" class="linkMethod">Part.canGroup</a> is true
+and for which <a href="../symbols/CommandHandler.html#isValidMember" class="linkMethod">isValidMember</a> is true
+is made a member of that new group.
+If all of the selected groupable parts were members of a pre-existing group,
+the new group also becomes a member of that pre-existing group,
+if <a href="../symbols/CommandHandler.html#isValidMember" class="linkMethod">isValidMember</a> is true for that existing group with the new group.
+The new group becomes the only selected part.
+This raises the "SelectionGrouped" diagram event.
+This method also raises the "ChangingSelection" and "ChangedSelection" diagram events.
+All of the changes are performed in a "Group" transaction.
+<p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2817,7 +3175,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This command increases the <a href="../symbols/Diagram.html#scale" class="linkProperty">Diagram.scale</a> by a given factor.<span class="nodetails" id="xmethincreaseZoom"><a class="morelink" onclick="hst('methincreaseZoom')">More...</a></span> <span class="details" id="methincreaseZoom">This is normally invoked by the <code>Ctrl-+</code> and <code>Keypad-+</code> keyboard shortcuts.</span><div class="details" id="dmethincreaseZoom"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This command increases the <a href="../symbols/Diagram.html#scale" class="linkProperty">Diagram.scale</a> by a given factor.<span class="nodetails" id="xmethincreaseZoom"><a class="morelink" onclick="hst('methincreaseZoom')">More...</a></span> <span class="details" id="methincreaseZoom">
+This is normally invoked by the <code>Ctrl-+</code> and <code>Keypad-+</code> keyboard shortcuts.
+</span><div class="details" id="dmethincreaseZoom"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2857,7 +3219,16 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This predicate is called to determine whether a Node may be added as a member of a Group.<span class="nodetails" id="xmethisValidMember"><a class="morelink" onclick="hst('methisValidMember')">More...</a></span> <span class="details" id="methisValidMember">This always checks to make sure no group might become a member of itself, either directly or indirectly.If the Group has a <a href="../symbols/Group.html#memberValidation" class="linkProperty">Group.memberValidation</a> predicate and if it returns false, this method returns false.If this CommandHandler has a <a href="../symbols/CommandHandler.html#memberValidation" class="linkProperty">memberValidation</a> predicate and if it returns false, this method returns false.Otherwise this will return true.<p class="box">For a more general discussion of validation, see <a href="../../intro/validation.html">Introduction to Validation</a>.</span><div class="details" id="dmethisValidMember"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This predicate is called to determine whether a Node may be added as a member of a Group.<span class="nodetails" id="xmethisValidMember"><a class="morelink" onclick="hst('methisValidMember')">More...</a></span> <span class="details" id="methisValidMember">
+This always checks to make sure no group might become a member of itself, either directly or indirectly.
+If the Group has a <a href="../symbols/Group.html#memberValidation" class="linkProperty">Group.memberValidation</a> predicate and if it returns false, this method returns false.
+If this CommandHandler has a <a href="../symbols/CommandHandler.html#memberValidation" class="linkProperty">memberValidation</a> predicate and if it returns false, this method returns false.
+Otherwise this will return true.
+<p class="box">
+For a more general discussion of validation, see <a href="../../intro/validation.html">Introduction to Validation</a>.
+</span><div class="details" id="dmethisValidMember"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                                   <dl class="detailList">
@@ -2903,7 +3274,14 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>If the clipboard holds a collection of <a href="../symbols/Part.html" class="linkConstructor">Part</a>s,and if the <a href="../symbols/Model.html#dataFormat" class="linkProperty">Model.dataFormat</a> matches that stored in the clipboard,this makes a copy of the clipboard's parts and adds the copies to this <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.<span class="nodetails" id="xmethpasteFromClipboard"><a class="morelink" onclick="hst('methpasteFromClipboard')">More...</a></span> <span class="details" id="methpasteFromClipboard"></span><div class="details" id="dmethpasteFromClipboard"><p>This calls <a href="../symbols/Diagram.html#copyParts" class="linkMethod">Diagram.copyParts</a> in order to make a copy of the Parts in the clipboard and add them to this diagram.<p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>If the clipboard holds a collection of <a href="../symbols/Part.html" class="linkConstructor">Part</a>s,
+and if the <a href="../symbols/Model.html#dataFormat" class="linkProperty">Model.dataFormat</a> matches that stored in the clipboard,
+this makes a copy of the clipboard's parts and adds the copies to this <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.<span class="nodetails" id="xmethpasteFromClipboard"><a class="morelink" onclick="hst('methpasteFromClipboard')">More...</a></span> <span class="details" id="methpasteFromClipboard">
+</span><div class="details" id="dmethpasteFromClipboard"><p>
+This calls <a href="../symbols/Diagram.html#copyParts" class="linkMethod">Diagram.copyParts</a> in order to make a copy of the Parts in the clipboard and add them to this diagram.
+<p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2917,7 +3295,8 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{Set.<Part>}</span> a collection of the newly pasted <a href="../symbols/Part.html" class="linkConstructor">Part</a>s,or an empty Set if there was no data in the clipboard.</dt>
+                                      <dt><span class="light fixedFont">{Set.<Part>}</span> a collection of the newly pasted <a href="../symbols/Part.html" class="linkConstructor">Part</a>s,
+or an empty Set if there was no data in the clipboard.</dt>
                                   
                                   </dl>
                               
@@ -2939,7 +3318,17 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This command copies the contents of the clipboard into this diagram and makes those new parts the new selection.<span class="nodetails" id="xmethpasteSelection"><a class="morelink" onclick="hst('methpasteSelection')">More...</a></span> <span class="details" id="methpasteSelection">This is normally invoked by the <code>Ctrl-V</code> keyboard shortcut.</span><div class="details" id="dmethpasteSelection"><p>This calls <a href="../symbols/CommandHandler.html#pasteFromClipboard" class="linkMethod">pasteFromClipboard</a> to add copies of <a href="../symbols/Part.html" class="linkConstructor">Part</a>sinto this diagram, and then selects all of the newly created parts.This also raises the "ClipboardPasted" diagram event.This method raises the "ChangingSelection" and "ChangedSelection" diagram events.All of the changes are performed in a transaction.<p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This command copies the contents of the clipboard into this diagram and makes those new parts the new selection.<span class="nodetails" id="xmethpasteSelection"><a class="morelink" onclick="hst('methpasteSelection')">More...</a></span> <span class="details" id="methpasteSelection">
+This is normally invoked by the <code>Ctrl-V</code> keyboard shortcut.
+</span><div class="details" id="dmethpasteSelection"><p>
+This calls <a href="../symbols/CommandHandler.html#pasteFromClipboard" class="linkMethod">pasteFromClipboard</a> to add copies of <a href="../symbols/Part.html" class="linkConstructor">Part</a>s
+into this diagram, and then selects all of the newly created parts.
+This also raises the "ClipboardPasted" diagram event.
+This method raises the "ChangingSelection" and "ChangedSelection" diagram events.
+All of the changes are performed in a transaction.
+<p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -2979,7 +3368,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This command calls <a href="../symbols/UndoManager.html#redo" class="linkMethod">UndoManager.redo</a>.<span class="nodetails" id="xmethredo"><a class="morelink" onclick="hst('methredo')">More...</a></span> <span class="details" id="methredo">This is normally invoked by the <code>Ctrl-Y</code> keyboard shortcut.</span><div class="details" id="dmethredo"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This command calls <a href="../symbols/UndoManager.html#redo" class="linkMethod">UndoManager.redo</a>.<span class="nodetails" id="xmethredo"><a class="morelink" onclick="hst('methredo')">More...</a></span> <span class="details" id="methredo">
+This is normally invoked by the <code>Ctrl-Y</code> keyboard shortcut.
+</span><div class="details" id="dmethredo"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -3008,7 +3401,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This command sets the <a href="../symbols/Diagram.html#scale" class="linkProperty">Diagram.scale</a> to a new scale value, by default 1.<span class="nodetails" id="xmethresetZoom"><a class="morelink" onclick="hst('methresetZoom')">More...</a></span> <span class="details" id="methresetZoom">This is normally invoked by the <code>Ctrl-0</code> keyboard shortcut.</span><div class="details" id="dmethresetZoom"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This command sets the <a href="../symbols/Diagram.html#scale" class="linkProperty">Diagram.scale</a> to a new scale value, by default 1.<span class="nodetails" id="xmethresetZoom"><a class="morelink" onclick="hst('methresetZoom')">More...</a></span> <span class="details" id="methresetZoom">
+This is normally invoked by the <code>Ctrl-0</code> keyboard shortcut.
+</span><div class="details" id="dmethresetZoom"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -3050,7 +3447,16 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This command scrolls the diagram to make a highlighted or selected Part visible in the viewport.<span class="nodetails" id="xmethscrollToPart"><a class="morelink" onclick="hst('methscrollToPart')">More...</a></span> <span class="details" id="methscrollToPart">Call this command repeatedly to cycle through the <a href="../symbols/Diagram.html#highlighteds" class="linkProperty">Diagram.highlighteds</a> collection,if there are any Parts in that collection, or else in the <a href="../symbols/Diagram.html#selection" class="linkProperty">Diagram.selection</a> collection,scrolling to each one in turn by calling <a href="../symbols/Diagram.html#centerRect" class="linkMethod">Diagram.centerRect</a>.</span><div class="details" id="dmethscrollToPart"><p>This is normally invoked by the <code>Space</code> keyboard shortcut.If there is no argument and there is no highlighted or selected Part, this command does nothing.<p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This command scrolls the diagram to make a highlighted or selected Part visible in the viewport.<span class="nodetails" id="xmethscrollToPart"><a class="morelink" onclick="hst('methscrollToPart')">More...</a></span> <span class="details" id="methscrollToPart">
+Call this command repeatedly to cycle through the <a href="../symbols/Diagram.html#highlighteds" class="linkProperty">Diagram.highlighteds</a> collection,
+if there are any Parts in that collection, or else in the <a href="../symbols/Diagram.html#selection" class="linkProperty">Diagram.selection</a> collection,
+scrolling to each one in turn by calling <a href="../symbols/Diagram.html#centerRect" class="linkMethod">Diagram.centerRect</a>.
+</span><div class="details" id="dmethscrollToPart"><p>
+This is normally invoked by the <code>Space</code> keyboard shortcut.
+If there is no argument and there is no highlighted or selected Part, this command does nothing.
+<p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -3067,7 +3473,8 @@
                                           <span class="light fixedFont">{<a href="../symbols/Part.html" class="linkConstructor">Part</a>=}</span> <b>part</b>
                                           
                                       </dt>
-                                      <dd>This defaults to the first highlighted Part of <a href="../symbols/Diagram.html#highlighteds" class="linkProperty">Diagram.highlighteds</a>,                    or, if there are no highlighted Parts, the first selected Part.</dd>
+                                      <dd>This defaults to the first highlighted Part of <a href="../symbols/Diagram.html#highlighteds" class="linkProperty">Diagram.highlighteds</a>,
+                    or, if there are no highlighted Parts, the first selected Part.</dd>
                                   
                                   </dl>
                               
@@ -3090,7 +3497,14 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This command selects all of the selectable <a href="../symbols/Part.html" class="linkConstructor">Part</a>s in the diagram by setting <a href="../symbols/Part.html#isSelected" class="linkProperty">Part.isSelected</a> to true on each one.<span class="nodetails" id="xmethselectAll"><a class="morelink" onclick="hst('methselectAll')">More...</a></span> <span class="details" id="methselectAll">This is normally invoked by the <code>Ctrl-A</code> keyboard shortcut.</span><div class="details" id="dmethselectAll"><p>This method raises the "ChangingSelection" and "ChangedSelection" diagram events.This ignores all parts in temporary layers.<p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This command selects all of the selectable <a href="../symbols/Part.html" class="linkConstructor">Part</a>s in the diagram by setting <a href="../symbols/Part.html#isSelected" class="linkProperty">Part.isSelected</a> to true on each one.<span class="nodetails" id="xmethselectAll"><a class="morelink" onclick="hst('methselectAll')">More...</a></span> <span class="details" id="methselectAll">
+This is normally invoked by the <code>Ctrl-A</code> keyboard shortcut.
+</span><div class="details" id="dmethselectAll"><p>
+This method raises the "ChangingSelection" and "ChangedSelection" diagram events.
+This ignores all parts in temporary layers.
+<p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -3119,7 +3533,14 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This command opens the context menu for a selected Part or given GraphObject, or else for the whole Diagram.<span class="nodetails" id="xmethshowContextMenu"><a class="morelink" onclick="hst('methshowContextMenu')">More...</a></span> <span class="details" id="methshowContextMenu">This is normally invoked by the <code>Menu</code> keyboard shortcut.</span><div class="details" id="dmethshowContextMenu"><p>The given GraphObject must have a <a href="../symbols/GraphObject.html#contextMenu" class="linkProperty">GraphObject.contextMenu</a>defined in order to show anything.<p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This command opens the context menu for a selected Part or given GraphObject, or else for the whole Diagram.<span class="nodetails" id="xmethshowContextMenu"><a class="morelink" onclick="hst('methshowContextMenu')">More...</a></span> <span class="details" id="methshowContextMenu">
+This is normally invoked by the <code>Menu</code> keyboard shortcut.
+</span><div class="details" id="dmethshowContextMenu"><p>
+The given GraphObject must have a <a href="../symbols/GraphObject.html#contextMenu" class="linkProperty">GraphObject.contextMenu</a>
+defined in order to show anything.
+<p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -3136,7 +3557,10 @@
                                           <span class="light fixedFont">{<a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>|<a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>=}</span> <b>obj</b>
                                           
                                       </dt>
-                                      <dd>a GraphObject or Diagram with a contextMenu defined.If none is given, this method will use the first selected object, or else the Diagram.The method will simulate a right-button click at the middle of the GraphObject or,if a Diagram, at the current mouse position if it is in the viewport.</dd>
+                                      <dd>a GraphObject or Diagram with a contextMenu defined.
+If none is given, this method will use the first selected object, or else the Diagram.
+The method will simulate a right-button click at the middle of the GraphObject or,
+if a Diagram, at the current mouse position if it is in the viewport.</dd>
                                   
                                   </dl>
                               
@@ -3159,7 +3583,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This command cancels the operation of the current tool.<span class="nodetails" id="xmethstopCommand"><a class="morelink" onclick="hst('methstopCommand')">More...</a></span> <span class="details" id="methstopCommand">This is typically called when the user presses ESCAPE.</span><div class="details" id="dmethstopCommand"><p>If the current tool is a <a href="../symbols/ToolManager.html" class="linkConstructor">ToolManager</a>, this clears the diagram's selection.This then calls <a href="../symbols/Tool.html#doCancel" class="linkMethod">Tool.doCancel</a> on the current tool.</div>
+                                <!--newp--><p><p>This command cancels the operation of the current tool.<span class="nodetails" id="xmethstopCommand"><a class="morelink" onclick="hst('methstopCommand')">More...</a></span> <span class="details" id="methstopCommand">
+This is typically called when the user presses ESCAPE.
+</span><div class="details" id="dmethstopCommand"><p>
+If the current tool is a <a href="../symbols/ToolManager.html" class="linkConstructor">ToolManager</a>, this clears the diagram's selection.
+This then calls <a href="../symbols/Tool.html#doCancel" class="linkMethod">Tool.doCancel</a> on the current tool.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -3188,7 +3616,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This command calls <a href="../symbols/UndoManager.html#undo" class="linkMethod">UndoManager.undo</a>.<span class="nodetails" id="xmethundo"><a class="morelink" onclick="hst('methundo')">More...</a></span> <span class="details" id="methundo">This is normally invoked by the <code>Ctrl-Z</code> keyboard shortcut.</span><div class="details" id="dmethundo"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This command calls <a href="../symbols/UndoManager.html#undo" class="linkMethod">UndoManager.undo</a>.<span class="nodetails" id="xmethundo"><a class="morelink" onclick="hst('methundo')">More...</a></span> <span class="details" id="methundo">
+This is normally invoked by the <code>Ctrl-Z</code> keyboard shortcut.
+</span><div class="details" id="dmethundo"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -3217,7 +3649,21 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This command removes selected groups from the diagram without removing their members from the diagram.<span class="nodetails" id="xmethungroupSelection"><a class="morelink" onclick="hst('methungroupSelection')">More...</a></span> <span class="details" id="methungroupSelection">This is normally invoked by the <code>Ctrl-Shift-G</code> keyboard shortcut.</span><div class="details" id="dmethungroupSelection"><p>For the given group, or if not supplied, each selected <a href="../symbols/Group.html" class="linkConstructor">Group</a> that is <a href="../symbols/Group.html#ungroupable" class="linkProperty">Group.ungroupable</a>,expand the subgraph and change all of its member parts to be members of the group that the selected group node is in.(If the selected group is a top-level node, i.e. not a member of any group node, its members become top-level parts too.)All of those selected groups are deleted.All of the reparented member parts are selected.<p>This raises the "SelectionUngrouped" diagram event.This method also raises the "ChangingSelection" and "ChangedSelection" diagram events.All of the changes are performed in an "Ungroup" transaction.<p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This command removes selected groups from the diagram without removing their members from the diagram.<span class="nodetails" id="xmethungroupSelection"><a class="morelink" onclick="hst('methungroupSelection')">More...</a></span> <span class="details" id="methungroupSelection">
+This is normally invoked by the <code>Ctrl-Shift-G</code> keyboard shortcut.
+</span><div class="details" id="dmethungroupSelection"><p>
+For the given group, or if not supplied, each selected <a href="../symbols/Group.html" class="linkConstructor">Group</a> that is <a href="../symbols/Group.html#ungroupable" class="linkProperty">Group.ungroupable</a>,
+expand the subgraph and change all of its member parts to be members of the group that the selected group node is in.
+(If the selected group is a top-level node, i.e. not a member of any group node, its members become top-level parts too.)
+All of those selected groups are deleted.
+All of the reparented member parts are selected.
+<p>
+This raises the "SelectionUngrouped" diagram event.
+This method also raises the "ChangingSelection" and "ChangedSelection" diagram events.
+All of the changes are performed in an "Ungroup" transaction.
+<p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -3259,7 +3705,13 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This command changes the <a href="../symbols/Diagram.html#scale" class="linkProperty">Diagram.scale</a> so that the <a href="../symbols/Diagram.html#documentBounds" class="linkProperty">Diagram.documentBounds</a> fits within the viewport.<span class="nodetails" id="xmethzoomToFit"><a class="morelink" onclick="hst('methzoomToFit')">More...</a></span> <span class="details" id="methzoomToFit">If this command had been called before without any other zooming since then,the original Diagram scale and position are restored.This is normally invoked by the <code>Shift-Z</code> keyboard shortcut.</span><div class="details" id="dmethzoomToFit"><p>This method may be overridden, but you should consider calling this base method in order to get all of its functionality.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This command changes the <a href="../symbols/Diagram.html#scale" class="linkProperty">Diagram.scale</a> so that the <a href="../symbols/Diagram.html#documentBounds" class="linkProperty">Diagram.documentBounds</a> fits within the viewport.<span class="nodetails" id="xmethzoomToFit"><a class="morelink" onclick="hst('methzoomToFit')">More...</a></span> <span class="details" id="methzoomToFit">
+If this command had been called before without any other zooming since then,
+the original Diagram scale and position are restored.
+This is normally invoked by the <code>Shift-Z</code> keyboard shortcut.
+</span><div class="details" id="dmethzoomToFit"><p>
+This method may be overridden, but you should consider calling this base method in order to get all of its functionality.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">

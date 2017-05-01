@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1133,7 +1128,49 @@
                     <a href="../symbols/Tool.html" class="linkConstructor">Tool</a>.</span>
                 
 
-                The ResizingTool is used to interactively change the size of a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>in the selected <a href="../symbols/Part.html" class="linkConstructor">Part</a> or <a href="../symbols/Node.html" class="linkConstructor">Node</a> by setting its <a href="../symbols/GraphObject.html#desiredSize" class="linkProperty">GraphObject.desiredSize</a> property.You may want to save the size to the model by using a TwoWay <a href="../symbols/Binding.html" class="linkConstructor">Binding</a> on the "desiredSize" propertyof the GraphObject that is named by <a href="../symbols/Part.html#resizeObjectName" class="linkProperty">Part.resizeObjectName</a>.This tool does not operate on <a href="../symbols/Link.html" class="linkConstructor">Link</a>s.<p>You can limit the permitted minimum and maximum dimensions by setting<a href="../symbols/ResizingTool.html#minSize" class="linkProperty">minSize</a> and <a href="../symbols/ResizingTool.html#maxSize" class="linkProperty">maxSize</a>.The resizing will also respect the <a href="../symbols/GraphObject.html#minSize" class="linkProperty">GraphObject.minSize</a> and<a href="../symbols/GraphObject.html#maxSize" class="linkProperty">GraphObject.maxSize</a> properties.Width or height values that are NaN do not constrain the resizing.Override <a href="../symbols/ResizingTool.html#computeMinSize" class="linkMethod">computeMinSize</a> and/or <a href="../symbols/ResizingTool.html#computeMaxSize" class="linkMethod">computeMaxSize</a> to change this behavior.<p>You can also limit the width and/or height to be multiples of a particular size bysetting <a href="../symbols/Part.html#resizeCellSize" class="linkProperty">Part.resizeCellSize</a>.If either or both of these values are NaN, as they are by default,it will get the values from this tool's <a href="../symbols/ResizingTool.html#cellSize" class="linkProperty">cellSize</a>.Then if either or both of the width and height are still NaN,and if <a href="../symbols/DraggingTool.html#isGridSnapEnabled" class="linkProperty">DraggingTool.isGridSnapEnabled</a> is true,it will use the <a href="../symbols/DraggingTool.html#gridSnapCellSize" class="linkProperty">DraggingTool.gridSnapCellSize</a>.Finally it will consider the <a href="../symbols/Diagram.html#grid" class="linkProperty">Diagram.grid</a>'s <a href="../symbols/Panel.html#gridCellSize" class="linkProperty">Panel.gridCellSize</a>if <a href="../symbols/ResizingTool.html#isGridSnapEnabled" class="linkProperty">isGridSnapEnabled</a> is true.Override <a href="../symbols/ResizingTool.html#computeCellSize" class="linkMethod">computeCellSize</a> to change this behavior.<p>Pressing the Shift key or resizing a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> with a <a href="../symbols/Shape.html#geometryStretch" class="linkProperty">Shape.geometryStretch</a> of<a href="../symbols/GraphObject.html#Uniform" class="linkConstant">GraphObject.Uniform</a> or <a href="../symbols/GraphObject.html#UniformToFill" class="linkConstant">GraphObject.UniformToFill</a> will maintain the aspect ratio during the resize.Override <a href="../symbols/ResizingTool.html#computeReshape" class="linkMethod">computeReshape</a> to change this behavior.<p>This tool makes use of an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>, shown when the <a href="../symbols/Part.html" class="linkConstructor">Part</a> or <a href="../symbols/Node.html" class="linkConstructor">Node</a> is selected,that includes some number of resize handles.The resize handles are normally copies of <a href="../symbols/ResizingTool.html#handleArchetype" class="linkProperty">ResizingTool.handleArchetype</a>,unless you specify a custom resize Adornment by setting <a href="../symbols/Part.html#resizeAdornmentTemplate" class="linkProperty">Part.resizeAdornmentTemplate</a>.The resize Adornment is normally a "Spot" Panel with eight resize handles,each with <a href="../symbols/GraphObject.html#alignment" class="linkProperty">GraphObject.alignment</a> set to one of the eight standard <a href="../symbols/Spot.html" class="linkConstructor">Spot</a> values --the four corners and the four side middles.The <a href="../symbols/GraphObject.html#alignment" class="linkProperty">GraphObject.alignment</a> is what identifies and distinguishes each of the handles andthe behavior when the user drags the handle.<p>This tool conducts a transaction while the tool is active.A successful resizing will result in a "PartResized" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a> and a "Resizing" transaction.<p class="boxread">For a general discussion of the sizing of objects, see: <a href="../../intro/sizing.html">Introduction to the sizing of GraphObjects</a>.For customizing the ResizingTool, see <a href="../../intro/tools.html#ResizingTool">Introduction to the ResizingTool</a>.
+                The ResizingTool is used to interactively change the size of a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>
+in the selected <a href="../symbols/Part.html" class="linkConstructor">Part</a> or <a href="../symbols/Node.html" class="linkConstructor">Node</a> by setting its <a href="../symbols/GraphObject.html#desiredSize" class="linkProperty">GraphObject.desiredSize</a> property.
+You may want to save the size to the model by using a TwoWay <a href="../symbols/Binding.html" class="linkConstructor">Binding</a> on the "desiredSize" property
+of the GraphObject that is named by <a href="../symbols/Part.html#resizeObjectName" class="linkProperty">Part.resizeObjectName</a>.
+This tool does not operate on <a href="../symbols/Link.html" class="linkConstructor">Link</a>s.
+<p>
+You can limit the permitted minimum and maximum dimensions by setting
+<a href="../symbols/ResizingTool.html#minSize" class="linkProperty">minSize</a> and <a href="../symbols/ResizingTool.html#maxSize" class="linkProperty">maxSize</a>.
+The resizing will also respect the <a href="../symbols/GraphObject.html#minSize" class="linkProperty">GraphObject.minSize</a> and
+<a href="../symbols/GraphObject.html#maxSize" class="linkProperty">GraphObject.maxSize</a> properties.
+Width or height values that are NaN do not constrain the resizing.
+Override <a href="../symbols/ResizingTool.html#computeMinSize" class="linkMethod">computeMinSize</a> and/or <a href="../symbols/ResizingTool.html#computeMaxSize" class="linkMethod">computeMaxSize</a> to change this behavior.
+<p>
+You can also limit the width and/or height to be multiples of a particular size by
+setting <a href="../symbols/Part.html#resizeCellSize" class="linkProperty">Part.resizeCellSize</a>.
+If either or both of these values are NaN, as they are by default,
+it will get the values from this tool's <a href="../symbols/ResizingTool.html#cellSize" class="linkProperty">cellSize</a>.
+Then if either or both of the width and height are still NaN,
+and if <a href="../symbols/DraggingTool.html#isGridSnapEnabled" class="linkProperty">DraggingTool.isGridSnapEnabled</a> is true,
+it will use the <a href="../symbols/DraggingTool.html#gridSnapCellSize" class="linkProperty">DraggingTool.gridSnapCellSize</a>.
+Finally it will consider the <a href="../symbols/Diagram.html#grid" class="linkProperty">Diagram.grid</a>'s <a href="../symbols/Panel.html#gridCellSize" class="linkProperty">Panel.gridCellSize</a>
+if <a href="../symbols/ResizingTool.html#isGridSnapEnabled" class="linkProperty">isGridSnapEnabled</a> is true.
+Override <a href="../symbols/ResizingTool.html#computeCellSize" class="linkMethod">computeCellSize</a> to change this behavior.
+<p>
+Pressing the Shift key or resizing a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> with a <a href="../symbols/Shape.html#geometryStretch" class="linkProperty">Shape.geometryStretch</a> of
+<a href="../symbols/GraphObject.html#Uniform" class="linkConstant">GraphObject.Uniform</a> or <a href="../symbols/GraphObject.html#UniformToFill" class="linkConstant">GraphObject.UniformToFill</a> will maintain the aspect ratio during the resize.
+Override <a href="../symbols/ResizingTool.html#computeReshape" class="linkMethod">computeReshape</a> to change this behavior.
+<p>
+This tool makes use of an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>, shown when the <a href="../symbols/Part.html" class="linkConstructor">Part</a> or <a href="../symbols/Node.html" class="linkConstructor">Node</a> is selected,
+that includes some number of resize handles.
+The resize handles are normally copies of <a href="../symbols/ResizingTool.html#handleArchetype" class="linkProperty">ResizingTool.handleArchetype</a>,
+unless you specify a custom resize Adornment by setting <a href="../symbols/Part.html#resizeAdornmentTemplate" class="linkProperty">Part.resizeAdornmentTemplate</a>.
+The resize Adornment is normally a "Spot" Panel with eight resize handles,
+each with <a href="../symbols/GraphObject.html#alignment" class="linkProperty">GraphObject.alignment</a> set to one of the eight standard <a href="../symbols/Spot.html" class="linkConstructor">Spot</a> values --
+the four corners and the four side middles.
+The <a href="../symbols/GraphObject.html#alignment" class="linkProperty">GraphObject.alignment</a> is what identifies and distinguishes each of the handles and
+the behavior when the user drags the handle.
+<p>
+This tool conducts a transaction while the tool is active.
+A successful resizing will result in a "PartResized" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a> and a "Resizing" transaction.
+<p class="boxread">
+For a general discussion of the sizing of objects, see: <a href="../../intro/sizing.html">Introduction to the sizing of GraphObjects</a>.
+For customizing the ResizingTool, see <a href="../../intro/tools.html#ResizingTool">Introduction to the ResizingTool</a>.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1156,7 +1193,10 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>You do not normally need to create an instance of this toolbecause one already exists as the <a href="../symbols/ToolManager.html#resizingTool" class="linkProperty">ToolManager.resizingTool</a>, which you can modify.<span class="nodetails" id="xconResizingTool"><a class="morelink" onclick="hst('conResizingTool')">More...</a></span> <span class="details" id="conResizingTool"></span><div class="details" id="dconResizingTool"><p>The <a href="../symbols/Tool.html#name" class="linkProperty">Tool.name</a> of this tool is "Resizing".</div>
+                            <!--newp--><p><p>You do not normally need to create an instance of this tool
+because one already exists as the <a href="../symbols/ToolManager.html#resizingTool" class="linkProperty">ToolManager.resizingTool</a>, which you can modify.<span class="nodetails" id="xconResizingTool"><a class="morelink" onclick="hst('conResizingTool')">More...</a></span> <span class="details" id="conResizingTool">
+</span><div class="details" id="dconResizingTool"><p>
+The <a href="../symbols/Tool.html#name" class="linkProperty">Tool.name</a> of this tool is "Resizing".</div>
                         
                         
 
@@ -1198,7 +1238,11 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that is being resized.<span class="nodetails" id="xpropadornedObject"><a class="morelink" onclick="hst('propadornedObject')">More...</a></span> <span class="details" id="propadornedObject">This may be the same object as the selected <a href="../symbols/Part.html" class="linkConstructor">Part</a> or it may be contained within that Part.</span><div class="details" id="dpropadornedObject"><p>This property is also settable, but should only be set when overriding functionsin ResizingTool, and not during normal operation.</div>
+                <p>Gets the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that is being resized.<span class="nodetails" id="xpropadornedObject"><a class="morelink" onclick="hst('propadornedObject')">More...</a></span> <span class="details" id="propadornedObject">
+This may be the same object as the selected <a href="../symbols/Part.html" class="linkConstructor">Part</a> or it may be contained within that Part.
+</span><div class="details" id="dpropadornedObject"><p>
+This property is also settable, but should only be set when overriding functions
+in ResizingTool, and not during normal operation.</div>
                 
                 </div>
                             </td>
@@ -1218,7 +1262,14 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the width and height multiples with which the user must resize.<span class="nodetails" id="xpropcellSize"><a class="morelink" onclick="hst('propcellSize')">More...</a></span> <span class="details" id="propcellSize">The effective cell size is computed by first looking at the AdornedPart's <a href="../symbols/Part.html#resizeCellSize" class="linkProperty">Part.resizeCellSize</a>.If either or both of its width and height are NaN, it will use this property, <code>cellSize</code>.If either or both of this property's width and height are NaN, it willconsider the <a href="../symbols/DraggingTool.html#gridSnapCellSize" class="linkProperty">DraggingTool.gridSnapCellSize</a> and the <a href="../symbols/Diagram.html#grid" class="linkProperty">Diagram.grid</a>'s <a href="../symbols/Panel.html#gridCellSize" class="linkProperty">Panel.gridCellSize</a>.</span><div class="details" id="dpropcellSize"><p>The default value is NaN x NaN.Setting this property does not raise any events.</div>
+                <p>Gets or sets the width and height multiples with which the user must resize.<span class="nodetails" id="xpropcellSize"><a class="morelink" onclick="hst('propcellSize')">More...</a></span> <span class="details" id="propcellSize">
+The effective cell size is computed by first looking at the AdornedPart's <a href="../symbols/Part.html#resizeCellSize" class="linkProperty">Part.resizeCellSize</a>.
+If either or both of its width and height are NaN, it will use this property, <code>cellSize</code>.
+If either or both of this property's width and height are NaN, it will
+consider the <a href="../symbols/DraggingTool.html#gridSnapCellSize" class="linkProperty">DraggingTool.gridSnapCellSize</a> and the <a href="../symbols/Diagram.html#grid" class="linkProperty">Diagram.grid</a>'s <a href="../symbols/Panel.html#gridCellSize" class="linkProperty">Panel.gridCellSize</a>.
+</span><div class="details" id="dpropcellSize"><p>
+The default value is NaN x NaN.
+Setting this property does not raise any events.</div>
                 
                 </div>
                             </td>
@@ -1238,7 +1289,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property returns the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that is the tool handle being dragged by the user.<span class="nodetails" id="xprophandle"><a class="morelink" onclick="hst('prophandle')">More...</a></span> <span class="details" id="prophandle">This will be contained by an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> whose category is "ResizingTool".Its <a href="../symbols/Adornment.html#adornedObject" class="linkProperty">Adornment.adornedObject</a> is the same as the <a href="../symbols/ResizingTool.html#adornedObject" class="linkProperty">adornedObject</a>.</span>
+                <p>This read-only property returns the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that is the tool handle being dragged by the user.<span class="nodetails" id="xprophandle"><a class="morelink" onclick="hst('prophandle')">More...</a></span> <span class="details" id="prophandle">
+This will be contained by an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> whose category is "ResizingTool".
+Its <a href="../symbols/Adornment.html#adornedObject" class="linkProperty">Adornment.adornedObject</a> is the same as the <a href="../symbols/ResizingTool.html#adornedObject" class="linkProperty">adornedObject</a>.</span>
                 
                 </div>
                             </td>
@@ -1258,7 +1311,21 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets a small GraphObject that is copied as a resizing handle for the selected part.<span class="nodetails" id="xprophandleArchetype"><a class="morelink" onclick="hst('prophandleArchetype')">More...</a></span> <span class="details" id="prophandleArchetype">By default this is a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> that is a small blue rectangle.Setting this property does not raise any events.</span><div class="details" id="dprophandleArchetype"><p>Here is an example of changing the default handle to be larger yellow circles:<pre class="javascript">  myDiagram.toolManager.resizingTool.handleArchetype =    $(go.Shape, "Circle",      { width: 10, height: 10, fill: "yellow" });</pre><p>This property is ignored when a custom resizing Adornment is specified as the <a href="../symbols/Part.html#resizeAdornmentTemplate" class="linkProperty">Part.resizeAdornmentTemplate</a>.That property is normally null, in which case this tool will automatically construct Adornmentsholding eight copies of this handle archetype, each with a <a href="../symbols/GraphObject.html#alignment" class="linkProperty">GraphObject.alignment</a> being one of thestandard eight <a href="../symbols/Spot.html" class="linkConstructor">Spot</a>s.</div>
+                <p>Gets or sets a small GraphObject that is copied as a resizing handle for the selected part.<span class="nodetails" id="xprophandleArchetype"><a class="morelink" onclick="hst('prophandleArchetype')">More...</a></span> <span class="details" id="prophandleArchetype">
+By default this is a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> that is a small blue rectangle.
+Setting this property does not raise any events.
+</span><div class="details" id="dprophandleArchetype"><p>
+Here is an example of changing the default handle to be larger yellow circles:
+<pre class="javascript">
+  myDiagram.toolManager.resizingTool.handleArchetype =
+    $(go.Shape, "Circle",
+      { width: 10, height: 10, fill: "yellow" });
+</pre>
+<p>
+This property is ignored when a custom resizing Adornment is specified as the <a href="../symbols/Part.html#resizeAdornmentTemplate" class="linkProperty">Part.resizeAdornmentTemplate</a>.
+That property is normally null, in which case this tool will automatically construct Adornments
+holding eight copies of this handle archetype, each with a <a href="../symbols/GraphObject.html#alignment" class="linkProperty">GraphObject.alignment</a> being one of the
+standard eight <a href="../symbols/Spot.html" class="linkConstructor">Spot</a>s.</div>
                 
                 </div>
                             </td>
@@ -1278,7 +1345,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the <a href="../symbols/ResizingTool.html" class="linkConstructor">ResizingTool</a> snaps object sizes to the diagram's background grid during the resize.<span class="nodetails" id="xpropisGridSnapEnabled"><a class="morelink" onclick="hst('propisGridSnapEnabled')">More...</a></span> <span class="details" id="propisGridSnapEnabled">By default this property is false.Setting this property does not raise any events.</span>
+                <p>Gets or sets whether the <a href="../symbols/ResizingTool.html" class="linkConstructor">ResizingTool</a> snaps object sizes to the diagram's background grid during the resize.<span class="nodetails" id="xpropisGridSnapEnabled"><a class="morelink" onclick="hst('propisGridSnapEnabled')">More...</a></span> <span class="details" id="propisGridSnapEnabled">
+By default this property is false.
+Setting this property does not raise any events.</span>
                 
                 </div>
                             </td>
@@ -1298,7 +1367,13 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the maximum size to which the user can resize.<span class="nodetails" id="xpropmaxSize"><a class="morelink" onclick="hst('propmaxSize')">More...</a></span> <span class="details" id="propmaxSize">The effective maximum size is the minimum of this value and the <a href="../symbols/GraphObject.html#maxSize" class="linkProperty">GraphObject.maxSize</a>,independently in each direction.</span><div class="details" id="dpropmaxSize"><p>The default value is 9999 x 9999.Any new value must be of type Size; NaN width or height values are treated as Infinity.Setting this property does not raise any events.</div>
+                <p>Gets or sets the maximum size to which the user can resize.<span class="nodetails" id="xpropmaxSize"><a class="morelink" onclick="hst('propmaxSize')">More...</a></span> <span class="details" id="propmaxSize">
+The effective maximum size is the minimum of this value and the <a href="../symbols/GraphObject.html#maxSize" class="linkProperty">GraphObject.maxSize</a>,
+independently in each direction.
+</span><div class="details" id="dpropmaxSize"><p>
+The default value is 9999 x 9999.
+Any new value must be of type Size; NaN width or height values are treated as Infinity.
+Setting this property does not raise any events.</div>
                 
                 </div>
                             </td>
@@ -1318,7 +1393,13 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the minimum size to which the user can resize.<span class="nodetails" id="xpropminSize"><a class="morelink" onclick="hst('propminSize')">More...</a></span> <span class="details" id="propminSize">The effective minimum size is the maximum of this value and the <a href="../symbols/GraphObject.html#minSize" class="linkProperty">GraphObject.minSize</a>,independently in each direction.</span><div class="details" id="dpropminSize"><p>The default value is 1 x 1.Any new value must be of type Size; NaN width or height values are treated as zero.Setting this property does not raise any events.</div>
+                <p>Gets or sets the minimum size to which the user can resize.<span class="nodetails" id="xpropminSize"><a class="morelink" onclick="hst('propminSize')">More...</a></span> <span class="details" id="propminSize">
+The effective minimum size is the maximum of this value and the <a href="../symbols/GraphObject.html#minSize" class="linkProperty">GraphObject.minSize</a>,
+independently in each direction.
+</span><div class="details" id="dpropminSize"><p>
+The default value is 1 x 1.
+Any new value must be of type Size; NaN width or height values are treated as zero.
+Setting this property does not raise any events.</div>
                 
                 </div>
                             </td>
@@ -1340,7 +1421,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property returns the <a href="../symbols/Size.html" class="linkConstructor">Size</a> that was the original value of the <a href="../symbols/GraphObject.html#desiredSize" class="linkProperty">GraphObject.desiredSize</a>of the element that is being resized.
+                <p>This read-only property returns the <a href="../symbols/Size.html" class="linkConstructor">Size</a> that was the original value of the <a href="../symbols/GraphObject.html#desiredSize" class="linkProperty">GraphObject.desiredSize</a>
+of the element that is being resized.
                 
                 </div>
                             </td>
@@ -1362,7 +1444,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property returns the <a href="../symbols/Point.html" class="linkConstructor">Point</a> that was the original value of the <a href="../symbols/Part.html#location" class="linkProperty">Part.location</a>of the Part that is being resized.
+                <p>This read-only property returns the <a href="../symbols/Point.html" class="linkConstructor">Point</a> that was the original value of the <a href="../symbols/Part.html#location" class="linkProperty">Part.location</a>
+of the Part that is being resized.
                 
                 </div>
                             </td>
@@ -1408,7 +1491,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This tool may run when there is a mouse-down event on a resize handle,the diagram is not read-only and it allows resizing,the left mouse button is being used,and this tool's adornment's resize handle is at the current mouse point.<span class="nodetails" id="xmethcanStart"><a class="morelink" onclick="hst('methcanStart')">More...</a></span> <span class="details" id="methcanStart"></span><div class="details" id="dmethcanStart"><p>This method may be overridden.</div>
+                                <!--newp--><p><p>This tool may run when there is a mouse-down event on a resize handle,
+the diagram is not read-only and it allows resizing,
+the left mouse button is being used,
+and this tool's adornment's resize handle is at the current mouse point.<span class="nodetails" id="xmethcanStart"><a class="morelink" onclick="hst('methcanStart')">More...</a></span> <span class="details" id="methcanStart">
+</span><div class="details" id="dmethcanStart"><p>
+This method may be overridden.</div>
                  
                               
                               
@@ -1437,7 +1525,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>The size should be a multiple of the value returned by this method.<span class="nodetails" id="xmethcomputeCellSize"><a class="morelink" onclick="hst('methcomputeCellSize')">More...</a></span> <span class="details" id="methcomputeCellSize"></span><div class="details" id="dmethcomputeCellSize"><p>This is called once when the tool is activated.<p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>The size should be a multiple of the value returned by this method.<span class="nodetails" id="xmethcomputeCellSize"><a class="morelink" onclick="hst('methcomputeCellSize')">More...</a></span> <span class="details" id="methcomputeCellSize">
+</span><div class="details" id="dmethcomputeCellSize"><p>
+This is called once when the tool is activated.
+<p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                               
@@ -1466,7 +1559,13 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>The effective maximum resizing size is the minimum of the <a href="../symbols/ResizingTool.html#maxSize" class="linkProperty">maxSize</a> and the<a href="../symbols/ResizingTool.html#adornedObject" class="linkProperty">adornedObject</a>'s <a href="../symbols/GraphObject.html#maxSize" class="linkProperty">GraphObject.maxSize</a>.<span class="nodetails" id="xmethcomputeMaxSize"><a class="morelink" onclick="hst('methcomputeMaxSize')">More...</a></span> <span class="details" id="methcomputeMaxSize"></span><div class="details" id="dmethcomputeMaxSize"><p>This is called once when the tool is activated.<p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>The effective maximum resizing size is the minimum of the <a href="../symbols/ResizingTool.html#maxSize" class="linkProperty">maxSize</a> and the
+<a href="../symbols/ResizingTool.html#adornedObject" class="linkProperty">adornedObject</a>'s <a href="../symbols/GraphObject.html#maxSize" class="linkProperty">GraphObject.maxSize</a>.<span class="nodetails" id="xmethcomputeMaxSize"><a class="morelink" onclick="hst('methcomputeMaxSize')">More...</a></span> <span class="details" id="methcomputeMaxSize">
+</span><div class="details" id="dmethcomputeMaxSize"><p>
+This is called once when the tool is activated.
+<p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                               
@@ -1495,7 +1594,13 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>The effective minimum resizing size is the maximum of <a href="../symbols/ResizingTool.html#minSize" class="linkProperty">minSize</a> and the<a href="../symbols/ResizingTool.html#adornedObject" class="linkProperty">adornedObject</a>'s <a href="../symbols/GraphObject.html#minSize" class="linkProperty">GraphObject.minSize</a>.<span class="nodetails" id="xmethcomputeMinSize"><a class="morelink" onclick="hst('methcomputeMinSize')">More...</a></span> <span class="details" id="methcomputeMinSize"></span><div class="details" id="dmethcomputeMinSize"><p>This is called once when the tool is activated.<p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>The effective minimum resizing size is the maximum of <a href="../symbols/ResizingTool.html#minSize" class="linkProperty">minSize</a> and the
+<a href="../symbols/ResizingTool.html#adornedObject" class="linkProperty">adornedObject</a>'s <a href="../symbols/GraphObject.html#minSize" class="linkProperty">GraphObject.minSize</a>.<span class="nodetails" id="xmethcomputeMinSize"><a class="morelink" onclick="hst('methcomputeMinSize')">More...</a></span> <span class="details" id="methcomputeMinSize">
+</span><div class="details" id="dmethcomputeMinSize"><p>
+This is called once when the tool is activated.
+<p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                               
@@ -1526,7 +1631,30 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Decide whether to allow arbitrary reshaping or whether to keep the same aspect ratio of the object being resized.<span class="nodetails" id="xmethcomputeReshape"><a class="morelink" onclick="hst('methcomputeReshape')">More...</a></span> <span class="details" id="methcomputeReshape">If the <a href="../symbols/ResizingTool.html#adornedObject" class="linkProperty">adornedObject</a> is a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a>,then if the <a href="../symbols/GraphObject.html#stretch" class="linkProperty">GraphObject.stretch</a> is <a href="../symbols/GraphObject.html#Uniform" class="linkConstant">GraphObject.Uniform</a> or <a href="../symbols/GraphObject.html#UniformToFill" class="linkConstant">GraphObject.UniformToFill</a>,this method will return false to restrict reshaping to maintain the object's current ratio of height to width.Also, if the user is holding down the Shift key, this method will return false.</span><div class="details" id="dmethcomputeReshape"><p>This is called on each mouse-move and on mouse-up; the result is passed to the call to <a href="../symbols/ResizingTool.html#resize" class="linkMethod">resize</a>.This permits the user to change the behavior dynamically during resizing.<p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.For example, to always keep the object's original aspect ratio, override this method to return false.When calling <a href="../symbols/GraphObject.html#.make" class="linkStatic">GraphObject.make</a> to initialize a <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>:<pre class="javascript">$(go.Diagram, . . .,  {    "resizingTool.computeReshape": function() { return false; },    . . . })</pre>Or when overriding the method dynamically:<pre class="javascript">  myDiagram.toolManager.resizingTool.computeReshape = function() { return false; };</pre>Your override might want to look at the <code>this.adornedObject.part.data</code> properties to decide whether to allow reshaping.</div>
+                                <!--newp--><p><p>Decide whether to allow arbitrary reshaping or whether to keep the same aspect ratio of the object being resized.<span class="nodetails" id="xmethcomputeReshape"><a class="morelink" onclick="hst('methcomputeReshape')">More...</a></span> <span class="details" id="methcomputeReshape">
+If the <a href="../symbols/ResizingTool.html#adornedObject" class="linkProperty">adornedObject</a> is a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a>,
+then if the <a href="../symbols/GraphObject.html#stretch" class="linkProperty">GraphObject.stretch</a> is <a href="../symbols/GraphObject.html#Uniform" class="linkConstant">GraphObject.Uniform</a> or <a href="../symbols/GraphObject.html#UniformToFill" class="linkConstant">GraphObject.UniformToFill</a>,
+this method will return false to restrict reshaping to maintain the object's current ratio of height to width.
+Also, if the user is holding down the Shift key, this method will return false.
+</span><div class="details" id="dmethcomputeReshape"><p>
+This is called on each mouse-move and on mouse-up; the result is passed to the call to <a href="../symbols/ResizingTool.html#resize" class="linkMethod">resize</a>.
+This permits the user to change the behavior dynamically during resizing.
+<p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.
+For example, to always keep the object's original aspect ratio, override this method to return false.
+When calling <a href="../symbols/GraphObject.html#.make" class="linkStatic">GraphObject.make</a> to initialize a <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>:
+<pre class="javascript">
+$(go.Diagram, . . .,
+  {
+    "resizingTool.computeReshape": function() { return false; },
+    . . . })
+</pre>
+Or when overriding the method dynamically:
+<pre class="javascript">
+  myDiagram.toolManager.resizingTool.computeReshape = function() { return false; };
+</pre>
+Your override might want to look at the <code>this.adornedObject.part.data</code> properties to decide whether to allow reshaping.</div>
                  
                               
                               
@@ -1555,7 +1683,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Given a <a href="../symbols/Spot.html" class="linkConstructor">Spot</a> in the original bounds of the object being resized and a new <a href="../symbols/Point.html" class="linkConstructor">Point</a>,compute the new <a href="../symbols/Rect.html" class="linkConstructor">Rect</a>.<span class="nodetails" id="xmethcomputeResize"><a class="morelink" onclick="hst('methcomputeResize')">More...</a></span> <span class="details" id="methcomputeResize"></span><div class="details" id="dmethcomputeResize"><p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Given a <a href="../symbols/Spot.html" class="linkConstructor">Spot</a> in the original bounds of the object being resized and a new <a href="../symbols/Point.html" class="linkConstructor">Point</a>,
+compute the new <a href="../symbols/Rect.html" class="linkConstructor">Rect</a>.<span class="nodetails" id="xmethcomputeResize"><a class="morelink" onclick="hst('methcomputeResize')">More...</a></span> <span class="details" id="methcomputeResize">
+</span><div class="details" id="dmethcomputeResize"><p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                                   <dl class="detailList">
@@ -1625,7 +1757,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Find the <a href="../symbols/ResizingTool.html#handle" class="linkProperty">handle</a>, remember the object's original bounds,save the results of calling <a href="../symbols/ResizingTool.html#computeMinSize" class="linkMethod">computeMinSize</a>, <a href="../symbols/ResizingTool.html#computeMaxSize" class="linkMethod">computeMaxSize</a>, and <a href="../symbols/ResizingTool.html#computeCellSize" class="linkMethod">computeCellSize</a>,capture the mouse, and start a transaction.<span class="nodetails" id="xmethdoActivate"><a class="morelink" onclick="hst('methdoActivate')">More...</a></span> <span class="details" id="methdoActivate"></span><div class="details" id="dmethdoActivate"><p>If the call to <a href="../symbols/Tool.html#findToolHandleAt" class="linkMethod">Tool.findToolHandleAt</a> finds no "Resizing" tool handle, this method returns without activating this tool.</div>
+                                <!--newp--><p><p>Find the <a href="../symbols/ResizingTool.html#handle" class="linkProperty">handle</a>, remember the object's original bounds,
+save the results of calling <a href="../symbols/ResizingTool.html#computeMinSize" class="linkMethod">computeMinSize</a>, <a href="../symbols/ResizingTool.html#computeMaxSize" class="linkMethod">computeMaxSize</a>, and <a href="../symbols/ResizingTool.html#computeCellSize" class="linkMethod">computeCellSize</a>,
+capture the mouse, and start a transaction.<span class="nodetails" id="xmethdoActivate"><a class="morelink" onclick="hst('methdoActivate')">More...</a></span> <span class="details" id="methdoActivate">
+</span><div class="details" id="dmethdoActivate"><p>
+If the call to <a href="../symbols/Tool.html#findToolHandleAt" class="linkMethod">Tool.findToolHandleAt</a> finds no "Resizing" tool handle, this method returns without activating this tool.</div>
                  
                               
                               
@@ -1691,7 +1827,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Call <a href="../symbols/ResizingTool.html#resize" class="linkMethod">resize</a> with a new size determined by the current mouse point.<span class="nodetails" id="xmethdoMouseMove"><a class="morelink" onclick="hst('methdoMouseMove')">More...</a></span> <span class="details" id="methdoMouseMove">This determines the new bounds by calling <a href="../symbols/ResizingTool.html#computeResize" class="linkMethod">computeResize</a>.</span><div class="details" id="dmethdoMouseMove"><p>When this calls <a href="../symbols/ResizingTool.html#computeResize" class="linkMethod">computeResize</a> it passes as the reshape argument the result of calling <a href="../symbols/ResizingTool.html#computeReshape" class="linkMethod">computeReshape</a>.The min, max, and cell arguments will be the saved results of <a href="../symbols/ResizingTool.html#doActivate" class="linkMethod">doActivate</a>'s calls to <a href="../symbols/ResizingTool.html#computeMinSize" class="linkMethod">computeMinSize</a>, <a href="../symbols/ResizingTool.html#computeMaxSize" class="linkMethod">computeMaxSize</a>, and <a href="../symbols/ResizingTool.html#computeCellSize" class="linkMethod">computeCellSize</a>.</div>
+                                <!--newp--><p><p>Call <a href="../symbols/ResizingTool.html#resize" class="linkMethod">resize</a> with a new size determined by the current mouse point.<span class="nodetails" id="xmethdoMouseMove"><a class="morelink" onclick="hst('methdoMouseMove')">More...</a></span> <span class="details" id="methdoMouseMove">
+This determines the new bounds by calling <a href="../symbols/ResizingTool.html#computeResize" class="linkMethod">computeResize</a>.
+</span><div class="details" id="dmethdoMouseMove"><p>
+When this calls <a href="../symbols/ResizingTool.html#computeResize" class="linkMethod">computeResize</a> it passes as the reshape argument the result of calling <a href="../symbols/ResizingTool.html#computeReshape" class="linkMethod">computeReshape</a>.
+The min, max, and cell arguments will be the saved results of <a href="../symbols/ResizingTool.html#doActivate" class="linkMethod">doActivate</a>'s calls to <a href="../symbols/ResizingTool.html#computeMinSize" class="linkMethod">computeMinSize</a>, <a href="../symbols/ResizingTool.html#computeMaxSize" class="linkMethod">computeMaxSize</a>, and <a href="../symbols/ResizingTool.html#computeCellSize" class="linkMethod">computeCellSize</a>.</div>
                  
                               
                               
@@ -1713,7 +1853,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Call <a href="../symbols/ResizingTool.html#resize" class="linkMethod">resize</a> with the final bounds based on the most recent mouse point,commit the transaction, and raise the "PartResized" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a>.<span class="nodetails" id="xmethdoMouseUp"><a class="morelink" onclick="hst('methdoMouseUp')">More...</a></span> <span class="details" id="methdoMouseUp">This determines the new bounds by calling <a href="../symbols/ResizingTool.html#computeResize" class="linkMethod">computeResize</a>.</span><div class="details" id="dmethdoMouseUp"><p>When this calls <a href="../symbols/ResizingTool.html#computeResize" class="linkMethod">computeResize</a> it passes as the reshape argument the result of calling <a href="../symbols/ResizingTool.html#computeReshape" class="linkMethod">computeReshape</a>.</div>
+                                <!--newp--><p><p>Call <a href="../symbols/ResizingTool.html#resize" class="linkMethod">resize</a> with the final bounds based on the most recent mouse point,
+commit the transaction, and raise the "PartResized" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a>.<span class="nodetails" id="xmethdoMouseUp"><a class="morelink" onclick="hst('methdoMouseUp')">More...</a></span> <span class="details" id="methdoMouseUp">
+This determines the new bounds by calling <a href="../symbols/ResizingTool.html#computeResize" class="linkMethod">computeResize</a>.
+</span><div class="details" id="dmethdoMouseUp"><p>
+When this calls <a href="../symbols/ResizingTool.html#computeResize" class="linkMethod">computeResize</a> it passes as the reshape argument the result of calling <a href="../symbols/ResizingTool.html#computeReshape" class="linkMethod">computeReshape</a>.</div>
                  
                               
                               
@@ -1735,7 +1879,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Change the size of the selected part's <a href="../symbols/Part.html#resizeObject" class="linkProperty">Part.resizeObject</a> to have the given bounds.<span class="nodetails" id="xmethresize"><a class="morelink" onclick="hst('methresize')">More...</a></span> <span class="details" id="methresize">This modifies its <a href="../symbols/GraphObject.html#desiredSize" class="linkProperty">GraphObject.desiredSize</a> and maybe its <a href="../symbols/Part.html#location" class="linkProperty">Part.location</a>.</span><div class="details" id="dmethresize"><p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Change the size of the selected part's <a href="../symbols/Part.html#resizeObject" class="linkProperty">Part.resizeObject</a> to have the given bounds.<span class="nodetails" id="xmethresize"><a class="morelink" onclick="hst('methresize')">More...</a></span> <span class="details" id="methresize">
+This modifies its <a href="../symbols/GraphObject.html#desiredSize" class="linkProperty">GraphObject.desiredSize</a> and maybe its <a href="../symbols/Part.html#location" class="linkProperty">Part.location</a>.
+</span><div class="details" id="dmethresize"><p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                                   <dl class="detailList">
@@ -1768,7 +1916,22 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Show an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> with the resize handles at points along the edge of the bounds of theselected <a href="../symbols/Part.html" class="linkConstructor">Part</a>'s <a href="../symbols/Part.html#resizeObject" class="linkProperty">Part.resizeObject</a>.<span class="nodetails" id="xmethupdateAdornments"><a class="morelink" onclick="hst('methupdateAdornments')">More...</a></span> <span class="details" id="methupdateAdornments"></span><div class="details" id="dmethupdateAdornments"><p>First this finds the object in the visual tree of the Part that shouldget the resize adornment and that the user will be able to resize interactively.It finds the object that has the <a href="../symbols/Part.html#resizeObjectName" class="linkProperty">Part.resizeObjectName</a> property of the Part.If the <a href="../symbols/Part.html#resizeObjectName" class="linkProperty">Part.resizeObjectName</a> property is an empty string, as it is by default,it uses the whole part.<p>It then builds the adornment, associating it with the chosen resize object.If <a href="../symbols/Part.html#resizeAdornmentTemplate" class="linkProperty">Part.resizeAdornmentTemplate</a> is non-null, it is copied.Otherwise it constructs a new Adornment with a <a href="../symbols/Placeholder.html" class="linkConstructor">Placeholder</a> and eight copies of <a href="../symbols/ResizingTool.html#handleArchetype" class="linkProperty">handleArchetype</a>,four at the corners and four at the middle of each side.<p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Show an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> with the resize handles at points along the edge of the bounds of the
+selected <a href="../symbols/Part.html" class="linkConstructor">Part</a>'s <a href="../symbols/Part.html#resizeObject" class="linkProperty">Part.resizeObject</a>.<span class="nodetails" id="xmethupdateAdornments"><a class="morelink" onclick="hst('methupdateAdornments')">More...</a></span> <span class="details" id="methupdateAdornments">
+</span><div class="details" id="dmethupdateAdornments"><p>
+First this finds the object in the visual tree of the Part that should
+get the resize adornment and that the user will be able to resize interactively.
+It finds the object that has the <a href="../symbols/Part.html#resizeObjectName" class="linkProperty">Part.resizeObjectName</a> property of the Part.
+If the <a href="../symbols/Part.html#resizeObjectName" class="linkProperty">Part.resizeObjectName</a> property is an empty string, as it is by default,
+it uses the whole part.
+<p>
+It then builds the adornment, associating it with the chosen resize object.
+If <a href="../symbols/Part.html#resizeAdornmentTemplate" class="linkProperty">Part.resizeAdornmentTemplate</a> is non-null, it is copied.
+Otherwise it constructs a new Adornment with a <a href="../symbols/Placeholder.html" class="linkConstructor">Placeholder</a> and eight copies of <a href="../symbols/ResizingTool.html#handleArchetype" class="linkProperty">handleArchetype</a>,
+four at the corners and four at the middle of each side.
+<p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                                   <dl class="detailList">

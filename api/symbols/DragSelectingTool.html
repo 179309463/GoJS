@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1133,7 +1128,34 @@
                     <a href="../symbols/Tool.html" class="linkConstructor">Tool</a>.</span>
                 
 
-                The DragSelectingTool lets the user select multiple parts within a rectangular area drawn by the user.There is a temporary part, the <a href="../symbols/DragSelectingTool.html#box" class="linkProperty">box</a>,that shows the current area encompassed between the mouse-downpoint and the current mouse point.The default drag selection box is a magenta rectangle.You can change the <a href="../symbols/DragSelectingTool.html#box" class="linkProperty">box</a> to customize its appearance -- see its documentation for an example.<p>This tool is a standard mouse-move tool, the <a href="../symbols/ToolManager.html#dragSelectingTool" class="linkProperty">ToolManager.dragSelectingTool</a>.However this cannot start running unless there has been a motionless delayafter the mouse-down event of at least <a href="../symbols/DragSelectingTool.html#delay" class="linkProperty">delay</a> milliseconds.<p>This tool does not utilize any <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>s or tool handles,but it does temporarily add the <a href="../symbols/DragSelectingTool.html#box" class="linkProperty">box</a> part to the diagram.This tool does not modify the model or conduct any transaction.<p>Selection occurs on a mouse-up when it calls <a href="../symbols/DragSelectingTool.html#selectInRect" class="linkMethod">selectInRect</a>with the value of <a href="../symbols/DragSelectingTool.html#computeBoxBounds" class="linkMethod">computeBoxBounds</a>.Selectable parts are selected when their bounds fall entirely within the rectangle,unless <a href="../symbols/DragSelectingTool.html#isPartialInclusion" class="linkProperty">isPartialInclusion</a> is set to true.<p class="boxread">For customizing the DragSelectingTool, see <a href="../../intro/tools.html#DragSelectingTool">Introduction to the DragSelectingTool</a>.<p>If you implement your own drag-in-the-background-to-do-something tool, you may need to disablethis tool or insert your new tool in the <a href="../symbols/ToolManager.html#mouseMoveTools" class="linkProperty">ToolManager.mouseMoveTools</a> list before this tool,in order for your tool to run.  There are examples of such tools defined in the extensions directory:<a href="../../extensions/RealtimeDragSelecting.html">Realtime Drag Selecting Tool</a>,<a href="../../extensions/DragCreating.html">Drag Creating Tool</a>, and<a href="../../extensions/DragZooming.html">Drag Zooming Tool</a>.
+                The DragSelectingTool lets the user select multiple parts within a rectangular area drawn by the user.
+There is a temporary part, the <a href="../symbols/DragSelectingTool.html#box" class="linkProperty">box</a>,
+that shows the current area encompassed between the mouse-down
+point and the current mouse point.
+The default drag selection box is a magenta rectangle.
+You can change the <a href="../symbols/DragSelectingTool.html#box" class="linkProperty">box</a> to customize its appearance -- see its documentation for an example.
+<p>
+This tool is a standard mouse-move tool, the <a href="../symbols/ToolManager.html#dragSelectingTool" class="linkProperty">ToolManager.dragSelectingTool</a>.
+However this cannot start running unless there has been a motionless delay
+after the mouse-down event of at least <a href="../symbols/DragSelectingTool.html#delay" class="linkProperty">delay</a> milliseconds.
+<p>
+This tool does not utilize any <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>s or tool handles,
+but it does temporarily add the <a href="../symbols/DragSelectingTool.html#box" class="linkProperty">box</a> part to the diagram.
+This tool does not modify the model or conduct any transaction.
+<p>
+Selection occurs on a mouse-up when it calls <a href="../symbols/DragSelectingTool.html#selectInRect" class="linkMethod">selectInRect</a>
+with the value of <a href="../symbols/DragSelectingTool.html#computeBoxBounds" class="linkMethod">computeBoxBounds</a>.
+Selectable parts are selected when their bounds fall entirely within the rectangle,
+unless <a href="../symbols/DragSelectingTool.html#isPartialInclusion" class="linkProperty">isPartialInclusion</a> is set to true.
+<p class="boxread">
+For customizing the DragSelectingTool, see <a href="../../intro/tools.html#DragSelectingTool">Introduction to the DragSelectingTool</a>.
+<p>
+If you implement your own drag-in-the-background-to-do-something tool, you may need to disable
+this tool or insert your new tool in the <a href="../symbols/ToolManager.html#mouseMoveTools" class="linkProperty">ToolManager.mouseMoveTools</a> list before this tool,
+in order for your tool to run.  There are examples of such tools defined in the extensions directory:
+<a href="../../extensions/RealtimeDragSelecting.html">Realtime Drag Selecting Tool</a>,
+<a href="../../extensions/DragCreating.html">Drag Creating Tool</a>, and
+<a href="../../extensions/DragZooming.html">Drag Zooming Tool</a>.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1156,7 +1178,10 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>You do not normally need to create an instance of this toolbecause one already exists as the <a href="../symbols/ToolManager.html#dragSelectingTool" class="linkProperty">ToolManager.dragSelectingTool</a>, which you can modify.<span class="nodetails" id="xconDragSelectingTool"><a class="morelink" onclick="hst('conDragSelectingTool')">More...</a></span> <span class="details" id="conDragSelectingTool"></span><div class="details" id="dconDragSelectingTool"><p>The <a href="../symbols/Tool.html#name" class="linkProperty">Tool.name</a> of this tool is "DragSelecting".</div>
+                            <!--newp--><p><p>You do not normally need to create an instance of this tool
+because one already exists as the <a href="../symbols/ToolManager.html#dragSelectingTool" class="linkProperty">ToolManager.dragSelectingTool</a>, which you can modify.<span class="nodetails" id="xconDragSelectingTool"><a class="morelink" onclick="hst('conDragSelectingTool')">More...</a></span> <span class="details" id="conDragSelectingTool">
+</span><div class="details" id="dconDragSelectingTool"><p>
+The <a href="../symbols/Tool.html#name" class="linkProperty">Tool.name</a> of this tool is "DragSelecting".</div>
                         
                         
 
@@ -1198,7 +1223,25 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the <a href="../symbols/Part.html" class="linkConstructor">Part</a> used as the "rubber-band selection box"that is stretched to follow the mouse, as feedback for what area willbe passed to <a href="../symbols/DragSelectingTool.html#selectInRect" class="linkMethod">selectInRect</a> upon a mouse-up.<span class="nodetails" id="xpropbox"><a class="morelink" onclick="hst('propbox')">More...</a></span> <span class="details" id="propbox"></span><div class="details" id="dpropbox"><p>Initially this is a <a href="../symbols/Part.html" class="linkConstructor">Part</a> containing only a simple magenta rectangular <a href="../symbols/Shape.html" class="linkConstructor">Shape</a>.The object to be resized during dragging should be named "SHAPE".Setting this property does not raise any events.<p>Here is an example of changing the selection box to be a thicker bright green rectangle:<pre class="javascript">  myDiagram.toolManager.dragSelectingTool.box =    $(go.Part,      { layerName: "Tool", selectable: false },      $(go.Shape,        { name: "SHAPE", fill: null, stroke: "chartreuse", strokeWidth: 3 }));</pre>Note that the Part should be put into a <a href="../symbols/Layer.html" class="linkConstructor">Layer</a> that <a href="../symbols/Layer.html#isTemporary" class="linkProperty">Layer.isTemporary</a>.<p>Modifying this property while this tool <a href="../symbols/Tool.html#isActive" class="linkProperty">Tool.isActive</a> might have no effect.</div>
+                <p>Gets or sets the <a href="../symbols/Part.html" class="linkConstructor">Part</a> used as the "rubber-band selection box"
+that is stretched to follow the mouse, as feedback for what area will
+be passed to <a href="../symbols/DragSelectingTool.html#selectInRect" class="linkMethod">selectInRect</a> upon a mouse-up.<span class="nodetails" id="xpropbox"><a class="morelink" onclick="hst('propbox')">More...</a></span> <span class="details" id="propbox">
+</span><div class="details" id="dpropbox"><p>
+Initially this is a <a href="../symbols/Part.html" class="linkConstructor">Part</a> containing only a simple magenta rectangular <a href="../symbols/Shape.html" class="linkConstructor">Shape</a>.
+The object to be resized during dragging should be named "SHAPE".
+Setting this property does not raise any events.
+<p>
+Here is an example of changing the selection box to be a thicker bright green rectangle:
+<pre class="javascript">
+  myDiagram.toolManager.dragSelectingTool.box =
+    $(go.Part,
+      { layerName: "Tool", selectable: false },
+      $(go.Shape,
+        { name: "SHAPE", fill: null, stroke: "chartreuse", strokeWidth: 3 }));
+</pre>
+Note that the Part should be put into a <a href="../symbols/Layer.html" class="linkConstructor">Layer</a> that <a href="../symbols/Layer.html#isTemporary" class="linkProperty">Layer.isTemporary</a>.
+<p>
+Modifying this property while this tool <a href="../symbols/Tool.html#isActive" class="linkProperty">Tool.isActive</a> might have no effect.</div>
                 
                 </div>
                             </td>
@@ -1218,7 +1261,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the time in milliseconds for which the mouse must be stationarybefore this tool can be started.<span class="nodetails" id="xpropdelay"><a class="morelink" onclick="hst('propdelay')">More...</a></span> <span class="details" id="propdelay">The default value is 175 milliseconds.Setting this property does not raise any events.</span>
+                <p>Gets or sets the time in milliseconds for which the mouse must be stationary
+before this tool can be started.<span class="nodetails" id="xpropdelay"><a class="morelink" onclick="hst('propdelay')">More...</a></span> <span class="details" id="propdelay">
+The default value is 175 milliseconds.
+Setting this property does not raise any events.</span>
                 
                 </div>
                             </td>
@@ -1238,7 +1284,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether a selectable <a href="../symbols/Part.html" class="linkConstructor">Part</a> may be only partlyor must be completely enclosed by the rectangle given to <a href="../symbols/DragSelectingTool.html#selectInRect" class="linkMethod">selectInRect</a>.<span class="nodetails" id="xpropisPartialInclusion"><a class="morelink" onclick="hst('propisPartialInclusion')">More...</a></span> <span class="details" id="propisPartialInclusion">The default value is false: parts must be completely inside the rectangle.Setting this property does not raise any events.</span>
+                <p>Gets or sets whether a selectable <a href="../symbols/Part.html" class="linkConstructor">Part</a> may be only partly
+or must be completely enclosed by the rectangle given to <a href="../symbols/DragSelectingTool.html#selectInRect" class="linkMethod">selectInRect</a>.<span class="nodetails" id="xpropisPartialInclusion"><a class="morelink" onclick="hst('propisPartialInclusion')">More...</a></span> <span class="details" id="propisPartialInclusion">
+The default value is false: parts must be completely inside the rectangle.
+Setting this property does not raise any events.</span>
                 
                 </div>
                             </td>
@@ -1284,7 +1333,16 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This tool can run when the diagram allows selection,there has been delay of at least <a href="../symbols/DragSelectingTool.html#delay" class="linkProperty">delay</a> millisecondsafter the mouse-down before a mouse-move,there has been a mouse-drag far enough away not to be a click,and there is no selectable part at the mouse-down point.<span class="nodetails" id="xmethcanStart"><a class="morelink" onclick="hst('methcanStart')">More...</a></span> <span class="details" id="methcanStart"></span><div class="details" id="dmethcanStart"><p>The delay required to start this tool enables both this tool andthe <a href="../symbols/ToolManager.html#panningTool" class="linkProperty">ToolManager.panningTool</a> to co-exist as mode-less mouse-move tools.<p>This method may be overridden.</div>
+                                <!--newp--><p><p>This tool can run when the diagram allows selection,
+there has been delay of at least <a href="../symbols/DragSelectingTool.html#delay" class="linkProperty">delay</a> milliseconds
+after the mouse-down before a mouse-move,
+there has been a mouse-drag far enough away not to be a click,
+and there is no selectable part at the mouse-down point.<span class="nodetails" id="xmethcanStart"><a class="morelink" onclick="hst('methcanStart')">More...</a></span> <span class="details" id="methcanStart">
+</span><div class="details" id="dmethcanStart"><p>
+The delay required to start this tool enables both this tool and
+the <a href="../symbols/ToolManager.html#panningTool" class="linkProperty">ToolManager.panningTool</a> to co-exist as mode-less mouse-move tools.
+<p>
+This method may be overridden.</div>
                  
                               
                               
@@ -1313,7 +1371,10 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This just returns a <a href="../symbols/Rect.html" class="linkConstructor">Rect</a> stretching from the mouse-down point to the current mouse point.<span class="nodetails" id="xmethcomputeBoxBounds"><a class="morelink" onclick="hst('methcomputeBoxBounds')">More...</a></span> <span class="details" id="methcomputeBoxBounds"></span><div class="details" id="dmethcomputeBoxBounds"><p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This just returns a <a href="../symbols/Rect.html" class="linkConstructor">Rect</a> stretching from the mouse-down point to the current mouse point.<span class="nodetails" id="xmethcomputeBoxBounds"><a class="morelink" onclick="hst('methcomputeBoxBounds')">More...</a></span> <span class="details" id="methcomputeBoxBounds">
+</span><div class="details" id="dmethcomputeBoxBounds"><p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                               
@@ -1386,7 +1447,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Update the <a href="../symbols/DragSelectingTool.html#box" class="linkProperty">box</a>'s position and size according to the valueof <a href="../symbols/DragSelectingTool.html#computeBoxBounds" class="linkMethod">computeBoxBounds</a>.
+                                <!--newp--><p><p>Update the <a href="../symbols/DragSelectingTool.html#box" class="linkProperty">box</a>'s position and size according to the value
+of <a href="../symbols/DragSelectingTool.html#computeBoxBounds" class="linkMethod">computeBoxBounds</a>.
                  
                               
                               
@@ -1430,7 +1492,17 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This method is called to select some parts within the area of a given rectangle.<span class="nodetails" id="xmethselectInRect"><a class="morelink" onclick="hst('methselectInRect')">More...</a></span> <span class="details" id="methselectInRect"></span><div class="details" id="dmethselectInRect"><p>The normal behavior is to set the diagram's selection collection to only those partsin the given rectangle according to the <a href="../symbols/DragSelectingTool.html#isPartialInclusion" class="linkProperty">isPartialInclusion</a> policy.However, if the Shift key modifier is used, no parts are deselected --this adds to the selection the parts in the rectangle not already selected.If the Control key (Command on Mac) modifier is used, this toggles the selectedness of the parts in the rectangle.If the Control key (Command on Mac) and Shift key modifiers are both used, this deselects the parts in the rectangle.<p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This method is called to select some parts within the area of a given rectangle.<span class="nodetails" id="xmethselectInRect"><a class="morelink" onclick="hst('methselectInRect')">More...</a></span> <span class="details" id="methselectInRect">
+</span><div class="details" id="dmethselectInRect"><p>
+The normal behavior is to set the diagram's selection collection to only those parts
+in the given rectangle according to the <a href="../symbols/DragSelectingTool.html#isPartialInclusion" class="linkProperty">isPartialInclusion</a> policy.
+However, if the Shift key modifier is used, no parts are deselected --
+this adds to the selection the parts in the rectangle not already selected.
+If the Control key (Command on Mac) modifier is used, this toggles the selectedness of the parts in the rectangle.
+If the Control key (Command on Mac) and Shift key modifiers are both used, this deselects the parts in the rectangle.
+<p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                                   <dl class="detailList">

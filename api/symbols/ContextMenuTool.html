@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1133,7 +1128,32 @@
                     <a href="../symbols/Tool.html" class="linkConstructor">Tool</a>.</span>
                 
 
-                The ContextMenuTool is used to create and show a context menu.It automatically disables any browser context menu.<p>Define context menus on individual <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>s by setting <a href="../symbols/GraphObject.html#contextMenu" class="linkProperty">GraphObject.contextMenu</a>.Define a context menu for the diagram background by setting <a href="../symbols/Diagram.html#contextMenu" class="linkProperty">Diagram.contextMenu</a>.<p>This tool is a standard mouse-down tool, the <a href="../symbols/ToolManager.html#contextMenuTool" class="linkProperty">ToolManager.contextMenuTool</a>.<p>This tool does not utilize any tool handles.This tool does not modify the model or conduct any transaction,although any code invoked by context menu commands might do so.<p>There are examples of customizing this tool in the<a href="../../samples/customContextMenu.html">Custom Context Menu</a> and<a href="../../samples/htmlLightBoxContextMenu.html">HTML LightBox Context Menu</a> samples.<p>If you want to programmatically show a context menu for a particular GraphObject or for thewhole diagram, call <a href="../symbols/CommandHandler.html#showContextMenu" class="linkMethod">CommandHandler.showContextMenu</a>.That command method is also invoked by the Menu key on the keyboard.<p>Normally this shows a context menu (if available) on a right-mouse-up event.If you want it to happen on a right-mouse-down event, you'll need to move this toolfrom the <a href="../symbols/ToolManager.html#mouseUpTools" class="linkProperty">ToolManager.mouseUpTools</a> list to the <a href="../symbols/ToolManager.html#mouseDownTools" class="linkProperty">ToolManager.mouseDownTools</a> list:<pre class="javascript">myDiagram.toolManager.mouseDownTools.add(myDiagram.toolManager.replaceTool("ContextMenu", null));</pre>
+                The ContextMenuTool is used to create and show a context menu.
+It automatically disables any browser context menu.
+<p>
+Define context menus on individual <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>s by setting <a href="../symbols/GraphObject.html#contextMenu" class="linkProperty">GraphObject.contextMenu</a>.
+Define a context menu for the diagram background by setting <a href="../symbols/Diagram.html#contextMenu" class="linkProperty">Diagram.contextMenu</a>.
+<p>
+This tool is a standard mouse-down tool, the <a href="../symbols/ToolManager.html#contextMenuTool" class="linkProperty">ToolManager.contextMenuTool</a>.
+<p>
+This tool does not utilize any tool handles.
+This tool does not modify the model or conduct any transaction,
+although any code invoked by context menu commands might do so.
+<p>
+There are examples of customizing this tool in the
+<a href="../../samples/customContextMenu.html">Custom Context Menu</a> and
+<a href="../../samples/htmlLightBoxContextMenu.html">HTML LightBox Context Menu</a> samples.
+<p>
+If you want to programmatically show a context menu for a particular GraphObject or for the
+whole diagram, call <a href="../symbols/CommandHandler.html#showContextMenu" class="linkMethod">CommandHandler.showContextMenu</a>.
+That command method is also invoked by the Menu key on the keyboard.
+<p>
+Normally this shows a context menu (if available) on a right-mouse-up event.
+If you want it to happen on a right-mouse-down event, you'll need to move this tool
+from the <a href="../symbols/ToolManager.html#mouseUpTools" class="linkProperty">ToolManager.mouseUpTools</a> list to the <a href="../symbols/ToolManager.html#mouseDownTools" class="linkProperty">ToolManager.mouseDownTools</a> list:
+<pre class="javascript">
+myDiagram.toolManager.mouseDownTools.add(myDiagram.toolManager.replaceTool("ContextMenu", null));
+</pre>
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1156,7 +1176,10 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>You do not normally need to create an instance of this toolbecause one already exists as the <a href="../symbols/ToolManager.html#contextMenuTool" class="linkProperty">ToolManager.contextMenuTool</a>, which you can modify.<span class="nodetails" id="xconContextMenuTool"><a class="morelink" onclick="hst('conContextMenuTool')">More...</a></span> <span class="details" id="conContextMenuTool"></span><div class="details" id="dconContextMenuTool"><p>The <a href="../symbols/Tool.html#name" class="linkProperty">Tool.name</a> of this tool is "ContextMenu".</div>
+                            <!--newp--><p><p>You do not normally need to create an instance of this tool
+because one already exists as the <a href="../symbols/ToolManager.html#contextMenuTool" class="linkProperty">ToolManager.contextMenuTool</a>, which you can modify.<span class="nodetails" id="xconContextMenuTool"><a class="morelink" onclick="hst('conContextMenuTool')">More...</a></span> <span class="details" id="conContextMenuTool">
+</span><div class="details" id="dconContextMenuTool"><p>
+The <a href="../symbols/Tool.html#name" class="linkProperty">Tool.name</a> of this tool is "ContextMenu".</div>
                         
                         
 
@@ -1198,7 +1221,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the currently showing context menu, or null if there is none.<span class="nodetails" id="xpropcurrentContextMenu"><a class="morelink" onclick="hst('propcurrentContextMenu')">More...</a></span> <span class="details" id="propcurrentContextMenu">This is typically only set in <a href="../symbols/ContextMenuTool.html#showContextMenu" class="linkMethod">showContextMenu</a> and not by the user.It is also typically set to null in <a href="../symbols/ContextMenuTool.html#hideContextMenu" class="linkMethod">hideContextMenu</a>.</span>
+                <p>Gets or sets the currently showing context menu, or null if there is none.<span class="nodetails" id="xpropcurrentContextMenu"><a class="morelink" onclick="hst('propcurrentContextMenu')">More...</a></span> <span class="details" id="propcurrentContextMenu">
+This is typically only set in <a href="../symbols/ContextMenuTool.html#showContextMenu" class="linkMethod">showContextMenu</a> and not by the user.
+It is also typically set to null in <a href="../symbols/ContextMenuTool.html#hideContextMenu" class="linkMethod">hideContextMenu</a>.</span>
                 
                 </div>
                             </td>
@@ -1220,7 +1245,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> found at the mouse point that has a context menu.<span class="nodetails" id="xpropcurrentObject"><a class="morelink" onclick="hst('propcurrentObject')">More...</a></span> <span class="details" id="propcurrentObject">This property remembers the result returned by <a href="../symbols/ContextMenuTool.html#findObjectWithContextMenu" class="linkMethod">findObjectWithContextMenu</a> if it is a GraphObject.This value is passed to <a href="../symbols/ContextMenuTool.html#showContextMenu" class="linkMethod">showContextMenu</a> as the second argument.The value will be null if the context menu is for the diagram rather than for a particular GraphObject.</span>
+                <p>Gets or sets the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> found at the mouse point that has a context menu.<span class="nodetails" id="xpropcurrentObject"><a class="morelink" onclick="hst('propcurrentObject')">More...</a></span> <span class="details" id="propcurrentObject">
+This property remembers the result returned by <a href="../symbols/ContextMenuTool.html#findObjectWithContextMenu" class="linkMethod">findObjectWithContextMenu</a> if it is a GraphObject.
+This value is passed to <a href="../symbols/ContextMenuTool.html#showContextMenu" class="linkMethod">showContextMenu</a> as the second argument.
+The value will be null if the context menu is for the diagram rather than for a particular GraphObject.</span>
                 
                 </div>
                             </td>
@@ -1242,7 +1270,12 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the HTMLInfo or Adornment that acts as the default touch context menu.<span class="nodetails" id="xpropdefaultTouchContextMenu"><a class="morelink" onclick="hst('propdefaultTouchContextMenu')">More...</a></span> <span class="details" id="propdefaultTouchContextMenu">On touch devices, this context menu will appear even there is no context menu defined.</span><div class="details" id="dpropdefaultTouchContextMenu"><p>You can disable this functionality by setting this property to null.<p>By default shows a set of HTML elements acting as a context menu.</div>
+                <p>Gets or sets the HTMLInfo or Adornment that acts as the default touch context menu.<span class="nodetails" id="xpropdefaultTouchContextMenu"><a class="morelink" onclick="hst('propdefaultTouchContextMenu')">More...</a></span> <span class="details" id="propdefaultTouchContextMenu">
+On touch devices, this context menu will appear even there is no context menu defined.
+</span><div class="details" id="dpropdefaultTouchContextMenu"><p>
+You can disable this functionality by setting this property to null.
+<p>
+By default shows a set of HTML elements acting as a context menu.</div>
                 
                 </div>
                             </td>
@@ -1308,7 +1341,14 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Return true if it's a mouse right click that hasn't moved <a href="../symbols/Tool.html#isBeyondDragSize" class="linkMethod">Tool.isBeyondDragSize</a>and that is on a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> with a <a href="../symbols/GraphObject.html#contextMenu" class="linkProperty">GraphObject.contextMenu</a>.<span class="nodetails" id="xmethcanStart"><a class="morelink" onclick="hst('methcanStart')">More...</a></span> <span class="details" id="methcanStart">This is also true if the mouse right click is in the diagram backgroundand the diagram's <a href="../symbols/Diagram.html#contextMenu" class="linkProperty">Diagram.contextMenu</a> is non-null.</span><div class="details" id="dmethcanStart"><p>On touch devices, a special default context menu will appear even if no object with a context menu is found.<p>This method may be overridden.</div>
+                                <!--newp--><p><p>Return true if it's a mouse right click that hasn't moved <a href="../symbols/Tool.html#isBeyondDragSize" class="linkMethod">Tool.isBeyondDragSize</a>
+and that is on a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> with a <a href="../symbols/GraphObject.html#contextMenu" class="linkProperty">GraphObject.contextMenu</a>.<span class="nodetails" id="xmethcanStart"><a class="morelink" onclick="hst('methcanStart')">More...</a></span> <span class="details" id="methcanStart">
+This is also true if the mouse right click is in the diagram background
+and the diagram's <a href="../symbols/Diagram.html#contextMenu" class="linkProperty">Diagram.contextMenu</a> is non-null.
+</span><div class="details" id="dmethcanStart"><p>
+On touch devices, a special default context menu will appear even if no object with a context menu is found.
+<p>
+This method may be overridden.</div>
                  
                               
                               
@@ -1359,7 +1399,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Activate this but also execute the normal behavior that would happen on a mouse-upif this tool is in the <a href="../symbols/ToolManager.html#mouseDownTools" class="linkProperty">ToolManager.mouseDownTools</a> list.
+                                <!--newp--><p><p>Activate this but also execute the normal behavior that would happen on a mouse-up
+if this tool is in the <a href="../symbols/ToolManager.html#mouseDownTools" class="linkProperty">ToolManager.mouseDownTools</a> list.
                  
                               
                               
@@ -1403,7 +1444,14 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>If there is something found by <a href="../symbols/ContextMenuTool.html#findObjectWithContextMenu" class="linkMethod">findObjectWithContextMenu</a>,call <a href="../symbols/ContextMenuTool.html#showContextMenu" class="linkMethod">showContextMenu</a> with that object's <a href="../symbols/GraphObject.html#contextMenu" class="linkProperty">GraphObject.contextMenu</a>or the <a href="../symbols/Diagram.html#contextMenu" class="linkProperty">Diagram.contextMenu</a>.<span class="nodetails" id="xmethdoMouseUp"><a class="morelink" onclick="hst('methdoMouseUp')">More...</a></span> <span class="details" id="methdoMouseUp"></span><div class="details" id="dmethdoMouseUp"><p>Once a context menu is being shown,if a click occurs on a part of the context menu, call <a href="../symbols/Tool.html#standardMouseClick" class="linkMethod">Tool.standardMouseClick</a>.Otherwise if the click occurs elsewhere, just stop this tool.Unlike most tools, the first mouse-up should not stop this tool.</div>
+                                <!--newp--><p><p>If there is something found by <a href="../symbols/ContextMenuTool.html#findObjectWithContextMenu" class="linkMethod">findObjectWithContextMenu</a>,
+call <a href="../symbols/ContextMenuTool.html#showContextMenu" class="linkMethod">showContextMenu</a> with that object's <a href="../symbols/GraphObject.html#contextMenu" class="linkProperty">GraphObject.contextMenu</a>
+or the <a href="../symbols/Diagram.html#contextMenu" class="linkProperty">Diagram.contextMenu</a>.<span class="nodetails" id="xmethdoMouseUp"><a class="morelink" onclick="hst('methdoMouseUp')">More...</a></span> <span class="details" id="methdoMouseUp">
+</span><div class="details" id="dmethdoMouseUp"><p>
+Once a context menu is being shown,
+if a click occurs on a part of the context menu, call <a href="../symbols/Tool.html#standardMouseClick" class="linkMethod">Tool.standardMouseClick</a>.
+Otherwise if the click occurs elsewhere, just stop this tool.
+Unlike most tools, the first mouse-up should not stop this tool.</div>
                  
                               
                               
@@ -1425,7 +1473,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Find a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> at the current mouse point with a <a href="../symbols/GraphObject.html#contextMenu" class="linkProperty">GraphObject.contextMenu</a>,or return the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> if there is a <a href="../symbols/Diagram.html#contextMenu" class="linkProperty">Diagram.contextMenu</a>.<span class="nodetails" id="xmethfindObjectWithContextMenu"><a class="morelink" onclick="hst('methfindObjectWithContextMenu')">More...</a></span> <span class="details" id="methfindObjectWithContextMenu"></span><div class="details" id="dmethfindObjectWithContextMenu"><p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Find a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> at the current mouse point with a <a href="../symbols/GraphObject.html#contextMenu" class="linkProperty">GraphObject.contextMenu</a>,
+or return the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> if there is a <a href="../symbols/Diagram.html#contextMenu" class="linkProperty">Diagram.contextMenu</a>.<span class="nodetails" id="xmethfindObjectWithContextMenu"><a class="morelink" onclick="hst('methfindObjectWithContextMenu')">More...</a></span> <span class="details" id="methfindObjectWithContextMenu">
+</span><div class="details" id="dmethfindObjectWithContextMenu"><p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                                   <dl class="detailList">
@@ -1435,7 +1487,8 @@
                                           <span class="light fixedFont">{<a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>|<a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>=}</span> <b>obj</b>
                                           
                                       </dt>
-                                      <dd>Optional GraphObject with which to start searching for a context menu.If null, the Diagram will be used. If no argument is specified, this method will look for an object at the current mouse point.</dd>
+                                      <dd>Optional GraphObject with which to start searching for a context menu.
+If null, the Diagram will be used. If no argument is specified, this method will look for an object at the current mouse point.</dd>
                                   
                                   </dl>
                               
@@ -1443,7 +1496,8 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{<a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>|<a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>}</span> something with a <code>contextMenu</code>,or null if nothing can be found with a context menu at the current mouse point.</dt>
+                                      <dt><span class="light fixedFont">{<a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>|<a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>}</span> something with a <code>contextMenu</code>,
+or null if nothing can be found with a context menu at the current mouse point.</dt>
                                   
                                   </dl>
                               
@@ -1465,7 +1519,10 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Hide any context menu.<span class="nodetails" id="xmethhideContextMenu"><a class="morelink" onclick="hst('methhideContextMenu')">More...</a></span> <span class="details" id="methhideContextMenu"></span><div class="details" id="dmethhideContextMenu"><p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Hide any context menu.<span class="nodetails" id="xmethhideContextMenu"><a class="morelink" onclick="hst('methhideContextMenu')">More...</a></span> <span class="details" id="methhideContextMenu">
+</span><div class="details" id="dmethhideContextMenu"><p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                               
@@ -1487,7 +1544,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This is the <a href="../symbols/HTMLInfo.html#hide" class="linkProperty">HTMLInfo.hide</a> method for the <a href="../symbols/ContextMenuTool.html#defaultTouchContextMenu" class="linkProperty">defaultTouchContextMenu</a>.<span class="nodetails" id="xmethhideDefaultContextMenu"><a class="morelink" onclick="hst('methhideDefaultContextMenu')">More...</a></span> <span class="details" id="methhideDefaultContextMenu"></span><div class="details" id="dmethhideDefaultContextMenu"><p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a>for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This is the <a href="../symbols/HTMLInfo.html#hide" class="linkProperty">HTMLInfo.hide</a> method for the <a href="../symbols/ContextMenuTool.html#defaultTouchContextMenu" class="linkProperty">defaultTouchContextMenu</a>.<span class="nodetails" id="xmethhideDefaultContextMenu"><a class="morelink" onclick="hst('methhideDefaultContextMenu')">More...</a></span> <span class="details" id="methhideDefaultContextMenu">
+</span><div class="details" id="dmethhideDefaultContextMenu"><p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a>
+for how to override methods and how to call this base method.</div>
                  
                               
                               
@@ -1509,7 +1570,22 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This is called by <a href="../symbols/ContextMenuTool.html#showContextMenu" class="linkMethod">showContextMenu</a> to position the context menu within the viewport.<span class="nodetails" id="xmethpositionContextMenu"><a class="morelink" onclick="hst('methpositionContextMenu')">More...</a></span> <span class="details" id="methpositionContextMenu">It normally goes just below the cursor.But if the mouse is too close to the right edge or the bottom edge of the viewport,it is positioned left and/or above the cursor.</span><div class="details" id="dmethpositionContextMenu"><p>This method only operates if the context menu, an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>, does not have a <a href="../symbols/Adornment.html#placeholder" class="linkProperty">Adornment.placeholder</a>.When there is a <a href="../symbols/Placeholder.html" class="linkConstructor">Placeholder</a> in the context menu, that Adornment is automatically positionedso that the Placeholder is positioned at the adorned object, the second argument to this method.<p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.<p>If you override this method to position the context menu,the context menu has already been measured but not arranged,so you can use its <a href="../symbols/GraphObject.html#measuredBounds" class="linkProperty">GraphObject.measuredBounds</a> width and heightbut not its <a href="../symbols/GraphObject.html#actualBounds" class="linkProperty">GraphObject.actualBounds</a>.</div>
+                                <!--newp--><p><p>This is called by <a href="../symbols/ContextMenuTool.html#showContextMenu" class="linkMethod">showContextMenu</a> to position the context menu within the viewport.<span class="nodetails" id="xmethpositionContextMenu"><a class="morelink" onclick="hst('methpositionContextMenu')">More...</a></span> <span class="details" id="methpositionContextMenu">
+It normally goes just below the cursor.
+But if the mouse is too close to the right edge or the bottom edge of the viewport,
+it is positioned left and/or above the cursor.
+</span><div class="details" id="dmethpositionContextMenu"><p>
+This method only operates if the context menu, an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>, does not have a <a href="../symbols/Adornment.html#placeholder" class="linkProperty">Adornment.placeholder</a>.
+When there is a <a href="../symbols/Placeholder.html" class="linkConstructor">Placeholder</a> in the context menu, that Adornment is automatically positioned
+so that the Placeholder is positioned at the adorned object, the second argument to this method.
+<p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.
+<p>
+If you override this method to position the context menu,
+the context menu has already been measured but not arranged,
+so you can use its <a href="../symbols/GraphObject.html#measuredBounds" class="linkProperty">GraphObject.measuredBounds</a> width and height
+but not its <a href="../symbols/GraphObject.html#actualBounds" class="linkProperty">GraphObject.actualBounds</a>.</div>
                  
                               
                                   <dl class="detailList">
@@ -1525,7 +1601,8 @@
                                           <span class="light fixedFont">{<a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>}</span> <b>obj</b>
                                           
                                       </dt>
-                                      <dd>The <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> getting the context menu,or null if the context menu is for the diagram background.</dd>
+                                      <dd>The <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> getting the context menu,
+or null if the context menu is for the diagram background.</dd>
                                   
                                   </dl>
                               
@@ -1548,7 +1625,16 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Show an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> or <a href="../symbols/HTMLInfo.html" class="linkConstructor">HTMLInfo</a> as a context menu.<span class="nodetails" id="xmethshowContextMenu"><a class="morelink" onclick="hst('methshowContextMenu')">More...</a></span> <span class="details" id="methshowContextMenu"></span><div class="details" id="dmethshowContextMenu"><p>For <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> context menus: If the object's containing <a href="../symbols/Part.html" class="linkConstructor">Part</a> is data-bound,set the contextmenu's <code>Part.data</code> to the same value.The <a href="../symbols/Adornment.html#adornedObject" class="linkProperty">Adornment.adornedObject</a> property is set to the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> for which the menu is being shown.<p>This method sets the <a href="../symbols/ContextMenuTool.html#currentContextMenu" class="linkProperty">currentContextMenu</a>.<p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Show an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> or <a href="../symbols/HTMLInfo.html" class="linkConstructor">HTMLInfo</a> as a context menu.<span class="nodetails" id="xmethshowContextMenu"><a class="morelink" onclick="hst('methshowContextMenu')">More...</a></span> <span class="details" id="methshowContextMenu">
+</span><div class="details" id="dmethshowContextMenu"><p>
+For <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> context menus: If the object's containing <a href="../symbols/Part.html" class="linkConstructor">Part</a> is data-bound,
+set the contextmenu's <code>Part.data</code> to the same value.
+The <a href="../symbols/Adornment.html#adornedObject" class="linkProperty">Adornment.adornedObject</a> property is set to the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> for which the menu is being shown.
+<p>
+This method sets the <a href="../symbols/ContextMenuTool.html#currentContextMenu" class="linkProperty">currentContextMenu</a>.
+<p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                                   <dl class="detailList">
@@ -1564,7 +1650,8 @@
                                           <span class="light fixedFont">{<a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>}</span> <b>obj</b>
                                           
                                       </dt>
-                                      <dd>the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> for which the context menu is being shown;  this is null if the contextmenu is being shown for the diagram background.</dd>
+                                      <dd>the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> for which the context menu is being shown;
+  this is null if the contextmenu is being shown for the diagram background.</dd>
                                   
                                   </dl>
                               
@@ -1587,7 +1674,16 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This is the <a href="../symbols/HTMLInfo.html#show" class="linkProperty">HTMLInfo.show</a> method for the <a href="../symbols/ContextMenuTool.html#defaultTouchContextMenu" class="linkProperty">defaultTouchContextMenu</a>.<span class="nodetails" id="xmethshowDefaultContextMenu"><a class="morelink" onclick="hst('methshowDefaultContextMenu')">More...</a></span> <span class="details" id="methshowDefaultContextMenu"></span><div class="details" id="dmethshowDefaultContextMenu"><p>If the object's containing <a href="../symbols/Part.html" class="linkConstructor">Part</a> is data-bound,set the contextmenu's <code>Part.data</code> to the same value.The <a href="../symbols/Adornment.html#adornedObject" class="linkProperty">Adornment.adornedObject</a> property is set to the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>for which the menu is being shown.<p>This method may be overridden.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a>for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This is the <a href="../symbols/HTMLInfo.html#show" class="linkProperty">HTMLInfo.show</a> method for the <a href="../symbols/ContextMenuTool.html#defaultTouchContextMenu" class="linkProperty">defaultTouchContextMenu</a>.<span class="nodetails" id="xmethshowDefaultContextMenu"><a class="morelink" onclick="hst('methshowDefaultContextMenu')">More...</a></span> <span class="details" id="methshowDefaultContextMenu">
+</span><div class="details" id="dmethshowDefaultContextMenu"><p>
+If the object's containing <a href="../symbols/Part.html" class="linkConstructor">Part</a> is data-bound,
+set the contextmenu's <code>Part.data</code> to the same value.
+The <a href="../symbols/Adornment.html#adornedObject" class="linkProperty">Adornment.adornedObject</a> property is set to the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>
+for which the menu is being shown.
+<p>
+This method may be overridden.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a>
+for how to override methods and how to call this base method.</div>
                  
                               
                               

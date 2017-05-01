@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1133,7 +1128,35 @@
                     <a href="../symbols/Layout.html" class="linkConstructor">Layout</a>.</span>
                 
 
-                This simple layout places all of the Parts in a grid-like arrangement, ordered, spaced apart,and wrapping as needed.  It ignores any Links connecting the Nodes being laid out.There are many samples that use GridLayout.Every <a href="../symbols/Palette.html" class="linkConstructor">Palette</a> uses a GridLayout by default.<p class="box">If you want to experiment interactively with most of the properties, try the <a href="../../samples/gLayout.html">Grid Layout</a> sample.See samples that make use of GridLayout in the <a href="../../samples/index.html#gridlayout">samples index</a>.<p>By default this layout will sort all of the Parts alphabetically(comparing <a href="../symbols/Part.html#text" class="linkProperty">Part.text</a> values, respecting case)and position them left-to-right, separated by <a href="../symbols/GridLayout.html#spacing" class="linkProperty">spacing</a><code>.width</code>,until they do not fit in the current row.At that time it starts a new row, separated from the previous row by <a href="../symbols/GridLayout.html#spacing" class="linkProperty">spacing</a><code>.height</code>.There is a uniform cell size equal to the maximum Part width (plus spacing width)and the maximum part height (plus spacing height).At least one part is placed in each row, even if the part by itself is wider than the wrapping width.<p>You can specify values for the <a href="../symbols/GridLayout.html#cellSize" class="linkProperty">cellSize</a> <code>width</code> and <code>height</code>.If a part is wider than the cell size, it spans more than one cell in the row.You can also specify a value for the <a href="../symbols/GridLayout.html#wrappingWidth" class="linkProperty">wrappingWidth</a>,which will be used instead of the diagram's viewport width, to control when each row is considered "full".The value of <a href="../symbols/Layout.html#isViewportSized" class="linkProperty">Layout.isViewportSized</a> will be true whenthe value of <a href="../symbols/GridLayout.html#wrappingWidth" class="linkProperty">wrappingWidth</a> is <code>NaN</code>.This causes the layout to be performed again automatically as the viewport changes size.<p>You can also set <a href="../symbols/GridLayout.html#wrappingColumn" class="linkProperty">wrappingColumn</a> to limit the number of items in each row.Both the <a href="../symbols/GridLayout.html#wrappingWidth" class="linkProperty">wrappingWidth</a> and the <a href="../symbols/GridLayout.html#wrappingColumn" class="linkProperty">wrappingColumn</a> are respected when deciding when to wrap to the next row.<p>This layout is sufficiently simple that it does not use a <a href="../symbols/LayoutNetwork.html" class="linkConstructor">LayoutNetwork</a>.
+                This simple layout places all of the Parts in a grid-like arrangement, ordered, spaced apart,
+and wrapping as needed.  It ignores any Links connecting the Nodes being laid out.
+There are many samples that use GridLayout.
+Every <a href="../symbols/Palette.html" class="linkConstructor">Palette</a> uses a GridLayout by default.
+<p class="box">
+If you want to experiment interactively with most of the properties, try the <a href="../../samples/gLayout.html">Grid Layout</a> sample.
+See samples that make use of GridLayout in the <a href="../../samples/index.html#gridlayout">samples index</a>.
+<p>
+By default this layout will sort all of the Parts alphabetically
+(comparing <a href="../symbols/Part.html#text" class="linkProperty">Part.text</a> values, respecting case)
+and position them left-to-right, separated by <a href="../symbols/GridLayout.html#spacing" class="linkProperty">spacing</a><code>.width</code>,
+until they do not fit in the current row.
+At that time it starts a new row, separated from the previous row by <a href="../symbols/GridLayout.html#spacing" class="linkProperty">spacing</a><code>.height</code>.
+There is a uniform cell size equal to the maximum Part width (plus spacing width)
+and the maximum part height (plus spacing height).
+At least one part is placed in each row, even if the part by itself is wider than the wrapping width.
+<p>
+You can specify values for the <a href="../symbols/GridLayout.html#cellSize" class="linkProperty">cellSize</a> <code>width</code> and <code>height</code>.
+If a part is wider than the cell size, it spans more than one cell in the row.
+You can also specify a value for the <a href="../symbols/GridLayout.html#wrappingWidth" class="linkProperty">wrappingWidth</a>,
+which will be used instead of the diagram's viewport width, to control when each row is considered "full".
+The value of <a href="../symbols/Layout.html#isViewportSized" class="linkProperty">Layout.isViewportSized</a> will be true when
+the value of <a href="../symbols/GridLayout.html#wrappingWidth" class="linkProperty">wrappingWidth</a> is <code>NaN</code>.
+This causes the layout to be performed again automatically as the viewport changes size.
+<p>
+You can also set <a href="../symbols/GridLayout.html#wrappingColumn" class="linkProperty">wrappingColumn</a> to limit the number of items in each row.
+Both the <a href="../symbols/GridLayout.html#wrappingWidth" class="linkProperty">wrappingWidth</a> and the <a href="../symbols/GridLayout.html#wrappingColumn" class="linkProperty">wrappingColumn</a> are respected when deciding when to wrap to the next row.
+<p>
+This layout is sufficiently simple that it does not use a <a href="../symbols/LayoutNetwork.html" class="linkConstructor">LayoutNetwork</a>.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1198,7 +1221,11 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the <a href="../symbols/Part.html#location" class="linkProperty">Part.location</a> or the position should be usedto arrange each part.<span class="nodetails" id="xpropalignment"><a class="morelink" onclick="hst('propalignment')">More...</a></span> <span class="details" id="propalignment"></p>The default value is <a href="../symbols/GridLayout.html#Location" class="linkConstant">GridLayout.Location</a> -- the <a href="../symbols/Part.html#location" class="linkProperty">Part.location</a>s willbe aligned in a grid.</span>
+                <p>Gets or sets whether the <a href="../symbols/Part.html#location" class="linkProperty">Part.location</a> or the position should be used
+to arrange each part.<span class="nodetails" id="xpropalignment"><a class="morelink" onclick="hst('propalignment')">More...</a></span> <span class="details" id="propalignment">
+</p>
+The default value is <a href="../symbols/GridLayout.html#Location" class="linkConstant">GridLayout.Location</a> -- the <a href="../symbols/Part.html#location" class="linkProperty">Part.location</a>s will
+be aligned in a grid.</span>
                 
                 </div>
                             </td>
@@ -1218,7 +1245,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets how to arrange the parts.<span class="nodetails" id="xproparrangement"><a class="morelink" onclick="hst('proparrangement')">More...</a></span> <span class="details" id="proparrangement">Must be <a href="../symbols/GridLayout.html#LeftToRight" class="linkConstant">GridLayout.LeftToRight</a> or <a href="../symbols/GridLayout.html#RightToLeft" class="linkConstant">GridLayout.RightToLeft</a>.</p>The default value is <a href="../symbols/GridLayout.html#LeftToRight" class="linkConstant">GridLayout.LeftToRight</a>.</span>
+                <p>Gets or sets how to arrange the parts.<span class="nodetails" id="xproparrangement"><a class="morelink" onclick="hst('proparrangement')">More...</a></span> <span class="details" id="proparrangement">
+Must be <a href="../symbols/GridLayout.html#LeftToRight" class="linkConstant">GridLayout.LeftToRight</a> or <a href="../symbols/GridLayout.html#RightToLeft" class="linkConstant">GridLayout.RightToLeft</a>.
+</p>
+The default value is <a href="../symbols/GridLayout.html#LeftToRight" class="linkConstant">GridLayout.LeftToRight</a>.</span>
                 
                 </div>
                             </td>
@@ -1238,7 +1268,14 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the minimum part size by which each part is positioned in the grid.<span class="nodetails" id="xpropcellSize"><a class="morelink" onclick="hst('propcellSize')">More...</a></span> <span class="details" id="propcellSize"></span><div class="details" id="dpropcellSize"><p>The default value is NaN x NaN.The units are in model coordinates.<p>When the cell size is smaller than a part, the part will occupy more than one cell.This allows parts to be positioned closer to each other, but then variations in partsizes may cause them not to be aligned in perfect rows or columns.</div>
+                <p>Gets or sets the minimum part size by which each part is positioned in the grid.<span class="nodetails" id="xpropcellSize"><a class="morelink" onclick="hst('propcellSize')">More...</a></span> <span class="details" id="propcellSize">
+</span><div class="details" id="dpropcellSize"><p>
+The default value is NaN x NaN.
+The units are in model coordinates.
+<p>
+When the cell size is smaller than a part, the part will occupy more than one cell.
+This allows parts to be positioned closer to each other, but then variations in part
+sizes may cause them not to be aligned in perfect rows or columns.</div>
                 
                 </div>
                             </td>
@@ -1258,7 +1295,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the comparison function used to sort the parts.<span class="nodetails" id="xpropcomparer"><a class="morelink" onclick="hst('propcomparer')">More...</a></span> <span class="details" id="propcomparer"></p>The default value is a case-insensitive alphabetic comparisonusing the <a href="../symbols/Part.html#text" class="linkProperty">Part.text</a> property of each part.</span>
+                <p>Gets or sets the comparison function used to sort the parts.<span class="nodetails" id="xpropcomparer"><a class="morelink" onclick="hst('propcomparer')">More...</a></span> <span class="details" id="propcomparer">
+</p>
+The default value is a case-insensitive alphabetic comparison
+using the <a href="../symbols/Part.html#text" class="linkProperty">Part.text</a> property of each part.</span>
                 
                 </div>
                             </td>
@@ -1298,7 +1338,11 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets what order to place the parts.<span class="nodetails" id="xpropsorting"><a class="morelink" onclick="hst('propsorting')">More...</a></span> <span class="details" id="propsorting">Must be <a href="../symbols/GridLayout.html#Forward" class="linkConstant">GridLayout.Forward</a>, <a href="../symbols/GridLayout.html#Reverse" class="linkConstant">GridLayout.Reverse</a>,<a href="../symbols/GridLayout.html#Ascending" class="linkConstant">GridLayout.Ascending</a>, or <a href="../symbols/GridLayout.html#Descending" class="linkConstant">GridLayout.Descending</a>.</span><div class="details" id="dpropsorting"><p>The default value is <a href="../symbols/GridLayout.html#Ascending" class="linkConstant">GridLayout.Ascending</a>.</div>
+                <p>Gets or sets what order to place the parts.<span class="nodetails" id="xpropsorting"><a class="morelink" onclick="hst('propsorting')">More...</a></span> <span class="details" id="propsorting">
+Must be <a href="../symbols/GridLayout.html#Forward" class="linkConstant">GridLayout.Forward</a>, <a href="../symbols/GridLayout.html#Reverse" class="linkConstant">GridLayout.Reverse</a>,
+<a href="../symbols/GridLayout.html#Ascending" class="linkConstant">GridLayout.Ascending</a>, or <a href="../symbols/GridLayout.html#Descending" class="linkConstant">GridLayout.Descending</a>.
+</span><div class="details" id="dpropsorting"><p>
+The default value is <a href="../symbols/GridLayout.html#Ascending" class="linkConstant">GridLayout.Ascending</a>.</div>
                 
                 </div>
                             </td>
@@ -1318,7 +1362,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the minimum horizontal and vertical space between parts.<span class="nodetails" id="xpropspacing"><a class="morelink" onclick="hst('propspacing')">More...</a></span> <span class="details" id="propspacing"></p>The default value is 10 x 10.The units are in model coordinates.</span>
+                <p>Gets or sets the minimum horizontal and vertical space between parts.<span class="nodetails" id="xpropspacing"><a class="morelink" onclick="hst('propspacing')">More...</a></span> <span class="details" id="propspacing">
+</p>
+The default value is 10 x 10.
+The units are in model coordinates.</span>
                 
                 </div>
                             </td>
@@ -1338,7 +1385,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the maximum number of columns.<span class="nodetails" id="xpropwrappingColumn"><a class="morelink" onclick="hst('propwrappingColumn')">More...</a></span> <span class="details" id="propwrappingColumn"></span><div class="details" id="dpropwrappingColumn"><p>The default is NaN, meaning not to limit the number of columns.1 is a common value to produce a single column of parts.</div>
+                <p>Gets or sets the maximum number of columns.<span class="nodetails" id="xpropwrappingColumn"><a class="morelink" onclick="hst('propwrappingColumn')">More...</a></span> <span class="details" id="propwrappingColumn">
+</span><div class="details" id="dpropwrappingColumn"><p>
+The default is NaN, meaning not to limit the number of columns.
+1 is a common value to produce a single column of parts.</div>
                 
                 </div>
                             </td>
@@ -1358,7 +1408,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the wrapping width.<span class="nodetails" id="xpropwrappingWidth"><a class="morelink" onclick="hst('propwrappingWidth')">More...</a></span> <span class="details" id="propwrappingWidth"></span><div class="details" id="dpropwrappingWidth"><p>The default is NaN, meaning to use the width of the diagram's panel's viewport.Must be a value greater than 0.</div>
+                <p>Gets or sets the wrapping width.<span class="nodetails" id="xpropwrappingWidth"><a class="morelink" onclick="hst('propwrappingWidth')">More...</a></span> <span class="details" id="propwrappingWidth">
+</span><div class="details" id="dpropwrappingWidth"><p>
+The default is NaN, meaning to use the width of the diagram's panel's viewport.
+Must be a value greater than 0.</div>
                 
                 </div>
                             </td>
@@ -1465,7 +1518,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Lay out each child according to the sort order given by <a href="../symbols/GridLayout.html#comparer" class="linkProperty">GridLayout.comparer</a>;This value is used for <a href="../symbols/GridLayout.html#sorting" class="linkProperty">GridLayout.sorting</a>.
+                                <!--newp--><p><p>Lay out each child according to the sort order given by <a href="../symbols/GridLayout.html#comparer" class="linkProperty">GridLayout.comparer</a>;
+This value is used for <a href="../symbols/GridLayout.html#sorting" class="linkProperty">GridLayout.sorting</a>.
                             
 
                 </div>
@@ -1484,7 +1538,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Lay out each child in reverse sort order given by <a href="../symbols/GridLayout.html#comparer" class="linkProperty">GridLayout.comparer</a>;This value is used for <a href="../symbols/GridLayout.html#sorting" class="linkProperty">GridLayout.sorting</a>.
+                                <!--newp--><p><p>Lay out each child in reverse sort order given by <a href="../symbols/GridLayout.html#comparer" class="linkProperty">GridLayout.comparer</a>;
+This value is used for <a href="../symbols/GridLayout.html#sorting" class="linkProperty">GridLayout.sorting</a>.
                             
 
                 </div>
@@ -1503,7 +1558,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Lay out each child in the order in which they were found;This value is used for <a href="../symbols/GridLayout.html#sorting" class="linkProperty">GridLayout.sorting</a>.
+                                <!--newp--><p><p>Lay out each child in the order in which they were found;
+This value is used for <a href="../symbols/GridLayout.html#sorting" class="linkProperty">GridLayout.sorting</a>.
                             
 
                 </div>
@@ -1522,7 +1578,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Fill each row from left to right;This value is used for <a href="../symbols/GridLayout.html#arrangement" class="linkProperty">GridLayout.arrangement</a>.
+                                <!--newp--><p><p>Fill each row from left to right;
+This value is used for <a href="../symbols/GridLayout.html#arrangement" class="linkProperty">GridLayout.arrangement</a>.
                             
 
                 </div>
@@ -1541,7 +1598,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Position the part's <a href="../symbols/Part.html#location" class="linkProperty">Part.location</a> at a grid point;This value is used for <a href="../symbols/GridLayout.html#alignment" class="linkProperty">GridLayout.alignment</a>.
+                                <!--newp--><p><p>Position the part's <a href="../symbols/Part.html#location" class="linkProperty">Part.location</a> at a grid point;
+This value is used for <a href="../symbols/GridLayout.html#alignment" class="linkProperty">GridLayout.alignment</a>.
                             
 
                 </div>
@@ -1560,7 +1618,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Position the top-left corner of each part at a grid point;This value is used for <a href="../symbols/GridLayout.html#alignment" class="linkProperty">GridLayout.alignment</a>.
+                                <!--newp--><p><p>Position the top-left corner of each part at a grid point;
+This value is used for <a href="../symbols/GridLayout.html#alignment" class="linkProperty">GridLayout.alignment</a>.
                             
 
                 </div>
@@ -1579,7 +1638,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Lay out each child in reverse order from which they were found;This value is used for <a href="../symbols/GridLayout.html#sorting" class="linkProperty">GridLayout.sorting</a>.
+                                <!--newp--><p><p>Lay out each child in reverse order from which they were found;
+This value is used for <a href="../symbols/GridLayout.html#sorting" class="linkProperty">GridLayout.sorting</a>.
                             
 
                 </div>
@@ -1598,7 +1658,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Fill each row from right to left;This value is used for <a href="../symbols/GridLayout.html#arrangement" class="linkProperty">GridLayout.arrangement</a>.
+                                <!--newp--><p><p>Fill each row from right to left;
+This value is used for <a href="../symbols/GridLayout.html#arrangement" class="linkProperty">GridLayout.arrangement</a>.
                             
 
                 </div>

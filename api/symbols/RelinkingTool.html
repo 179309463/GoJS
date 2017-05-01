@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1133,7 +1128,20 @@
                     <a href="../symbols/LinkingBaseTool.html" class="linkConstructor">LinkingBaseTool</a>.</span>
                 
 
-                The RelinkingTool allows the user to reconnect an existing <a href="../symbols/Link.html" class="linkConstructor">Link</a>if the <a href="../symbols/Link.html#relinkableTo" class="linkProperty">Link.relinkableTo</a> and/or <a href="../symbols/Link.html#relinkableFrom" class="linkProperty">Link.relinkableFrom</a> properties are true.<p class="boxread">For a general discussion of validation, see <a href="../../intro/validation.html">Introduction to Validation</a>.<p>By default an instance of this tool is installed as a mouse-down tool in the<a href="../symbols/Diagram.html#toolManager" class="linkProperty">Diagram.toolManager</a> as the <a href="../symbols/ToolManager.html#relinkingTool" class="linkProperty">ToolManager.relinkingTool</a>.<p>This tool makes use of two <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>s,each including a relink handle (potentially one for each end of the link),shown when a link is selected.<p>This tool conducts a transaction while the tool is active.A successful relinking will result in a "LinkRelinked" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a> and a "Relinking" transaction.
+                The RelinkingTool allows the user to reconnect an existing <a href="../symbols/Link.html" class="linkConstructor">Link</a>
+if the <a href="../symbols/Link.html#relinkableTo" class="linkProperty">Link.relinkableTo</a> and/or <a href="../symbols/Link.html#relinkableFrom" class="linkProperty">Link.relinkableFrom</a> properties are true.
+<p class="boxread">
+For a general discussion of validation, see <a href="../../intro/validation.html">Introduction to Validation</a>.
+<p>
+By default an instance of this tool is installed as a mouse-down tool in the
+<a href="../symbols/Diagram.html#toolManager" class="linkProperty">Diagram.toolManager</a> as the <a href="../symbols/ToolManager.html#relinkingTool" class="linkProperty">ToolManager.relinkingTool</a>.
+<p>
+This tool makes use of two <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>s,
+each including a relink handle (potentially one for each end of the link),
+shown when a link is selected.
+<p>
+This tool conducts a transaction while the tool is active.
+A successful relinking will result in a "LinkRelinked" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a> and a "Relinking" transaction.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1156,7 +1164,10 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>You do not normally need to create an instance of this toolbecause one already exists as the <a href="../symbols/ToolManager.html#relinkingTool" class="linkProperty">ToolManager.relinkingTool</a>, which you can modify.<span class="nodetails" id="xconRelinkingTool"><a class="morelink" onclick="hst('conRelinkingTool')">More...</a></span> <span class="details" id="conRelinkingTool"></span><div class="details" id="dconRelinkingTool"><p>The <a href="../symbols/Tool.html#name" class="linkProperty">Tool.name</a> of this tool is "Relinking".</div>
+                            <!--newp--><p><p>You do not normally need to create an instance of this tool
+because one already exists as the <a href="../symbols/ToolManager.html#relinkingTool" class="linkProperty">ToolManager.relinkingTool</a>, which you can modify.<span class="nodetails" id="xconRelinkingTool"><a class="morelink" onclick="hst('conRelinkingTool')">More...</a></span> <span class="details" id="conRelinkingTool">
+</span><div class="details" id="dconRelinkingTool"><p>
+The <a href="../symbols/Tool.html#name" class="linkProperty">Tool.name</a> of this tool is "Relinking".</div>
                         
                         
 
@@ -1198,7 +1209,17 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets a small GraphObject that is copied as a relinking handle for the selected link pathat the "from" end of the link.<span class="nodetails" id="xpropfromHandleArchetype"><a class="morelink" onclick="hst('propfromHandleArchetype')">More...</a></span> <span class="details" id="propfromHandleArchetype">By default this is a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> that is a small blue diamond.Setting this property does not raise any events.</span><div class="details" id="dpropfromHandleArchetype"><p>Here is an example of changing the default handle to be larger green triangles:<pre class="javascript">myDiagram.toolManager.relinkingTool.toHandleArchetype =  $(go.Shape, "Triangle",    { width: 10, height: 10, fill: "limegreen", segmentIndex: 0 });</pre></div>
+                <p>Gets or sets a small GraphObject that is copied as a relinking handle for the selected link path
+at the "from" end of the link.<span class="nodetails" id="xpropfromHandleArchetype"><a class="morelink" onclick="hst('propfromHandleArchetype')">More...</a></span> <span class="details" id="propfromHandleArchetype">
+By default this is a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> that is a small blue diamond.
+Setting this property does not raise any events.
+</span><div class="details" id="dpropfromHandleArchetype"><p>
+Here is an example of changing the default handle to be larger green triangles:
+<pre class="javascript">
+myDiagram.toolManager.relinkingTool.toHandleArchetype =
+  $(go.Shape, "Triangle",
+    { width: 10, height: 10, fill: "limegreen", segmentIndex: 0 });
+</pre></div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1226,7 +1247,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property returns the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that is the tool handle being dragged by the user.<span class="nodetails" id="xprophandle"><a class="morelink" onclick="hst('prophandle')">More...</a></span> <span class="details" id="prophandle">This will be contained by an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> whose category is "RelinkFrom" or "RelinkTo".Its <a href="../symbols/Adornment.html#adornedPart" class="linkProperty">Adornment.adornedPart</a> is the same as the <a href="../symbols/LinkingBaseTool.html#originalLink" class="linkProperty">originalLink</a>.</span>
+                <p>This read-only property returns the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that is the tool handle being dragged by the user.<span class="nodetails" id="xprophandle"><a class="morelink" onclick="hst('prophandle')">More...</a></span> <span class="details" id="prophandle">
+This will be contained by an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> whose category is "RelinkFrom" or "RelinkTo".
+Its <a href="../symbols/Adornment.html#adornedPart" class="linkProperty">Adornment.adornedPart</a> is the same as the <a href="../symbols/LinkingBaseTool.html#originalLink" class="linkProperty">originalLink</a>.</span>
                 
                 </div>
                             </td>
@@ -1246,7 +1269,17 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets a small GraphObject that is copied as a relinking handle for the selected link pathat the "to" end of the link.<span class="nodetails" id="xproptoHandleArchetype"><a class="morelink" onclick="hst('proptoHandleArchetype')">More...</a></span> <span class="details" id="proptoHandleArchetype">By default this is a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> that is a small blue diamond.Setting this property does not raise any events.</span><div class="details" id="dproptoHandleArchetype"><p>Here is an example of changing the default handle to be larger orange triangles:<pre class="javascript">  myDiagram.toolManager.relinkingTool.toHandleArchetype =  $(go.Shape, "Triangle",    { width: 10, height: 10, fill: "orange", segmentIndex: -1 });</pre></div>
+                <p>Gets or sets a small GraphObject that is copied as a relinking handle for the selected link path
+at the "to" end of the link.<span class="nodetails" id="xproptoHandleArchetype"><a class="morelink" onclick="hst('proptoHandleArchetype')">More...</a></span> <span class="details" id="proptoHandleArchetype">
+By default this is a <a href="../symbols/Shape.html" class="linkConstructor">Shape</a> that is a small blue diamond.
+Setting this property does not raise any events.
+</span><div class="details" id="dproptoHandleArchetype"><p>
+Here is an example of changing the default handle to be larger orange triangles:
+<pre class="javascript">
+  myDiagram.toolManager.relinkingTool.toHandleArchetype =
+  $(go.Shape, "Triangle",
+    { width: 10, height: 10, fill: "orange", segmentIndex: -1 });
+</pre></div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1300,7 +1333,10 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This tool can run when the diagram allows relinking, the model is modifiable,and there is a relink handle at the mouse-down point.<span class="nodetails" id="xmethcanStart"><a class="morelink" onclick="hst('methcanStart')">More...</a></span> <span class="details" id="methcanStart"></span><div class="details" id="dmethcanStart"><p>This method may be overridden, but we recommend that you call this base method.</div>
+                                <!--newp--><p><p>This tool can run when the diagram allows relinking, the model is modifiable,
+and there is a relink handle at the mouse-down point.<span class="nodetails" id="xmethcanStart"><a class="morelink" onclick="hst('methcanStart')">More...</a></span> <span class="details" id="methcanStart">
+</span><div class="details" id="dmethcanStart"><p>
+This method may be overridden, but we recommend that you call this base method.</div>
                  
                               
                               
@@ -1331,7 +1367,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Make a temporary link look and act like the real Link being relinked.<span class="nodetails" id="xmethcopyLinkProperties"><a class="morelink" onclick="hst('methcopyLinkProperties')">More...</a></span> <span class="details" id="methcopyLinkProperties">By default this method copies many of the routing-oriented propertiesfrom the <a href="../symbols/LinkingBaseTool.html#originalLink" class="linkProperty">LinkingBaseTool.originalLink</a> to the <a href="../symbols/LinkingBaseTool.html#temporaryLink" class="linkProperty">LinkingBaseTool.temporaryLink</a>.</span><div class="details" id="dmethcopyLinkProperties"><p>This method may be overridden, but we recommend that you call this base method.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Make a temporary link look and act like the real Link being relinked.<span class="nodetails" id="xmethcopyLinkProperties"><a class="morelink" onclick="hst('methcopyLinkProperties')">More...</a></span> <span class="details" id="methcopyLinkProperties">
+By default this method copies many of the routing-oriented properties
+from the <a href="../symbols/LinkingBaseTool.html#originalLink" class="linkProperty">LinkingBaseTool.originalLink</a> to the <a href="../symbols/LinkingBaseTool.html#temporaryLink" class="linkProperty">LinkingBaseTool.temporaryLink</a>.
+</span><div class="details" id="dmethcopyLinkProperties"><p>
+This method may be overridden, but we recommend that you call this base method.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                                   <dl class="detailList">
@@ -1370,7 +1411,20 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Start the relinking operation.<span class="nodetails" id="xmethdoActivate"><a class="morelink" onclick="hst('methdoActivate')">More...</a></span> <span class="details" id="methdoActivate"></span><div class="details" id="dmethdoActivate"><p>Find the relink handle by calling <a href="../symbols/Tool.html#findToolHandleAt" class="linkMethod">Tool.findToolHandleAt</a>looking for either the "RelinkFrom" adornment or the "RelinkTo" adornment,saving the result in <a href="../symbols/RelinkingTool.html#handle" class="linkProperty">handle</a>.<p>This starts a transaction, captures the mouse, and sets the cursor.<p>The value of <a href="../symbols/LinkingBaseTool.html#isForwards" class="linkProperty">isForwards</a> is set depending on the category of the relink handle found.The <a href="../symbols/LinkingBaseTool.html#originalLink" class="linkProperty">LinkingBaseTool.originalLink</a> property and various"Original..." port and node properties are set too.The temporary nodes and temporary link are also initialized.<p>This method may be overridden, but we recommend that you call this base method.</div>
+                                <!--newp--><p><p>Start the relinking operation.<span class="nodetails" id="xmethdoActivate"><a class="morelink" onclick="hst('methdoActivate')">More...</a></span> <span class="details" id="methdoActivate">
+</span><div class="details" id="dmethdoActivate"><p>
+Find the relink handle by calling <a href="../symbols/Tool.html#findToolHandleAt" class="linkMethod">Tool.findToolHandleAt</a>
+looking for either the "RelinkFrom" adornment or the "RelinkTo" adornment,
+saving the result in <a href="../symbols/RelinkingTool.html#handle" class="linkProperty">handle</a>.
+<p>
+This starts a transaction, captures the mouse, and sets the cursor.
+<p>
+The value of <a href="../symbols/LinkingBaseTool.html#isForwards" class="linkProperty">isForwards</a> is set depending on the category of the relink handle found.
+The <a href="../symbols/LinkingBaseTool.html#originalLink" class="linkProperty">LinkingBaseTool.originalLink</a> property and various
+"Original..." port and node properties are set too.
+The temporary nodes and temporary link are also initialized.
+<p>
+This method may be overridden, but we recommend that you call this base method.</div>
                  
                               
                               
@@ -1392,7 +1446,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Finishing the linking operation stops the transaction, releases the mouse, and resets the cursor.<span class="nodetails" id="xmethdoDeactivate"><a class="morelink" onclick="hst('methdoDeactivate')">More...</a></span> <span class="details" id="methdoDeactivate"></span><div class="details" id="dmethdoDeactivate"><p>This method may be overridden, but we recommend that you call this base method.</div>
+                                <!--newp--><p><p>Finishing the linking operation stops the transaction, releases the mouse, and resets the cursor.<span class="nodetails" id="xmethdoDeactivate"><a class="morelink" onclick="hst('methdoDeactivate')">More...</a></span> <span class="details" id="methdoDeactivate">
+</span><div class="details" id="dmethdoDeactivate"><p>
+This method may be overridden, but we recommend that you call this base method.</div>
                  
                               
                               
@@ -1414,7 +1470,20 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>A mouse-up ends the relinking operation; if there is a valid <a href="../symbols/LinkingBaseTool.html#targetPort" class="linkProperty">targetPort</a> nearby,this modifies the old link to connect with the target port.<span class="nodetails" id="xmethdoMouseUp"><a class="morelink" onclick="hst('methdoMouseUp')">More...</a></span> <span class="details" id="methdoMouseUp"></span><div class="details" id="dmethdoMouseUp"><p>A successful relinking calls <a href="../symbols/RelinkingTool.html#reconnectLink" class="linkMethod">reconnectLink</a> to actually change the link.The "LinkRelinked" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a> is raised with the link as the <a href="../symbols/DiagramEvent.html#subject" class="linkProperty">DiagramEvent.subject</a>and with the now-disconnected original port as the <a href="../symbols/DiagramEvent.html#parameter" class="linkProperty">DiagramEvent.parameter</a>.If the link was not reconnected, this calls <a href="../symbols/RelinkingTool.html#doNoRelink" class="linkMethod">doNoRelink</a>.In any case this stops the tool.<p>A failure to find a valid target port results in no changes and no DiagramEvent.<p>This method may be overridden, but we recommend that you call this base method.You might find it easier to override <a href="../symbols/RelinkingTool.html#reconnectLink" class="linkMethod">reconnectLink</a>.It is actually most common to implement a "LinkRelinked" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a> listener on the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.</div>
+                                <!--newp--><p><p>A mouse-up ends the relinking operation; if there is a valid <a href="../symbols/LinkingBaseTool.html#targetPort" class="linkProperty">targetPort</a> nearby,
+this modifies the old link to connect with the target port.<span class="nodetails" id="xmethdoMouseUp"><a class="morelink" onclick="hst('methdoMouseUp')">More...</a></span> <span class="details" id="methdoMouseUp">
+</span><div class="details" id="dmethdoMouseUp"><p>
+A successful relinking calls <a href="../symbols/RelinkingTool.html#reconnectLink" class="linkMethod">reconnectLink</a> to actually change the link.
+The "LinkRelinked" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a> is raised with the link as the <a href="../symbols/DiagramEvent.html#subject" class="linkProperty">DiagramEvent.subject</a>
+and with the now-disconnected original port as the <a href="../symbols/DiagramEvent.html#parameter" class="linkProperty">DiagramEvent.parameter</a>.
+If the link was not reconnected, this calls <a href="../symbols/RelinkingTool.html#doNoRelink" class="linkMethod">doNoRelink</a>.
+In any case this stops the tool.
+<p>
+A failure to find a valid target port results in no changes and no DiagramEvent.
+<p>
+This method may be overridden, but we recommend that you call this base method.
+You might find it easier to override <a href="../symbols/RelinkingTool.html#reconnectLink" class="linkMethod">reconnectLink</a>.
+It is actually most common to implement a "LinkRelinked" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a> listener on the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.</div>
                  
                               
                               
@@ -1438,7 +1507,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This method is called upon a mouse up when <a href="../symbols/RelinkingTool.html#reconnectLink" class="linkMethod">reconnectLink</a> is not called.<span class="nodetails" id="xmethdoNoRelink"><a class="morelink" onclick="hst('methdoNoRelink')">More...</a></span> <span class="details" id="methdoNoRelink"></span><div class="details" id="dmethdoNoRelink"><p>This method may be overridden.  By default this method does nothing.If you want to successfully perform any side-effects, you will need to set <a href="../symbols/Tool.html#transactionResult" class="linkProperty">Tool.transactionResult</a> to a string;otherwise this tool's transaction will be rolled-back.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This method is called upon a mouse up when <a href="../symbols/RelinkingTool.html#reconnectLink" class="linkMethod">reconnectLink</a> is not called.<span class="nodetails" id="xmethdoNoRelink"><a class="morelink" onclick="hst('methdoNoRelink')">More...</a></span> <span class="details" id="methdoNoRelink">
+</span><div class="details" id="dmethdoNoRelink"><p>
+This method may be overridden.  By default this method does nothing.
+If you want to successfully perform any side-effects, you will need to set <a href="../symbols/Tool.html#transactionResult" class="linkProperty">Tool.transactionResult</a> to a string;
+otherwise this tool's transaction will be rolled-back.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                                   <dl class="detailList">
@@ -1477,7 +1551,10 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Modify an existing <a href="../symbols/Link.html" class="linkConstructor">Link</a> to connect to a new node and port.<span class="nodetails" id="xmethreconnectLink"><a class="morelink" onclick="hst('methreconnectLink')">More...</a></span> <span class="details" id="methreconnectLink"></span><div class="details" id="dmethreconnectLink"><p>This method may be overridden, but we recommend that you call this base method.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Modify an existing <a href="../symbols/Link.html" class="linkConstructor">Link</a> to connect to a new node and port.<span class="nodetails" id="xmethreconnectLink"><a class="morelink" onclick="hst('methreconnectLink')">More...</a></span> <span class="details" id="methreconnectLink">
+</span><div class="details" id="dmethreconnectLink"><p>
+This method may be overridden, but we recommend that you call this base method.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1542,7 +1619,10 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Show an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> for each end of the <a href="../symbols/Link.html" class="linkConstructor">Link</a> that the user may reconnect.<span class="nodetails" id="xmethupdateAdornments"><a class="morelink" onclick="hst('methupdateAdornments')">More...</a></span> <span class="details" id="methupdateAdornments">The Adornment may have a copy of <a href="../symbols/RelinkingTool.html#fromHandleArchetype" class="linkProperty">fromHandleArchetype</a> and/or <a href="../symbols/RelinkingTool.html#toHandleArchetype" class="linkProperty">toHandleArchetype</a>.</span><div class="details" id="dmethupdateAdornments"><p>This method may be overridden.</div>
+                                <!--newp--><p><p>Show an <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a> for each end of the <a href="../symbols/Link.html" class="linkConstructor">Link</a> that the user may reconnect.<span class="nodetails" id="xmethupdateAdornments"><a class="morelink" onclick="hst('methupdateAdornments')">More...</a></span> <span class="details" id="methupdateAdornments">
+The Adornment may have a copy of <a href="../symbols/RelinkingTool.html#fromHandleArchetype" class="linkProperty">fromHandleArchetype</a> and/or <a href="../symbols/RelinkingTool.html#toHandleArchetype" class="linkProperty">toHandleArchetype</a>.
+</span><div class="details" id="dmethupdateAdornments"><p>
+This method may be overridden.</div>
                  
                               
                                   <dl class="detailList">

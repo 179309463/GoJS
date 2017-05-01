@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1133,7 +1128,27 @@
                     <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.</span>
                 
 
-                An Overview is a <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> that displays all of a different diagram,with a rectangular box showing the viewport displayed by that other diagram.<p class="box">For more discussion, see <a href="../../intro/overview.html">Introduction to Overviews</a>.See samples that make use of Overviews in the <a href="../../samples/index.html#overview">samples index</a>.<p>All you need to do is set <a href="../symbols/Overview.html#observed" class="linkProperty">Overview.observed</a>.For example:<p><pre>  var myDiagram = new go.Diagram("myDiagramDIV");  . . . other initialization . . .  // create and initialize the Overview:  new go.Overview("myOverviewDIV").observed = myDiagram;</pre><p>The Overview draws what the observed Diagram is displaying,so setting or modifying any diagram templates or template Maps has no effect.At the current time methods such as <a href="../symbols/Diagram.html#makeImage" class="linkMethod">Diagram.makeImage</a>,<a href="../symbols/Diagram.html#makeImageData" class="linkMethod">Diagram.makeImageData</a> and <a href="../symbols/Diagram.html#makeSvg" class="linkMethod">Diagram.makeSvg</a> do not work on Overviews.
+                An Overview is a <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> that displays all of a different diagram,
+with a rectangular box showing the viewport displayed by that other diagram.
+<p class="box">
+For more discussion, see <a href="../../intro/overview.html">Introduction to Overviews</a>.
+See samples that make use of Overviews in the <a href="../../samples/index.html#overview">samples index</a>.
+<p>
+All you need to do is set <a href="../symbols/Overview.html#observed" class="linkProperty">Overview.observed</a>.
+For example:
+<p>
+<pre>
+  var myDiagram = new go.Diagram("myDiagramDIV");
+  . . . other initialization . . .
+
+  // create and initialize the Overview:
+  new go.Overview("myOverviewDIV").observed = myDiagram;
+</pre>
+<p>
+The Overview draws what the observed Diagram is displaying,
+so setting or modifying any diagram templates or template Maps has no effect.
+At the current time methods such as <a href="../symbols/Diagram.html#makeImage" class="linkMethod">Diagram.makeImage</a>,
+<a href="../symbols/Diagram.html#makeImageData" class="linkMethod">Diagram.makeImageData</a> and <a href="../symbols/Diagram.html#makeSvg" class="linkMethod">Diagram.makeSvg</a> do not work on Overviews.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1209,7 +1224,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the rectangular <a href="../symbols/Part.html" class="linkConstructor">Part</a> that represents theviewport of the <a href="../symbols/Overview.html#observed" class="linkProperty">observed</a> <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.<span class="nodetails" id="xpropbox"><a class="morelink" onclick="hst('propbox')">More...</a></span> <span class="details" id="propbox">By default the part contains only a magenta <a href="../symbols/Shape.html" class="linkConstructor">Shape</a>.</span>
+                <p>Gets or sets the rectangular <a href="../symbols/Part.html" class="linkConstructor">Part</a> that represents the
+viewport of the <a href="../symbols/Overview.html#observed" class="linkProperty">observed</a> <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.<span class="nodetails" id="xpropbox"><a class="morelink" onclick="hst('propbox')">More...</a></span> <span class="details" id="propbox">
+By default the part contains only a magenta <a href="../symbols/Shape.html" class="linkConstructor">Shape</a>.</span>
                 
                 </div>
                             </td>
@@ -1251,7 +1268,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> for which this Overview isdisplaying a model and showing its viewport into that model.<span class="nodetails" id="xpropobserved"><a class="morelink" onclick="hst('propobserved')">More...</a></span> <span class="details" id="propobserved"></span><div class="details" id="dpropobserved"><p>The value must be null or another Diagram, but may not be an Overview.</div>
+                <p>Gets or sets the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a> for which this Overview is
+displaying a model and showing its viewport into that model.<span class="nodetails" id="xpropobserved"><a class="morelink" onclick="hst('propobserved')">More...</a></span> <span class="details" id="propobserved">
+</span><div class="details" id="dpropobserved"><p>
+The value must be null or another Diagram, but may not be an Overview.</div>
                 
                 </div>
                             </td>

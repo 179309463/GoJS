@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1133,7 +1128,24 @@
                     .</span>
                 
 
-                This interface defines properties and methods for iterating over a collection;it provides the <a href="../symbols/Iterator.html#next" class="linkMethod">next</a> predicate and the <a href="../symbols/Iterator.html#value" class="linkProperty">value</a> read-only property.Some Iterators also provide <code>key</code> property values along with each <code>value</code>.<p>Typical usage is:<pre> var it = anIterableCollection.iterator; while (it.next()) {   var item = it.value; }</pre><p>Many iterators will signal an error if <a href="../symbols/Iterator.html#next" class="linkMethod">next</a> is calledafter the underlying collection has been modified.<p>To avoid confusion when dealing with <a href="../symbols/Iterable.html" class="linkConstructor">Iterable</a>s,iterators implement the <a href="../symbols/Iterable.html#iterator" class="linkProperty">Iterable.iterator</a> propertyby just returning themselves.
+                This interface defines properties and methods for iterating over a collection;
+it provides the <a href="../symbols/Iterator.html#next" class="linkMethod">next</a> predicate and the <a href="../symbols/Iterator.html#value" class="linkProperty">value</a> read-only property.
+Some Iterators also provide <code>key</code> property values along with each <code>value</code>.
+<p>
+Typical usage is:
+<pre>
+ var it = anIterableCollection.iterator;
+ while (it.next()) {
+   var item = it.value;
+ }
+</pre>
+<p>
+Many iterators will signal an error if <a href="../symbols/Iterator.html#next" class="linkMethod">next</a> is called
+after the underlying collection has been modified.
+<p>
+To avoid confusion when dealing with <a href="../symbols/Iterable.html" class="linkConstructor">Iterable</a>s,
+iterators implement the <a href="../symbols/Iterable.html#iterator" class="linkProperty">Iterable.iterator</a> property
+by just returning themselves.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1218,7 +1230,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Returns itself, which is convenient for code that expects an <a href="../symbols/Iterable.html" class="linkConstructor">Iterable</a>instead of an <a href="../symbols/Iterator.html" class="linkConstructor">Iterator</a>.
+                <p>Returns itself, which is convenient for code that expects an <a href="../symbols/Iterable.html" class="linkConstructor">Iterable</a>
+instead of an <a href="../symbols/Iterator.html" class="linkConstructor">Iterator</a>.
                 
                 </div>
                             </td>
@@ -1302,7 +1315,14 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This is true if all invocations of the given predicate on items in the collection are true.<span class="nodetails" id="xmethall"><a class="morelink" onclick="hst('methall')">More...</a></span> <span class="details" id="methall"></span><div class="details" id="dmethall"><p>Call the given predicate on each item in the collection.As soon as a call returns false, this returns false.Otherwise this returns true.For an empty collection this returns true.<p>This automatically <a href="../symbols/Iterator.html#reset" class="linkMethod">reset</a>'s itself when it is called.</div>
+                                <!--newp--><p><p>This is true if all invocations of the given predicate on items in the collection are true.<span class="nodetails" id="xmethall"><a class="morelink" onclick="hst('methall')">More...</a></span> <span class="details" id="methall">
+</span><div class="details" id="dmethall"><p>
+Call the given predicate on each item in the collection.
+As soon as a call returns false, this returns false.
+Otherwise this returns true.
+For an empty collection this returns true.
+<p>
+This automatically <a href="../symbols/Iterator.html#reset" class="linkMethod">reset</a>'s itself when it is called.</div>
                  
                               
                                   <dl class="detailList">
@@ -1344,7 +1364,14 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This is true if any invocation of the given predicate on items in the collection is true.<span class="nodetails" id="xmethany"><a class="morelink" onclick="hst('methany')">More...</a></span> <span class="details" id="methany"></span><div class="details" id="dmethany"><p>Call the given predicate on each item in the collection.As soon as a call returns true, this returns true.Otherwise this returns false.For an empty collection this returns false.<p>This automatically <a href="../symbols/Iterator.html#reset" class="linkMethod">reset</a>'s itself when it is called.</div>
+                                <!--newp--><p><p>This is true if any invocation of the given predicate on items in the collection is true.<span class="nodetails" id="xmethany"><a class="morelink" onclick="hst('methany')">More...</a></span> <span class="details" id="methany">
+</span><div class="details" id="dmethany"><p>
+Call the given predicate on each item in the collection.
+As soon as a call returns true, this returns true.
+Otherwise this returns false.
+For an empty collection this returns false.
+<p>
+This automatically <a href="../symbols/Iterator.html#reset" class="linkMethod">reset</a>'s itself when it is called.</div>
                  
                               
                                   <dl class="detailList">
@@ -1386,7 +1413,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Call the given function on each item in the collection.<span class="nodetails" id="xmetheach"><a class="morelink" onclick="hst('metheach')">More...</a></span> <span class="details" id="metheach"></span><div class="details" id="dmetheach"><p>This automatically <a href="../symbols/Iterator.html#reset" class="linkMethod">reset</a>'s itself when it is called.</div>
+                                <!--newp--><p><p>Call the given function on each item in the collection.<span class="nodetails" id="xmetheach"><a class="morelink" onclick="hst('metheach')">More...</a></span> <span class="details" id="metheach">
+</span><div class="details" id="dmetheach"><p>
+This automatically <a href="../symbols/Iterator.html#reset" class="linkMethod">reset</a>'s itself when it is called.</div>
                  
                               
                                   <dl class="detailList">
@@ -1428,7 +1457,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Advance if needed to the first item in the collection and return it, or return null if there is none.<span class="nodetails" id="xmethfirst"><a class="morelink" onclick="hst('methfirst')">More...</a></span> <span class="details" id="methfirst"></span><div class="details" id="dmethfirst"><p>Caution: this returns a <i>key/value pair</i>, not a <i>value</i>, for <a href="../symbols/Map.html" class="linkConstructor">Map</a> iterators.</div>
+                                <!--newp--><p><p>Advance if needed to the first item in the collection and return it, or return null if there is none.<span class="nodetails" id="xmethfirst"><a class="morelink" onclick="hst('methfirst')">More...</a></span> <span class="details" id="methfirst">
+</span><div class="details" id="dmethfirst"><p>
+Caution: this returns a <i>key/value pair</i>, not a <i>value</i>, for <a href="../symbols/Map.html" class="linkConstructor">Map</a> iterators.</div>
                  
                               
                               
@@ -1457,7 +1488,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Call this method to advance the iterator to the next item in the collection.<span class="nodetails" id="xmethnext"><a class="morelink" onclick="hst('methnext')">More...</a></span> <span class="details" id="methnext">This should be called before accessing any <a href="../symbols/Iterator.html#value" class="linkProperty">value</a>.</span>
+                                <!--newp--><p><p>Call this method to advance the iterator to the next item in the collection.<span class="nodetails" id="xmethnext"><a class="morelink" onclick="hst('methnext')">More...</a></span> <span class="details" id="methnext">
+This should be called before accessing any <a href="../symbols/Iterator.html#value" class="linkProperty">value</a>.</span>
                  
                               
                               

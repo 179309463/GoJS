@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1131,7 +1126,48 @@
                 
                 
 
-                An unordered iterable collection of key/value pairs that cannot contain two instances of the same key.It optionally enforces the type of the key and the type of the associated value.<p>To create a Map:<pre>  var map = new go.Map("string", "number");  map.add("one", 1);  map.add("two", 2);  map.add("three", 3);  // now map.count === 3  // and map.getValue("two") === 2  // and map.contains("zero") === false</pre><p>You can iterate over the key/value pairs in a Map:<pre>  var it = aMap.iterator;  while (it.next()) {    window.console.log(it.key + ": " + it.value);  }</pre>Or:<pre>  aMap.each(function(kvp) {    window.console.log(kvp.key + ": " + kvp.value);  });</pre>But note that there is no guaranteed ordering amongst the key/value pairs.<p>Call <a href="../symbols/Map.html#toKeySet" class="linkMethod">toKeySet</a> to get a read-only <a href="../symbols/Set.html" class="linkConstructor">Set</a> that holds all of the keys of a Map.Iterating over that Set will produce values that are the keys in the Map.<p>Although not precisely implementing the features and semantics of the EcmaScript 6 <b>Map</b> class,this <b>GoJS</b> Map class has synonyms for the following methods and property:<ul>  <li><b>get(key)</b>: <a href="../symbols/Map.html#getValue" class="linkMethod">getValue</a></li>  <li><b>set(key,val)</b>: <a href="../symbols/Map.html#add" class="linkMethod">add</a></li>  <li><b>has(key)</b>: <a href="../symbols/Map.html#contains" class="linkMethod">contains</a></li>  <li><b>delete(key)</b>: <a href="../symbols/Map.html#remove" class="linkMethod">remove</a></li>  <li><b>clear()</b>: <a href="../symbols/Map.html#clear" class="linkMethod">clear</a></li>  <li><b>size</b>: <a href="../symbols/Map.html#count" class="linkProperty">count</a></li></ul>
+                An unordered iterable collection of key/value pairs that cannot contain two instances of the same key.
+It optionally enforces the type of the key and the type of the associated value.
+<p>
+To create a Map:
+<pre>
+  var map = new go.Map("string", "number");
+  map.add("one", 1);
+  map.add("two", 2);
+  map.add("three", 3);
+  // now map.count === 3
+  // and map.getValue("two") === 2
+  // and map.contains("zero") === false
+</pre>
+<p>
+You can iterate over the key/value pairs in a Map:
+<pre>
+  var it = aMap.iterator;
+  while (it.next()) {
+    window.console.log(it.key + ": " + it.value);
+  }
+</pre>
+Or:
+<pre>
+  aMap.each(function(kvp) {
+    window.console.log(kvp.key + ": " + kvp.value);
+  });
+</pre>
+But note that there is no guaranteed ordering amongst the key/value pairs.
+<p>
+Call <a href="../symbols/Map.html#toKeySet" class="linkMethod">toKeySet</a> to get a read-only <a href="../symbols/Set.html" class="linkConstructor">Set</a> that holds all of the keys of a Map.
+Iterating over that Set will produce values that are the keys in the Map.
+<p>
+Although not precisely implementing the features and semantics of the EcmaScript 6 <b>Map</b> class,
+this <b>GoJS</b> Map class has synonyms for the following methods and property:
+<ul>
+  <li><b>get(key)</b>: <a href="../symbols/Map.html#getValue" class="linkMethod">getValue</a></li>
+  <li><b>set(key,val)</b>: <a href="../symbols/Map.html#add" class="linkMethod">add</a></li>
+  <li><b>has(key)</b>: <a href="../symbols/Map.html#contains" class="linkMethod">contains</a></li>
+  <li><b>delete(key)</b>: <a href="../symbols/Map.html#remove" class="linkMethod">remove</a></li>
+  <li><b>clear()</b>: <a href="../symbols/Map.html#clear" class="linkMethod">clear</a></li>
+  <li><b>size</b>: <a href="../symbols/Map.html#count" class="linkProperty">count</a></li>
+</ul>
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1154,7 +1190,17 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>The two optional arguments to the constructor describe the types of keysand the types of values that this Map may hold.<span class="nodetails" id="xconMap"><a class="morelink" onclick="hst('conMap')">More...</a></span> <span class="details" id="conMap">If the argument is null, it does not check the type.If the argument is a string, it must be one of: 'number' or 'string' for the key type,or 'number', 'string', 'boolean', or 'function' for the value type.Otherwise the argument must be a class function/constructor, such as <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>.</span><div class="details" id="dconMap"><p>For example, the expression:<pre>  new go.Map("string", go.Point)</pre>produces a Map that has keys that must be strings and whose associated valuesmust be <a href="../symbols/Point.html" class="linkConstructor">Point</a>s.</div>
+                            <!--newp--><p><p>The two optional arguments to the constructor describe the types of keys
+and the types of values that this Map may hold.<span class="nodetails" id="xconMap"><a class="morelink" onclick="hst('conMap')">More...</a></span> <span class="details" id="conMap">
+If the argument is null, it does not check the type.
+If the argument is a string, it must be one of: 'number' or 'string' for the key type,
+or 'number', 'string', 'boolean', or 'function' for the value type.
+Otherwise the argument must be a class function/constructor, such as <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>.
+</span><div class="details" id="dconMap"><p>
+For example, the expression:
+<pre>  new go.Map("string", go.Point)</pre>
+produces a Map that has keys that must be strings and whose associated values
+must be <a href="../symbols/Point.html" class="linkConstructor">Point</a>s.</div>
                         
                             <dl class="detailList">
                             <dt class="heading">Parameters:</dt>
@@ -1163,13 +1209,15 @@
                                     <span class="light fixedFont">{Function|string|null=}</span>  <b>keytype</b>
                                     
                                 </dt>
-                                    <dd>Optional class type (constructor) or a string, for the keydescribing the primitive key type.</dd>
+                                    <dd>Optional class type (constructor) or a string, for the key
+describing the primitive key type.</dd>
                             
                                 <dt>
                                     <span class="light fixedFont">{Function|string|null=}</span>  <b>valtype</b>
                                     
                                 </dt>
-                                    <dd>Optional class type (constructor) or a string, for the valuedescribing the primitive value type.</dd>
+                                    <dd>Optional class type (constructor) or a string, for the value
+describing the primitive value type.</dd>
                             
                             </dl>
                         
@@ -1233,7 +1281,14 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets an object that you can use for iterating over the key-value pairs of a Map.<span class="nodetails" id="xpropiterator"><a class="morelink" onclick="hst('propiterator')">More...</a></span> <span class="details" id="propiterator">Typical usage:<pre>  var it = aMap.iterator;  while (it.next()) {    window.console.log("the key: " + it.key + " has value: " + it.value);  }</pre></span>
+                <p>Gets an object that you can use for iterating over the key-value pairs of a Map.<span class="nodetails" id="xpropiterator"><a class="morelink" onclick="hst('propiterator')">More...</a></span> <span class="details" id="propiterator">
+Typical usage:
+<pre>
+  var it = aMap.iterator;
+  while (it.next()) {
+    window.console.log("the key: " + it.key + " has value: " + it.value);
+  }
+</pre></span>
                 
                 </div>
                             </td>
@@ -1255,7 +1310,14 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets an object that you can use for iterating over the keys of a Map.<span class="nodetails" id="xpropiteratorKeys"><a class="morelink" onclick="hst('propiteratorKeys')">More...</a></span> <span class="details" id="propiteratorKeys">Typical usage:<pre>  var it = aMap.iteratorKeys;  while (it.next()) {    window.console.log("key: " + it.value);  }</pre></span>
+                <p>Gets an object that you can use for iterating over the keys of a Map.<span class="nodetails" id="xpropiteratorKeys"><a class="morelink" onclick="hst('propiteratorKeys')">More...</a></span> <span class="details" id="propiteratorKeys">
+Typical usage:
+<pre>
+  var it = aMap.iteratorKeys;
+  while (it.next()) {
+    window.console.log("key: " + it.value);
+  }
+</pre></span>
                 
                 </div>
                             </td>
@@ -1277,7 +1339,14 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets an object that you can use for iterating over the values of a Map.<span class="nodetails" id="xpropiteratorValues"><a class="morelink" onclick="hst('propiteratorValues')">More...</a></span> <span class="details" id="propiteratorValues">Typical usage:<pre>  var it = aMap.iteratorValues;  while (it.next()) {    window.console.log("value: " + it.value);  }</pre></span>
+                <p>Gets an object that you can use for iterating over the values of a Map.<span class="nodetails" id="xpropiteratorValues"><a class="morelink" onclick="hst('propiteratorValues')">More...</a></span> <span class="details" id="propiteratorValues">
+Typical usage:
+<pre>
+  var it = aMap.iteratorValues;
+  while (it.next()) {
+    window.console.log("value: " + it.value);
+  }
+</pre></span>
                 
                 </div>
                             </td>
@@ -1319,7 +1388,10 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Adds a key-value association to the Map, or replaces the value associated with the keyif the key was already present in the map.<span class="nodetails" id="xmethadd"><a class="morelink" onclick="hst('methadd')">More...</a></span> <span class="details" id="methadd"></span><div class="details" id="dmethadd"><p>Be careful not to call this method while iterating over the collection.</div>
+                                <!--newp--><p><p>Adds a key-value association to the Map, or replaces the value associated with the key
+if the key was already present in the map.<span class="nodetails" id="xmethadd"><a class="morelink" onclick="hst('methadd')">More...</a></span> <span class="details" id="methadd">
+</span><div class="details" id="dmethadd"><p>
+Be careful not to call this method while iterating over the collection.</div>
                  
                               
                                   <dl class="detailList">
@@ -1365,7 +1437,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Adds all of the key-value pairs of another Map to this Map.<span class="nodetails" id="xmethaddAll"><a class="morelink" onclick="hst('methaddAll')">More...</a></span> <span class="details" id="methaddAll">If a key is already present in this Map,its value is replaced with the corresponding value from the given map.</span><div class="details" id="dmethaddAll"><p>Be careful not to call this method while iterating over the collection.</div>
+                                <!--newp--><p><p>Adds all of the key-value pairs of another Map to this Map.<span class="nodetails" id="xmethaddAll"><a class="morelink" onclick="hst('methaddAll')">More...</a></span> <span class="details" id="methaddAll">
+If a key is already present in this Map,
+its value is replaced with the corresponding value from the given map.
+</span><div class="details" id="dmethaddAll"><p>
+Be careful not to call this method while iterating over the collection.</div>
                  
                               
                                   <dl class="detailList">
@@ -1407,7 +1483,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This is true if all invocations of the given predicate on items in the collection are true.<span class="nodetails" id="xmethall"><a class="morelink" onclick="hst('methall')">More...</a></span> <span class="details" id="methall"></span><div class="details" id="dmethall"><p>Call the given predicate on each key/value pair in the collection.As soon as a call returns false, this returns false.Otherwise this returns true.For an empty collection this returns true.</div>
+                                <!--newp--><p><p>This is true if all invocations of the given predicate on items in the collection are true.<span class="nodetails" id="xmethall"><a class="morelink" onclick="hst('methall')">More...</a></span> <span class="details" id="methall">
+</span><div class="details" id="dmethall"><p>
+Call the given predicate on each key/value pair in the collection.
+As soon as a call returns false, this returns false.
+Otherwise this returns true.
+For an empty collection this returns true.</div>
                  
                               
                                   <dl class="detailList">
@@ -1449,7 +1530,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This is true if any invocation of the given predicate on items in the collection is true.<span class="nodetails" id="xmethany"><a class="morelink" onclick="hst('methany')">More...</a></span> <span class="details" id="methany"></span><div class="details" id="dmethany"><p>Call the given predicate on each key/value pair in the collection.As soon as a call returns true, this returns true.Otherwise this returns false.For an empty collection this returns false.</div>
+                                <!--newp--><p><p>This is true if any invocation of the given predicate on items in the collection is true.<span class="nodetails" id="xmethany"><a class="morelink" onclick="hst('methany')">More...</a></span> <span class="details" id="methany">
+</span><div class="details" id="dmethany"><p>
+Call the given predicate on each key/value pair in the collection.
+As soon as a call returns true, this returns true.
+Otherwise this returns false.
+For an empty collection this returns false.</div>
                  
                               
                                   <dl class="detailList">
@@ -1489,7 +1575,10 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Clears the Map, removing all key-value associations.<span class="nodetails" id="xmethclear"><a class="morelink" onclick="hst('methclear')">More...</a></span> <span class="details" id="methclear">This sets the <a href="../symbols/Map.html#count" class="linkProperty">count</a> to zero.</span><div class="details" id="dmethclear"><p>Be careful not to call this method while iterating over the collection.</div>
+                                <!--newp--><p><p>Clears the Map, removing all key-value associations.<span class="nodetails" id="xmethclear"><a class="morelink" onclick="hst('methclear')">More...</a></span> <span class="details" id="methclear">
+This sets the <a href="../symbols/Map.html#count" class="linkProperty">count</a> to zero.
+</span><div class="details" id="dmethclear"><p>
+Be careful not to call this method while iterating over the collection.</div>
                  
                               
                               
@@ -1551,7 +1640,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Makes a shallow copy of this Map.<span class="nodetails" id="xmethcopy"><a class="morelink" onclick="hst('methcopy')">More...</a></span> <span class="details" id="methcopy">The keys and their values are not copied,so if they are objects they may continue to be shared with the original Map.</span>
+                                <!--newp--><p><p>Makes a shallow copy of this Map.<span class="nodetails" id="xmethcopy"><a class="morelink" onclick="hst('methcopy')">More...</a></span> <span class="details" id="methcopy">
+The keys and their values are not copied,
+so if they are objects they may continue to be shared with the original Map.</span>
                  
                               
                               
@@ -1773,7 +1864,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Removes a key (if found) from the Map.<span class="nodetails" id="xmethremove"><a class="morelink" onclick="hst('methremove')">More...</a></span> <span class="details" id="methremove"></span><div class="details" id="dmethremove"><p>Be careful not to call this method while iterating over the collection.</div>
+                                <!--newp--><p><p>Removes a key (if found) from the Map.<span class="nodetails" id="xmethremove"><a class="morelink" onclick="hst('methremove')">More...</a></span> <span class="details" id="methremove">
+</span><div class="details" id="dmethremove"><p>
+Be careful not to call this method while iterating over the collection.</div>
                  
                               
                                   <dl class="detailList">
@@ -1813,7 +1906,10 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Adds a key-value association to the Map, or replaces the value associated with the keyif the key was already present in the map.<span class="nodetails" id="xmethset"><a class="morelink" onclick="hst('methset')">More...</a></span> <span class="details" id="methset"></span><div class="details" id="dmethset"><p>Be careful not to call this method while iterating over the collection.</div>
+                                <!--newp--><p><p>Adds a key-value association to the Map, or replaces the value associated with the key
+if the key was already present in the map.<span class="nodetails" id="xmethset"><a class="morelink" onclick="hst('methset')">More...</a></span> <span class="details" id="methset">
+</span><div class="details" id="dmethset"><p>
+Be careful not to call this method while iterating over the collection.</div>
                  
                               
                                   <dl class="detailList">
@@ -1866,7 +1962,8 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{Array.<KeyValuePair.<K,V>>}</span> A copy of the Map in Array form,each element being an Object with 'key' and 'value' properties.</dt>
+                                      <dt><span class="light fixedFont">{Array.<KeyValuePair.<K,V>>}</span> A copy of the Map in Array form,
+each element being an Object with 'key' and 'value' properties.</dt>
                                   
                                   </dl>
                               
@@ -1888,7 +1985,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Produces a <a href="../symbols/Set.html" class="linkConstructor">Set</a> that provides a read-only view onto the keys of this Map.<span class="nodetails" id="xmethtoKeySet"><a class="morelink" onclick="hst('methtoKeySet')">More...</a></span> <span class="details" id="methtoKeySet">The collection of keys is not copied.</span>
+                                <!--newp--><p><p>Produces a <a href="../symbols/Set.html" class="linkConstructor">Set</a> that provides a read-only view onto the keys of this Map.<span class="nodetails" id="xmethtoKeySet"><a class="morelink" onclick="hst('methtoKeySet')">More...</a></span> <span class="details" id="methtoKeySet">
+The collection of keys is not copied.</span>
                  
                               
                               

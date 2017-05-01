@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1133,7 +1128,22 @@
                     <a href="../symbols/Tool.html" class="linkConstructor">Tool</a>.</span>
                 
 
-                The ActionTool is responsible for handling and dispatching mouse events on <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>sthat have <a href="../symbols/GraphObject.html#isActionable" class="linkProperty">GraphObject.isActionable</a> set to true.This is how one implements "controls", such as buttons or sliders or knobs, as <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>sthat can be inside <a href="../symbols/Part.html" class="linkConstructor">Part</a>s without interfering with the standard tool behaviors.<p>This tool allows individual GraphObjects (usually Panels) to handle mouse-down-move-up events withouthaving to define new <a href="../symbols/Tool.html" class="linkConstructor">Tool</a>s.It does this by calling <a href="../symbols/GraphObject.html#actionDown" class="linkProperty">GraphObject.actionDown</a>, <a href="../symbols/GraphObject.html#actionMove" class="linkProperty">GraphObject.actionMove</a>, <a href="../symbols/GraphObject.html#actionUp" class="linkProperty">GraphObject.actionUp</a>,and <a href="../symbols/GraphObject.html#actionCancel" class="linkProperty">GraphObject.actionCancel</a> on objects that have <a href="../symbols/GraphObject.html#isActionable" class="linkProperty">GraphObject.isActionable</a> set to true.<p>This tool is a standard mouse-down tool, the <a href="../symbols/ToolManager.html#actionTool" class="linkProperty">ToolManager.actionTool</a>.<p>This tool does not utilize any <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>s or tool handles.This tool does not modify the model or conduct any transaction, although the actions that this invokes may do so.<p>It would be very unusual to want to customize this tool.
+                The ActionTool is responsible for handling and dispatching mouse events on <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>s
+that have <a href="../symbols/GraphObject.html#isActionable" class="linkProperty">GraphObject.isActionable</a> set to true.
+This is how one implements "controls", such as buttons or sliders or knobs, as <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>s
+that can be inside <a href="../symbols/Part.html" class="linkConstructor">Part</a>s without interfering with the standard tool behaviors.
+<p>
+This tool allows individual GraphObjects (usually Panels) to handle mouse-down-move-up events without
+having to define new <a href="../symbols/Tool.html" class="linkConstructor">Tool</a>s.
+It does this by calling <a href="../symbols/GraphObject.html#actionDown" class="linkProperty">GraphObject.actionDown</a>, <a href="../symbols/GraphObject.html#actionMove" class="linkProperty">GraphObject.actionMove</a>, <a href="../symbols/GraphObject.html#actionUp" class="linkProperty">GraphObject.actionUp</a>,
+and <a href="../symbols/GraphObject.html#actionCancel" class="linkProperty">GraphObject.actionCancel</a> on objects that have <a href="../symbols/GraphObject.html#isActionable" class="linkProperty">GraphObject.isActionable</a> set to true.
+<p>
+This tool is a standard mouse-down tool, the <a href="../symbols/ToolManager.html#actionTool" class="linkProperty">ToolManager.actionTool</a>.
+<p>
+This tool does not utilize any <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>s or tool handles.
+This tool does not modify the model or conduct any transaction, although the actions that this invokes may do so.
+<p>
+It would be very unusual to want to customize this tool.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1156,7 +1166,10 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>You do not normally need to create an instance of this toolbecause one already exists as the <a href="../symbols/ToolManager.html#actionTool" class="linkProperty">ToolManager.actionTool</a>.<span class="nodetails" id="xconActionTool"><a class="morelink" onclick="hst('conActionTool')">More...</a></span> <span class="details" id="conActionTool"></span><div class="details" id="dconActionTool"><p>The <a href="../symbols/Tool.html#name" class="linkProperty">Tool.name</a> of this tool is "Action".</div>
+                            <!--newp--><p><p>You do not normally need to create an instance of this tool
+because one already exists as the <a href="../symbols/ToolManager.html#actionTool" class="linkProperty">ToolManager.actionTool</a>.<span class="nodetails" id="xconActionTool"><a class="morelink" onclick="hst('conActionTool')">More...</a></span> <span class="details" id="conActionTool">
+</span><div class="details" id="dconActionTool"><p>
+The <a href="../symbols/Tool.html#name" class="linkProperty">Tool.name</a> of this tool is "Action".</div>
                         
                         
 
@@ -1209,7 +1222,10 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This tool can run when there is a mouse-down on an object with <a href="../symbols/GraphObject.html#isActionable" class="linkProperty">GraphObject.isActionable</a> trueor if the object is within a <a href="../symbols/Panel.html" class="linkConstructor">Panel</a> that "isActionable".<span class="nodetails" id="xmethcanStart"><a class="morelink" onclick="hst('methcanStart')">More...</a></span> <span class="details" id="methcanStart"></span><div class="details" id="dmethcanStart"><p>This method may be overridden.</div>
+                                <!--newp--><p><p>This tool can run when there is a mouse-down on an object with <a href="../symbols/GraphObject.html#isActionable" class="linkProperty">GraphObject.isActionable</a> true
+or if the object is within a <a href="../symbols/Panel.html" class="linkConstructor">Panel</a> that "isActionable".<span class="nodetails" id="xmethcanStart"><a class="morelink" onclick="hst('methcanStart')">More...</a></span> <span class="details" id="methcanStart">
+</span><div class="details" id="dmethcanStart"><p>
+This method may be overridden.</div>
                  
                               
                               
@@ -1260,7 +1276,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>If there is a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> found with <a href="../symbols/GraphObject.html#isActionable" class="linkProperty">GraphObject.isActionable</a> set to true,call that object's <a href="../symbols/GraphObject.html#actionDown" class="linkProperty">GraphObject.actionDown</a> event, if it exists.
+                                <!--newp--><p><p>If there is a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> found with <a href="../symbols/GraphObject.html#isActionable" class="linkProperty">GraphObject.isActionable</a> set to true,
+call that object's <a href="../symbols/GraphObject.html#actionDown" class="linkProperty">GraphObject.actionDown</a> event, if it exists.
                  
                               
                               
@@ -1304,7 +1321,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Calls the <a href="../symbols/GraphObject.html#actionUp" class="linkProperty">GraphObject.actionUp</a> event if defined, then effectively calls<a href="../symbols/Tool.html#standardMouseClick" class="linkMethod">Tool.standardMouseClick</a> to perform the normal click behaviors,and then stops this tool.
+                                <!--newp--><p><p>Calls the <a href="../symbols/GraphObject.html#actionUp" class="linkProperty">GraphObject.actionUp</a> event if defined, then effectively calls
+<a href="../symbols/Tool.html#standardMouseClick" class="linkMethod">Tool.standardMouseClick</a> to perform the normal click behaviors,
+and then stops this tool.
                  
                               
                               

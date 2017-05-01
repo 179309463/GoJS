@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1131,7 +1126,18 @@
                 
                 
 
-                AnimationManager handles animations in a <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>. Each Diagram has one, <a href="../symbols/Diagram.html#animationManager" class="linkProperty">Diagram.animationManager</a>.Layouts, Group expansion and Tree expansion automatically start animations.<p>Animation is enabled by default, setting the <a href="../symbols/AnimationManager.html#isEnabled" class="linkProperty">isEnabled</a> property to false will turn off animations for a Diagram.<p>When an animations begins it raises the "AnimationStarting" diagram event,upon completion it raises the "AnimationFinished" diagram event.<p>Animation will stop if a new transaction is started, if an undo or redo is called,if a layout is invalidated, or if a model is replaced.When an animation is stopped, the Diagram immediately finishes the animation and draws the final state.Animations can be stopped programatically with the method <a href="../symbols/AnimationManager.html#stopAnimation" class="linkMethod">AnimationManager.stopAnimation</a>.
+                AnimationManager handles animations in a <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>. Each Diagram has one, <a href="../symbols/Diagram.html#animationManager" class="linkProperty">Diagram.animationManager</a>.
+Layouts, Group expansion and Tree expansion automatically start animations.
+<p>
+Animation is enabled by default, setting the <a href="../symbols/AnimationManager.html#isEnabled" class="linkProperty">isEnabled</a> property to false will turn off animations for a Diagram.
+<p>
+When an animations begins it raises the "AnimationStarting" diagram event,
+upon completion it raises the "AnimationFinished" diagram event.
+<p>
+Animation will stop if a new transaction is started, if an undo or redo is called,
+if a layout is invalidated, or if a model is replaced.
+When an animation is stopped, the Diagram immediately finishes the animation and draws the final state.
+Animations can be stopped programatically with the method <a href="../symbols/AnimationManager.html#stopAnimation" class="linkMethod">AnimationManager.stopAnimation</a>.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1154,7 +1160,8 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>You do not normally need to create an instance of this classbecause one already exists as the <a href="../symbols/Diagram.html#animationManager" class="linkProperty">Diagram.animationManager</a>, which you can modify.
+                            <!--newp--><p><p>You do not normally need to create an instance of this class
+because one already exists as the <a href="../symbols/Diagram.html#animationManager" class="linkProperty">Diagram.animationManager</a>, which you can modify.
                         
                         
 
@@ -1196,7 +1203,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the duration for animations, in milliseconds.<span class="nodetails" id="xpropduration"><a class="morelink" onclick="hst('propduration')">More...</a></span> <span class="details" id="propduration">The default value is 600 milliseconds.The value must be a number greater than or equal to 1.Setting this property does not raise any events.</span>
+                <p>Gets or sets the duration for animations, in milliseconds.<span class="nodetails" id="xpropduration"><a class="morelink" onclick="hst('propduration')">More...</a></span> <span class="details" id="propduration">
+The default value is 600 milliseconds.
+The value must be a number greater than or equal to 1.
+Setting this property does not raise any events.</span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1224,7 +1234,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property is true when the animation manger is currently animating.<span class="nodetails" id="xpropisAnimating"><a class="morelink" onclick="hst('propisAnimating')">More...</a></span> <span class="details" id="propisAnimating"></span><div class="details" id="dpropisAnimating"><p>This value cannot be set, but animation can be stopped by calling <a href="../symbols/AnimationManager.html#stopAnimation" class="linkMethod">stopAnimation</a>,and it can be prevented by setting <a href="../symbols/AnimationManager.html#isEnabled" class="linkProperty">isEnabled</a>.</div>
+                <p>This read-only property is true when the animation manger is currently animating.<span class="nodetails" id="xpropisAnimating"><a class="morelink" onclick="hst('propisAnimating')">More...</a></span> <span class="details" id="propisAnimating">
+</span><div class="details" id="dpropisAnimating"><p>
+This value cannot be set, but animation can be stopped by calling <a href="../symbols/AnimationManager.html#stopAnimation" class="linkMethod">stopAnimation</a>,
+and it can be prevented by setting <a href="../symbols/AnimationManager.html#isEnabled" class="linkProperty">isEnabled</a>.</div>
                 
                 </div>
                             </td>
@@ -1244,7 +1257,12 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether this AnimationManager operates.<span class="nodetails" id="xpropisEnabled"><a class="morelink" onclick="hst('propisEnabled')">More...</a></span> <span class="details" id="propisEnabled"></span><div class="details" id="dpropisEnabled"><p>The default value is true.Setting this to false does not stop an animation, it only stops future animations.To stop any ongoing animation, use <a href="../symbols/AnimationManager.html#stopAnimation" class="linkMethod">stopAnimation</a>.Setting this property does not raise any events.</div>
+                <p>Gets or sets whether this AnimationManager operates.<span class="nodetails" id="xpropisEnabled"><a class="morelink" onclick="hst('propisEnabled')">More...</a></span> <span class="details" id="propisEnabled">
+</span><div class="details" id="dpropisEnabled"><p>
+The default value is true.
+Setting this to false does not stop an animation, it only stops future animations.
+To stop any ongoing animation, use <a href="../symbols/AnimationManager.html#stopAnimation" class="linkMethod">stopAnimation</a>.
+Setting this property does not raise any events.</div>
                 
                 </div>
                             </td>
@@ -1266,7 +1284,11 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether an animation is performed on an initial layout.<span class="nodetails" id="xpropisInitial"><a class="morelink" onclick="hst('propisInitial')">More...</a></span> <span class="details" id="propisInitial"></span><div class="details" id="dpropisInitial"><p>The default value is true.Changing the value does not affect any ongoing animation.Setting this property does not raise any events.</div>
+                <p>Gets or sets whether an animation is performed on an initial layout.<span class="nodetails" id="xpropisInitial"><a class="morelink" onclick="hst('propisInitial')">More...</a></span> <span class="details" id="propisInitial">
+</span><div class="details" id="dpropisInitial"><p>
+The default value is true.
+Changing the value does not affect any ongoing animation.
+Setting this property does not raise any events.</div>
                 
                 </div>
                             </td>
@@ -1286,7 +1308,12 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property is true when the animation manger is in the middle of an animation tick.<span class="nodetails" id="xpropisTicking"><a class="morelink" onclick="hst('propisTicking')">More...</a></span> <span class="details" id="propisTicking">Animation only operates on GraphObjects during ticks, but code outside of AnimationManager's control may execute between ticks.</span><div class="details" id="dpropisTicking"><p>isTicking can only be true when <a href="../symbols/AnimationManager.html#isAnimating" class="linkProperty">isAnimating</a> is also true.<p>This value cannot be set.</div>
+                <p>This read-only property is true when the animation manger is in the middle of an animation tick.<span class="nodetails" id="xpropisTicking"><a class="morelink" onclick="hst('propisTicking')">More...</a></span> <span class="details" id="propisTicking">
+Animation only operates on GraphObjects during ticks, but code outside of AnimationManager's control may execute between ticks.
+</span><div class="details" id="dpropisTicking"><p>
+isTicking can only be true when <a href="../symbols/AnimationManager.html#isAnimating" class="linkProperty">isAnimating</a> is also true.
+<p>
+This value cannot be set.</div>
                 
                 </div>
                             </td>
@@ -1328,7 +1355,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Stops any running animation and updates the Diagram to its final state.<span class="nodetails" id="xmethstopAnimation"><a class="morelink" onclick="hst('methstopAnimation')">More...</a></span> <span class="details" id="methstopAnimation"></span><div class="details" id="dmethstopAnimation"><p>If an animation was about to begin, it is cancelled.</div>
+                                <!--newp--><p><p>Stops any running animation and updates the Diagram to its final state.<span class="nodetails" id="xmethstopAnimation"><a class="morelink" onclick="hst('methstopAnimation')">More...</a></span> <span class="details" id="methstopAnimation">
+</span><div class="details" id="dmethstopAnimation"><p>
+If an animation was about to begin, it is cancelled.</div>
                  
                               
                               

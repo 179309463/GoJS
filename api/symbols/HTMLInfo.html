@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1131,7 +1126,71 @@
                 
                 
 
-                HTMLInfo is used to show and hide custom HTML page elements, such as a context menu, tooltip, or text editor made of HTML.<p>Properties that can be set to an HTMLInfo include:<ul><li> <a href="../symbols/TextEditingTool.html#defaultTextEditor" class="linkProperty">TextEditingTool.defaultTextEditor</a><li> <a href="../symbols/TextBlock.html#textEditor" class="linkProperty">TextBlock.textEditor</a><li> <a href="../symbols/GraphObject.html#contextMenu" class="linkProperty">GraphObject.contextMenu</a><li> <a href="../symbols/Diagram.html#contextMenu" class="linkProperty">Diagram.contextMenu</a><li> <a href="../symbols/GraphObject.html#toolTip" class="linkProperty">GraphObject.toolTip</a><li> <a href="../symbols/Diagram.html#toolTip" class="linkProperty">Diagram.toolTip</a></ul><p>When a context menu is set to an instance of HTMLInfo,<a href="../symbols/ContextMenuTool.html#showContextMenu" class="linkMethod">ContextMenuTool.showContextMenu</a> and <a href="../symbols/ContextMenuTool.html#hideContextMenu" class="linkMethod">ContextMenuTool.hideContextMenu</a>call <a href="../symbols/HTMLInfo.html#show" class="linkProperty">show</a> and <a href="../symbols/HTMLInfo.html#hide" class="linkProperty">hide</a> respectively. You may define <a href="../symbols/HTMLInfo.html#mainElement" class="linkProperty">mainElement</a>instead of <a href="../symbols/HTMLInfo.html#hide" class="linkProperty">hide</a> in order to automatically use a default hide method.<p>When a tooltip is set to an instance of HTMLInfo,<a href="../symbols/ToolManager.html#showToolTip" class="linkMethod">ToolManager.showToolTip</a> and <a href="../symbols/ToolManager.html#hideToolTip" class="linkMethod">ToolManager.hideToolTip</a>call <a href="../symbols/HTMLInfo.html#show" class="linkProperty">show</a> and <a href="../symbols/HTMLInfo.html#hide" class="linkProperty">hide</a> respectively.<p>When a text editor is set to an instance of HTMLInfo,<a href="../symbols/TextEditingTool.html#doActivate" class="linkMethod">TextEditingTool.doActivate</a> calls <a href="../symbols/HTMLInfo.html#show" class="linkProperty">show</a> and <a href="../symbols/TextEditingTool.html#doDeactivate" class="linkMethod">TextEditingTool.doDeactivate</a> calls <a href="../symbols/HTMLInfo.html#hide" class="linkProperty">hide</a>.<p>For HTMLInfo to work, you must define <a href="../symbols/HTMLInfo.html#show" class="linkProperty">show</a>and either <a href="../symbols/HTMLInfo.html#hide" class="linkProperty">hide</a> or <a href="../symbols/HTMLInfo.html#mainElement" class="linkProperty">mainElement</a>.Typical usage will also stop the <a href="../symbols/ContextMenuTool.html" class="linkConstructor">ContextMenuTool</a> once the desired context action occurs,typically by calling <code>diagram.currentTool.stopTool();</code>.<p>Example usage of HTMLInfo can be found in the<a href="../../samples/customContextMenu.html">Custom Context Menu</a> and<a href="../../samples/htmlLightBoxContextMenu.html">HTML LightBox Context Menu</a> samples, the<a href="../../samples/customTextEditingTool.html">Custom TextEditingTool sample</a>, and the<a href="../../extensions/textEditor.html">Text Editor implementation extension</a>.<p>Here is the outline for typical usage of HTMLInfo as a context menu:<pre class="javascript">// Assign an HTMLInfo to the Diagram:myDiagram.contextMenu = $(go.HTMLInfo, {  show: showContextMenu,  hide: hideContextMenu});function showContextMenu(obj, diagram, tool) {  // Show the context menu HTML element:  SomeDOMElement.style.display = "block";  // Also show relevant buttons given the current state  // and the GraphObject obj; if null, the context menu is for the whole Diagram}function hideContextMenu() {  SomeDOMElement.style.display = "none";}function buttonClick() {  // do some action when a context menu button is clicked  // then:  myDiagram.currentTool.stopTool();}</pre><p>By default, <a href="../symbols/TextEditingTool.html#defaultTextEditor" class="linkProperty">TextEditingTool.defaultTextEditor</a> is an instance of HTMLInfo.You can see its default implementation details <a href="../../extensions/textEditor.html">here</a>.
+                HTMLInfo is used to show and hide custom HTML page elements, such as a context menu, tooltip, or text editor made of HTML.
+<p>
+Properties that can be set to an HTMLInfo include:
+<ul>
+<li> <a href="../symbols/TextEditingTool.html#defaultTextEditor" class="linkProperty">TextEditingTool.defaultTextEditor</a>
+<li> <a href="../symbols/TextBlock.html#textEditor" class="linkProperty">TextBlock.textEditor</a>
+<li> <a href="../symbols/GraphObject.html#contextMenu" class="linkProperty">GraphObject.contextMenu</a>
+<li> <a href="../symbols/Diagram.html#contextMenu" class="linkProperty">Diagram.contextMenu</a>
+<li> <a href="../symbols/GraphObject.html#toolTip" class="linkProperty">GraphObject.toolTip</a>
+<li> <a href="../symbols/Diagram.html#toolTip" class="linkProperty">Diagram.toolTip</a>
+</ul>
+<p>
+When a context menu is set to an instance of HTMLInfo,
+<a href="../symbols/ContextMenuTool.html#showContextMenu" class="linkMethod">ContextMenuTool.showContextMenu</a> and <a href="../symbols/ContextMenuTool.html#hideContextMenu" class="linkMethod">ContextMenuTool.hideContextMenu</a>
+call <a href="../symbols/HTMLInfo.html#show" class="linkProperty">show</a> and <a href="../symbols/HTMLInfo.html#hide" class="linkProperty">hide</a> respectively. You may define <a href="../symbols/HTMLInfo.html#mainElement" class="linkProperty">mainElement</a>
+instead of <a href="../symbols/HTMLInfo.html#hide" class="linkProperty">hide</a> in order to automatically use a default hide method.
+<p>
+When a tooltip is set to an instance of HTMLInfo,
+<a href="../symbols/ToolManager.html#showToolTip" class="linkMethod">ToolManager.showToolTip</a> and <a href="../symbols/ToolManager.html#hideToolTip" class="linkMethod">ToolManager.hideToolTip</a>
+call <a href="../symbols/HTMLInfo.html#show" class="linkProperty">show</a> and <a href="../symbols/HTMLInfo.html#hide" class="linkProperty">hide</a> respectively.
+<p>
+When a text editor is set to an instance of HTMLInfo,
+<a href="../symbols/TextEditingTool.html#doActivate" class="linkMethod">TextEditingTool.doActivate</a> calls <a href="../symbols/HTMLInfo.html#show" class="linkProperty">show</a> and <a href="../symbols/TextEditingTool.html#doDeactivate" class="linkMethod">TextEditingTool.doDeactivate</a> calls <a href="../symbols/HTMLInfo.html#hide" class="linkProperty">hide</a>.
+<p>
+For HTMLInfo to work, you must define <a href="../symbols/HTMLInfo.html#show" class="linkProperty">show</a>
+and either <a href="../symbols/HTMLInfo.html#hide" class="linkProperty">hide</a> or <a href="../symbols/HTMLInfo.html#mainElement" class="linkProperty">mainElement</a>.
+Typical usage will also stop the <a href="../symbols/ContextMenuTool.html" class="linkConstructor">ContextMenuTool</a> once the desired context action occurs,
+typically by calling <code>diagram.currentTool.stopTool();</code>.
+<p>
+Example usage of HTMLInfo can be found in the
+<a href="../../samples/customContextMenu.html">Custom Context Menu</a> and
+<a href="../../samples/htmlLightBoxContextMenu.html">HTML LightBox Context Menu</a> samples, the
+<a href="../../samples/customTextEditingTool.html">Custom TextEditingTool sample</a>, and the
+<a href="../../extensions/textEditor.html">Text Editor implementation extension</a>.
+<p>
+Here is the outline for typical usage of HTMLInfo as a context menu:
+<pre class="javascript">
+// Assign an HTMLInfo to the Diagram:
+myDiagram.contextMenu = $(go.HTMLInfo, {
+  show: showContextMenu,
+  hide: hideContextMenu
+});
+
+function showContextMenu(obj, diagram, tool) {
+  // Show the context menu HTML element:
+  SomeDOMElement.style.display = "block";
+
+  // Also show relevant buttons given the current state
+  // and the GraphObject obj; if null, the context menu is for the whole Diagram
+}
+
+function hideContextMenu() {
+  SomeDOMElement.style.display = "none";
+}
+
+function buttonClick() {
+  // do some action when a context menu button is clicked
+
+  // then:
+  myDiagram.currentTool.stopTool();
+}
+</pre>
+<p>
+By default, <a href="../symbols/TextEditingTool.html#defaultTextEditor" class="linkProperty">TextEditingTool.defaultTextEditor</a> is an instance of HTMLInfo.
+You can see its default implementation details <a href="../../extensions/textEditor.html">here</a>.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1154,7 +1213,8 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>A newly constructed HTMLInfo can be assigned as a value of <a href="../symbols/TextEditingTool.html#defaultTextEditor" class="linkProperty">TextEditingTool.defaultTextEditor</a>, <a href="../symbols/TextBlock.html#textEditor" class="linkProperty">TextBlock.textEditor</a><a href="../symbols/GraphObject.html#contextMenu" class="linkProperty">GraphObject.contextMenu</a>, <a href="../symbols/Diagram.html#contextMenu" class="linkProperty">Diagram.contextMenu</a>, <a href="../symbols/GraphObject.html#toolTip" class="linkProperty">GraphObject.toolTip</a>, or <a href="../symbols/Diagram.html#toolTip" class="linkProperty">Diagram.toolTip</a>.
+                            <!--newp--><p><p>A newly constructed HTMLInfo can be assigned as a value of <a href="../symbols/TextEditingTool.html#defaultTextEditor" class="linkProperty">TextEditingTool.defaultTextEditor</a>, <a href="../symbols/TextBlock.html#textEditor" class="linkProperty">TextBlock.textEditor</a>
+<a href="../symbols/GraphObject.html#contextMenu" class="linkProperty">GraphObject.contextMenu</a>, <a href="../symbols/Diagram.html#contextMenu" class="linkProperty">Diagram.contextMenu</a>, <a href="../symbols/GraphObject.html#toolTip" class="linkProperty">GraphObject.toolTip</a>, or <a href="../symbols/Diagram.html#toolTip" class="linkProperty">Diagram.toolTip</a>.
                         
                         
 
@@ -1196,7 +1256,18 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the function to call when an HTMLInfo is to be hidden.<span class="nodetails" id="xprophide"><a class="morelink" onclick="hst('prophide')">More...</a></span> <span class="details" id="prophide">The function should "hide" the HTMLInfo, either by removing any traces of it or otherwisereturning the page state to one where the HTMLInfo content is no longer considered active.</span><div class="details" id="dprophide"><p>Setting this is not strictly necessary, if no action is to be taken when hiding the HTMLInfo.<p>If this is called by:<ul><li><a href="../symbols/ContextMenuTool.html#hideContextMenu" class="linkMethod">ContextMenuTool.hideContextMenu</a>, the second argument is the <a href="../symbols/ContextMenuTool.html" class="linkConstructor">ContextMenuTool</a>.</li><li><a href="../symbols/ToolManager.html#hideToolTip" class="linkMethod">ToolManager.hideToolTip</a>, the second argument is the <a href="../symbols/ToolManager.html" class="linkConstructor">ToolManager</a>.</li><li><a href="../symbols/TextEditingTool.html#doDeactivate" class="linkMethod">TextEditingTool.doDeactivate</a>, the second argument is the <a href="../symbols/TextEditingTool.html" class="linkConstructor">TextEditingTool</a>.</li><ul></div>
+                <p>Gets or sets the function to call when an HTMLInfo is to be hidden.<span class="nodetails" id="xprophide"><a class="morelink" onclick="hst('prophide')">More...</a></span> <span class="details" id="prophide">
+The function should "hide" the HTMLInfo, either by removing any traces of it or otherwise
+returning the page state to one where the HTMLInfo content is no longer considered active.
+</span><div class="details" id="dprophide"><p>
+Setting this is not strictly necessary, if no action is to be taken when hiding the HTMLInfo.
+<p>
+If this is called by:
+<ul>
+<li><a href="../symbols/ContextMenuTool.html#hideContextMenu" class="linkMethod">ContextMenuTool.hideContextMenu</a>, the second argument is the <a href="../symbols/ContextMenuTool.html" class="linkConstructor">ContextMenuTool</a>.</li>
+<li><a href="../symbols/ToolManager.html#hideToolTip" class="linkMethod">ToolManager.hideToolTip</a>, the second argument is the <a href="../symbols/ToolManager.html" class="linkConstructor">ToolManager</a>.</li>
+<li><a href="../symbols/TextEditingTool.html#doDeactivate" class="linkMethod">TextEditingTool.doDeactivate</a>, the second argument is the <a href="../symbols/TextEditingTool.html" class="linkConstructor">TextEditingTool</a>.</li>
+<ul></div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1224,7 +1295,16 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the primary HTML Element that represents this HTMLInfo.<span class="nodetails" id="xpropmainElement"><a class="morelink" onclick="hst('propmainElement')">More...</a></span> <span class="details" id="propmainElement">In a context menu, this would be the outermost HTML element, the one which typicallyshows and hides. If this is set and <a href="../symbols/HTMLInfo.html#hide" class="linkProperty">hide</a> is not, HTMLInfo will automatically execute:<pre>  tool.mainElement.style.display = "none";</pre></span><div class="details" id="dpropmainElement"><p>when <a href="../symbols/HTMLInfo.html#hide" class="linkProperty">hide</a> would typically be called.<p>This is set only for convenience; the default value for this property is null.</div>
+                <p>Gets or sets the primary HTML Element that represents this HTMLInfo.<span class="nodetails" id="xpropmainElement"><a class="morelink" onclick="hst('propmainElement')">More...</a></span> <span class="details" id="propmainElement">
+In a context menu, this would be the outermost HTML element, the one which typically
+shows and hides. If this is set and <a href="../symbols/HTMLInfo.html#hide" class="linkProperty">hide</a> is not, HTMLInfo will automatically execute:
+<pre>
+  tool.mainElement.style.display = "none";
+</pre>
+</span><div class="details" id="dpropmainElement"><p>
+when <a href="../symbols/HTMLInfo.html#hide" class="linkProperty">hide</a> would typically be called.
+<p>
+This is set only for convenience; the default value for this property is null.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1252,7 +1332,22 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the function to call when an HTMLInfo is to be shown,such as when used as the <a href="../symbols/GraphObject.html#contextMenu" class="linkProperty">GraphObject.contextMenu</a> or <a href="../symbols/Diagram.html#toolTip" class="linkProperty">Diagram.toolTip</a> or <a href="../symbols/TextBlock.html#textEditor" class="linkProperty">TextBlock.textEditor</a>.<span class="nodetails" id="xpropshow"><a class="morelink" onclick="hst('propshow')">More...</a></span> <span class="details" id="propshow"></span><div class="details" id="dpropshow"><p>If this is called by:<ul><li><a href="../symbols/ContextMenuTool.html#showContextMenu" class="linkMethod">ContextMenuTool.showContextMenu</a>, the first argument is the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> for which the context menu is being shown, or null for the diagram background.</li><li><a href="../symbols/ToolManager.html#showToolTip" class="linkMethod">ToolManager.showToolTip</a>, the first argument is the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> for which the tooltip is being shown, or null for the diagram background.</li><li><a href="../symbols/TextEditingTool.html#doActivate" class="linkMethod">TextEditingTool.doActivate</a>, the first argument is the <a href="../symbols/TextBlock.html" class="linkConstructor">TextBlock</a> for which the text editor is being shown.</li><ul><p>If you need access to any bound data for the first argument, if it is non-null, you can get it via:<code>obj.part.data</code>and then you can look at any of the properties you have put on that data.<p>When used as a context menu, typically shown elements, such as buttons, should call<code>diagram.currentTool.stopTool();</code> when their action is completed.</div>
+                <p>Gets or sets the function to call when an HTMLInfo is to be shown,
+such as when used as the <a href="../symbols/GraphObject.html#contextMenu" class="linkProperty">GraphObject.contextMenu</a> or <a href="../symbols/Diagram.html#toolTip" class="linkProperty">Diagram.toolTip</a> or <a href="../symbols/TextBlock.html#textEditor" class="linkProperty">TextBlock.textEditor</a>.<span class="nodetails" id="xpropshow"><a class="morelink" onclick="hst('propshow')">More...</a></span> <span class="details" id="propshow">
+</span><div class="details" id="dpropshow"><p>
+If this is called by:
+<ul>
+<li><a href="../symbols/ContextMenuTool.html#showContextMenu" class="linkMethod">ContextMenuTool.showContextMenu</a>, the first argument is the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> for which the context menu is being shown, or null for the diagram background.</li>
+<li><a href="../symbols/ToolManager.html#showToolTip" class="linkMethod">ToolManager.showToolTip</a>, the first argument is the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> for which the tooltip is being shown, or null for the diagram background.</li>
+<li><a href="../symbols/TextEditingTool.html#doActivate" class="linkMethod">TextEditingTool.doActivate</a>, the first argument is the <a href="../symbols/TextBlock.html" class="linkConstructor">TextBlock</a> for which the text editor is being shown.</li>
+<ul>
+<p>
+If you need access to any bound data for the first argument, if it is non-null, you can get it via:
+<code>obj.part.data</code>
+and then you can look at any of the properties you have put on that data.
+<p>
+When used as a context menu, typically shown elements, such as buttons, should call
+<code>diagram.currentTool.stopTool();</code> when their action is completed.</div>
                 
                 </div>
                             </td>
@@ -1272,7 +1367,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets a function that returns the primary value associated with this HTMLInfo,such as the string value of a text editor, which would be solicited by the <a href="../symbols/TextEditingTool.html" class="linkConstructor">TextEditingTool</a>.<span class="nodetails" id="xpropvalueFunction"><a class="morelink" onclick="hst('propvalueFunction')">More...</a></span> <span class="details" id="propvalueFunction"></span><div class="details" id="dpropvalueFunction"><p>This typically returns a string.</div>
+                <p>Gets or sets a function that returns the primary value associated with this HTMLInfo,
+such as the string value of a text editor, which would be solicited by the <a href="../symbols/TextEditingTool.html" class="linkConstructor">TextEditingTool</a>.<span class="nodetails" id="xpropvalueFunction"><a class="morelink" onclick="hst('propvalueFunction')">More...</a></span> <span class="details" id="propvalueFunction">
+</span><div class="details" id="dpropvalueFunction"><p>
+This typically returns a string.</div>
                 
                 </div>
                             </td>

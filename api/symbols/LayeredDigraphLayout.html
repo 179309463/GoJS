@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1133,7 +1128,50 @@
                     <a href="../symbols/Layout.html" class="linkConstructor">Layout</a>.</span>
                 
 
-                This arranges nodes of directed graphs into layers (rows or columns).There are many samples that use LayeredDigraphLayout.<p class="boxrun">If you want to experiment interactively with most of the properties, try the <a href="../../samples/ldLayout.html">Layered Digraph Layout</a> sample.See samples that make use of LayeredDigraphLayout in the <a href="../../samples/index.html#layereddigraphlayout">samples index</a>.<p>The <a href="../symbols/LayeredDigraphLayout.html#layerSpacing" class="linkProperty">layerSpacing</a> property controls the distance between layers.The <a href="../symbols/LayeredDigraphLayout.html#columnSpacing" class="linkProperty">columnSpacing</a> property controls the breadth of each "column" --this affects the distance between nodes within a layer, although the exact distance also depends on the breadth of each node.The <a href="../symbols/LayeredDigraphLayout.html#layeringOption" class="linkProperty">layeringOption</a> property determines whether nodes without links coming in or without links going out arelined up at the edge of the graph, or whether they are positioned close to their connected nodes.<p>By default the layout will route the links in a manner that is consistent with the <a href="../symbols/LayeredDigraphLayout.html#direction" class="linkProperty">direction</a>.So, for example, if the <a href="../symbols/LayeredDigraphLayout.html#direction" class="linkProperty">direction</a> is 90 degrees (i.e. downward), the links are expected to go from the top towards the bottom.That means the links should come out from the bottom of the ports and should go into the top of the ports.Basically the layout will set <a href="../symbols/Link.html#fromSpot" class="linkProperty">Link.fromSpot</a> to <code>Spot.Bottom</code> and <a href="../symbols/Link.html#toSpot" class="linkProperty">Link.toSpot</a> to <code>Spot.Top</code>.<p>If you want to the links to use the spots that are given by the ports or by the links themselves, you will need to set<a href="../symbols/LayeredDigraphLayout.html#setsPortSpots" class="linkProperty">setsPortSpots</a> to false to prevent this layout from setting the spots on the links.For example, if each node only has one port that is the whole node, and if you want the links to be spread out along the sidesof the nodes, then you should set <a href="../symbols/LayeredDigraphLayout.html#setsPortSpots" class="linkProperty">setsPortSpots</a> to false and set the node's <a href="../symbols/GraphObject.html#fromSpot" class="linkProperty">GraphObject.fromSpot</a> to<code>Spot.BottomSide</code> and <a href="../symbols/GraphObject.html#toSpot" class="linkProperty">GraphObject.toSpot</a> to <code>Spot.TopSide</code>.<p>This layout handles links that form cycles better than <a href="../symbols/TreeLayout.html" class="linkConstructor">TreeLayout</a> does.The normal routing behavior for "backwards" links is to route them "around" the source node and "around" the destination node,so that all links come in one side and go out the other side.However if you want "backwards" links to go more directly between nodes, set <a href="../symbols/LayeredDigraphLayout.html#setsPortSpots" class="linkProperty">setsPortSpots</a> to false andthe node's <a href="../symbols/GraphObject.html#fromSpot" class="linkProperty">GraphObject.fromSpot</a> and <a href="../symbols/GraphObject.html#toSpot" class="linkProperty">GraphObject.toSpot</a> both to <code>Spot.TopBottomSides</code>.(Of course if the <a href="../symbols/LayeredDigraphLayout.html#direction" class="linkProperty">direction</a> is zero or 180, you'll want to use <code>Spot.LeftRightSides</code>.<p>If the diagram is structured in a tree-like fashion,it may be better to use <a href="../symbols/TreeLayout.html" class="linkConstructor">TreeLayout</a>,which has more options specific to trees.<a href="../symbols/TreeLayout.html" class="linkConstructor">TreeLayout</a> is much faster than LayeredDigraphLayout,and can handle a limited number of links that would prevent thegraph structure from being a true tree (i.e. some nodes having multiple parents).<p>This layout makes use of a <a href="../symbols/LayoutNetwork.html" class="linkConstructor">LayoutNetwork</a> of<a href="../symbols/LayeredDigraphVertex.html" class="linkConstructor">LayeredDigraphVertex</a>es and <a href="../symbols/LayeredDigraphEdge.html" class="linkConstructor">LayeredDigraphEdge</a>s that normallycorrespond to the <a href="../symbols/Node.html" class="linkConstructor">Node</a>s and <a href="../symbols/Link.html" class="linkConstructor">Link</a>s of the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.<p>The layout algorithm consists of four-major steps: Cycle Removal,Layer Assignment, Crossing Reduction, and Straightening and Packing.The layout cannot guarantee that it provides optimal positioning of nodes or routing of links.
+                This arranges nodes of directed graphs into layers (rows or columns).
+There are many samples that use LayeredDigraphLayout.
+<p class="boxrun">
+If you want to experiment interactively with most of the properties, try the <a href="../../samples/ldLayout.html">Layered Digraph Layout</a> sample.
+See samples that make use of LayeredDigraphLayout in the <a href="../../samples/index.html#layereddigraphlayout">samples index</a>.
+<p>
+The <a href="../symbols/LayeredDigraphLayout.html#layerSpacing" class="linkProperty">layerSpacing</a> property controls the distance between layers.
+The <a href="../symbols/LayeredDigraphLayout.html#columnSpacing" class="linkProperty">columnSpacing</a> property controls the breadth of each "column" --
+this affects the distance between nodes within a layer, although the exact distance also depends on the breadth of each node.
+The <a href="../symbols/LayeredDigraphLayout.html#layeringOption" class="linkProperty">layeringOption</a> property determines whether nodes without links coming in or without links going out are
+lined up at the edge of the graph, or whether they are positioned close to their connected nodes.
+<p>
+By default the layout will route the links in a manner that is consistent with the <a href="../symbols/LayeredDigraphLayout.html#direction" class="linkProperty">direction</a>.
+So, for example, if the <a href="../symbols/LayeredDigraphLayout.html#direction" class="linkProperty">direction</a> is 90 degrees (i.e. downward), the links are expected to go from the top towards the bottom.
+That means the links should come out from the bottom of the ports and should go into the top of the ports.
+Basically the layout will set <a href="../symbols/Link.html#fromSpot" class="linkProperty">Link.fromSpot</a> to <code>Spot.Bottom</code> and <a href="../symbols/Link.html#toSpot" class="linkProperty">Link.toSpot</a> to <code>Spot.Top</code>.
+<p>
+If you want to the links to use the spots that are given by the ports or by the links themselves, you will need to set
+<a href="../symbols/LayeredDigraphLayout.html#setsPortSpots" class="linkProperty">setsPortSpots</a> to false to prevent this layout from setting the spots on the links.
+For example, if each node only has one port that is the whole node, and if you want the links to be spread out along the sides
+of the nodes, then you should set <a href="../symbols/LayeredDigraphLayout.html#setsPortSpots" class="linkProperty">setsPortSpots</a> to false and set the node's <a href="../symbols/GraphObject.html#fromSpot" class="linkProperty">GraphObject.fromSpot</a> to
+<code>Spot.BottomSide</code> and <a href="../symbols/GraphObject.html#toSpot" class="linkProperty">GraphObject.toSpot</a> to <code>Spot.TopSide</code>.
+<p>
+This layout handles links that form cycles better than <a href="../symbols/TreeLayout.html" class="linkConstructor">TreeLayout</a> does.
+The normal routing behavior for "backwards" links is to route them "around" the source node and "around" the destination node,
+so that all links come in one side and go out the other side.
+However if you want "backwards" links to go more directly between nodes, set <a href="../symbols/LayeredDigraphLayout.html#setsPortSpots" class="linkProperty">setsPortSpots</a> to false and
+the node's <a href="../symbols/GraphObject.html#fromSpot" class="linkProperty">GraphObject.fromSpot</a> and <a href="../symbols/GraphObject.html#toSpot" class="linkProperty">GraphObject.toSpot</a> both to <code>Spot.TopBottomSides</code>.
+(Of course if the <a href="../symbols/LayeredDigraphLayout.html#direction" class="linkProperty">direction</a> is zero or 180, you'll want to use <code>Spot.LeftRightSides</code>.
+<p>
+If the diagram is structured in a tree-like fashion,
+it may be better to use <a href="../symbols/TreeLayout.html" class="linkConstructor">TreeLayout</a>,
+which has more options specific to trees.
+<a href="../symbols/TreeLayout.html" class="linkConstructor">TreeLayout</a> is much faster than LayeredDigraphLayout,
+and can handle a limited number of links that would prevent the
+graph structure from being a true tree (i.e. some nodes having multiple parents).
+<p>
+This layout makes use of a <a href="../symbols/LayoutNetwork.html" class="linkConstructor">LayoutNetwork</a> of
+<a href="../symbols/LayeredDigraphVertex.html" class="linkConstructor">LayeredDigraphVertex</a>es and <a href="../symbols/LayeredDigraphEdge.html" class="linkConstructor">LayeredDigraphEdge</a>s that normally
+correspond to the <a href="../symbols/Node.html" class="linkConstructor">Node</a>s and <a href="../symbols/Link.html" class="linkConstructor">Link</a>s of the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.
+<p>
+The layout algorithm consists of four-major steps: Cycle Removal,
+Layer Assignment, Crossing Reduction, and Straightening and Packing.
+The layout cannot guarantee that it provides optimal positioning of nodes or routing of links.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1156,7 +1194,8 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>Constructs a <a href="../symbols/LayeredDigraphLayout.html" class="linkConstructor">LayeredDigraphLayout</a> with no <a href="../symbols/Layout.html#network" class="linkProperty">Layout.network</a>and with no owning <a href="../symbols/Layout.html#diagram" class="linkProperty">Layout.diagram</a>.
+                            <!--newp--><p><p>Constructs a <a href="../symbols/LayeredDigraphLayout.html" class="linkConstructor">LayeredDigraphLayout</a> with no <a href="../symbols/Layout.html#network" class="linkProperty">Layout.network</a>
+and with no owning <a href="../symbols/Layout.html#diagram" class="linkProperty">Layout.diagram</a>.
                         
                         
 
@@ -1198,7 +1237,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets which aggressive option is being used to look for link crossings.<span class="nodetails" id="xpropaggressiveOption"><a class="morelink" onclick="hst('propaggressiveOption')">More...</a></span> <span class="details" id="propaggressiveOption">The default value is <a href="../symbols/LayeredDigraphLayout.html#AggressiveLess" class="linkConstant">LayeredDigraphLayout.AggressiveLess</a>.</span>
+                <p>Gets or sets which aggressive option is being used to look for link crossings.<span class="nodetails" id="xpropaggressiveOption"><a class="morelink" onclick="hst('propaggressiveOption')">More...</a></span> <span class="details" id="propaggressiveOption">
+The default value is <a href="../symbols/LayeredDigraphLayout.html#AggressiveLess" class="linkConstant">LayeredDigraphLayout.AggressiveLess</a>.</span>
                 
                 </div>
                             </td>
@@ -1218,7 +1258,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the size of each column.<span class="nodetails" id="xpropcolumnSpacing"><a class="morelink" onclick="hst('propcolumnSpacing')">More...</a></span> <span class="details" id="propcolumnSpacing">This value must be positive and it defaults to 25.</span>
+                <p>Gets or sets the size of each column.<span class="nodetails" id="xpropcolumnSpacing"><a class="morelink" onclick="hst('propcolumnSpacing')">More...</a></span> <span class="details" id="propcolumnSpacing">
+This value must be positive and it defaults to 25.</span>
                 
                 </div>
                             </td>
@@ -1238,7 +1279,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or set which cycle removal option is used.<span class="nodetails" id="xpropcycleRemoveOption"><a class="morelink" onclick="hst('propcycleRemoveOption')">More...</a></span> <span class="details" id="propcycleRemoveOption">The default value is <a href="../symbols/LayeredDigraphLayout.html#CycleDepthFirst" class="linkConstant">LayeredDigraphLayout.CycleDepthFirst</a>.</span>
+                <p>Gets or set which cycle removal option is used.<span class="nodetails" id="xpropcycleRemoveOption"><a class="morelink" onclick="hst('propcycleRemoveOption')">More...</a></span> <span class="details" id="propcycleRemoveOption">
+The default value is <a href="../symbols/LayeredDigraphLayout.html#CycleDepthFirst" class="linkConstant">LayeredDigraphLayout.CycleDepthFirst</a>.</span>
                 
                 </div>
                             </td>
@@ -1258,7 +1300,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the direction the graph grows towards.<span class="nodetails" id="xpropdirection"><a class="morelink" onclick="hst('propdirection')">More...</a></span> <span class="details" id="propdirection">0 is towards the right, 90 is downwards, 180 is towards the left, and 270 is upwards.The default value is 0.</span>
+                <p>Gets or sets the direction the graph grows towards.<span class="nodetails" id="xpropdirection"><a class="morelink" onclick="hst('propdirection')">More...</a></span> <span class="details" id="propdirection">
+0 is towards the right, 90 is downwards, 180 is towards the left, and 270 is upwards.
+The default value is 0.</span>
                 
                 </div>
                             </td>
@@ -1278,7 +1322,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets which indices initialization option is being used.<span class="nodetails" id="xpropinitializeOption"><a class="morelink" onclick="hst('propinitializeOption')">More...</a></span> <span class="details" id="propinitializeOption">The default value is <a href="../symbols/LayeredDigraphLayout.html#InitDepthFirstOut" class="linkConstant">LayeredDigraphLayout.InitDepthFirstOut</a>.</span>
+                <p>Gets or sets which indices initialization option is being used.<span class="nodetails" id="xpropinitializeOption"><a class="morelink" onclick="hst('propinitializeOption')">More...</a></span> <span class="details" id="propinitializeOption">
+The default value is <a href="../symbols/LayeredDigraphLayout.html#InitDepthFirstOut" class="linkConstant">LayeredDigraphLayout.InitDepthFirstOut</a>.</span>
                 
                 </div>
                             </td>
@@ -1298,7 +1343,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the number of iterations to be done.<span class="nodetails" id="xpropiterations"><a class="morelink" onclick="hst('propiterations')">More...</a></span> <span class="details" id="propiterations">The value must be non-negative.  The default value is 4.</span>
+                <p>Gets or sets the number of iterations to be done.<span class="nodetails" id="xpropiterations"><a class="morelink" onclick="hst('propiterations')">More...</a></span> <span class="details" id="propiterations">
+The value must be non-negative.  The default value is 4.</span>
                 
                 </div>
                             </td>
@@ -1318,7 +1364,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets which layering option is being used.<span class="nodetails" id="xproplayeringOption"><a class="morelink" onclick="hst('proplayeringOption')">More...</a></span> <span class="details" id="proplayeringOption">The default value is <a href="../symbols/LayeredDigraphLayout.html#LayerOptimalLinkLength" class="linkConstant">LayeredDigraphLayout.LayerOptimalLinkLength</a>.</span>
+                <p>Gets or sets which layering option is being used.<span class="nodetails" id="xproplayeringOption"><a class="morelink" onclick="hst('proplayeringOption')">More...</a></span> <span class="details" id="proplayeringOption">
+The default value is <a href="../symbols/LayeredDigraphLayout.html#LayerOptimalLinkLength" class="linkConstant">LayeredDigraphLayout.LayerOptimalLinkLength</a>.</span>
                 
                 </div>
                             </td>
@@ -1338,7 +1385,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the size of each layer.<span class="nodetails" id="xproplayerSpacing"><a class="morelink" onclick="hst('proplayerSpacing')">More...</a></span> <span class="details" id="proplayerSpacing">This value must be positive and it defaults to 25.</span>
+                <p>Gets or sets the size of each layer.<span class="nodetails" id="xproplayerSpacing"><a class="morelink" onclick="hst('proplayerSpacing')">More...</a></span> <span class="details" id="proplayerSpacing">
+This value must be positive and it defaults to 25.</span>
                 
                 </div>
                             </td>
@@ -1458,7 +1506,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the options used by the straighten and pack function,The default value is <a href="../symbols/LayeredDigraphLayout.html#PackAll" class="linkConstant">LayeredDigraphLayout.PackAll</a>.
+                <p>Gets or sets the options used by the straighten and pack function,
+The default value is <a href="../symbols/LayeredDigraphLayout.html#PackAll" class="linkConstant">LayeredDigraphLayout.PackAll</a>.
                 
                 </div>
                             </td>
@@ -1478,7 +1527,13 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the FromSpot and ToSpot of each link should be setto values appropriate for the given value of <a href="../symbols/LayeredDigraphLayout.html#direction" class="linkProperty">LayeredDigraphLayout.direction</a>.<span class="nodetails" id="xpropsetsPortSpots"><a class="morelink" onclick="hst('propsetsPortSpots')">More...</a></span> <span class="details" id="propsetsPortSpots">The default value is true.</span><div class="details" id="dpropsetsPortSpots"><p>If you set this to false, the spot values of the links and port objects will be used.If you do not set the spot values to sensible values matching the <a href="../symbols/LayeredDigraphLayout.html#direction" class="linkProperty">direction</a>,the routing results may be poor and they may cross over nodes.</div>
+                <p>Gets or sets whether the FromSpot and ToSpot of each link should be set
+to values appropriate for the given value of <a href="../symbols/LayeredDigraphLayout.html#direction" class="linkProperty">LayeredDigraphLayout.direction</a>.<span class="nodetails" id="xpropsetsPortSpots"><a class="morelink" onclick="hst('propsetsPortSpots')">More...</a></span> <span class="details" id="propsetsPortSpots">
+The default value is true.
+</span><div class="details" id="dpropsetsPortSpots"><p>
+If you set this to false, the spot values of the links and port objects will be used.
+If you do not set the spot values to sensible values matching the <a href="../symbols/LayeredDigraphLayout.html#direction" class="linkProperty">direction</a>,
+the routing results may be poor and they may cross over nodes.</div>
                 
                 </div>
                             </td>
@@ -1526,7 +1581,16 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Assigns every vertex in the input network to a layer.<span class="nodetails" id="xmethassignLayers"><a class="morelink" onclick="hst('methassignLayers')">More...</a></span> <span class="details" id="methassignLayers">The layer is a non-negative integer describing which row of vertexes each vertex belongs in.(Do not confuse this concept of "layer" with <a href="../symbols/Layer.html" class="linkConstructor">Layer</a>s that control the Z-ordering of Parts.)</span><div class="details" id="dmethassignLayers"><p>The layering satisfies the following relationship:if L is a link from node U to node V, then U.layer > V.layer.<p>This method can be overridden to customize how nodes are assigned layers.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.By default, this does the appropriate assignments given the value of <a href="../symbols/LayeredDigraphLayout.html#layeringOption" class="linkProperty">layeringOption</a>.</div>
+                                <!--newp--><p><p>Assigns every vertex in the input network to a layer.<span class="nodetails" id="xmethassignLayers"><a class="morelink" onclick="hst('methassignLayers')">More...</a></span> <span class="details" id="methassignLayers">
+The layer is a non-negative integer describing which row of vertexes each vertex belongs in.
+(Do not confuse this concept of "layer" with <a href="../symbols/Layer.html" class="linkConstructor">Layer</a>s that control the Z-ordering of Parts.)
+</span><div class="details" id="dmethassignLayers"><p>
+The layering satisfies the following relationship:
+if L is a link from node U to node V, then U.layer > V.layer.
+<p>
+This method can be overridden to customize how nodes are assigned layers.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.
+By default, this does the appropriate assignments given the value of <a href="../symbols/LayeredDigraphLayout.html#layeringOption" class="linkProperty">layeringOption</a>.</div>
                  
                               
                               
@@ -1550,7 +1614,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This overridable method is called by <a href="../symbols/LayeredDigraphLayout.html#commitLayout" class="linkMethod">commitLayout</a>to support custom arrangement of bands or labels across each layout layer.<span class="nodetails" id="xmethcommitLayers"><a class="morelink" onclick="hst('methcommitLayers')">More...</a></span> <span class="details" id="methcommitLayers">By default this method does nothing.</span><div class="details" id="dmethcommitLayers"><p>The coordinates used in the resulting Rects may need to be offset by the <a href="../symbols/Layout.html#arrangementOrigin" class="linkProperty">Layout.arrangementOrigin</a>.</div>
+                                <!--newp--><p><p>This overridable method is called by <a href="../symbols/LayeredDigraphLayout.html#commitLayout" class="linkMethod">commitLayout</a>
+to support custom arrangement of bands or labels across each layout layer.<span class="nodetails" id="xmethcommitLayers"><a class="morelink" onclick="hst('methcommitLayers')">More...</a></span> <span class="details" id="methcommitLayers">
+By default this method does nothing.
+</span><div class="details" id="dmethcommitLayers"><p>
+The coordinates used in the resulting Rects may need to be offset by the <a href="../symbols/Layout.html#arrangementOrigin" class="linkProperty">Layout.arrangementOrigin</a>.</div>
                  
                               
                                   <dl class="detailList">
@@ -1589,7 +1657,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Set the fromSpot and toSpot on each Link, position each Node accordingto the vertex position, and then position/route the Links.<span class="nodetails" id="xmethcommitLayout"><a class="morelink" onclick="hst('methcommitLayout')">More...</a></span> <span class="details" id="methcommitLayout"></span><div class="details" id="dmethcommitLayout"><p>This calls the <a href="../symbols/LayeredDigraphLayout.html#commitNodes" class="linkMethod">commitNodes</a> and <a href="../symbols/LayeredDigraphLayout.html#commitLinks" class="linkMethod">commitLinks</a> methods, the latter only if <a href="../symbols/Layout.html#isRouting" class="linkProperty">isRouting</a> is true.You should not call this method -- it is a "protected virtual" method.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Set the fromSpot and toSpot on each Link, position each Node according
+to the vertex position, and then position/route the Links.<span class="nodetails" id="xmethcommitLayout"><a class="morelink" onclick="hst('methcommitLayout')">More...</a></span> <span class="details" id="methcommitLayout">
+</span><div class="details" id="dmethcommitLayout"><p>
+This calls the <a href="../symbols/LayeredDigraphLayout.html#commitNodes" class="linkMethod">commitNodes</a> and <a href="../symbols/LayeredDigraphLayout.html#commitLinks" class="linkMethod">commitLinks</a> methods, the latter only if <a href="../symbols/Layout.html#isRouting" class="linkProperty">isRouting</a> is true.
+You should not call this method -- it is a "protected virtual" method.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                               
@@ -1611,7 +1684,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Routes the links.<span class="nodetails" id="xmethcommitLinks"><a class="morelink" onclick="hst('methcommitLinks')">More...</a></span> <span class="details" id="methcommitLinks"></span><div class="details" id="dmethcommitLinks"><p>This is called by <a href="../symbols/LayeredDigraphLayout.html#commitLayout" class="linkMethod">commitLayout</a>.This is only called if <a href="../symbols/Layout.html#isRouting" class="linkProperty">Layout.isRouting</a> is true.See also <a href="../symbols/LayeredDigraphLayout.html#commitNodes" class="linkMethod">commitNodes</a>.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Routes the links.<span class="nodetails" id="xmethcommitLinks"><a class="morelink" onclick="hst('methcommitLinks')">More...</a></span> <span class="details" id="methcommitLinks">
+</span><div class="details" id="dmethcommitLinks"><p>
+This is called by <a href="../symbols/LayeredDigraphLayout.html#commitLayout" class="linkMethod">commitLayout</a>.
+This is only called if <a href="../symbols/Layout.html#isRouting" class="linkProperty">Layout.isRouting</a> is true.
+See also <a href="../symbols/LayeredDigraphLayout.html#commitNodes" class="linkMethod">commitNodes</a>.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                               
@@ -1633,7 +1711,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Commit the position of all nodes.<span class="nodetails" id="xmethcommitNodes"><a class="morelink" onclick="hst('methcommitNodes')">More...</a></span> <span class="details" id="methcommitNodes"></span><div class="details" id="dmethcommitNodes"><p>This is called by <a href="../symbols/LayeredDigraphLayout.html#commitLayout" class="linkMethod">commitLayout</a>.See also <a href="../symbols/LayeredDigraphLayout.html#commitLinks" class="linkMethod">commitLinks</a>.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Commit the position of all nodes.<span class="nodetails" id="xmethcommitNodes"><a class="morelink" onclick="hst('methcommitNodes')">More...</a></span> <span class="details" id="methcommitNodes">
+</span><div class="details" id="dmethcommitNodes"><p>
+This is called by <a href="../symbols/LayeredDigraphLayout.html#commitLayout" class="linkMethod">commitLayout</a>.
+See also <a href="../symbols/LayeredDigraphLayout.html#commitLinks" class="linkMethod">commitLinks</a>.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                               
@@ -1684,7 +1766,15 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Perform the layered digraph layout.<span class="nodetails" id="xmethdoLayout"><a class="morelink" onclick="hst('methdoLayout')">More...</a></span> <span class="details" id="methdoLayout"></span><div class="details" id="dmethdoLayout"><p>If there is no <a href="../symbols/Layout.html#network" class="linkProperty">Layout.network</a>, this calls <a href="../symbols/Layout.html#makeNetwork" class="linkMethod">makeNetwork</a> to create a LayeredDigraphNetwork from the given collection of Parts.This removes any reflexive edges in the network, since they should be ignored.<p>In order to influence a vertex's layer, you can override <a href="../symbols/LayeredDigraphLayout.html#assignLayers" class="linkMethod">assignLayers</a>.<p>Finally this calls <a href="../symbols/Layout.html#updateParts" class="linkMethod">Layout.updateParts</a> to commit the Node positions from the vertex positions.<a href="../symbols/Layout.html#updateParts" class="linkMethod">Layout.updateParts</a> calls <a href="../symbols/LayeredDigraphLayout.html#commitLayout" class="linkMethod">commitLayout</a> within a transaction.</div>
+                                <!--newp--><p><p>Perform the layered digraph layout.<span class="nodetails" id="xmethdoLayout"><a class="morelink" onclick="hst('methdoLayout')">More...</a></span> <span class="details" id="methdoLayout">
+</span><div class="details" id="dmethdoLayout"><p>
+If there is no <a href="../symbols/Layout.html#network" class="linkProperty">Layout.network</a>, this calls <a href="../symbols/Layout.html#makeNetwork" class="linkMethod">makeNetwork</a> to create a LayeredDigraphNetwork from the given collection of Parts.
+This removes any reflexive edges in the network, since they should be ignored.
+<p>
+In order to influence a vertex's layer, you can override <a href="../symbols/LayeredDigraphLayout.html#assignLayers" class="linkMethod">assignLayers</a>.
+<p>
+Finally this calls <a href="../symbols/Layout.html#updateParts" class="linkMethod">Layout.updateParts</a> to commit the Node positions from the vertex positions.
+<a href="../symbols/Layout.html#updateParts" class="linkMethod">Layout.updateParts</a> calls <a href="../symbols/LayeredDigraphLayout.html#commitLayout" class="linkMethod">commitLayout</a> within a transaction.</div>
                  
                               
                                   <dl class="detailList">
@@ -1745,7 +1835,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>The faster, less aggressive, crossing reduction algorithm;a valid value for <a href="../symbols/LayeredDigraphLayout.html#aggressiveOption" class="linkProperty">LayeredDigraphLayout.aggressiveOption</a>.
+                                <!--newp--><p><p>The faster, less aggressive, crossing reduction algorithm;
+a valid value for <a href="../symbols/LayeredDigraphLayout.html#aggressiveOption" class="linkProperty">LayeredDigraphLayout.aggressiveOption</a>.
                             
 
                 </div>
@@ -1764,7 +1855,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>The slower, more aggressive, crossing reduction algorithm,a valid value for <a href="../symbols/LayeredDigraphLayout.html#aggressiveOption" class="linkProperty">LayeredDigraphLayout.aggressiveOption</a>.
+                                <!--newp--><p><p>The slower, more aggressive, crossing reduction algorithm,
+a valid value for <a href="../symbols/LayeredDigraphLayout.html#aggressiveOption" class="linkProperty">LayeredDigraphLayout.aggressiveOption</a>.
                             
 
                 </div>
@@ -1783,7 +1875,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>The fastest, but poorest, crossing reduction algorithm;a valid value for <a href="../symbols/LayeredDigraphLayout.html#aggressiveOption" class="linkProperty">LayeredDigraphLayout.aggressiveOption</a>.
+                                <!--newp--><p><p>The fastest, but poorest, crossing reduction algorithm;
+a valid value for <a href="../symbols/LayeredDigraphLayout.html#aggressiveOption" class="linkProperty">LayeredDigraphLayout.aggressiveOption</a>.
                             
 
                 </div>
@@ -1802,7 +1895,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Remove cycles using depth first cycle removal;a valid value of <a href="../symbols/LayeredDigraphLayout.html#cycleRemoveOption" class="linkProperty">LayeredDigraphLayout.cycleRemoveOption</a>.
+                                <!--newp--><p><p>Remove cycles using depth first cycle removal;
+a valid value of <a href="../symbols/LayeredDigraphLayout.html#cycleRemoveOption" class="linkProperty">LayeredDigraphLayout.cycleRemoveOption</a>.
                             
 
                 </div>
@@ -1821,7 +1915,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Remove cycles using greedy cycle removal;a valid value of <a href="../symbols/LayeredDigraphLayout.html#cycleRemoveOption" class="linkProperty">LayeredDigraphLayout.cycleRemoveOption</a>.
+                                <!--newp--><p><p>Remove cycles using greedy cycle removal;
+a valid value of <a href="../symbols/LayeredDigraphLayout.html#cycleRemoveOption" class="linkProperty">LayeredDigraphLayout.cycleRemoveOption</a>.
                             
 
                 </div>
@@ -1840,7 +1935,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Initialize using depth first in initialization;a valid value for <a href="../symbols/LayeredDigraphLayout.html#initializeOption" class="linkProperty">LayeredDigraphLayout.initializeOption</a>.
+                                <!--newp--><p><p>Initialize using depth first in initialization;
+a valid value for <a href="../symbols/LayeredDigraphLayout.html#initializeOption" class="linkProperty">LayeredDigraphLayout.initializeOption</a>.
                             
 
                 </div>
@@ -1859,7 +1955,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Initialize using depth first out initialization;a valid value for <a href="../symbols/LayeredDigraphLayout.html#initializeOption" class="linkProperty">LayeredDigraphLayout.initializeOption</a>.
+                                <!--newp--><p><p>Initialize using depth first out initialization;
+a valid value for <a href="../symbols/LayeredDigraphLayout.html#initializeOption" class="linkProperty">LayeredDigraphLayout.initializeOption</a>.
                             
 
                 </div>
@@ -1878,7 +1975,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Initialize using naive initialization;a valid value for <a href="../symbols/LayeredDigraphLayout.html#initializeOption" class="linkProperty">LayeredDigraphLayout.initializeOption</a>.
+                                <!--newp--><p><p>Initialize using naive initialization;
+a valid value for <a href="../symbols/LayeredDigraphLayout.html#initializeOption" class="linkProperty">LayeredDigraphLayout.initializeOption</a>.
                             
 
                 </div>
@@ -1897,7 +1995,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Assign layers using longest path sink layering;a valid value for <a href="../symbols/LayeredDigraphLayout.html#layeringOption" class="linkProperty">LayeredDigraphLayout.layeringOption</a>.
+                                <!--newp--><p><p>Assign layers using longest path sink layering;
+a valid value for <a href="../symbols/LayeredDigraphLayout.html#layeringOption" class="linkProperty">LayeredDigraphLayout.layeringOption</a>.
                             
 
                 </div>
@@ -1916,7 +2015,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Assign layers using longest path source layering;a valid value for <a href="../symbols/LayeredDigraphLayout.html#layeringOption" class="linkProperty">LayeredDigraphLayout.layeringOption</a>.
+                                <!--newp--><p><p>Assign layers using longest path source layering;
+a valid value for <a href="../symbols/LayeredDigraphLayout.html#layeringOption" class="linkProperty">LayeredDigraphLayout.layeringOption</a>.
                             
 
                 </div>
@@ -1935,7 +2035,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Assign layers using optimal link length layering;A valid value for <a href="../symbols/LayeredDigraphLayout.html#layeringOption" class="linkProperty">LayeredDigraphLayout.layeringOption</a>.
+                                <!--newp--><p><p>Assign layers using optimal link length layering;
+A valid value for <a href="../symbols/LayeredDigraphLayout.html#layeringOption" class="linkProperty">LayeredDigraphLayout.layeringOption</a>.
                             
 
                 </div>
@@ -1954,7 +2055,9 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Enable all options for the <a href="../symbols/LayeredDigraphLayout.html#packOption" class="linkProperty">LayeredDigraphLayout.packOption</a> property;See also <a href="../symbols/LayeredDigraphLayout.html#PackExpand" class="linkConstant">LayeredDigraphLayout.PackExpand</a>, <a href="../symbols/LayeredDigraphLayout.html#PackStraighten" class="linkConstant">LayeredDigraphLayout.PackStraighten</a>,and <a href="../symbols/LayeredDigraphLayout.html#PackMedian" class="linkConstant">LayeredDigraphLayout.PackMedian</a>.
+                                <!--newp--><p><p>Enable all options for the <a href="../symbols/LayeredDigraphLayout.html#packOption" class="linkProperty">LayeredDigraphLayout.packOption</a> property;
+See also <a href="../symbols/LayeredDigraphLayout.html#PackExpand" class="linkConstant">LayeredDigraphLayout.PackExpand</a>, <a href="../symbols/LayeredDigraphLayout.html#PackStraighten" class="linkConstant">LayeredDigraphLayout.PackStraighten</a>,
+and <a href="../symbols/LayeredDigraphLayout.html#PackMedian" class="linkConstant">LayeredDigraphLayout.PackMedian</a>.
                             
 
                 </div>
@@ -1973,7 +2076,9 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This option gives more chances for the packing algorithm to improve the network,but is very expensive in time for large networks;a valid value for <a href="../symbols/LayeredDigraphLayout.html#packOption" class="linkProperty">LayeredDigraphLayout.packOption</a>.
+                                <!--newp--><p><p>This option gives more chances for the packing algorithm to improve the network,
+but is very expensive in time for large networks;
+a valid value for <a href="../symbols/LayeredDigraphLayout.html#packOption" class="linkProperty">LayeredDigraphLayout.packOption</a>.
                             
 
                 </div>
@@ -1992,7 +2097,9 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This option tries to have the packing algorithm center groups of nodesbased on their relationships with nodes in other layers,a valid value for <a href="../symbols/LayeredDigraphLayout.html#packOption" class="linkProperty">LayeredDigraphLayout.packOption</a>.
+                                <!--newp--><p><p>This option tries to have the packing algorithm center groups of nodes
+based on their relationships with nodes in other layers,
+a valid value for <a href="../symbols/LayeredDigraphLayout.html#packOption" class="linkProperty">LayeredDigraphLayout.packOption</a>.
                             
 
                 </div>
@@ -2011,7 +2118,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Does minimal work in packing the nodes;a valid value for <a href="../symbols/LayeredDigraphLayout.html#packOption" class="linkProperty">LayeredDigraphLayout.packOption</a>.
+                                <!--newp--><p><p>Does minimal work in packing the nodes;
+a valid value for <a href="../symbols/LayeredDigraphLayout.html#packOption" class="linkProperty">LayeredDigraphLayout.packOption</a>.
                             
 
                 </div>
@@ -2030,7 +2138,9 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This option tries to have the packing algorithm straighten many of thelinks that cross layers,a valid value for <a href="../symbols/LayeredDigraphLayout.html#packOption" class="linkProperty">LayeredDigraphLayout.packOption</a>.
+                                <!--newp--><p><p>This option tries to have the packing algorithm straighten many of the
+links that cross layers,
+a valid value for <a href="../symbols/LayeredDigraphLayout.html#packOption" class="linkProperty">LayeredDigraphLayout.packOption</a>.
                             
 
                 </div>

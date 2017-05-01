@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1131,7 +1126,31 @@
                 
                 
 
-                An InputEvent represents a mouse or keyboard or touch event.The principal properties hold information about a particular input event.These properties include the <a href="../symbols/InputEvent.html#documentPoint" class="linkProperty">documentPoint</a> at which a mouse eventoccurred in document coordinates,the corresponding point in view/element coordinates, <a href="../symbols/InputEvent.html#viewPoint" class="linkProperty">viewPoint</a>,the <a href="../symbols/InputEvent.html#key" class="linkProperty">key</a> for keyboard events,and the <a href="../symbols/InputEvent.html#modifiers" class="linkProperty">modifiers</a> and <a href="../symbols/InputEvent.html#button" class="linkProperty">button</a> at the time.Additional descriptive properties include <a href="../symbols/InputEvent.html#clickCount" class="linkProperty">clickCount</a>, <a href="../symbols/InputEvent.html#delta" class="linkProperty">delta</a>,<a href="../symbols/InputEvent.html#timestamp" class="linkProperty">timestamp</a>, and the source event <a href="../symbols/InputEvent.html#event" class="linkProperty">event</a> (if available).<p>Many of its properties are provided for convenient access to the state of the input event,such as asking whether the <a href="../symbols/InputEvent.html#control" class="linkProperty">control</a> key was held down at the time,or the <a href="../symbols/InputEvent.html#targetObject" class="linkProperty">targetObject</a> (a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>) that the mouse was over .<p>When real events fire on the Diagram, InputEvents are created automatically set update the value of <a href="../symbols/Diagram.html#lastInput" class="linkProperty">Diagram.lastInput</a>.These events set the value of <a href="../symbols/InputEvent.html#event" class="linkProperty">event</a> with the backing browser-defined Event,which may be a MouseEvent, KeyboardEvent, PointerEvent, TouchEvent, and so on.<p>InputEvents backed by MouseEvents set both <a href="../symbols/InputEvent.html#button" class="linkProperty">button</a>, the button that caused the action,and <a href="../symbols/InputEvent.html#buttons" class="linkProperty">buttons</a>, the set of buttons currently pressed after the action has happened.By default a user-created InputEvent sets <a href="../symbols/InputEvent.html#button" class="linkProperty">button</a> and <a href="../symbols/InputEvent.html#buttons" class="linkProperty">buttons</a> as if the event was a left-click.<p>You can create InputEvents and set the value of <a href="../symbols/Diagram.html#lastInput" class="linkProperty">Diagram.lastInput</a> in order to simulate user actions in tools.This can be useful for testing. See the <a href="../../extensions/Robot.html">Robot extension sample</a> foran example of creating InputEvents to simulate user input.
+                An InputEvent represents a mouse or keyboard or touch event.
+The principal properties hold information about a particular input event.
+These properties include the <a href="../symbols/InputEvent.html#documentPoint" class="linkProperty">documentPoint</a> at which a mouse event
+occurred in document coordinates,
+the corresponding point in view/element coordinates, <a href="../symbols/InputEvent.html#viewPoint" class="linkProperty">viewPoint</a>,
+the <a href="../symbols/InputEvent.html#key" class="linkProperty">key</a> for keyboard events,
+and the <a href="../symbols/InputEvent.html#modifiers" class="linkProperty">modifiers</a> and <a href="../symbols/InputEvent.html#button" class="linkProperty">button</a> at the time.
+Additional descriptive properties include <a href="../symbols/InputEvent.html#clickCount" class="linkProperty">clickCount</a>, <a href="../symbols/InputEvent.html#delta" class="linkProperty">delta</a>,
+<a href="../symbols/InputEvent.html#timestamp" class="linkProperty">timestamp</a>, and the source event <a href="../symbols/InputEvent.html#event" class="linkProperty">event</a> (if available).
+<p>
+Many of its properties are provided for convenient access to the state of the input event,
+such as asking whether the <a href="../symbols/InputEvent.html#control" class="linkProperty">control</a> key was held down at the time,
+or the <a href="../symbols/InputEvent.html#targetObject" class="linkProperty">targetObject</a> (a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>) that the mouse was over .
+<p>
+When real events fire on the Diagram, InputEvents are created automatically set update the value of <a href="../symbols/Diagram.html#lastInput" class="linkProperty">Diagram.lastInput</a>.
+These events set the value of <a href="../symbols/InputEvent.html#event" class="linkProperty">event</a> with the backing browser-defined Event,
+which may be a MouseEvent, KeyboardEvent, PointerEvent, TouchEvent, and so on.
+<p>
+InputEvents backed by MouseEvents set both <a href="../symbols/InputEvent.html#button" class="linkProperty">button</a>, the button that caused the action,
+and <a href="../symbols/InputEvent.html#buttons" class="linkProperty">buttons</a>, the set of buttons currently pressed after the action has happened.
+By default a user-created InputEvent sets <a href="../symbols/InputEvent.html#button" class="linkProperty">button</a> and <a href="../symbols/InputEvent.html#buttons" class="linkProperty">buttons</a> as if the event was a left-click.
+<p>
+You can create InputEvents and set the value of <a href="../symbols/Diagram.html#lastInput" class="linkProperty">Diagram.lastInput</a> in order to simulate user actions in tools.
+This can be useful for testing. See the <a href="../../extensions/Robot.html">Robot extension sample</a> for
+an example of creating InputEvents to simulate user input.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1154,7 +1173,8 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>The InputEvent class constructor produces an empty InputEvent.<span class="nodetails" id="xconInputEvent"><a class="morelink" onclick="hst('conInputEvent')">More...</a></span> <span class="details" id="conInputEvent">You should not need to call this constructor.</span>
+                            <!--newp--><p><p>The InputEvent class constructor produces an empty InputEvent.<span class="nodetails" id="xconInputEvent"><a class="morelink" onclick="hst('conInputEvent')">More...</a></span> <span class="details" id="conInputEvent">
+You should not need to call this constructor.</span>
                         
                         
 
@@ -1196,7 +1216,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the alt key is being held down.<span class="nodetails" id="xpropalt"><a class="morelink" onclick="hst('propalt')">More...</a></span> <span class="details" id="propalt">This is true if the key was pressed at the time of the event.</span>
+                <p>Gets or sets whether the alt key is being held down.<span class="nodetails" id="xpropalt"><a class="morelink" onclick="hst('propalt')">More...</a></span> <span class="details" id="propalt">
+This is true if the key was pressed at the time of the event.</span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1230,7 +1251,30 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the numerical value representing the mouse button that caused this event.<span class="nodetails" id="xpropbutton"><a class="morelink" onclick="hst('propbutton')">More...</a></span> <span class="details" id="propbutton"></span><div class="details" id="dpropbutton"><p>Only one mouse button can cause an event at a time,but the set of all buttons currently pressed is kept in <a href="../symbols/InputEvent.html#buttons" class="linkProperty">buttons</a>.<p>This property describes nothing during a <code>mousemove</code> event,since no button press causes the event. Instead, use the convenience properties<a href="../symbols/InputEvent.html#left" class="linkProperty">left</a>, <a href="../symbols/InputEvent.html#middle" class="linkProperty">middle</a>, or <a href="../symbols/InputEvent.html#right" class="linkProperty">right</a>, or use the valueof <a href="../symbols/InputEvent.html#buttons" class="linkProperty">buttons</a> to determine which mouse buttons areheld during <code>mousemove</code> events.<p>Common values for this property:<ul><li> 0: left mouse button<li> 1: middle mouse button<li> 2: right mouse button</ul><p>Other values are possible if the mouse has additional buttons.<p>If there is no associated <a href="../symbols/InputEvent.html#event" class="linkProperty">event</a>, setting this alsosets the <a href="../symbols/InputEvent.html#buttons" class="linkProperty">buttons</a> flags to only this button.<p>This property is valid if this is a mouse event.</div>
+                <p>Gets or sets the numerical value representing the mouse button that caused this event.<span class="nodetails" id="xpropbutton"><a class="morelink" onclick="hst('propbutton')">More...</a></span> <span class="details" id="propbutton">
+</span><div class="details" id="dpropbutton"><p>
+Only one mouse button can cause an event at a time,
+but the set of all buttons currently pressed is kept in <a href="../symbols/InputEvent.html#buttons" class="linkProperty">buttons</a>.
+<p>
+This property describes nothing during a <code>mousemove</code> event,
+since no button press causes the event. Instead, use the convenience properties
+<a href="../symbols/InputEvent.html#left" class="linkProperty">left</a>, <a href="../symbols/InputEvent.html#middle" class="linkProperty">middle</a>, or <a href="../symbols/InputEvent.html#right" class="linkProperty">right</a>, or use the value
+of <a href="../symbols/InputEvent.html#buttons" class="linkProperty">buttons</a> to determine which mouse buttons are
+held during <code>mousemove</code> events.
+<p>
+Common values for this property:
+<ul>
+<li> 0: left mouse button
+<li> 1: middle mouse button
+<li> 2: right mouse button
+</ul>
+<p>
+Other values are possible if the mouse has additional buttons.
+<p>
+If there is no associated <a href="../symbols/InputEvent.html#event" class="linkProperty">event</a>, setting this also
+sets the <a href="../symbols/InputEvent.html#buttons" class="linkProperty">buttons</a> flags to only this button.
+<p>
+This property is valid if this is a mouse event.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1264,7 +1308,25 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the set of buttons that are currently being held down.<span class="nodetails" id="xpropbuttons"><a class="morelink" onclick="hst('propbuttons')">More...</a></span> <span class="details" id="propbuttons">If this is a <code>mouseup</code> event, this set of buttons does not includethe button that was just released, which will be the value of <a href="../symbols/InputEvent.html#button" class="linkProperty">button</a>.</span><div class="details" id="dpropbuttons"><p>Common values for this property:<ul><li> 0: not holding down any button<li> 1: left mouse button<li> 2: right mouse button<li> 3: both left and right mouse buttons<li> 4: middle mouse button<li> 5: middle and left mouse buttons<li> 6: middle and right mouse buttons<li> 7: all three common mouse buttons</ul><p>Other values are possible if the mouse has additional buttons.<p>This property is valid if this is a mouse event.</div>
+                <p>Gets or sets the set of buttons that are currently being held down.<span class="nodetails" id="xpropbuttons"><a class="morelink" onclick="hst('propbuttons')">More...</a></span> <span class="details" id="propbuttons">
+If this is a <code>mouseup</code> event, this set of buttons does not include
+the button that was just released, which will be the value of <a href="../symbols/InputEvent.html#button" class="linkProperty">button</a>.
+</span><div class="details" id="dpropbuttons"><p>
+Common values for this property:
+<ul>
+<li> 0: not holding down any button
+<li> 1: left mouse button
+<li> 2: right mouse button
+<li> 3: both left and right mouse buttons
+<li> 4: middle mouse button
+<li> 5: middle and left mouse buttons
+<li> 6: middle and right mouse buttons
+<li> 7: all three common mouse buttons
+</ul>
+<p>
+Other values are possible if the mouse has additional buttons.
+<p>
+This property is valid if this is a mouse event.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1298,7 +1360,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether this event represents a click or a double-click.<span class="nodetails" id="xpropclickCount"><a class="morelink" onclick="hst('propclickCount')">More...</a></span> <span class="details" id="propclickCount">It is zero if not a click; one if a single-click; two if a double-click.This property is valid if this is a mouse event.</span>
+                <p>Gets or sets whether this event represents a click or a double-click.<span class="nodetails" id="xpropclickCount"><a class="morelink" onclick="hst('propclickCount')">More...</a></span> <span class="details" id="propclickCount">
+It is zero if not a click; one if a single-click; two if a double-click.
+This property is valid if this is a mouse event.</span>
                 
                 </div>
                             </td>
@@ -1318,7 +1382,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the control key is being held down.<span class="nodetails" id="xpropcontrol"><a class="morelink" onclick="hst('propcontrol')">More...</a></span> <span class="details" id="propcontrol">This is true if the key was pressed at the time of the event.</span>
+                <p>Gets or sets whether the control key is being held down.<span class="nodetails" id="xpropcontrol"><a class="morelink" onclick="hst('propcontrol')">More...</a></span> <span class="details" id="propcontrol">
+This is true if the key was pressed at the time of the event.</span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1352,7 +1417,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the amount of change associated with a mouse-wheel rotation.<span class="nodetails" id="xpropdelta"><a class="morelink" onclick="hst('propdelta')">More...</a></span> <span class="details" id="propdelta">It is an abstract number, either positive or negative.This property is valid if this is a mouse-wheel event.</span>
+                <p>Gets or sets the amount of change associated with a mouse-wheel rotation.<span class="nodetails" id="xpropdelta"><a class="morelink" onclick="hst('propdelta')">More...</a></span> <span class="details" id="propdelta">
+It is an abstract number, either positive or negative.
+This property is valid if this is a mouse-wheel event.</span>
                 
                 </div>
                             </td>
@@ -1392,7 +1459,11 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the point at which this input event occurred, in document coordinates.<span class="nodetails" id="xpropdocumentPoint"><a class="morelink" onclick="hst('propdocumentPoint')">More...</a></span> <span class="details" id="propdocumentPoint">The Point is in document coordinates, the same as the <a href="../symbols/GraphObject.html#position" class="linkProperty">GraphObject.position</a>for <a href="../symbols/Part.html" class="linkConstructor">Part</a>s in the diagram.This should be valid for mouse events.For keyboard events, this is the last available mouse point.</span>
+                <p>Gets or sets the point at which this input event occurred, in document coordinates.<span class="nodetails" id="xpropdocumentPoint"><a class="morelink" onclick="hst('propdocumentPoint')">More...</a></span> <span class="details" id="propdocumentPoint">
+The Point is in document coordinates, the same as the <a href="../symbols/GraphObject.html#position" class="linkProperty">GraphObject.position</a>
+for <a href="../symbols/Part.html" class="linkConstructor">Part</a>s in the diagram.
+This should be valid for mouse events.
+For keyboard events, this is the last available mouse point.</span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1422,7 +1493,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the InputEvent represents a mouse-down or a key-down event.<span class="nodetails" id="xpropdown"><a class="morelink" onclick="hst('propdown')">More...</a></span> <span class="details" id="propdown">The default value is false.</span>
+                <p>Gets or sets whether the InputEvent represents a mouse-down or a key-down event.<span class="nodetails" id="xpropdown"><a class="morelink" onclick="hst('propdown')">More...</a></span> <span class="details" id="propdown">
+The default value is false.</span>
                 
                 </div>
                             </td>
@@ -1442,7 +1514,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the platform's user-agent-supplied event for this event.<span class="nodetails" id="xpropevent"><a class="morelink" onclick="hst('propevent')">More...</a></span> <span class="details" id="propevent">It may be null if no underlying event exists.</span>
+                <p>Gets or sets the platform's user-agent-supplied event for this event.<span class="nodetails" id="xpropevent"><a class="morelink" onclick="hst('propevent')">More...</a></span> <span class="details" id="propevent">
+It may be null if no underlying event exists.</span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1470,7 +1543,11 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether an InputEvent that applies to a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> and bubblesup the chain of containing <a href="../symbols/Panel.html" class="linkConstructor">Panel</a>s is stopped from continuing up the chain.<span class="nodetails" id="xprophandled"><a class="morelink" onclick="hst('prophandled')">More...</a></span> <span class="details" id="prophandled"></span><div class="details" id="dprophandled"><p>Some event handlers may set this to true to avoid getting any behavior from the containing Panels.The default value is false.</div>
+                <p>Gets or sets whether an InputEvent that applies to a <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> and bubbles
+up the chain of containing <a href="../symbols/Panel.html" class="linkConstructor">Panel</a>s is stopped from continuing up the chain.<span class="nodetails" id="xprophandled"><a class="morelink" onclick="hst('prophandled')">More...</a></span> <span class="details" id="prophandled">
+</span><div class="details" id="dprophandled"><p>
+Some event handlers may set this to true to avoid getting any behavior from the containing Panels.
+The default value is false.</div>
                 
                 </div>
                             </td>
@@ -1550,7 +1627,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the key pressed or released as this event.<span class="nodetails" id="xpropkey"><a class="morelink" onclick="hst('propkey')">More...</a></span> <span class="details" id="propkey">This property is valid if this is a keyboard event.</span>
+                <p>Gets or sets the key pressed or released as this event.<span class="nodetails" id="xpropkey"><a class="morelink" onclick="hst('propkey')">More...</a></span> <span class="details" id="propkey">
+This property is valid if this is a keyboard event.</span>
                 
                 </div>
                             </td>
@@ -1570,7 +1648,13 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the logical left mouse button is being held down.<span class="nodetails" id="xpropleft"><a class="morelink" onclick="hst('propleft')">More...</a></span> <span class="details" id="propleft">This is true if the button was pressed at the time of the event.</span><div class="details" id="dpropleft"><p>If this InputEvent has a <a href="../symbols/InputEvent.html#event" class="linkProperty">event</a> of type <code>MouseEvent</code> with <code>e.type</code> of "mouseup" or "mousedown",this property uses the value of <a href="../symbols/InputEvent.html#button" class="linkProperty">button</a>. Otherwise, it uses the value of <a href="../symbols/InputEvent.html#buttons" class="linkProperty">buttons</a>.<p>When setting, this sets the value of <a href="../symbols/InputEvent.html#buttons" class="linkProperty">buttons</a>.</div>
+                <p>Gets or sets whether the logical left mouse button is being held down.<span class="nodetails" id="xpropleft"><a class="morelink" onclick="hst('propleft')">More...</a></span> <span class="details" id="propleft">
+This is true if the button was pressed at the time of the event.
+</span><div class="details" id="dpropleft"><p>
+If this InputEvent has a <a href="../symbols/InputEvent.html#event" class="linkProperty">event</a> of type <code>MouseEvent</code> with <code>e.type</code> of "mouseup" or "mousedown",
+this property uses the value of <a href="../symbols/InputEvent.html#button" class="linkProperty">button</a>. Otherwise, it uses the value of <a href="../symbols/InputEvent.html#buttons" class="linkProperty">buttons</a>.
+<p>
+When setting, this sets the value of <a href="../symbols/InputEvent.html#buttons" class="linkProperty">buttons</a>.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1602,7 +1686,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the meta key is being held down.<span class="nodetails" id="xpropmeta"><a class="morelink" onclick="hst('propmeta')">More...</a></span> <span class="details" id="propmeta">This is true if the key was pressed at the time of the event.</span>
+                <p>Gets or sets whether the meta key is being held down.<span class="nodetails" id="xpropmeta"><a class="morelink" onclick="hst('propmeta')">More...</a></span> <span class="details" id="propmeta">
+This is true if the key was pressed at the time of the event.</span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1636,7 +1721,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the logical middle mouse button is being held down.<span class="nodetails" id="xpropmiddle"><a class="morelink" onclick="hst('propmiddle')">More...</a></span> <span class="details" id="propmiddle">This is true if the button was pressed at the time of the event.</span>
+                <p>Gets or sets whether the logical middle mouse button is being held down.<span class="nodetails" id="xpropmiddle"><a class="morelink" onclick="hst('propmiddle')">More...</a></span> <span class="details" id="propmiddle">
+This is true if the button was pressed at the time of the event.</span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1668,7 +1754,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the modifier keys that were used with the mouse or keyboard event.<span class="nodetails" id="xpropmodifiers"><a class="morelink" onclick="hst('propmodifiers')">More...</a></span> <span class="details" id="propmodifiers">The number will be a combination of flags representing Control, Shift, Alt or Meta.</span>
+                <p>Gets or sets the modifier keys that were used with the mouse or keyboard event.<span class="nodetails" id="xpropmodifiers"><a class="morelink" onclick="hst('propmodifiers')">More...</a></span> <span class="details" id="propmodifiers">
+The number will be a combination of flags representing Control, Shift, Alt or Meta.</span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1702,7 +1789,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the logical right mouse button is being held down.<span class="nodetails" id="xpropright"><a class="morelink" onclick="hst('propright')">More...</a></span> <span class="details" id="propright">This is true if the button was pressed at the time of the event.</span>
+                <p>Gets or sets whether the logical right mouse button is being held down.<span class="nodetails" id="xpropright"><a class="morelink" onclick="hst('propright')">More...</a></span> <span class="details" id="propright">
+This is true if the button was pressed at the time of the event.</span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1734,7 +1822,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the shift key is being held down.<span class="nodetails" id="xpropshift"><a class="morelink" onclick="hst('propshift')">More...</a></span> <span class="details" id="propshift">This is true if the key was pressed at the time of the event.</span>
+                <p>Gets or sets whether the shift key is being held down.<span class="nodetails" id="xpropshift"><a class="morelink" onclick="hst('propshift')">More...</a></span> <span class="details" id="propshift">
+This is true if the key was pressed at the time of the event.</span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1788,7 +1877,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that is at the current mouse point, if any.<span class="nodetails" id="xproptargetObject"><a class="morelink" onclick="hst('proptargetObject')">More...</a></span> <span class="details" id="proptargetObject"></span><div class="details" id="dproptargetObject"><p>For those events that are bubbled up the chain of parent <a href="../symbols/Panel.html" class="linkConstructor">Panel</a>s,this property provides access to the original <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> where the input event occurred.</div>
+                <p>Gets or sets the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that is at the current mouse point, if any.<span class="nodetails" id="xproptargetObject"><a class="morelink" onclick="hst('proptargetObject')">More...</a></span> <span class="details" id="proptargetObject">
+</span><div class="details" id="dproptargetObject"><p>
+For those events that are bubbled up the chain of parent <a href="../symbols/Panel.html" class="linkConstructor">Panel</a>s,
+this property provides access to the original <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> where the input event occurred.</div>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">
@@ -1838,7 +1930,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the InputEvent represents a mouse-up or a key-up event.<span class="nodetails" id="xpropup"><a class="morelink" onclick="hst('propup')">More...</a></span> <span class="details" id="propup">The default value is false.</span>
+                <p>Gets or sets whether the InputEvent represents a mouse-up or a key-up event.<span class="nodetails" id="xpropup"><a class="morelink" onclick="hst('propup')">More...</a></span> <span class="details" id="propup">
+The default value is false.</span>
                 
                 </div>
                             </td>
@@ -1858,7 +1951,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the point at which this input event occurred.<span class="nodetails" id="xpropviewPoint"><a class="morelink" onclick="hst('propviewPoint')">More...</a></span> <span class="details" id="propviewPoint">The Point is in view coordinates within the viewport, not in document coordinates.This should be valid for mouse events.For keyboard events, this is the last available mouse point.</span>
+                <p>Gets or sets the point at which this input event occurred.<span class="nodetails" id="xpropviewPoint"><a class="morelink" onclick="hst('propviewPoint')">More...</a></span> <span class="details" id="propviewPoint">
+The Point is in view coordinates within the viewport, not in document coordinates.
+This should be valid for mouse events.
+For keyboard events, this is the last available mouse point.</span>
                 
                     <div class="seealso">See also:
                         <ul class="seealsolist">

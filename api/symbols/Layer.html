@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1131,7 +1126,32 @@
                 
                 
 
-                Layers are how named collections of <a href="../symbols/Part.html" class="linkConstructor">Part</a>s are drawn in front or behind other collections of Parts in a <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.Layers can only contain <a href="../symbols/Part.html" class="linkConstructor">Part</a>s, such as <a href="../symbols/Node.html" class="linkConstructor">Node</a>s and <a href="../symbols/Link.html" class="linkConstructor">Link</a>s. They cannot hold <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>s directly.<p>You put a Part into a Layer by assigning <a href="../symbols/Part.html#layerName" class="linkProperty">Part.layerName</a> with the name of the Layer.You can use data binding to initialize and remember a Part's layer's name.You can change a Part's layer by modifying its <a href="../symbols/Part.html#layerName" class="linkProperty">Part.layerName</a>, which changes its <a href="../symbols/Part.html#layer" class="linkProperty">Part.layer</a>.<p>Each Diagram starts off with the following list of Layers:"Grid", "Background", "" (the default layer), "Foreground", "Adornment", "Tool".Parts are normally put in the default layer.The "Grid", "Adornment", and "Tool" layers are considered <a href="../symbols/Layer.html#isTemporary" class="linkProperty">isTemporary</a>.Changes to objects in temporary layers are not recorded by the <a href="../symbols/UndoManager.html" class="linkConstructor">UndoManager</a>.Parts in temporary layers are not selected and are not considered to be part of the document.The "Grid" layer is the furthest back; it also contains "temporary" parts that cannot be selected.Furthermore the "Grid" layer has <a href="../symbols/Layer.html#pickable" class="linkProperty">pickable</a> set to false so that mouse or touch eventsand calls to the "find..." methods do not even consider any parts in that layer.<p>Layers have many properties that control what actions users are permitted to perform involving the parts in the layer.These properties are very much like the similarly named properties on <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.<h3>Z-ordering</h3><p>Layers are drawn and presented in order.You can add your own layers by calling <a href="../symbols/Diagram.html#addLayerBefore" class="linkMethod">Diagram.addLayerBefore</a> or <a href="../symbols/Diagram.html#addLayerAfter" class="linkMethod">Diagram.addLayerAfter</a>to insert a new layer at a particular place in the Z-order, or to re-order existing layers.Use <a href="../symbols/Diagram.html#findLayer" class="linkMethod">Diagram.findLayer</a> to get the Layer with a particular name.<a href="../symbols/Part.html" class="linkConstructor">Part</a>s can be individually z-ordered within a layer by setting <a href="../symbols/Part.html#zOrder" class="linkProperty">Part.zOrder</a>.
+                Layers are how named collections of <a href="../symbols/Part.html" class="linkConstructor">Part</a>s are drawn in front or behind other collections of Parts in a <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.
+Layers can only contain <a href="../symbols/Part.html" class="linkConstructor">Part</a>s, such as <a href="../symbols/Node.html" class="linkConstructor">Node</a>s and <a href="../symbols/Link.html" class="linkConstructor">Link</a>s. They cannot hold <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>s directly.
+<p>
+You put a Part into a Layer by assigning <a href="../symbols/Part.html#layerName" class="linkProperty">Part.layerName</a> with the name of the Layer.
+You can use data binding to initialize and remember a Part's layer's name.
+You can change a Part's layer by modifying its <a href="../symbols/Part.html#layerName" class="linkProperty">Part.layerName</a>, which changes its <a href="../symbols/Part.html#layer" class="linkProperty">Part.layer</a>.
+<p>
+Each Diagram starts off with the following list of Layers:
+"Grid", "Background", "" (the default layer), "Foreground", "Adornment", "Tool".
+Parts are normally put in the default layer.
+The "Grid", "Adornment", and "Tool" layers are considered <a href="../symbols/Layer.html#isTemporary" class="linkProperty">isTemporary</a>.
+Changes to objects in temporary layers are not recorded by the <a href="../symbols/UndoManager.html" class="linkConstructor">UndoManager</a>.
+Parts in temporary layers are not selected and are not considered to be part of the document.
+The "Grid" layer is the furthest back; it also contains "temporary" parts that cannot be selected.
+Furthermore the "Grid" layer has <a href="../symbols/Layer.html#pickable" class="linkProperty">pickable</a> set to false so that mouse or touch events
+and calls to the "find..." methods do not even consider any parts in that layer.
+<p>
+Layers have many properties that control what actions users are permitted to perform involving the parts in the layer.
+These properties are very much like the similarly named properties on <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.
+<h3>Z-ordering</h3>
+<p>
+Layers are drawn and presented in order.
+You can add your own layers by calling <a href="../symbols/Diagram.html#addLayerBefore" class="linkMethod">Diagram.addLayerBefore</a> or <a href="../symbols/Diagram.html#addLayerAfter" class="linkMethod">Diagram.addLayerAfter</a>
+to insert a new layer at a particular place in the Z-order, or to re-order existing layers.
+Use <a href="../symbols/Diagram.html#findLayer" class="linkMethod">Diagram.findLayer</a> to get the Layer with a particular name.
+<a href="../symbols/Part.html" class="linkConstructor">Part</a>s can be individually z-ordered within a layer by setting <a href="../symbols/Part.html#zOrder" class="linkProperty">Part.zOrder</a>.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1196,7 +1216,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the user may copy objects in this layer.<span class="nodetails" id="xpropallowCopy"><a class="morelink" onclick="hst('propallowCopy')">More...</a></span> <span class="details" id="propallowCopy">The initial value is true.</span>
+                <p>Gets or sets whether the user may copy objects in this layer.<span class="nodetails" id="xpropallowCopy"><a class="morelink" onclick="hst('propallowCopy')">More...</a></span> <span class="details" id="propallowCopy">
+The initial value is true.</span>
                 
                 </div>
                             </td>
@@ -1216,7 +1237,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the user may delete objects in this layer.<span class="nodetails" id="xpropallowDelete"><a class="morelink" onclick="hst('propallowDelete')">More...</a></span> <span class="details" id="propallowDelete">The initial value is true.</span>
+                <p>Gets or sets whether the user may delete objects in this layer.<span class="nodetails" id="xpropallowDelete"><a class="morelink" onclick="hst('propallowDelete')">More...</a></span> <span class="details" id="propallowDelete">
+The initial value is true.</span>
                 
                 </div>
                             </td>
@@ -1236,7 +1258,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the user may group parts together in this layer.<span class="nodetails" id="xpropallowGroup"><a class="morelink" onclick="hst('propallowGroup')">More...</a></span> <span class="details" id="propallowGroup">The initial value is true.</span>
+                <p>Gets or sets whether the user may group parts together in this layer.<span class="nodetails" id="xpropallowGroup"><a class="morelink" onclick="hst('propallowGroup')">More...</a></span> <span class="details" id="propallowGroup">
+The initial value is true.</span>
                 
                 </div>
                             </td>
@@ -1256,7 +1279,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the user may draw new links in this layer.<span class="nodetails" id="xpropallowLink"><a class="morelink" onclick="hst('propallowLink')">More...</a></span> <span class="details" id="propallowLink">The initial value is true.</span>
+                <p>Gets or sets whether the user may draw new links in this layer.<span class="nodetails" id="xpropallowLink"><a class="morelink" onclick="hst('propallowLink')">More...</a></span> <span class="details" id="propallowLink">
+The initial value is true.</span>
                 
                 </div>
                             </td>
@@ -1276,7 +1300,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the user may move objects in this layer.<span class="nodetails" id="xpropallowMove"><a class="morelink" onclick="hst('propallowMove')">More...</a></span> <span class="details" id="propallowMove">The initial value is true.</span>
+                <p>Gets or sets whether the user may move objects in this layer.<span class="nodetails" id="xpropallowMove"><a class="morelink" onclick="hst('propallowMove')">More...</a></span> <span class="details" id="propallowMove">
+The initial value is true.</span>
                 
                 </div>
                             </td>
@@ -1296,7 +1321,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the user may reconnect existing links in this layer.<span class="nodetails" id="xpropallowRelink"><a class="morelink" onclick="hst('propallowRelink')">More...</a></span> <span class="details" id="propallowRelink">The initial value is true.</span>
+                <p>Gets or sets whether the user may reconnect existing links in this layer.<span class="nodetails" id="xpropallowRelink"><a class="morelink" onclick="hst('propallowRelink')">More...</a></span> <span class="details" id="propallowRelink">
+The initial value is true.</span>
                 
                 </div>
                             </td>
@@ -1316,7 +1342,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the user may reshape parts in this layer.<span class="nodetails" id="xpropallowReshape"><a class="morelink" onclick="hst('propallowReshape')">More...</a></span> <span class="details" id="propallowReshape">The initial value is true.</span>
+                <p>Gets or sets whether the user may reshape parts in this layer.<span class="nodetails" id="xpropallowReshape"><a class="morelink" onclick="hst('propallowReshape')">More...</a></span> <span class="details" id="propallowReshape">
+The initial value is true.</span>
                 
                 </div>
                             </td>
@@ -1336,7 +1363,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the user may resize parts in this layer.<span class="nodetails" id="xpropallowResize"><a class="morelink" onclick="hst('propallowResize')">More...</a></span> <span class="details" id="propallowResize">The initial value is true.</span>
+                <p>Gets or sets whether the user may resize parts in this layer.<span class="nodetails" id="xpropallowResize"><a class="morelink" onclick="hst('propallowResize')">More...</a></span> <span class="details" id="propallowResize">
+The initial value is true.</span>
                 
                 </div>
                             </td>
@@ -1356,7 +1384,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the user may rotate parts in this layer.<span class="nodetails" id="xpropallowRotate"><a class="morelink" onclick="hst('propallowRotate')">More...</a></span> <span class="details" id="propallowRotate">The initial value is true.</span>
+                <p>Gets or sets whether the user may rotate parts in this layer.<span class="nodetails" id="xpropallowRotate"><a class="morelink" onclick="hst('propallowRotate')">More...</a></span> <span class="details" id="propallowRotate">
+The initial value is true.</span>
                 
                 </div>
                             </td>
@@ -1376,7 +1405,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the user may select objects in this layer.<span class="nodetails" id="xpropallowSelect"><a class="morelink" onclick="hst('propallowSelect')">More...</a></span> <span class="details" id="propallowSelect">The initial value is true.</span>
+                <p>Gets or sets whether the user may select objects in this layer.<span class="nodetails" id="xpropallowSelect"><a class="morelink" onclick="hst('propallowSelect')">More...</a></span> <span class="details" id="propallowSelect">
+The initial value is true.</span>
                 
                 </div>
                             </td>
@@ -1396,7 +1426,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the user may do in-place text editing in this layer.<span class="nodetails" id="xpropallowTextEdit"><a class="morelink" onclick="hst('propallowTextEdit')">More...</a></span> <span class="details" id="propallowTextEdit">The initial value is true.</span>
+                <p>Gets or sets whether the user may do in-place text editing in this layer.<span class="nodetails" id="xpropallowTextEdit"><a class="morelink" onclick="hst('propallowTextEdit')">More...</a></span> <span class="details" id="propallowTextEdit">
+The initial value is true.</span>
                 
                 </div>
                             </td>
@@ -1416,7 +1447,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the user may ungroup existing groups in this layer.<span class="nodetails" id="xpropallowUngroup"><a class="morelink" onclick="hst('propallowUngroup')">More...</a></span> <span class="details" id="propallowUngroup">The initial value is true.</span>
+                <p>Gets or sets whether the user may ungroup existing groups in this layer.<span class="nodetails" id="xpropallowUngroup"><a class="morelink" onclick="hst('propallowUngroup')">More...</a></span> <span class="details" id="propallowUngroup">
+The initial value is true.</span>
                 
                 </div>
                             </td>
@@ -1456,7 +1488,15 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the objects in this layer are considered temporary.<span class="nodetails" id="xpropisTemporary"><a class="morelink" onclick="hst('propisTemporary')">More...</a></span> <span class="details" id="propisTemporary"></span><div class="details" id="dpropisTemporary"><p>Parts in temporary layers are not selectable,and changes to Parts in temporary layers are not recorded in the undo manager.<p>Temporary layers are excluded from bounds calculations, with the exception of the "Tool" layer,so that temporary objects created while dragging are included in the bounds.<p>Default value is false.</div>
+                <p>Gets or sets whether the objects in this layer are considered temporary.<span class="nodetails" id="xpropisTemporary"><a class="morelink" onclick="hst('propisTemporary')">More...</a></span> <span class="details" id="propisTemporary">
+</span><div class="details" id="dpropisTemporary"><p>
+Parts in temporary layers are not selectable,
+and changes to Parts in temporary layers are not recorded in the undo manager.
+<p>
+Temporary layers are excluded from bounds calculations, with the exception of the "Tool" layer,
+so that temporary objects created while dragging are included in the bounds.
+<p>
+Default value is false.</div>
                 
                 </div>
                             </td>
@@ -1476,7 +1516,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the name for this layer.<span class="nodetails" id="xpropname"><a class="morelink" onclick="hst('propname')">More...</a></span> <span class="details" id="propname">The initial value is an empty string, which is also the name of the default layer.The name should be unique among the diagram's <a href="../symbols/Diagram.html#layers" class="linkProperty">Diagram.layers</a>.</span>
+                <p>Gets or sets the name for this layer.<span class="nodetails" id="xpropname"><a class="morelink" onclick="hst('propname')">More...</a></span> <span class="details" id="propname">
+The initial value is an empty string, which is also the name of the default layer.
+The name should be unique among the diagram's <a href="../symbols/Diagram.html#layers" class="linkProperty">Diagram.layers</a>.</span>
                 
                 </div>
                             </td>
@@ -1498,7 +1540,13 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the opacity for all parts in this layer.<span class="nodetails" id="xpropopacity"><a class="morelink" onclick="hst('propopacity')">More...</a></span> <span class="details" id="propopacity">The value must be between 0.0 (fully transparent) and 1.0 (no additional transparency).This value is multiplicative with any existing transparency,for instance from a <a href="../symbols/Brush.html" class="linkConstructor">Brush</a> or image transparency.The default value is 1.</span><div class="details" id="dpropopacity"><p>This property, unlike <a href="../symbols/Layer.html#visible" class="linkProperty">visible</a>, does not change whether any objects are found by the "find..." methods.</div>
+                <p>Gets or sets the opacity for all parts in this layer.<span class="nodetails" id="xpropopacity"><a class="morelink" onclick="hst('propopacity')">More...</a></span> <span class="details" id="propopacity">
+The value must be between 0.0 (fully transparent) and 1.0 (no additional transparency).
+This value is multiplicative with any existing transparency,
+for instance from a <a href="../symbols/Brush.html" class="linkConstructor">Brush</a> or image transparency.
+The default value is 1.
+</span><div class="details" id="dpropopacity"><p>
+This property, unlike <a href="../symbols/Layer.html#visible" class="linkProperty">visible</a>, does not change whether any objects are found by the "find..." methods.</div>
                 
                 </div>
                             </td>
@@ -1518,7 +1566,8 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property returns an iterator for this Layer's <a href="../symbols/Part.html" class="linkConstructor">Part</a>s.<span class="nodetails" id="xpropparts"><a class="morelink" onclick="hst('propparts')">More...</a></span> <span class="details" id="propparts">The Parts can be <a href="../symbols/Node.html" class="linkConstructor">Node</a>s, <a href="../symbols/Link.html" class="linkConstructor">Link</a>s, <a href="../symbols/Group.html" class="linkConstructor">Group</a>s, <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>s, or simple <a href="../symbols/Part.html" class="linkConstructor">Part</a>s.</span>
+                <p>This read-only property returns an iterator for this Layer's <a href="../symbols/Part.html" class="linkConstructor">Part</a>s.<span class="nodetails" id="xpropparts"><a class="morelink" onclick="hst('propparts')">More...</a></span> <span class="details" id="propparts">
+The Parts can be <a href="../symbols/Node.html" class="linkConstructor">Node</a>s, <a href="../symbols/Link.html" class="linkConstructor">Link</a>s, <a href="../symbols/Group.html" class="linkConstructor">Group</a>s, <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>s, or simple <a href="../symbols/Part.html" class="linkConstructor">Part</a>s.</span>
                 
                 </div>
                             </td>
@@ -1538,7 +1587,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>This read-only property returns a backwards iterator for this Layer's <a href="../symbols/Part.html" class="linkConstructor">Part</a>s,for iterating over the parts in reverse order.<span class="nodetails" id="xproppartsBackwards"><a class="morelink" onclick="hst('proppartsBackwards')">More...</a></span> <span class="details" id="proppartsBackwards">The Parts can be <a href="../symbols/Node.html" class="linkConstructor">Node</a>s, <a href="../symbols/Link.html" class="linkConstructor">Link</a>s, <a href="../symbols/Group.html" class="linkConstructor">Group</a>s, <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>s, or simple <a href="../symbols/Part.html" class="linkConstructor">Part</a>s.</span>
+                <p>This read-only property returns a backwards iterator for this Layer's <a href="../symbols/Part.html" class="linkConstructor">Part</a>s,
+for iterating over the parts in reverse order.<span class="nodetails" id="xproppartsBackwards"><a class="morelink" onclick="hst('proppartsBackwards')">More...</a></span> <span class="details" id="proppartsBackwards">
+The Parts can be <a href="../symbols/Node.html" class="linkConstructor">Node</a>s, <a href="../symbols/Link.html" class="linkConstructor">Link</a>s, <a href="../symbols/Group.html" class="linkConstructor">Group</a>s, <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>s, or simple <a href="../symbols/Part.html" class="linkConstructor">Part</a>s.</span>
                 
                 </div>
                             </td>
@@ -1560,7 +1611,17 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether methods such as <a href="../symbols/Layer.html#findObjectAt" class="linkMethod">findObjectAt</a> find any of the objects in this layer.<span class="nodetails" id="xproppickable"><a class="morelink" onclick="hst('proppickable')">More...</a></span> <span class="details" id="proppickable"></span><div class="details" id="dproppickable"><p>The default value is true.When this property is false, all of the "find..." methods will fail to find parts that are in this layer.<p>Note that setting pickable to false does not prevent users from selecting nodes.It does prevent them from selecting nodes by clicking on them,but does not prevent selection through other mechanisms such as the <a href="../symbols/DragSelectingTool.html" class="linkConstructor">DragSelectingTool</a> or<a href="../symbols/CommandHandler.html#selectAll" class="linkMethod">CommandHandler.selectAll</a> or calls to <a href="../symbols/Diagram.html#select" class="linkMethod">Diagram.select</a>.<p>You can control whether individual GraphObjects are "hittable" by setting <a href="../symbols/GraphObject.html#pickable" class="linkProperty">GraphObject.pickable</a>.</div>
+                <p>Gets or sets whether methods such as <a href="../symbols/Layer.html#findObjectAt" class="linkMethod">findObjectAt</a> find any of the objects in this layer.<span class="nodetails" id="xproppickable"><a class="morelink" onclick="hst('proppickable')">More...</a></span> <span class="details" id="proppickable">
+</span><div class="details" id="dproppickable"><p>
+The default value is true.
+When this property is false, all of the "find..." methods will fail to find parts that are in this layer.
+<p>
+Note that setting pickable to false does not prevent users from selecting nodes.
+It does prevent them from selecting nodes by clicking on them,
+but does not prevent selection through other mechanisms such as the <a href="../symbols/DragSelectingTool.html" class="linkConstructor">DragSelectingTool</a> or
+<a href="../symbols/CommandHandler.html#selectAll" class="linkMethod">CommandHandler.selectAll</a> or calls to <a href="../symbols/Diagram.html#select" class="linkMethod">Diagram.select</a>.
+<p>
+You can control whether individual GraphObjects are "hittable" by setting <a href="../symbols/GraphObject.html#pickable" class="linkProperty">GraphObject.pickable</a>.</div>
                 
                 </div>
                             </td>
@@ -1580,7 +1641,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets whether the user may view any of the objects in this layer.<span class="nodetails" id="xpropvisible"><a class="morelink" onclick="hst('propvisible')">More...</a></span> <span class="details" id="propvisible"></span><div class="details" id="dpropvisible"><p>The default value is true -- all visible Parts are drawn.When this property is false, all of the "find..." methods will fail to find parts that are in this layer.</div>
+                <p>Gets or sets whether the user may view any of the objects in this layer.<span class="nodetails" id="xpropvisible"><a class="morelink" onclick="hst('propvisible')">More...</a></span> <span class="details" id="propvisible">
+</span><div class="details" id="dpropvisible"><p>
+The default value is true -- all visible Parts are drawn.
+When this property is false, all of the "find..." methods will fail to find parts that are in this layer.</div>
                 
                 </div>
                             </td>
@@ -1622,7 +1686,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Find the front-most <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> in this layerat the given point in document coordinates.<span class="nodetails" id="xmethfindObjectAt"><a class="morelink" onclick="hst('methfindObjectAt')">More...</a></span> <span class="details" id="methfindObjectAt"></span><div class="details" id="dmethfindObjectAt"><p>If <a href="../symbols/Layer.html#visible" class="linkProperty">visible</a> is false, this method will not find any objects in this layer.However, <a href="../symbols/Layer.html#opacity" class="linkProperty">opacity</a> does not affect this method.</div>
+                                <!--newp--><p><p>Find the front-most <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> in this layer
+at the given point in document coordinates.<span class="nodetails" id="xmethfindObjectAt"><a class="morelink" onclick="hst('methfindObjectAt')">More...</a></span> <span class="details" id="methfindObjectAt">
+</span><div class="details" id="dmethfindObjectAt"><p>
+If <a href="../symbols/Layer.html#visible" class="linkProperty">visible</a> is false, this method will not find any objects in this layer.
+However, <a href="../symbols/Layer.html#opacity" class="linkProperty">opacity</a> does not affect this method.</div>
                  
                               
                                   <dl class="detailList">
@@ -1638,13 +1706,16 @@
                                           <span class="light fixedFont">{function(GraphObject):GraphObject | null=}</span> <b>navig</b>
                                           
                                       </dt>
-                                      <dd>A function taking a GraphObject andreturning a GraphObject, defaulting to the identity.</dd>
+                                      <dd>A function taking a GraphObject and
+returning a GraphObject, defaulting to the identity.</dd>
                                   
                                       <dt>
                                           <span class="light fixedFont">{function(GraphObject):boolean | null=}</span> <b>pred</b>
                                           
                                       </dt>
-                                      <dd>A function taking the GraphObjectreturned by navig and returning true if that object should be returned,defaulting to a predicate that always returns true.</dd>
+                                      <dd>A function taking the GraphObject
+returned by navig and returning true if that object should be returned,
+defaulting to a predicate that always returns true.</dd>
                                   
                                   </dl>
                               
@@ -1674,7 +1745,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Return a collection of the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>s of this layerat the given point in document coordinates.<span class="nodetails" id="xmethfindObjectsAt"><a class="morelink" onclick="hst('methfindObjectsAt')">More...</a></span> <span class="details" id="methfindObjectsAt"></span><div class="details" id="dmethfindObjectsAt"><p>If <a href="../symbols/Layer.html#visible" class="linkProperty">visible</a> is false, this method will not find any objects in this layer.However, <a href="../symbols/Layer.html#opacity" class="linkProperty">opacity</a> does not affect this method.</div>
+                                <!--newp--><p><p>Return a collection of the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>s of this layer
+at the given point in document coordinates.<span class="nodetails" id="xmethfindObjectsAt"><a class="morelink" onclick="hst('methfindObjectsAt')">More...</a></span> <span class="details" id="methfindObjectsAt">
+</span><div class="details" id="dmethfindObjectsAt"><p>
+If <a href="../symbols/Layer.html#visible" class="linkProperty">visible</a> is false, this method will not find any objects in this layer.
+However, <a href="../symbols/Layer.html#opacity" class="linkProperty">opacity</a> does not affect this method.</div>
                  
                               
                                   <dl class="detailList">
@@ -1690,13 +1765,17 @@
                                           <span class="light fixedFont">{function(GraphObject):GraphObject | null=}</span> <b>navig</b>
                                           
                                       </dt>
-                                      <dd>A function taking a GraphObject andreturning a GraphObject, defaulting to the identity.If this function returns null, the given GraphObject will not be included in the results.</dd>
+                                      <dd>A function taking a GraphObject and
+returning a GraphObject, defaulting to the identity.
+If this function returns null, the given GraphObject will not be included in the results.</dd>
                                   
                                       <dt>
                                           <span class="light fixedFont">{function(GraphObject):boolean | null=}</span> <b>pred</b>
                                           
                                       </dt>
-                                      <dd>A function taking the GraphObjectreturned by navig and returning true if that object should be returned,defaulting to a predicate that always returns true.</dd>
+                                      <dd>A function taking the GraphObject
+returned by navig and returning true if that object should be returned,
+defaulting to a predicate that always returns true.</dd>
                                   
                                       <dt>
                                           <span class="light fixedFont">{List.<GraphObject>|Set.<GraphObject>=}</span> <b>coll</b>
@@ -1710,7 +1789,9 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{Iterable.<GraphObject>}</span> a collection of GraphObjects that will contain all GraphObjectslocated at Point p, or else an empty collection.If a List or Set was passed in, it is returned.</dt>
+                                      <dt><span class="light fixedFont">{Iterable.<GraphObject>}</span> a collection of GraphObjects that will contain all GraphObjects
+located at Point p, or else an empty collection.
+If a List or Set was passed in, it is returned.</dt>
                                   
                                   </dl>
                               
@@ -1732,7 +1813,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Returns a collection of all <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>s that are inside or that intersecta given <a href="../symbols/Rect.html" class="linkConstructor">Rect</a> in document coordinates.<span class="nodetails" id="xmethfindObjectsIn"><a class="morelink" onclick="hst('methfindObjectsIn')">More...</a></span> <span class="details" id="methfindObjectsIn"></span><div class="details" id="dmethfindObjectsIn"><p>If <a href="../symbols/Layer.html#visible" class="linkProperty">visible</a> is false, this method will not find any objects in this layer.However, <a href="../symbols/Layer.html#opacity" class="linkProperty">opacity</a> does not affect this method.</div>
+                                <!--newp--><p><p>Returns a collection of all <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>s that are inside or that intersect
+a given <a href="../symbols/Rect.html" class="linkConstructor">Rect</a> in document coordinates.<span class="nodetails" id="xmethfindObjectsIn"><a class="morelink" onclick="hst('methfindObjectsIn')">More...</a></span> <span class="details" id="methfindObjectsIn">
+</span><div class="details" id="dmethfindObjectsIn"><p>
+If <a href="../symbols/Layer.html#visible" class="linkProperty">visible</a> is false, this method will not find any objects in this layer.
+However, <a href="../symbols/Layer.html#opacity" class="linkProperty">opacity</a> does not affect this method.</div>
                  
                               
                                   <dl class="detailList">
@@ -1748,19 +1833,24 @@
                                           <span class="light fixedFont">{function(GraphObject):GraphObject | null=}</span> <b>navig</b>
                                           
                                       </dt>
-                                      <dd>A function taking a GraphObject andreturning a GraphObject, defaulting to the identity.If this function returns null, the given GraphObject will not be included in the results.</dd>
+                                      <dd>A function taking a GraphObject and
+returning a GraphObject, defaulting to the identity.
+If this function returns null, the given GraphObject will not be included in the results.</dd>
                                   
                                       <dt>
                                           <span class="light fixedFont">{function(GraphObject):boolean | null=}</span> <b>pred</b>
                                           
                                       </dt>
-                                      <dd>A function taking the GraphObjectreturned by navig and returning true if that object should be returned,defaulting to a predicate that always returns true.</dd>
+                                      <dd>A function taking the GraphObject
+returned by navig and returning true if that object should be returned,
+defaulting to a predicate that always returns true.</dd>
                                   
                                       <dt>
                                           <span class="light fixedFont">{boolean=}</span> <b>partialInclusion</b>
                                           
                                       </dt>
-                                      <dd>Whether an object can match if it merely intersects the rectangular area (true) orif it must be entirely inside the rectangular area (false).  The default value is false.</dd>
+                                      <dd>Whether an object can match if it merely intersects the rectangular area (true) or
+if it must be entirely inside the rectangular area (false).  The default value is false.</dd>
                                   
                                       <dt>
                                           <span class="light fixedFont">{List.<GraphObject>|Set.<GraphObject>=}</span> <b>coll</b>
@@ -1774,7 +1864,9 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{Iterable.<GraphObject>}</span> a collection of GraphObjects that will contain all GraphObjectslocated in or near Rect r, or else an empty collection.If a List or Set was passed in, it is returned.</dt>
+                                      <dt><span class="light fixedFont">{Iterable.<GraphObject>}</span> a collection of GraphObjects that will contain all GraphObjects
+located in or near Rect r, or else an empty collection.
+If a List or Set was passed in, it is returned.</dt>
                                   
                                   </dl>
                               
@@ -1796,7 +1888,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Returns a collection of all <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>s that are within a certain distanceof a given point in document coordinates.<span class="nodetails" id="xmethfindObjectsNear"><a class="morelink" onclick="hst('methfindObjectsNear')">More...</a></span> <span class="details" id="methfindObjectsNear"></span><div class="details" id="dmethfindObjectsNear"><p>If <a href="../symbols/Layer.html#visible" class="linkProperty">visible</a> is false, this method will not find any objects in this layer.However, <a href="../symbols/Layer.html#opacity" class="linkProperty">opacity</a> does not affect this method.</div>
+                                <!--newp--><p><p>Returns a collection of all <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>s that are within a certain distance
+of a given point in document coordinates.<span class="nodetails" id="xmethfindObjectsNear"><a class="morelink" onclick="hst('methfindObjectsNear')">More...</a></span> <span class="details" id="methfindObjectsNear">
+</span><div class="details" id="dmethfindObjectsNear"><p>
+If <a href="../symbols/Layer.html#visible" class="linkProperty">visible</a> is false, this method will not find any objects in this layer.
+However, <a href="../symbols/Layer.html#opacity" class="linkProperty">opacity</a> does not affect this method.</div>
                  
                               
                                   <dl class="detailList">
@@ -1818,19 +1914,24 @@
                                           <span class="light fixedFont">{function(GraphObject):GraphObject | null=}</span> <b>navig</b>
                                           
                                       </dt>
-                                      <dd>A function taking a GraphObject andreturning a GraphObject, defaulting to the identity.If this function returns null, the given GraphObject will not be included in the results.</dd>
+                                      <dd>A function taking a GraphObject and
+returning a GraphObject, defaulting to the identity.
+If this function returns null, the given GraphObject will not be included in the results.</dd>
                                   
                                       <dt>
                                           <span class="light fixedFont">{function(GraphObject):boolean | null=}</span> <b>pred</b>
                                           
                                       </dt>
-                                      <dd>A function taking the GraphObjectreturned by navig and returning true if that object should be returned,defaulting to a predicate that always returns true.</dd>
+                                      <dd>A function taking the GraphObject
+returned by navig and returning true if that object should be returned,
+defaulting to a predicate that always returns true.</dd>
                                   
                                       <dt>
                                           <span class="light fixedFont">{*=}</span> <b>partialInclusion</b>
                                           
                                       </dt>
-                                      <dd>Whether an object can match if it merely intersects the circular area (true) orif it must be entirely inside the circular area (false).  The default value is true.</dd>
+                                      <dd>Whether an object can match if it merely intersects the circular area (true) or
+if it must be entirely inside the circular area (false).  The default value is true.</dd>
                                   
                                       <dt>
                                           <span class="light fixedFont">{List.<GraphObject>|Set.<GraphObject>=}</span> <b>coll</b>
@@ -1844,7 +1945,9 @@
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{Iterable.<GraphObject>}</span> a collection of GraphObjects that will contain all GraphObjectslocated at Point p, or else an empty collection.If a List or Set was passed in, it is returned.</dt>
+                                      <dt><span class="light fixedFont">{Iterable.<GraphObject>}</span> a collection of GraphObjects that will contain all GraphObjects
+located at Point p, or else an empty collection.
+If a List or Set was passed in, it is returned.</dt>
                                   
                                   </dl>
                               

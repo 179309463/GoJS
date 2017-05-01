@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1133,7 +1128,36 @@
                     <a href="../symbols/LinkingBaseTool.html" class="linkConstructor">LinkingBaseTool</a>.</span>
                 
 
-                The LinkingTool lets a user draw a new <a href="../symbols/Link.html" class="linkConstructor">Link</a> between two ports,using a mouse-drag operation.<p>By default an instance of this tool is installed as a mouse-move tool in the<a href="../symbols/Diagram.html#toolManager" class="linkProperty">Diagram.toolManager</a> as the <a href="../symbols/ToolManager.html#linkingTool" class="linkProperty">ToolManager.linkingTool</a>.However this tool may be used modally, as described below.<p><a href="../symbols/LinkingTool.html#canStart" class="linkMethod">canStart</a> calls <a href="../symbols/LinkingTool.html#findLinkablePort" class="linkMethod">findLinkablePort</a> to find a valid "port" elementfrom which (or to which) the user may interactively draw a new link.<a href="../symbols/LinkingTool.html#doActivate" class="linkMethod">doActivate</a> sets up a temporary link and two temporary nodes,one at the start port and one following the mouse.<p class="boxread">For a general discussion of validation, see <a href="../../intro/validation.html">Introduction to Validation</a>.<p>This tool does not utilize any <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>s or tool handles.<p>This tool conducts a transaction while the tool is active.A successful linking will result in a "LinkDrawn" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a> and a "Linking" transaction.<p>If you want to programmatically start a new user mouse-gesture to draw a new linkfrom a given <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that may be a "port" or may be withinthe visual tree of a "port", set the <a href="../symbols/LinkingTool.html#startObject" class="linkProperty">startObject</a> propertyto let <a href="../symbols/LinkingTool.html#findLinkablePort" class="linkMethod">findLinkablePort</a> find the real "port" element.Then start and activate this tool:<pre>  var tool = myDiagram.toolManager.linkingTool;  tool.startObject = ...;  myDiagram.currentTool = tool;  tool.doActivate();</pre>
+                The LinkingTool lets a user draw a new <a href="../symbols/Link.html" class="linkConstructor">Link</a> between two ports,
+using a mouse-drag operation.
+<p>
+By default an instance of this tool is installed as a mouse-move tool in the
+<a href="../symbols/Diagram.html#toolManager" class="linkProperty">Diagram.toolManager</a> as the <a href="../symbols/ToolManager.html#linkingTool" class="linkProperty">ToolManager.linkingTool</a>.
+However this tool may be used modally, as described below.
+<p>
+<a href="../symbols/LinkingTool.html#canStart" class="linkMethod">canStart</a> calls <a href="../symbols/LinkingTool.html#findLinkablePort" class="linkMethod">findLinkablePort</a> to find a valid "port" element
+from which (or to which) the user may interactively draw a new link.
+<a href="../symbols/LinkingTool.html#doActivate" class="linkMethod">doActivate</a> sets up a temporary link and two temporary nodes,
+one at the start port and one following the mouse.
+<p class="boxread">
+For a general discussion of validation, see <a href="../../intro/validation.html">Introduction to Validation</a>.
+<p>
+This tool does not utilize any <a href="../symbols/Adornment.html" class="linkConstructor">Adornment</a>s or tool handles.
+<p>
+This tool conducts a transaction while the tool is active.
+A successful linking will result in a "LinkDrawn" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a> and a "Linking" transaction.
+<p>
+If you want to programmatically start a new user mouse-gesture to draw a new link
+from a given <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that may be a "port" or may be within
+the visual tree of a "port", set the <a href="../symbols/LinkingTool.html#startObject" class="linkProperty">startObject</a> property
+to let <a href="../symbols/LinkingTool.html#findLinkablePort" class="linkMethod">findLinkablePort</a> find the real "port" element.
+Then start and activate this tool:
+<pre>
+  var tool = myDiagram.toolManager.linkingTool;
+  tool.startObject = ...;
+  myDiagram.currentTool = tool;
+  tool.doActivate();
+</pre>
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1156,7 +1180,10 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>You do not normally need to create an instance of this toolbecause one already exists as the <a href="../symbols/ToolManager.html#linkingTool" class="linkProperty">ToolManager.linkingTool</a>, which you can modify.<span class="nodetails" id="xconLinkingTool"><a class="morelink" onclick="hst('conLinkingTool')">More...</a></span> <span class="details" id="conLinkingTool"></span><div class="details" id="dconLinkingTool"><p>The <a href="../symbols/Tool.html#name" class="linkProperty">Tool.name</a> of this tool is "Linking".</div>
+                            <!--newp--><p><p>You do not normally need to create an instance of this tool
+because one already exists as the <a href="../symbols/ToolManager.html#linkingTool" class="linkProperty">ToolManager.linkingTool</a>, which you can modify.<span class="nodetails" id="xconLinkingTool"><a class="morelink" onclick="hst('conLinkingTool')">More...</a></span> <span class="details" id="conLinkingTool">
+</span><div class="details" id="dconLinkingTool"><p>
+The <a href="../symbols/Tool.html#name" class="linkProperty">Tool.name</a> of this tool is "Linking".</div>
                         
                         
 
@@ -1198,7 +1225,17 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets an optional node data object representing a link label, that is copied by <a href="../symbols/LinkingTool.html#insertLink" class="linkMethod">insertLink</a>and added to the <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a> when creating a new <a href="../symbols/Link.html" class="linkConstructor">Link</a>.<span class="nodetails" id="xproparchetypeLabelNodeData"><a class="morelink" onclick="hst('proparchetypeLabelNodeData')">More...</a></span> <span class="details" id="proparchetypeLabelNodeData"></span><div class="details" id="dproparchetypeLabelNodeData"><p>The default value is null, which causes no such label node data to be added to the modelalong with the new link data.<p><a href="../symbols/LinkingTool.html#insertLink" class="linkMethod">insertLink</a> calls <a href="../symbols/GraphLinksModel.html#addLabelKeyForLinkData" class="linkMethod">GraphLinksModel.addLabelKeyForLinkData</a>to associate the label node data with the link data.<p>Setting this property does not raise any events.This property is ignored if the <a href="../symbols/Diagram.html#model" class="linkProperty">Diagram.model</a> is not a <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>.</div>
+                <p>Gets or sets an optional node data object representing a link label, that is copied by <a href="../symbols/LinkingTool.html#insertLink" class="linkMethod">insertLink</a>
+and added to the <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a> when creating a new <a href="../symbols/Link.html" class="linkConstructor">Link</a>.<span class="nodetails" id="xproparchetypeLabelNodeData"><a class="morelink" onclick="hst('proparchetypeLabelNodeData')">More...</a></span> <span class="details" id="proparchetypeLabelNodeData">
+</span><div class="details" id="dproparchetypeLabelNodeData"><p>
+The default value is null, which causes no such label node data to be added to the model
+along with the new link data.
+<p>
+<a href="../symbols/LinkingTool.html#insertLink" class="linkMethod">insertLink</a> calls <a href="../symbols/GraphLinksModel.html#addLabelKeyForLinkData" class="linkMethod">GraphLinksModel.addLabelKeyForLinkData</a>
+to associate the label node data with the link data.
+<p>
+Setting this property does not raise any events.
+This property is ignored if the <a href="../symbols/Diagram.html#model" class="linkProperty">Diagram.model</a> is not a <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>.</div>
                 
                 </div>
                             </td>
@@ -1218,7 +1255,21 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets a data object that is copied by <a href="../symbols/LinkingTool.html#insertLink" class="linkMethod">insertLink</a>and added to the <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a> when creating a new <a href="../symbols/Link.html" class="linkConstructor">Link</a>.<span class="nodetails" id="xproparchetypeLinkData"><a class="morelink" onclick="hst('proparchetypeLinkData')">More...</a></span> <span class="details" id="proparchetypeLinkData">The default value is an empty Object, which will be copied.The value must be an Object for the linking operation to succeed.A null value will cause <a href="../symbols/LinkingTool.html#insertLink" class="linkMethod">insertLink</a> to fail.</span><div class="details" id="dproparchetypeLinkData"><p>The copied link data's <a href="../symbols/GraphLinksModel.html#linkFromKeyProperty" class="linkProperty">GraphLinksModel.linkFromKeyProperty</a>and <a href="../symbols/GraphLinksModel.html#linkToKeyProperty" class="linkProperty">GraphLinksModel.linkToKeyProperty</a> properties are set tothe corresponding node's data's key values.If the ports have <a href="../symbols/GraphObject.html#portId" class="linkProperty">GraphObject.portId</a> values that are not null,the link data's <a href="../symbols/GraphLinksModel.html#linkFromPortIdProperty" class="linkProperty">GraphLinksModel.linkFromPortIdProperty</a>and <a href="../symbols/GraphLinksModel.html#linkToPortIdProperty" class="linkProperty">GraphLinksModel.linkToPortIdProperty</a> properties are also set.<p>Setting this property does not raise any events.This property is ignored if the <a href="../symbols/Diagram.html#model" class="linkProperty">Diagram.model</a> is not a <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>.</div>
+                <p>Gets or sets a data object that is copied by <a href="../symbols/LinkingTool.html#insertLink" class="linkMethod">insertLink</a>
+and added to the <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a> when creating a new <a href="../symbols/Link.html" class="linkConstructor">Link</a>.<span class="nodetails" id="xproparchetypeLinkData"><a class="morelink" onclick="hst('proparchetypeLinkData')">More...</a></span> <span class="details" id="proparchetypeLinkData">
+The default value is an empty Object, which will be copied.
+The value must be an Object for the linking operation to succeed.
+A null value will cause <a href="../symbols/LinkingTool.html#insertLink" class="linkMethod">insertLink</a> to fail.
+</span><div class="details" id="dproparchetypeLinkData"><p>
+The copied link data's <a href="../symbols/GraphLinksModel.html#linkFromKeyProperty" class="linkProperty">GraphLinksModel.linkFromKeyProperty</a>
+and <a href="../symbols/GraphLinksModel.html#linkToKeyProperty" class="linkProperty">GraphLinksModel.linkToKeyProperty</a> properties are set to
+the corresponding node's data's key values.
+If the ports have <a href="../symbols/GraphObject.html#portId" class="linkProperty">GraphObject.portId</a> values that are not null,
+the link data's <a href="../symbols/GraphLinksModel.html#linkFromPortIdProperty" class="linkProperty">GraphLinksModel.linkFromPortIdProperty</a>
+and <a href="../symbols/GraphLinksModel.html#linkToPortIdProperty" class="linkProperty">GraphLinksModel.linkToPortIdProperty</a> properties are also set.
+<p>
+Setting this property does not raise any events.
+This property is ignored if the <a href="../symbols/Diagram.html#model" class="linkProperty">Diagram.model</a> is not a <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>.</div>
                 
                 </div>
                             </td>
@@ -1238,7 +1289,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the direction in which new links may be drawn.<span class="nodetails" id="xpropdirection"><a class="morelink" onclick="hst('propdirection')">More...</a></span> <span class="details" id="propdirection">Possible values are <a href="../symbols/LinkingTool.html#ForwardsOnly" class="linkConstant">LinkingTool.ForwardsOnly</a>, <a href="../symbols/LinkingTool.html#BackwardsOnly" class="linkConstant">LinkingTool.BackwardsOnly</a>, or <a href="../symbols/LinkingTool.html#Either" class="linkConstant">LinkingTool.Either</a>.This defaults to <a href="../symbols/LinkingTool.html#Either" class="linkConstant">LinkingTool.Either</a>.Setting this property does not raise any events.</span>
+                <p>Gets or sets the direction in which new links may be drawn.<span class="nodetails" id="xpropdirection"><a class="morelink" onclick="hst('propdirection')">More...</a></span> <span class="details" id="propdirection">
+Possible values are <a href="../symbols/LinkingTool.html#ForwardsOnly" class="linkConstant">LinkingTool.ForwardsOnly</a>, <a href="../symbols/LinkingTool.html#BackwardsOnly" class="linkConstant">LinkingTool.BackwardsOnly</a>, or <a href="../symbols/LinkingTool.html#Either" class="linkConstant">LinkingTool.Either</a>.
+This defaults to <a href="../symbols/LinkingTool.html#Either" class="linkConstant">LinkingTool.Either</a>.
+Setting this property does not raise any events.</span>
                 
                 </div>
                             </td>
@@ -1258,7 +1312,21 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets or sets the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> at which <a href="../symbols/LinkingTool.html#findLinkablePort" class="linkMethod">findLinkablePort</a> should start its search.<span class="nodetails" id="xpropstartObject"><a class="morelink" onclick="hst('propstartObject')">More...</a></span> <span class="details" id="propstartObject">The default value is null.Setting this property does not raise any events.</span><div class="details" id="dpropstartObject"><p>If you want to explicitly start a new user mouse-gesture to draw a new linkfrom a given <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that may be a "port" object or may be withinthe visual tree of a "port" object, set this property to that objectto let <a href="../symbols/LinkingTool.html#findLinkablePort" class="linkMethod">findLinkablePort</a> find the real "port" object.Then start and activate this tool:<pre>  var tool = myDiagram.toolManager.linkingTool;  tool.startObject = ...;  myDiagram.currentTool = tool;  tool.doActivate();</pre></div>
+                <p>Gets or sets the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> at which <a href="../symbols/LinkingTool.html#findLinkablePort" class="linkMethod">findLinkablePort</a> should start its search.<span class="nodetails" id="xpropstartObject"><a class="morelink" onclick="hst('propstartObject')">More...</a></span> <span class="details" id="propstartObject">
+The default value is null.
+Setting this property does not raise any events.
+</span><div class="details" id="dpropstartObject"><p>
+If you want to explicitly start a new user mouse-gesture to draw a new link
+from a given <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> that may be a "port" object or may be within
+the visual tree of a "port" object, set this property to that object
+to let <a href="../symbols/LinkingTool.html#findLinkablePort" class="linkMethod">findLinkablePort</a> find the real "port" object.
+Then start and activate this tool:
+<pre>
+  var tool = myDiagram.toolManager.linkingTool;
+  tool.startObject = ...;
+  myDiagram.currentTool = tool;
+  tool.doActivate();
+</pre></div>
                 
                 </div>
                             </td>
@@ -1304,7 +1372,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This tool can run when the diagram allows linking, the model is modifiable,the left-button mouse drag has moved far enough away to not be a click, andwhen <a href="../symbols/LinkingTool.html#findLinkablePort" class="linkMethod">findLinkablePort</a> has returned a valid portor when <a href="../symbols/LinkingTool.html#startObject" class="linkProperty">startObject</a> is a valid port.<span class="nodetails" id="xmethcanStart"><a class="morelink" onclick="hst('methcanStart')">More...</a></span> <span class="details" id="methcanStart"></span><div class="details" id="dmethcanStart"><p>This method may be overridden, but we recommend that you call this base method.</div>
+                                <!--newp--><p><p>This tool can run when the diagram allows linking, the model is modifiable,
+the left-button mouse drag has moved far enough away to not be a click, and
+when <a href="../symbols/LinkingTool.html#findLinkablePort" class="linkMethod">findLinkablePort</a> has returned a valid port
+or when <a href="../symbols/LinkingTool.html#startObject" class="linkProperty">startObject</a> is a valid port.<span class="nodetails" id="xmethcanStart"><a class="morelink" onclick="hst('methcanStart')">More...</a></span> <span class="details" id="methcanStart">
+</span><div class="details" id="dmethcanStart"><p>
+This method may be overridden, but we recommend that you call this base method.</div>
                  
                               
                               
@@ -1333,7 +1406,19 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Start the linking operation.<span class="nodetails" id="xmethdoActivate"><a class="morelink" onclick="hst('methdoActivate')">More...</a></span> <span class="details" id="methdoActivate"></span><div class="details" id="dmethdoActivate"><p>If the <a href="../symbols/LinkingTool.html#startObject" class="linkProperty">startObject</a> is already set, it uses that object to find the starting port.If it is not set, this calls <a href="../symbols/LinkingTool.html#findLinkablePort" class="linkMethod">findLinkablePort</a> and remembers it as the starting port.<p>It then start a transaction, captures the mouse, and changes the cursor.Next it initializes and adds the <a href="../symbols/LinkingBaseTool.html#temporaryFromNode" class="linkProperty">LinkingBaseTool.temporaryFromNode</a>,<a href="../symbols/LinkingBaseTool.html#temporaryToNode" class="linkProperty">LinkingBaseTool.temporaryToNode</a>, and <a href="../symbols/LinkingBaseTool.html#temporaryLink" class="linkProperty">LinkingBaseTool.temporaryLink</a> to the diagram.The temporary nodes that are positioned and sized to be like the real <a href="../symbols/LinkingBaseTool.html#originalFromPort" class="linkProperty">LinkingBaseTool.originalFromPort</a>and <a href="../symbols/LinkingBaseTool.html#originalToPort" class="linkProperty">LinkingBaseTool.originalToPort</a> ports.The temporary link connects the two temporary ports, of course.<p>This method may be overridden, but we recommend that you call this base method.</div>
+                                <!--newp--><p><p>Start the linking operation.<span class="nodetails" id="xmethdoActivate"><a class="morelink" onclick="hst('methdoActivate')">More...</a></span> <span class="details" id="methdoActivate">
+</span><div class="details" id="dmethdoActivate"><p>
+If the <a href="../symbols/LinkingTool.html#startObject" class="linkProperty">startObject</a> is already set, it uses that object to find the starting port.
+If it is not set, this calls <a href="../symbols/LinkingTool.html#findLinkablePort" class="linkMethod">findLinkablePort</a> and remembers it as the starting port.
+<p>
+It then start a transaction, captures the mouse, and changes the cursor.
+Next it initializes and adds the <a href="../symbols/LinkingBaseTool.html#temporaryFromNode" class="linkProperty">LinkingBaseTool.temporaryFromNode</a>,
+<a href="../symbols/LinkingBaseTool.html#temporaryToNode" class="linkProperty">LinkingBaseTool.temporaryToNode</a>, and <a href="../symbols/LinkingBaseTool.html#temporaryLink" class="linkProperty">LinkingBaseTool.temporaryLink</a> to the diagram.
+The temporary nodes that are positioned and sized to be like the real <a href="../symbols/LinkingBaseTool.html#originalFromPort" class="linkProperty">LinkingBaseTool.originalFromPort</a>
+and <a href="../symbols/LinkingBaseTool.html#originalToPort" class="linkProperty">LinkingBaseTool.originalToPort</a> ports.
+The temporary link connects the two temporary ports, of course.
+<p>
+This method may be overridden, but we recommend that you call this base method.</div>
                  
                               
                               
@@ -1355,7 +1440,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Finishing the linking operation stops the transaction, releases the mouse, and resets the cursor.<span class="nodetails" id="xmethdoDeactivate"><a class="morelink" onclick="hst('methdoDeactivate')">More...</a></span> <span class="details" id="methdoDeactivate"></span><div class="details" id="dmethdoDeactivate"><p>This method may be overridden, but we recommend that you call this base method.</div>
+                                <!--newp--><p><p>Finishing the linking operation stops the transaction, releases the mouse, and resets the cursor.<span class="nodetails" id="xmethdoDeactivate"><a class="morelink" onclick="hst('methdoDeactivate')">More...</a></span> <span class="details" id="methdoDeactivate">
+</span><div class="details" id="dmethdoDeactivate"><p>
+This method may be overridden, but we recommend that you call this base method.</div>
                  
                               
                               
@@ -1377,7 +1464,17 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>A mouse-up ends the linking operation; if there is a valid <a href="../symbols/LinkingBaseTool.html#targetPort" class="linkProperty">targetPort</a> nearby,this adds a new <a href="../symbols/Link.html" class="linkConstructor">Link</a> by calling <a href="../symbols/LinkingTool.html#insertLink" class="linkMethod">insertLink</a>.<span class="nodetails" id="xmethdoMouseUp"><a class="morelink" onclick="hst('methdoMouseUp')">More...</a></span> <span class="details" id="methdoMouseUp"></span><div class="details" id="dmethdoMouseUp"><p>If there is a new link, it is selected and the "LinkDrawn" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a> is raisedwith the new link as the <a href="../symbols/DiagramEvent.html#subject" class="linkProperty">DiagramEvent.subject</a>.If there is no new link, this calls <a href="../symbols/LinkingTool.html#doNoLink" class="linkMethod">doNoLink</a>.In any case this stops the tool.<p>This method may be overridden, but we recommend that you call this base method.It is usually easier to override <a href="../symbols/LinkingTool.html#insertLink" class="linkMethod">insertLink</a> or just set <a href="../symbols/LinkingTool.html#archetypeLinkData" class="linkProperty">archetypeLinkData</a>.It is also common to implement a "LinkDrawn" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a> listener on the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.</div>
+                                <!--newp--><p><p>A mouse-up ends the linking operation; if there is a valid <a href="../symbols/LinkingBaseTool.html#targetPort" class="linkProperty">targetPort</a> nearby,
+this adds a new <a href="../symbols/Link.html" class="linkConstructor">Link</a> by calling <a href="../symbols/LinkingTool.html#insertLink" class="linkMethod">insertLink</a>.<span class="nodetails" id="xmethdoMouseUp"><a class="morelink" onclick="hst('methdoMouseUp')">More...</a></span> <span class="details" id="methdoMouseUp">
+</span><div class="details" id="dmethdoMouseUp"><p>
+If there is a new link, it is selected and the "LinkDrawn" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a> is raised
+with the new link as the <a href="../symbols/DiagramEvent.html#subject" class="linkProperty">DiagramEvent.subject</a>.
+If there is no new link, this calls <a href="../symbols/LinkingTool.html#doNoLink" class="linkMethod">doNoLink</a>.
+In any case this stops the tool.
+<p>
+This method may be overridden, but we recommend that you call this base method.
+It is usually easier to override <a href="../symbols/LinkingTool.html#insertLink" class="linkMethod">insertLink</a> or just set <a href="../symbols/LinkingTool.html#archetypeLinkData" class="linkProperty">archetypeLinkData</a>.
+It is also common to implement a "LinkDrawn" <a href="../symbols/DiagramEvent.html" class="linkConstructor">DiagramEvent</a> listener on the <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>.</div>
                  
                               
                               
@@ -1401,7 +1498,14 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This method is called upon a mouse up when no new link is drawn,either because no valid <a href="../symbols/LinkingBaseTool.html#targetPort" class="linkProperty">LinkingBaseTool.targetPort</a> was found or because<a href="../symbols/LinkingTool.html#insertLink" class="linkMethod">insertLink</a> returned null.<span class="nodetails" id="xmethdoNoLink"><a class="morelink" onclick="hst('methdoNoLink')">More...</a></span> <span class="details" id="methdoNoLink"></span><div class="details" id="dmethdoNoLink"><p>This method may be overridden.  By default this method does nothing.If you want to successfully perform any side-effects, you will need to set <a href="../symbols/Tool.html#transactionResult" class="linkProperty">Tool.transactionResult</a> to a string;otherwise this tool's transaction will be rolled-back.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>This method is called upon a mouse up when no new link is drawn,
+either because no valid <a href="../symbols/LinkingBaseTool.html#targetPort" class="linkProperty">LinkingBaseTool.targetPort</a> was found or because
+<a href="../symbols/LinkingTool.html#insertLink" class="linkMethod">insertLink</a> returned null.<span class="nodetails" id="xmethdoNoLink"><a class="morelink" onclick="hst('methdoNoLink')">More...</a></span> <span class="details" id="methdoNoLink">
+</span><div class="details" id="dmethdoNoLink"><p>
+This method may be overridden.  By default this method does nothing.
+If you want to successfully perform any side-effects, you will need to set <a href="../symbols/Tool.html#transactionResult" class="linkProperty">Tool.transactionResult</a> to a string;
+otherwise this tool's transaction will be rolled-back.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                                   <dl class="detailList">
@@ -1452,14 +1556,23 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Return the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> at the mouse-down point,if it is part of a node and if it is valid to link with it.<span class="nodetails" id="xmethfindLinkablePort"><a class="morelink" onclick="hst('methfindLinkablePort')">More...</a></span> <span class="details" id="methfindLinkablePort"></span><div class="details" id="dmethfindLinkablePort"><p>This method may be overridden, but we recommend that you call this base method.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Return the <a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a> at the mouse-down point,
+if it is part of a node and if it is valid to link with it.<span class="nodetails" id="xmethfindLinkablePort"><a class="morelink" onclick="hst('methfindLinkablePort')">More...</a></span> <span class="details" id="methfindLinkablePort">
+</span><div class="details" id="dmethfindLinkablePort"><p>
+This method may be overridden, but we recommend that you call this base method.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                               
                               
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{<a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>}</span> If the <a href="../symbols/LinkingTool.html#direction" class="linkProperty">direction</a> is <a href="../symbols/LinkingTool.html#Either" class="linkConstant">Either</a> or <a href="../symbols/LinkingTool.html#ForwardsOnly" class="linkConstant">ForwardsOnly</a>,this checks the element and its parent <a href="../symbols/Node.html" class="linkConstructor">Node</a> by calling <a href="../symbols/LinkingBaseTool.html#isValidFrom" class="linkMethod">LinkingBaseTool.isValidFrom</a>.If the <a href="../symbols/LinkingTool.html#direction" class="linkProperty">direction</a> is <a href="../symbols/LinkingTool.html#Either" class="linkConstant">Either</a> or <a href="../symbols/LinkingTool.html#BackwardsOnly" class="linkConstant">BackwardsOnly</a>,this checks the element and its parent <a href="../symbols/Node.html" class="linkConstructor">Node</a> by calling <a href="../symbols/LinkingBaseTool.html#isValidTo" class="linkMethod">LinkingBaseTool.isValidTo</a>.In either case finding a matching port will return that port and set <a href="../symbols/LinkingBaseTool.html#isForwards" class="linkProperty">LinkingBaseTool.isForwards</a> appropriately.Otherwise this will return null.</dt>
+                                      <dt><span class="light fixedFont">{<a href="../symbols/GraphObject.html" class="linkConstructor">GraphObject</a>}</span> If the <a href="../symbols/LinkingTool.html#direction" class="linkProperty">direction</a> is <a href="../symbols/LinkingTool.html#Either" class="linkConstant">Either</a> or <a href="../symbols/LinkingTool.html#ForwardsOnly" class="linkConstant">ForwardsOnly</a>,
+this checks the element and its parent <a href="../symbols/Node.html" class="linkConstructor">Node</a> by calling <a href="../symbols/LinkingBaseTool.html#isValidFrom" class="linkMethod">LinkingBaseTool.isValidFrom</a>.
+If the <a href="../symbols/LinkingTool.html#direction" class="linkProperty">direction</a> is <a href="../symbols/LinkingTool.html#Either" class="linkConstant">Either</a> or <a href="../symbols/LinkingTool.html#BackwardsOnly" class="linkConstant">BackwardsOnly</a>,
+this checks the element and its parent <a href="../symbols/Node.html" class="linkConstructor">Node</a> by calling <a href="../symbols/LinkingBaseTool.html#isValidTo" class="linkMethod">LinkingBaseTool.isValidTo</a>.
+In either case finding a matching port will return that port and set <a href="../symbols/LinkingBaseTool.html#isForwards" class="linkProperty">LinkingBaseTool.isForwards</a> appropriately.
+Otherwise this will return null.</dt>
                                   
                                   </dl>
                               
@@ -1481,7 +1594,17 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Make a copy of the <a href="../symbols/LinkingTool.html#archetypeLinkData" class="linkProperty">archetypeLinkData</a>, set its node and port properties, and add it to the <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>.<span class="nodetails" id="xmethinsertLink"><a class="morelink" onclick="hst('methinsertLink')">More...</a></span> <span class="details" id="methinsertLink">If the model is a <a href="../symbols/TreeModel.html" class="linkConstructor">TreeModel</a>, set the parent key of the child's node data object.</span><div class="details" id="dmethinsertLink"><p>For GraphLinksModels, if <a href="../symbols/LinkingTool.html#archetypeLabelNodeData" class="linkProperty">archetypeLabelNodeData</a> is non-null, this method also adds that node data as an initial label nodefor the new link data.<p>For TreeModels, if <a href="../symbols/Diagram.html#isTreePathToChildren" class="linkProperty">Diagram.isTreePathToChildren</a> is false, the roles of the <i>fromnode</i> and <i>tonode</i> arguments are exchanged.<p>This method may be overridden, but we recommend that you call this base method.Usually though it is easiest to just set <a href="../symbols/LinkingTool.html#archetypeLinkData" class="linkProperty">archetypeLinkData</a> to control what kind of link is createdPlease read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
+                                <!--newp--><p><p>Make a copy of the <a href="../symbols/LinkingTool.html#archetypeLinkData" class="linkProperty">archetypeLinkData</a>, set its node and port properties, and add it to the <a href="../symbols/GraphLinksModel.html" class="linkConstructor">GraphLinksModel</a>.<span class="nodetails" id="xmethinsertLink"><a class="morelink" onclick="hst('methinsertLink')">More...</a></span> <span class="details" id="methinsertLink">
+If the model is a <a href="../symbols/TreeModel.html" class="linkConstructor">TreeModel</a>, set the parent key of the child's node data object.
+</span><div class="details" id="dmethinsertLink"><p>
+For GraphLinksModels, if <a href="../symbols/LinkingTool.html#archetypeLabelNodeData" class="linkProperty">archetypeLabelNodeData</a> is non-null, this method also adds that node data as an initial label node
+for the new link data.
+<p>
+For TreeModels, if <a href="../symbols/Diagram.html#isTreePathToChildren" class="linkProperty">Diagram.isTreePathToChildren</a> is false, the roles of the <i>fromnode</i> and <i>tonode</i> arguments are exchanged.
+<p>
+This method may be overridden, but we recommend that you call this base method.
+Usually though it is easiest to just set <a href="../symbols/LinkingTool.html#archetypeLinkData" class="linkProperty">archetypeLinkData</a> to control what kind of link is created
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</div>
                  
                                 </p><div class="seealso">See also:
                   <ul class="seealsolist">
@@ -1574,7 +1697,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This value for <a href="../symbols/LinkingTool.html#direction" class="linkProperty">LinkingTool.direction</a> indicates that users may draw new links backwards only(i.e.<span class="nodetails" id="xfldBackwardsOnly"><a class="morelink" onclick="hst('fldBackwardsOnly')">More...</a></span> <span class="details" id="fldBackwardsOnly"> from "to" node to "from" node).</span>
+                                <!--newp--><p><p>This value for <a href="../symbols/LinkingTool.html#direction" class="linkProperty">LinkingTool.direction</a> indicates that users may draw new links backwards only
+(i.e.<span class="nodetails" id="xfldBackwardsOnly"><a class="morelink" onclick="hst('fldBackwardsOnly')">More...</a></span> <span class="details" id="fldBackwardsOnly"> from "to" node to "from" node).</span>
                             
 
                 </div>
@@ -1612,7 +1736,8 @@
                </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This value for <a href="../symbols/LinkingTool.html#direction" class="linkProperty">LinkingTool.direction</a> indicates that users may draw new links forwards only(i.e.<span class="nodetails" id="xfldForwardsOnly"><a class="morelink" onclick="hst('fldForwardsOnly')">More...</a></span> <span class="details" id="fldForwardsOnly"> from "from" node to "to" node).</span>
+                                <!--newp--><p><p>This value for <a href="../symbols/LinkingTool.html#direction" class="linkProperty">LinkingTool.direction</a> indicates that users may draw new links forwards only
+(i.e.<span class="nodetails" id="xfldForwardsOnly"><a class="morelink" onclick="hst('fldForwardsOnly')">More...</a></span> <span class="details" id="fldForwardsOnly"> from "from" node to "to" node).</span>
                             
 
                 </div>

@@ -43,12 +43,7 @@
         <li><a href="../../samples/index.html">Samples</a></li>
         <li><a href="../../intro/index.html">Intro</a></li>
         <li><a href="../../api/index.html">API</a></li>
-        <li><a href="https://www.nwoods.com/components/evalform.htm">Register</a></li>
-        <li><a href="../../doc/download.html">Download</a></li>
-        <li><a href="https://forum.nwoods.com/c/gojs">Forum</a></li>
-        <li><a href="https://www.nwoods.com/contact.html" onclick="ga('send','event','Outbound Link','click','contact');">Contact</a></li>
-        <li class="buy"><a href="https://www.nwoods.com/sales/index.html" onclick="ga('send','event','Outbound Link','click','buy');">Buy</a></li>
-        <li class="activate"><a href="https://www.nwoods.com/app/activate.aspx?sku=gojs">Activate</a></li>
+
       </ul>
     </div><!--/.nav-collapse -->
   </div>
@@ -1131,7 +1126,25 @@
                 
                 
 
-                This provides an abstract view of a diagram as anetwork (graph) of vertexes and directed edges.The network contains vertexes and edges corresponding to <a href="../symbols/Node.html" class="linkConstructor">Node</a>s and <a href="../symbols/Link.html" class="linkConstructor">Link</a>s.<p>This class provides a framework for manipulating thestate of nodes and links without modifying the structure of the diagram.Having a separate representation also permits adding or removing vertexes or edgesfrom the network so that the graph that is laid out is not isomorphic to the diagram's graph.<p>For each kind of layout that uses a LayoutNetwork there is a subclass of <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a> and a subclass of <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>:<ul><li><a href="../symbols/CircularLayout.html" class="linkConstructor">CircularLayout</a>: <a href="../symbols/CircularVertex.html" class="linkConstructor">CircularVertex</a> and <a href="../symbols/CircularEdge.html" class="linkConstructor">CircularEdge</a></li><li><a href="../symbols/ForceDirectedLayout.html" class="linkConstructor">ForceDirectedLayout</a>: <a href="../symbols/ForceDirectedVertex.html" class="linkConstructor">ForceDirectedVertex</a> and <a href="../symbols/ForceDirectedEdge.html" class="linkConstructor">ForceDirectedEdge</a></li><li><a href="../symbols/LayeredDigraphLayout.html" class="linkConstructor">LayeredDigraphLayout</a>: <a href="../symbols/LayeredDigraphVertex.html" class="linkConstructor">LayeredDigraphVertex</a> and <a href="../symbols/LayeredDigraphEdge.html" class="linkConstructor">LayeredDigraphEdge</a></li><li><a href="../symbols/TreeLayout.html" class="linkConstructor">TreeLayout</a>: <a href="../symbols/TreeVertex.html" class="linkConstructor">TreeVertex</a> and <a href="../symbols/TreeEdge.html" class="linkConstructor">TreeEdge</a></li></ul><p>Modifying a <a href="../symbols/LayoutNetwork.html" class="linkConstructor">LayoutNetwork</a> or a <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a> or a <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a> does notinvalidate the <a href="../symbols/Layout.html" class="linkConstructor">Layout</a> or raise any changed events.
+                This provides an abstract view of a diagram as a
+network (graph) of vertexes and directed edges.
+The network contains vertexes and edges corresponding to <a href="../symbols/Node.html" class="linkConstructor">Node</a>s and <a href="../symbols/Link.html" class="linkConstructor">Link</a>s.
+<p>
+This class provides a framework for manipulating the
+state of nodes and links without modifying the structure of the diagram.
+Having a separate representation also permits adding or removing vertexes or edges
+from the network so that the graph that is laid out is not isomorphic to the diagram's graph.
+<p>
+For each kind of layout that uses a LayoutNetwork there is a subclass of <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a> and a subclass of <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>:
+<ul>
+<li><a href="../symbols/CircularLayout.html" class="linkConstructor">CircularLayout</a>: <a href="../symbols/CircularVertex.html" class="linkConstructor">CircularVertex</a> and <a href="../symbols/CircularEdge.html" class="linkConstructor">CircularEdge</a></li>
+<li><a href="../symbols/ForceDirectedLayout.html" class="linkConstructor">ForceDirectedLayout</a>: <a href="../symbols/ForceDirectedVertex.html" class="linkConstructor">ForceDirectedVertex</a> and <a href="../symbols/ForceDirectedEdge.html" class="linkConstructor">ForceDirectedEdge</a></li>
+<li><a href="../symbols/LayeredDigraphLayout.html" class="linkConstructor">LayeredDigraphLayout</a>: <a href="../symbols/LayeredDigraphVertex.html" class="linkConstructor">LayeredDigraphVertex</a> and <a href="../symbols/LayeredDigraphEdge.html" class="linkConstructor">LayeredDigraphEdge</a></li>
+<li><a href="../symbols/TreeLayout.html" class="linkConstructor">TreeLayout</a>: <a href="../symbols/TreeVertex.html" class="linkConstructor">TreeVertex</a> and <a href="../symbols/TreeEdge.html" class="linkConstructor">TreeEdge</a></li>
+</ul>
+<p>
+Modifying a <a href="../symbols/LayoutNetwork.html" class="linkConstructor">LayoutNetwork</a> or a <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a> or a <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a> does not
+invalidate the <a href="../symbols/Layout.html" class="linkConstructor">Layout</a> or raise any changed events.
             </p>
 
 <!-- ============================== constructor summary ==================== -->
@@ -1154,7 +1167,9 @@
               </td>
               <td class="description">
                             <div class="description">
-                            <!--newp--><p><p>This constructs an empty network.<span class="nodetails" id="xconLayoutNetwork"><a class="morelink" onclick="hst('conLayoutNetwork')">More...</a></span> <span class="details" id="conLayoutNetwork">It is commonplace to call <a href="../symbols/LayoutNetwork.html#addParts" class="linkMethod">addParts</a> to build up the networkto have the same structure as a <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>'s or <a href="../symbols/Group.html" class="linkConstructor">Group</a>'s nodes and links.</span>
+                            <!--newp--><p><p>This constructs an empty network.<span class="nodetails" id="xconLayoutNetwork"><a class="morelink" onclick="hst('conLayoutNetwork')">More...</a></span> <span class="details" id="conLayoutNetwork">
+It is commonplace to call <a href="../symbols/LayoutNetwork.html#addParts" class="linkMethod">addParts</a> to build up the network
+to have the same structure as a <a href="../symbols/Diagram.html" class="linkConstructor">Diagram</a>'s or <a href="../symbols/Group.html" class="linkConstructor">Group</a>'s nodes and links.</span>
                         
                         
 
@@ -1196,7 +1211,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets a collection of all of the <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>s in this network.<span class="nodetails" id="xpropedges"><a class="morelink" onclick="hst('propedges')">More...</a></span> <span class="details" id="propedges">Do not modify this collection directly.Instead, call <a href="../symbols/LayoutNetwork.html#addEdge" class="linkMethod">addEdge</a>, <a href="../symbols/LayoutNetwork.html#deleteEdge" class="linkMethod">deleteEdge</a>, <a href="../symbols/LayoutNetwork.html#addLink" class="linkMethod">addLink</a>, or <a href="../symbols/LayoutNetwork.html#deleteLink" class="linkMethod">deleteLink</a>.</span>
+                <p>Gets a collection of all of the <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>s in this network.<span class="nodetails" id="xpropedges"><a class="morelink" onclick="hst('propedges')">More...</a></span> <span class="details" id="propedges">
+Do not modify this collection directly.
+Instead, call <a href="../symbols/LayoutNetwork.html#addEdge" class="linkMethod">addEdge</a>, <a href="../symbols/LayoutNetwork.html#deleteEdge" class="linkMethod">deleteEdge</a>, <a href="../symbols/LayoutNetwork.html#addLink" class="linkMethod">addLink</a>, or <a href="../symbols/LayoutNetwork.html#deleteLink" class="linkMethod">deleteLink</a>.</span>
                 
                 </div>
                             </td>
@@ -1216,7 +1233,10 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets the <a href="../symbols/Layout.html" class="linkConstructor">Layout</a> that uses this networkof <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>es and <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>s.<span class="nodetails" id="xproplayout"><a class="morelink" onclick="hst('proplayout')">More...</a></span> <span class="details" id="proplayout">The default value is null.It is set automatically for you when this setting <a href="../symbols/Layout.html#network" class="linkProperty">Layout.network</a>.</span>
+                <p>Gets the <a href="../symbols/Layout.html" class="linkConstructor">Layout</a> that uses this network
+of <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>es and <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>s.<span class="nodetails" id="xproplayout"><a class="morelink" onclick="hst('proplayout')">More...</a></span> <span class="details" id="proplayout">
+The default value is null.
+It is set automatically for you when this setting <a href="../symbols/Layout.html#network" class="linkProperty">Layout.network</a>.</span>
                 
                 </div>
                             </td>
@@ -1236,7 +1256,9 @@
                 <td class="description">
                 <div class="description">
                 <!--newp <p> -->
-                <p>Gets a collection of all of the <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>es in this network.<span class="nodetails" id="xpropvertexes"><a class="morelink" onclick="hst('propvertexes')">More...</a></span> <span class="details" id="propvertexes">Do not modify this collection directly.Instead, call <a href="../symbols/LayoutNetwork.html#addVertex" class="linkMethod">addVertex</a>, <a href="../symbols/LayoutNetwork.html#deleteVertex" class="linkMethod">deleteVertex</a>, <a href="../symbols/LayoutNetwork.html#addNode" class="linkMethod">addNode</a>, or <a href="../symbols/LayoutNetwork.html#deleteNode" class="linkMethod">deleteNode</a>.</span>
+                <p>Gets a collection of all of the <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>es in this network.<span class="nodetails" id="xpropvertexes"><a class="morelink" onclick="hst('propvertexes')">More...</a></span> <span class="details" id="propvertexes">
+Do not modify this collection directly.
+Instead, call <a href="../symbols/LayoutNetwork.html#addVertex" class="linkMethod">addVertex</a>, <a href="../symbols/LayoutNetwork.html#deleteVertex" class="linkMethod">deleteVertex</a>, <a href="../symbols/LayoutNetwork.html#addNode" class="linkMethod">addNode</a>, or <a href="../symbols/LayoutNetwork.html#deleteNode" class="linkMethod">deleteNode</a>.</span>
                 
                 </div>
                             </td>
@@ -1278,7 +1300,10 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Adds a <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a> to the network.<span class="nodetails" id="xmethaddEdge"><a class="morelink" onclick="hst('methaddEdge')">More...</a></span> <span class="details" id="methaddEdge">Although this method is provided for completeness,<a href="../symbols/LayoutNetwork.html#linkVertexes" class="linkMethod">linkVertexes</a> provides a more efficient manner of linkingvertexes already in the network.</span>
+                                <!--newp--><p><p>Adds a <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a> to the network.<span class="nodetails" id="xmethaddEdge"><a class="morelink" onclick="hst('methaddEdge')">More...</a></span> <span class="details" id="methaddEdge">
+Although this method is provided for completeness,
+<a href="../symbols/LayoutNetwork.html#linkVertexes" class="linkMethod">linkVertexes</a> provides a more efficient manner of linking
+vertexes already in the network.</span>
                  
                               
                                   <dl class="detailList">
@@ -1311,7 +1336,12 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This convenience method makes sure there is a <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>in this network corresponding to a <a href="../symbols/Link.html" class="linkConstructor">Link</a>.<span class="nodetails" id="xmethaddLink"><a class="morelink" onclick="hst('methaddLink')">More...</a></span> <span class="details" id="methaddLink">If <a href="../symbols/LayoutNetwork.html#findEdge" class="linkMethod">findEdge</a> returns null, this method creates a new <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>,makes sure the <a href="../symbols/Link.html#fromNode" class="linkProperty">Link.fromNode</a> and <a href="../symbols/Link.html#toNode" class="linkProperty">Link.toNode</a> havecorresponding <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>es in the network, and adds the edge itselfto the network.</span>
+                                <!--newp--><p><p>This convenience method makes sure there is a <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>
+in this network corresponding to a <a href="../symbols/Link.html" class="linkConstructor">Link</a>.<span class="nodetails" id="xmethaddLink"><a class="morelink" onclick="hst('methaddLink')">More...</a></span> <span class="details" id="methaddLink">
+If <a href="../symbols/LayoutNetwork.html#findEdge" class="linkMethod">findEdge</a> returns null, this method creates a new <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>,
+makes sure the <a href="../symbols/Link.html#fromNode" class="linkProperty">Link.fromNode</a> and <a href="../symbols/Link.html#toNode" class="linkProperty">Link.toNode</a> have
+corresponding <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>es in the network, and adds the edge itself
+to the network.</span>
                  
                               
                                   <dl class="detailList">
@@ -1351,7 +1381,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This convenience method makes sure there is a <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>in this network corresponding to a <a href="../symbols/Node.html" class="linkConstructor">Node</a>.<span class="nodetails" id="xmethaddNode"><a class="morelink" onclick="hst('methaddNode')">More...</a></span> <span class="details" id="methaddNode"></span>
+                                <!--newp--><p><p>This convenience method makes sure there is a <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>
+in this network corresponding to a <a href="../symbols/Node.html" class="linkConstructor">Node</a>.<span class="nodetails" id="xmethaddNode"><a class="morelink" onclick="hst('methaddNode')">More...</a></span> <span class="details" id="methaddNode"></span>
                  
                               
                                   <dl class="detailList">
@@ -1391,7 +1422,11 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Creates a network of <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>es and <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>scorresponding to the given <a href="../symbols/Node.html" class="linkConstructor">Node</a>s and <a href="../symbols/Link.html" class="linkConstructor">Link</a>s.<span class="nodetails" id="xmethaddParts"><a class="morelink" onclick="hst('methaddParts')">More...</a></span> <span class="details" id="methaddParts">This is usually more convenient than repeatedly calling <a href="../symbols/LayoutNetwork.html#addNode" class="linkMethod">addNode</a> and <a href="../symbols/LayoutNetwork.html#addLink" class="linkMethod">addLink</a>.This method ignores all instances of <a href="../symbols/Part.html" class="linkConstructor">Part</a>s that are not Nodes or Links.This will recurse through <a href="../symbols/Group.html" class="linkConstructor">Group</a>s that have no <a href="../symbols/Group.html#layout" class="linkProperty">Group.layout</a>.</span>
+                                <!--newp--><p><p>Creates a network of <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>es and <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>s
+corresponding to the given <a href="../symbols/Node.html" class="linkConstructor">Node</a>s and <a href="../symbols/Link.html" class="linkConstructor">Link</a>s.<span class="nodetails" id="xmethaddParts"><a class="morelink" onclick="hst('methaddParts')">More...</a></span> <span class="details" id="methaddParts">
+This is usually more convenient than repeatedly calling <a href="../symbols/LayoutNetwork.html#addNode" class="linkMethod">addNode</a> and <a href="../symbols/LayoutNetwork.html#addLink" class="linkMethod">addLink</a>.
+This method ignores all instances of <a href="../symbols/Part.html" class="linkConstructor">Part</a>s that are not Nodes or Links.
+This will recurse through <a href="../symbols/Group.html" class="linkConstructor">Group</a>s that have no <a href="../symbols/Group.html#layout" class="linkProperty">Group.layout</a>.</span>
                  
                               
                                   <dl class="detailList">
@@ -1413,7 +1448,9 @@
                                           <span class="light fixedFont">{function(Part):boolean|null=}</span> <b>pred</b>
                                           
                                       </dt>
-                                      <dd>optional predicate to apply to each Part --       if it returns false do not include Vertex or Edge in the network;       default ignores link label nodes or links connecting with them</dd>
+                                      <dd>optional predicate to apply to each Part --
+       if it returns false do not include Vertex or Edge in the network;
+       default ignores link label nodes or links connecting with them</dd>
                                   
                                   </dl>
                               
@@ -1469,7 +1506,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Allocate a new instance of <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>.<span class="nodetails" id="xmethcreateEdge"><a class="morelink" onclick="hst('methcreateEdge')">More...</a></span> <span class="details" id="methcreateEdge">This is overridden in LayoutNetwork subclasses to create instances of subclasses of <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</span>
+                                <!--newp--><p><p>Allocate a new instance of <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>.<span class="nodetails" id="xmethcreateEdge"><a class="morelink" onclick="hst('methcreateEdge')">More...</a></span> <span class="details" id="methcreateEdge">
+This is overridden in LayoutNetwork subclasses to create instances of subclasses of <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</span>
                  
                               
                               
@@ -1498,7 +1537,9 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Allocate a new instance of <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>.<span class="nodetails" id="xmethcreateVertex"><a class="morelink" onclick="hst('methcreateVertex')">More...</a></span> <span class="details" id="methcreateVertex">This is overridden in LayoutNetwork subclasses to create instances of subclasses of <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>.Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</span>
+                                <!--newp--><p><p>Allocate a new instance of <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>.<span class="nodetails" id="xmethcreateVertex"><a class="morelink" onclick="hst('methcreateVertex')">More...</a></span> <span class="details" id="methcreateVertex">
+This is overridden in LayoutNetwork subclasses to create instances of subclasses of <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>.
+Please read the Introduction page on <a href="../../intro/extensions.html">Extensions</a> for how to override methods and how to call this base method.</span>
                  
                               
                               
@@ -1582,7 +1623,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This convenience method deletes from this network any <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>corresponding to a <a href="../symbols/Link.html" class="linkConstructor">Link</a>.<span class="nodetails" id="xmethdeleteLink"><a class="morelink" onclick="hst('methdeleteLink')">More...</a></span> <span class="details" id="methdeleteLink"></span>
+                                <!--newp--><p><p>This convenience method deletes from this network any <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>
+corresponding to a <a href="../symbols/Link.html" class="linkConstructor">Link</a>.<span class="nodetails" id="xmethdeleteLink"><a class="morelink" onclick="hst('methdeleteLink')">More...</a></span> <span class="details" id="methdeleteLink"></span>
                  
                               
                                   <dl class="detailList">
@@ -1615,7 +1657,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>This convenience method deletes any <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>corresponding to a <a href="../symbols/Node.html" class="linkConstructor">Node</a>.<span class="nodetails" id="xmethdeleteNode"><a class="morelink" onclick="hst('methdeleteNode')">More...</a></span> <span class="details" id="methdeleteNode"></span>
+                                <!--newp--><p><p>This convenience method deletes any <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>
+corresponding to a <a href="../symbols/Node.html" class="linkConstructor">Node</a>.<span class="nodetails" id="xmethdeleteNode"><a class="morelink" onclick="hst('methdeleteNode')">More...</a></span> <span class="details" id="methdeleteNode"></span>
                  
                               
                                   <dl class="detailList">
@@ -1670,7 +1713,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Removes a <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a> from the network.<span class="nodetails" id="xmethdeleteVertex"><a class="morelink" onclick="hst('methdeleteVertex')">More...</a></span> <span class="details" id="methdeleteVertex">This function also deletes all edges to or from the vertex.</span>
+                                <!--newp--><p><p>Removes a <a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a> from the network.<span class="nodetails" id="xmethdeleteVertex"><a class="morelink" onclick="hst('methdeleteVertex')">More...</a></span> <span class="details" id="methdeleteVertex">
+This function also deletes all edges to or from the vertex.</span>
                  
                               
                                   <dl class="detailList">
@@ -1705,7 +1749,8 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Retrieve all of the <a href="../symbols/Node.html" class="linkConstructor">Node</a>s and <a href="../symbols/Link.html" class="linkConstructor">Link</a>s from the<a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>es and <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>s that are in this network.
+                                <!--newp--><p><p>Retrieve all of the <a href="../symbols/Node.html" class="linkConstructor">Node</a>s and <a href="../symbols/Link.html" class="linkConstructor">Link</a>s from the
+<a href="../symbols/LayoutVertex.html" class="linkConstructor">LayoutVertex</a>es and <a href="../symbols/LayoutEdge.html" class="linkConstructor">LayoutEdge</a>s that are in this network.
                  
                               
                               
@@ -1899,14 +1944,22 @@
                 </td>
                 <td class="description">
                                 <div class="description">
-                                <!--newp--><p><p>Modify this network by splitting it up into separate subnetworks,each of which has all of its vertexes connected to each other, but notto any vertexes in any other subnetworks.<span class="nodetails" id="xmethsplitIntoSubNetworks"><a class="morelink" onclick="hst('methsplitIntoSubNetworks')">More...</a></span> <span class="details" id="methsplitIntoSubNetworks"></span><div class="details" id="dmethsplitIntoSubNetworks"><p>This method will first delete from this network all artificial vertexes andall edges that do not connect two different vertexes.Afterwards, this original network may be empty or may contain all of thesingleton vertexes, each of which had no edges connecting it to any other vertexes.</div>
+                                <!--newp--><p><p>Modify this network by splitting it up into separate subnetworks,
+each of which has all of its vertexes connected to each other, but not
+to any vertexes in any other subnetworks.<span class="nodetails" id="xmethsplitIntoSubNetworks"><a class="morelink" onclick="hst('methsplitIntoSubNetworks')">More...</a></span> <span class="details" id="methsplitIntoSubNetworks">
+</span><div class="details" id="dmethsplitIntoSubNetworks"><p>
+This method will first delete from this network all artificial vertexes and
+all edges that do not connect two different vertexes.
+Afterwards, this original network may be empty or may contain all of the
+singleton vertexes, each of which had no edges connecting it to any other vertexes.</div>
                  
                               
                               
                                   <dl class="detailList">
                                   <dt class="heading">Returns:</dt>
                                   
-                                      <dt><span class="light fixedFont">{List.<N>}</span> a collection of LayoutNetworks,sorted in order of decreasing vertex count.</dt>
+                                      <dt><span class="light fixedFont">{List.<N>}</span> a collection of LayoutNetworks,
+sorted in order of decreasing vertex count.</dt>
                                   
                                   </dl>
                               
